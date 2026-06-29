@@ -1,0 +1,347 @@
+// AlmiGoethe data model. The shared engine foundation (auth, billing, AI cost
+// ledger) is forked from AlmiCELPIP. The practice layer is an ITEM-BANK: a single
+// GoetheItem ↔ GoetheAttempt pair carries every task type via a typed `payload`
+// Json, instead of one model per skill. Scoring is hybrid — deterministic for
+// objective modules (Lesen + Hören), AI trait-feedback for productive modules
+// (Schreiben + Sprechen) — and is reported as an honest practice POINTS estimate
+// per module (max points + 60% pass threshold), never a fabricated total.
+//
+// The big structural fact vs CELPIP: CELPIP's GENERAL/LS version axis is replaced
+// by SIX CEFR LEVELS (A1–C2), and — unlike CELPIP where the version lived only on
+// the session — a Goethe item belongs to exactly ONE level (A1 Lesen content is
+// not B2 Lesen content), so `level` lives ON THE ITEM and is the primary filter.
+// All content is original German, never copied from the Goethe-Institut; results
+// are practice estimates — candidates confirm the real requirement with the
+// Goethe-Institut / their university / the relevant German authority.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+enum Locale {
+  EN
+  UR
+  AR
+  HI
+}
+
+enum SubscriptionTier {
+  FREE
+  PREMIUM
+}
+
+model User {
+  id           String  @id @default(cuid())
+  email        String  @unique
+  name         String?
+  passwordHash String
+  locale       Locale  @default(EN)
+  countryCode  String?
+  referralCode String  @unique @default(cuid())
+
+  // Email verification — required before paid feature access.
+  emailVerified               DateTime?
+  emailVerificationTokenHash  String?   @unique
+  emailVerificationExpiresAt  DateTime?
+  emailVerificationLastSentAt DateTime?
+
+  // Stripe subscription state — webhook keeps this in lockstep with Stripe.
+  stripeCustomerId              String?          @unique
+  stripeSubscriptionId          String?          @unique
+  subscriptionStatus            String?
+  subscriptionPlan              String?
+  subscriptionCurrentPeriodEnd  DateTime?
+  subscriptionCancelAtPeriodEnd Boolean          @default(false)
+  trialEndsAt                   DateTime?
+  subscriptionTier              SubscriptionTier @default(FREE)
+
+  // Comp Pro access — admin-granted, no Stripe. isProActive()/hasPaidAccess()
+  // short-circuit true while compProUntil is in the future, bypassing BOTH the
+  // subscription check AND email verification. AlmiGoethe full Pro = AI feedback
+  // on Schreiben + Sprechen + the full per-level mock.
+  compProUntil  DateTime?
+  compGrantedAt DateTime?
+  compGrantedBy String?
+  compReason    String?
+
+  // Which CEFR level the user is preparing for (A1–C2). Drives the default mock
+  // and which practice content is surfaced. Null = not chosen yet.
+  targetLevel GoetheLevel?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sessions            Session[]
+  passwordResetTokens PasswordResetToken[]
+  goetheAttempts      GoetheAttempt[]
+  goetheSessions      GoetheSession[]
+  reviews             Review[]
+
+  @@index([email])
+  @@index([referralCode])
+  @@index([stripeCustomerId])
+  @@index([stripeSubscriptionId])
+  @@index([compProUntil])
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model ProcessedWebhook {
+  id          String   @id
+  eventType   String
+  processedAt DateTime @default(now())
+
+  @@index([processedAt])
+}
+
+model EarlyAccess {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  source    String?
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rating    Int
+  text      String   @db.Text
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([approved, createdAt])
+}
+
+model AICostLedger {
+  id               String   @id @default(cuid())
+  timestamp        DateTime @default(now())
+  userId           String?
+  feature          String
+  model            String
+  inputTokens      Int
+  outputTokens     Int
+  cacheReadTokens  Int      @default(0)
+  cacheWriteTokens Int      @default(0)
+  costCents        Int
+  success          Boolean  @default(true)
+  errorMessage     String?
+
+  @@index([timestamp(sort: Desc)])
+  @@index([userId, timestamp])
+  @@index([feature, timestamp])
+}
+
+// ===================== Goethe practice item-bank =====================
+// The Goethe-Zertifikat has four modules (Lesen, Hören, Schreiben, Sprechen) at
+// six CEFR levels (A1–C2). Each module is scored to a points maximum with a 60%
+// pass threshold; B1+ is modular (modules pass independently) while A1/A2 are
+// more holistic — the exact per-level model lives in src/lib/goethe/goethe-scale.ts
+// and is verified against the official Durchführungsbestimmungen. One
+// GoetheItem/GoetheAttempt pair serves every task type; payload/response shapes
+// vary by taskType (validated in src/lib/goethe/tasks/*). All content is original
+// German; results are practice estimates — confirm the real requirement with the
+// Goethe-Institut / your university / the relevant German authority.
+
+// CEFR level — the primary content axis (replaces CELPIP's GENERAL/LS version).
+enum GoetheLevel {
+  A1
+  A2
+  B1
+  B2
+  C1
+  C2
+}
+
+// The four exam modules. HOEREN is the ASCII enum for "Hören" (umlaut shown in UI).
+enum GoetheModule {
+  LESEN // Reading — objective
+  HOEREN // Listening — objective (German TTS audio)
+  SCHREIBEN // Writing — AI
+  SPRECHEN // Speaking — AI (audio -> Whisper -> grade)
+}
+
+// Fine-grained task type — encodes the module and the Goethe task structure. Task
+// structures recur across levels; the level controls the difficulty + content.
+enum GoetheTaskType {
+  // Lesen (Reading) — objective MCQ / matching / richtig-falsch
+  LESEN_GLOBAL
+  LESEN_DETAIL
+  LESEN_MATCHING
+  LESEN_TRUE_FALSE
+  // Hören (Listening) — objective, audio plays once or twice as per level
+  HOEREN_GLOBAL
+  HOEREN_DETAIL
+  HOEREN_MATCHING
+  HOEREN_TRUE_FALSE
+  // Schreiben (Writing) — AI, level-aware
+  SCHREIBEN_MESSAGE // short message / informal email (A1–B1)
+  SCHREIBEN_LETTER // semi-formal / formal letter
+  SCHREIBEN_ESSAY // opinion / argumentative text (B2–C2)
+  // Sprechen (Speaking) — AI, level-aware (real exam is paired/live; we grade one response)
+  SPRECHEN_INTRODUCE // self-introduction (A1–A2)
+  SPRECHEN_ASK_ANSWER // ask & answer / plan together
+  SPRECHEN_PRESENT // short presentation (B1+)
+  SPRECHEN_DISCUSS // opinion / discussion (B2+)
+}
+
+enum GoetheAttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+  SCORED
+}
+
+// Intra-level variety pool — the LEVEL is the main difficulty axis; this only
+// spreads items within a level (not adaptive).
+enum GoetheDifficulty {
+  FOUNDATION
+  CORE
+  STRETCH
+}
+
+model GoetheItem {
+  id               String           @id @default(cuid())
+  level            GoetheLevel
+  module           GoetheModule
+  taskType         GoetheTaskType
+  title            String
+  prompt           String           @db.Text
+  // Task-specific stimulus + (for objective tasks) the server-side answer key,
+  // never sent raw to the client. Shapes by taskType (validated in app code):
+  //   LESEN_*      { passages:[{id,heading,body}], questions:[{id,kind,stem,options,answer}] }
+  //   HOEREN_*     { audioScript, speakers:[{role,voice}], questions:[{id,stem,options,answer}] }
+  //   SCHREIBEN_*  { situation, instruction, wordMin, wordMax }
+  //   SPRECHEN_*   { taskPrompt, prepSeconds, speakSeconds, imageUrl?, imageAlt? }
+  payload          Json
+  difficulty       GoetheDifficulty @default(CORE)
+  guidanceNote     String?          @db.Text
+  timeLimitSeconds Int              @default(0)
+  topicTag         String           @default("general")
+  active           Boolean          @default(true)
+  createdAt        DateTime         @default(now())
+
+  attempts GoetheAttempt[]
+
+  @@index([level, module, active, difficulty])
+  @@index([level, taskType, active])
+}
+
+model GoetheAttempt {
+  id       String              @id @default(cuid())
+  userId   String
+  itemId   String
+  level    GoetheLevel
+  module   GoetheModule
+  taskType GoetheTaskType
+  status   GoetheAttemptStatus @default(IN_PROGRESS)
+
+  // The user's raw response; shape depends on taskType:
+  //   Lesen / Hören   { answers: { [questionId]: string | string[] } }
+  //   SCHREIBEN_*      { text: string }
+  //   SPRECHEN_*       { transcript: string }
+  response Json @default("{}")
+
+  pointsEarned Int @default(0)
+  pointsMax    Int @default(0)
+
+  // Per-module practice estimate. Shape:
+  //   { pointsEst: [lo, hi], percent, verdict: "passed"|"borderline"|"not-yet", passThreshold, maxPoints } | null
+  // No fabricated overall — each module stands on its own pass threshold.
+  scoreEstimate Json?
+
+  // AI trait feedback payload for Schreiben/Sprechen (qualitative; no fake score).
+  feedback Json?
+
+  aiModel   String?
+  costCents Int?
+  latencyMs Int?
+
+  sessionId   String?
+  sessionStep Int?
+
+  timeSpentSeconds Int       @default(0)
+  startedAt        DateTime  @default(now())
+  submittedAt      DateTime?
+  updatedAt        DateTime  @updatedAt
+
+  user    User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  item    GoetheItem     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  session GoetheSession? @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([userId, status, submittedAt])
+  @@index([userId, startedAt])
+  @@index([itemId])
+  @@index([sessionId, sessionStep])
+}
+
+// ===================== Practice sets + full mock =====================
+// PRACTICE_SET = several items of one MODULE at one LEVEL. MOCK = the full
+// Goethe-Zertifikat for one LEVEL, all four modules in exam order
+// (Lesen → Hören → Schreiben → Sprechen). Each module scored independently — no
+// fabricated composite.
+
+enum GoetheSessionMode {
+  PRACTICE_SET
+  MOCK
+}
+
+enum GoetheSessionStatus {
+  IN_PROGRESS
+  COMPLETED
+}
+
+model GoetheSession {
+  id     String @id @default(cuid())
+  userId String
+
+  mode              GoetheSessionMode
+  // The CEFR level this session runs at — set for BOTH a mock and a practice set.
+  level             GoetheLevel
+  // The single module for a PRACTICE_SET; null for a MOCK (which covers all four).
+  module            GoetheModule?
+  targetCount       Int
+  currentStep       Int                 @default(0)
+  currentDifficulty GoetheDifficulty    @default(CORE)
+  plan              Json?
+  status            GoetheSessionStatus @default(IN_PROGRESS)
+
+  startedAt   DateTime  @default(now())
+  completedAt DateTime?
+  updatedAt   DateTime  @updatedAt
+
+  user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  attempts GoetheAttempt[]
+
+  @@index([userId, status, startedAt])
+}
