@@ -10,6 +10,7 @@
     "postinstall": "prisma generate",
     "seed:b1": "tsx scripts/seed/b1.ts",
     "seed:b2": "tsx scripts/seed/b2.ts",
+    "seed:c1": "tsx scripts/seed/c1.ts",
     "seed:append": "tsx scripts/seed/append.ts",
     "validate:seed": "tsx scripts/validate-seed.ts"
   },
