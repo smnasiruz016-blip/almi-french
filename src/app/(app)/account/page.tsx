@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import type { GoetheLevel } from "@prisma/client";
+import type { CefrLevel } from "@prisma/client";
 import { requireUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { LEVELS, LEVEL_LABEL } from "@/lib/french/types";
@@ -23,7 +23,7 @@ async function setLevel(formData: FormData) {
   const valid = (LEVELS as string[]).includes(value);
   await prisma.user.update({
     where: { id: user.id },
-    data: { targetLevel: valid ? (value as GoetheLevel) : null },
+    data: { targetLevel: valid ? (value as CefrLevel) : null },
   });
   redirect("/account?saved=1");
 }

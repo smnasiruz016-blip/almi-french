@@ -44,7 +44,7 @@ export async function getOrCreateStripeCustomer(input: {
   const customer = await stripe.customers.create({
     email: input.email,
     name: input.name ?? undefined,
-    metadata: { userId: input.userId, product: "almi-goethe" },
+    metadata: { userId: input.userId, product: "almi-french" },
   });
 
   await prisma.user.update({
@@ -81,9 +81,9 @@ export async function createCheckoutSession(input: {
     line_items: [{ price: input.priceId, quantity: 1 }],
     subscription_data: {
       trial_period_days: TRIAL_PERIOD_DAYS,
-      metadata: { userId: input.userId, plan: planLabel, product: "almi-goethe" },
+      metadata: { userId: input.userId, plan: planLabel, product: "almi-french" },
     },
-    metadata: { userId: input.userId, plan: planLabel, product: "almi-goethe" },
+    metadata: { userId: input.userId, plan: planLabel, product: "almi-french" },
     allow_promotion_codes: true,
     success_url: `${baseUrl}/account?upgraded=true`,
     cancel_url: `${baseUrl}/pricing?cancelled=true`,

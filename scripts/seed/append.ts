@@ -1,0 +1,31 @@
+// Aggregate seed runner (idempotent): inserts any seed items not already present,
+// matched by (level, skill, title). Safe to run on every deploy. Add new content
+// waves by importing their ITEMS arrays here.
+
+import { PrismaClient, Prisma } from "@prisma/client";
+import { ITEMS as B1 } from "./b1";
+
+const prisma = new PrismaClient();
+
+const ALL: Prisma.FrenchItemCreateManyInput[] = [...B1];
+
+async function main() {
+  let created = 0;
+  for (const item of ALL) {
+    const exists = await prisma.frenchItem.findFirst({
+      where: { level: item.level, skill: item.skill, title: item.title },
+      select: { id: true },
+    });
+    if (exists) continue;
+    await prisma.frenchItem.create({ data: item });
+    created += 1;
+  }
+  console.log(`seed:append — ${created} created, ${ALL.length - created} already present (total ${ALL.length})`);
+}
+
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(() => prisma.$disconnect());

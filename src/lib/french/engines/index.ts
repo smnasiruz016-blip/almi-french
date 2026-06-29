@@ -1,6 +1,6 @@
 // The three honest French scoring engines, and the routing from an exam family
 // to its engine. French is NOT one exam with one pass mark — each family scores
-// differently, so each routes to its own engine. (No Goethe 60% anywhere.)
+// differently, so each routes to its own engine. (No single 60% pass mark anywhere.)
 
 export * from "./delf";
 export * from "./tef";

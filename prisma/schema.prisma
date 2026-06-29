@@ -1,18 +1,17 @@
-// AlmiGoethe data model. The shared engine foundation (auth, billing, AI cost
-// ledger) is forked from AlmiCELPIP. The practice layer is an ITEM-BANK: a single
-// GoetheItem ↔ GoetheAttempt pair carries every task type via a typed `payload`
-// Json, instead of one model per skill. Scoring is hybrid — deterministic for
-// objective modules (Lesen + Hören), AI trait-feedback for productive modules
-// (Schreiben + Sprechen) — and is reported as an honest practice POINTS estimate
-// per module (max points + 60% pass threshold), never a fabricated total.
+// AlmiFrench data model. The shared engine foundation (auth, billing, AI cost
+// ledger) is forked from the AlmiWorld family. The practice layer is an
+// ITEM-BANK: a single FrenchItem ↔ FrenchAttempt pair carries every task type via
+// a typed `payload` Json, instead of one model per skill.
 //
-// The big structural fact vs CELPIP: CELPIP's GENERAL/LS version axis is replaced
-// by SIX CEFR LEVELS (A1–C2), and — unlike CELPIP where the version lived only on
-// the session — a Goethe item belongs to exactly ONE level (A1 Lesen content is
-// not B2 Lesen content), so `level` lives ON THE ITEM and is the primary filter.
-// All content is original German, never copied from the Goethe-Institut; results
-// are practice estimates — candidates confirm the real requirement with the
-// Goethe-Institut / their university / the relevant German authority.
+// French is NOT one exam with one pass mark. Content is SHARED BY CEFR LEVEL and
+// WRAPPED PER EXAM: a FrenchItem is keyed by (skill, level); Reading/Listening
+// items are reused across TEF/TCF/DELF (examFamily = null), while Writing/Speaking
+// prompts can be exam-specific (examFamily set). Scoring routes to the right
+// engine (src/lib/french/engines): TEF (0–699 → CEFR/NCLC), TCF (L&R 0–699, S&W
+// 0–20 → CEFR/NCLC), DELF/DALF (/25 per skill, 50/100 with a 5/25 floor). All
+// content is original French, never copied from CCI Paris / France Éducation
+// International; results are practice estimates — candidates confirm the real
+// requirement with the official body and (for immigration) IRCC.
 
 generator client {
   provider = "prisma-client-js"
@@ -63,8 +62,8 @@ model User {
 
   // Comp Pro access — admin-granted, no Stripe. isProActive()/hasPaidAccess()
   // short-circuit true while compProUntil is in the future, bypassing BOTH the
-  // subscription check AND email verification. AlmiGoethe full Pro = AI feedback
-  // on Schreiben + Sprechen + the full per-level mock.
+  // subscription check AND email verification. AlmiFrench full Pro = AI feedback
+  // on Expression écrite + Expression orale + the full per-exam mock.
   compProUntil  DateTime?
   compGrantedAt DateTime?
   compGrantedBy String?
@@ -72,15 +71,15 @@ model User {
 
   // Which CEFR level the user is preparing for (A1–C2). Drives the default mock
   // and which practice content is surfaced. Null = not chosen yet.
-  targetLevel GoetheLevel?
+  targetLevel CefrLevel?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   sessions            Session[]
   passwordResetTokens PasswordResetToken[]
-  goetheAttempts      GoetheAttempt[]
-  goetheSessions      GoetheSession[]
+  frenchAttempts      FrenchAttempt[]
+  frenchSessions      FrenchSession[]
   reviews             Review[]
 
   @@index([email])
@@ -163,19 +162,14 @@ model AICostLedger {
   @@index([feature, timestamp])
 }
 
-// ===================== Goethe practice item-bank =====================
-// The Goethe-Zertifikat has four modules (Lesen, Hören, Schreiben, Sprechen) at
-// six CEFR levels (A1–C2). Each module is scored to a points maximum with a 60%
-// pass threshold; B1+ is modular (modules pass independently) while A1/A2 are
-// more holistic — the exact per-level model lives in src/lib/goethe/goethe-scale.ts
-// and is verified against the official Durchführungsbestimmungen. One
-// GoetheItem/GoetheAttempt pair serves every task type; payload/response shapes
-// vary by taskType (validated in src/lib/goethe/tasks/*). All content is original
-// German; results are practice estimates — confirm the real requirement with the
-// Goethe-Institut / your university / the relevant German authority.
+// ===================== AlmiFrench practice item-bank =====================
+// Four skills at six CEFR levels. Content is keyed by (skill, level) and SHARED
+// across exams where the skill is the same (Reading/Listening), or made
+// exam-specific where the task genuinely differs (Writing/Speaking). The chosen
+// EXAM (src/lib/french/exams.ts) determines the scale + engine at scoring time.
 
-// CEFR level — the primary content axis (replaces CELPIP's GENERAL/LS version).
-enum GoetheLevel {
+// CEFR level — the primary content axis.
+enum CefrLevel {
   A1
   A2
   B1
@@ -184,103 +178,105 @@ enum GoetheLevel {
   C2
 }
 
-// The four exam modules. HOEREN is the ASCII enum for "Hören" (umlaut shown in UI).
-enum GoetheModule {
-  LESEN // Reading — objective
-  HOEREN // Listening — objective (German TTS audio)
-  SCHREIBEN // Writing — AI
-  SPRECHEN // Speaking — AI (audio -> Whisper -> grade)
+// The four French exam skills.
+enum FrenchSkill {
+  COMPREHENSION_ORALE // Listening — objective (French TTS audio)
+  COMPREHENSION_ECRITE // Reading — objective
+  EXPRESSION_ECRITE // Writing — AI
+  EXPRESSION_ORALE // Speaking — AI (audio -> Whisper -> grade transcript)
 }
 
-// Fine-grained task type — encodes the module and the Goethe task structure. Task
-// structures recur across levels; the level controls the difficulty + content.
-enum GoetheTaskType {
-  // Lesen (Reading) — objective MCQ / matching / richtig-falsch
-  LESEN_GLOBAL
-  LESEN_DETAIL
-  LESEN_MATCHING
-  LESEN_TRUE_FALSE
-  // Hören (Listening) — objective, audio plays once or twice as per level
-  HOEREN_GLOBAL
-  HOEREN_DETAIL
-  HOEREN_MATCHING
-  HOEREN_TRUE_FALSE
-  // Schreiben (Writing) — AI, level-aware
-  SCHREIBEN_MESSAGE // short message / informal email (A1–B1)
-  SCHREIBEN_LETTER // semi-formal / formal letter
-  SCHREIBEN_ESSAY // opinion / argumentative text (B2–C2)
-  // Sprechen (Speaking) — AI, level-aware (real exam is paired/live; we grade one response)
-  SPRECHEN_INTRODUCE // self-introduction (A1–A2)
-  SPRECHEN_ASK_ANSWER // ask & answer / plan together
-  SPRECHEN_PRESENT // short presentation (B1+)
-  SPRECHEN_DISCUSS // opinion / discussion (B2+)
+// Which exam family a Writing/Speaking item targets. NULL = shared item
+// (Reading/Listening), reusable across all exams at its level.
+enum ExamFamily {
+  TEF
+  TCF
+  DELF_DALF
 }
 
-enum GoetheAttemptStatus {
+// Task format. Reading/Listening are objective; Writing/Speaking are productive.
+enum FrenchTaskType {
+  // Compréhension (objective)
+  MCQ // multiple choice
+  MATCHING // match items
+  VRAI_FAUX // true/false (with justification on harder levels)
+  SHORT_ANSWER // open short answer (DELF style)
+  // Expression écrite (productive, AI)
+  WRITING_TASK // letter / essai / production écrite (level + exam aware)
+  // Expression orale (productive, AI)
+  SPEAKING_TASK // monologue / interaction / sections A-B-C (level + exam aware)
+}
+
+enum FrenchAttemptStatus {
   IN_PROGRESS
   SUBMITTED
   SCORED
 }
 
-// Intra-level variety pool — the LEVEL is the main difficulty axis; this only
-// spreads items within a level (not adaptive).
-enum GoetheDifficulty {
+// Intra-level variety pool — the LEVEL is the main difficulty axis.
+enum FrenchDifficulty {
   FOUNDATION
   CORE
   STRETCH
 }
 
-model GoetheItem {
+model FrenchItem {
   id               String           @id @default(cuid())
-  level            GoetheLevel
-  module           GoetheModule
-  taskType         GoetheTaskType
+  level            CefrLevel
+  skill            FrenchSkill
+  taskType         FrenchTaskType
+  // NULL for shared Reading/Listening items; set for exam-specific Writing/Speaking.
+  examFamily       ExamFamily?
   title            String
   prompt           String           @db.Text
   // Task-specific stimulus + (for objective tasks) the server-side answer key,
   // never sent raw to the client. Shapes by taskType (validated in app code):
-  //   LESEN_*      { passages:[{id,heading,body}], questions:[{id,kind,stem,options,answer}] }
-  //   HOEREN_*     { audioScript, speakers:[{role,voice}], questions:[{id,stem,options,answer}] }
-  //   SCHREIBEN_*  { situation, instruction, wordMin, wordMax }
-  //   SPRECHEN_*   { taskPrompt, prepSeconds, speakSeconds, imageUrl?, imageAlt? }
+  //   reading       { passages:[{id,heading,body}], questions:[{id,kind,stem,options,answer}] }
+  //   listening     { audioScript, speakers:[{role,voice}], questions:[{id,stem,options,answer}] }
+  //   writing       { situation, instruction, wordMin, wordMax }
+  //   speaking      { taskPrompt, prepSeconds, speakSeconds, imageUrl?, imageAlt? }
   payload          Json
-  difficulty       GoetheDifficulty @default(CORE)
+  difficulty       FrenchDifficulty @default(CORE)
   guidanceNote     String?          @db.Text
   timeLimitSeconds Int              @default(0)
   topicTag         String           @default("general")
   active           Boolean          @default(true)
   createdAt        DateTime         @default(now())
 
-  attempts GoetheAttempt[]
+  attempts FrenchAttempt[]
 
-  @@index([level, module, active, difficulty])
+  @@index([level, skill, active, difficulty])
+  @@index([level, skill, examFamily, active])
   @@index([level, taskType, active])
 }
 
-model GoetheAttempt {
+model FrenchAttempt {
   id       String              @id @default(cuid())
   userId   String
   itemId   String
-  level    GoetheLevel
-  module   GoetheModule
-  taskType GoetheTaskType
-  status   GoetheAttemptStatus @default(IN_PROGRESS)
+  level    CefrLevel
+  skill    FrenchSkill
+  taskType FrenchTaskType
+  // The exam the user is practising for — drives the scale + engine (src/lib/french/exams.ts id).
+  examId   String
+  status   FrenchAttemptStatus @default(IN_PROGRESS)
 
-  // The user's raw response; shape depends on taskType:
-  //   Lesen / Hören   { answers: { [questionId]: string | string[] } }
-  //   SCHREIBEN_*      { text: string }
-  //   SPRECHEN_*       { transcript: string }
+  // The user's raw response; shape depends on skill:
+  //   reading / listening   { answers: { [questionId]: string | string[] } }
+  //   writing               { text: string }
+  //   speaking              { transcript: string }
   response Json @default("{}")
 
   pointsEarned Int @default(0)
   pointsMax    Int @default(0)
 
-  // Per-module practice estimate. Shape:
-  //   { pointsEst: [lo, hi], percent, verdict: "passed"|"borderline"|"not-yet", passThreshold, maxPoints } | null
-  // No fabricated overall — each module stands on its own pass threshold.
+  // Per-skill engine estimate (shape depends on the exam family):
+  //   TEF/TCF  { scale, score, nclc, cefr, b2Inferieur? }
+  //   DELF     { outOf25, eliminated }
+  // Honest estimate — never a fabricated official result.
   scoreEstimate Json?
 
-  // AI trait feedback payload for Schreiben/Sprechen (qualitative; no fake score).
+  // AI trait feedback payload for Writing/Speaking (qualitative; no fake score).
   feedback Json?
 
   aiModel   String?
@@ -296,8 +292,8 @@ model GoetheAttempt {
   updatedAt        DateTime  @updatedAt
 
   user    User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  item    GoetheItem     @relation(fields: [itemId], references: [id], onDelete: Cascade)
-  session GoetheSession? @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  item    FrenchItem     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  session FrenchSession? @relation(fields: [sessionId], references: [id], onDelete: Cascade)
 
   @@index([userId, status, submittedAt])
   @@index([userId, startedAt])
@@ -306,42 +302,41 @@ model GoetheAttempt {
 }
 
 // ===================== Practice sets + full mock =====================
-// PRACTICE_SET = several items of one MODULE at one LEVEL. MOCK = the full
-// Goethe-Zertifikat for one LEVEL, all four modules in exam order
-// (Lesen → Hören → Schreiben → Sprechen). Each module scored independently — no
-// fabricated composite.
+// PRACTICE_SET = several items of one SKILL at one LEVEL for one EXAM. MOCK = the
+// full exam for one LEVEL, all four skills in order. Each skill scored on the
+// exam's own scale via its engine — no fabricated composite.
 
-enum GoetheSessionMode {
+enum FrenchSessionMode {
   PRACTICE_SET
   MOCK
 }
 
-enum GoetheSessionStatus {
+enum FrenchSessionStatus {
   IN_PROGRESS
   COMPLETED
 }
 
-model GoetheSession {
+model FrenchSession {
   id     String @id @default(cuid())
   userId String
 
-  mode              GoetheSessionMode
-  // The CEFR level this session runs at — set for BOTH a mock and a practice set.
-  level             GoetheLevel
-  // The single module for a PRACTICE_SET; null for a MOCK (which covers all four).
-  module            GoetheModule?
+  mode              FrenchSessionMode
+  examId            String
+  level             CefrLevel
+  // The single skill for a PRACTICE_SET; null for a MOCK (all four skills).
+  skill             FrenchSkill?
   targetCount       Int
   currentStep       Int                 @default(0)
-  currentDifficulty GoetheDifficulty    @default(CORE)
+  currentDifficulty FrenchDifficulty    @default(CORE)
   plan              Json?
-  status            GoetheSessionStatus @default(IN_PROGRESS)
+  status            FrenchSessionStatus @default(IN_PROGRESS)
 
   startedAt   DateTime  @default(now())
   completedAt DateTime?
   updatedAt   DateTime  @updatedAt
 
   user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  attempts GoetheAttempt[]
+  attempts FrenchAttempt[]
 
   @@index([userId, status, startedAt])
 }

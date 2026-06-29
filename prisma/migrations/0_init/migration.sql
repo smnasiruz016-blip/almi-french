@@ -8,25 +8,28 @@ CREATE TYPE "Locale" AS ENUM ('EN', 'UR', 'AR', 'HI');
 CREATE TYPE "SubscriptionTier" AS ENUM ('FREE', 'PREMIUM');
 
 -- CreateEnum
-CREATE TYPE "GoetheLevel" AS ENUM ('A1', 'A2', 'B1', 'B2', 'C1', 'C2');
+CREATE TYPE "CefrLevel" AS ENUM ('A1', 'A2', 'B1', 'B2', 'C1', 'C2');
 
 -- CreateEnum
-CREATE TYPE "GoetheModule" AS ENUM ('LESEN', 'HOEREN', 'SCHREIBEN', 'SPRECHEN');
+CREATE TYPE "FrenchSkill" AS ENUM ('COMPREHENSION_ORALE', 'COMPREHENSION_ECRITE', 'EXPRESSION_ECRITE', 'EXPRESSION_ORALE');
 
 -- CreateEnum
-CREATE TYPE "GoetheTaskType" AS ENUM ('LESEN_GLOBAL', 'LESEN_DETAIL', 'LESEN_MATCHING', 'LESEN_TRUE_FALSE', 'HOEREN_GLOBAL', 'HOEREN_DETAIL', 'HOEREN_MATCHING', 'HOEREN_TRUE_FALSE', 'SCHREIBEN_MESSAGE', 'SCHREIBEN_LETTER', 'SCHREIBEN_ESSAY', 'SPRECHEN_INTRODUCE', 'SPRECHEN_ASK_ANSWER', 'SPRECHEN_PRESENT', 'SPRECHEN_DISCUSS');
+CREATE TYPE "ExamFamily" AS ENUM ('TEF', 'TCF', 'DELF_DALF');
 
 -- CreateEnum
-CREATE TYPE "GoetheAttemptStatus" AS ENUM ('IN_PROGRESS', 'SUBMITTED', 'SCORED');
+CREATE TYPE "FrenchTaskType" AS ENUM ('MCQ', 'MATCHING', 'VRAI_FAUX', 'SHORT_ANSWER', 'WRITING_TASK', 'SPEAKING_TASK');
 
 -- CreateEnum
-CREATE TYPE "GoetheDifficulty" AS ENUM ('FOUNDATION', 'CORE', 'STRETCH');
+CREATE TYPE "FrenchAttemptStatus" AS ENUM ('IN_PROGRESS', 'SUBMITTED', 'SCORED');
 
 -- CreateEnum
-CREATE TYPE "GoetheSessionMode" AS ENUM ('PRACTICE_SET', 'MOCK');
+CREATE TYPE "FrenchDifficulty" AS ENUM ('FOUNDATION', 'CORE', 'STRETCH');
 
 -- CreateEnum
-CREATE TYPE "GoetheSessionStatus" AS ENUM ('IN_PROGRESS', 'COMPLETED');
+CREATE TYPE "FrenchSessionMode" AS ENUM ('PRACTICE_SET', 'MOCK');
+
+-- CreateEnum
+CREATE TYPE "FrenchSessionStatus" AS ENUM ('IN_PROGRESS', 'COMPLETED');
 
 -- CreateTable
 CREATE TABLE "User" (
@@ -53,7 +56,7 @@ CREATE TABLE "User" (
     "compGrantedAt" TIMESTAMP(3),
     "compGrantedBy" TEXT,
     "compReason" TEXT,
-    "targetLevel" "GoetheLevel",
+    "targetLevel" "CefrLevel",
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -133,33 +136,35 @@ CREATE TABLE "AICostLedger" (
 );
 
 -- CreateTable
-CREATE TABLE "GoetheItem" (
+CREATE TABLE "FrenchItem" (
     "id" TEXT NOT NULL,
-    "level" "GoetheLevel" NOT NULL,
-    "module" "GoetheModule" NOT NULL,
-    "taskType" "GoetheTaskType" NOT NULL,
+    "level" "CefrLevel" NOT NULL,
+    "skill" "FrenchSkill" NOT NULL,
+    "taskType" "FrenchTaskType" NOT NULL,
+    "examFamily" "ExamFamily",
     "title" TEXT NOT NULL,
     "prompt" TEXT NOT NULL,
     "payload" JSONB NOT NULL,
-    "difficulty" "GoetheDifficulty" NOT NULL DEFAULT 'CORE',
+    "difficulty" "FrenchDifficulty" NOT NULL DEFAULT 'CORE',
     "guidanceNote" TEXT,
     "timeLimitSeconds" INTEGER NOT NULL DEFAULT 0,
     "topicTag" TEXT NOT NULL DEFAULT 'general',
     "active" BOOLEAN NOT NULL DEFAULT true,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "GoetheItem_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "FrenchItem_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "GoetheAttempt" (
+CREATE TABLE "FrenchAttempt" (
     "id" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "itemId" TEXT NOT NULL,
-    "level" "GoetheLevel" NOT NULL,
-    "module" "GoetheModule" NOT NULL,
-    "taskType" "GoetheTaskType" NOT NULL,
-    "status" "GoetheAttemptStatus" NOT NULL DEFAULT 'IN_PROGRESS',
+    "level" "CefrLevel" NOT NULL,
+    "skill" "FrenchSkill" NOT NULL,
+    "taskType" "FrenchTaskType" NOT NULL,
+    "examId" TEXT NOT NULL,
+    "status" "FrenchAttemptStatus" NOT NULL DEFAULT 'IN_PROGRESS',
     "response" JSONB NOT NULL DEFAULT '{}',
     "pointsEarned" INTEGER NOT NULL DEFAULT 0,
     "pointsMax" INTEGER NOT NULL DEFAULT 0,
@@ -175,26 +180,27 @@ CREATE TABLE "GoetheAttempt" (
     "submittedAt" TIMESTAMP(3),
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "GoetheAttempt_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "FrenchAttempt_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "GoetheSession" (
+CREATE TABLE "FrenchSession" (
     "id" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
-    "mode" "GoetheSessionMode" NOT NULL,
-    "level" "GoetheLevel" NOT NULL,
-    "module" "GoetheModule",
+    "mode" "FrenchSessionMode" NOT NULL,
+    "examId" TEXT NOT NULL,
+    "level" "CefrLevel" NOT NULL,
+    "skill" "FrenchSkill",
     "targetCount" INTEGER NOT NULL,
     "currentStep" INTEGER NOT NULL DEFAULT 0,
-    "currentDifficulty" "GoetheDifficulty" NOT NULL DEFAULT 'CORE',
+    "currentDifficulty" "FrenchDifficulty" NOT NULL DEFAULT 'CORE',
     "plan" JSONB,
-    "status" "GoetheSessionStatus" NOT NULL DEFAULT 'IN_PROGRESS',
+    "status" "FrenchSessionStatus" NOT NULL DEFAULT 'IN_PROGRESS',
     "startedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "completedAt" TIMESTAMP(3),
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "GoetheSession_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "FrenchSession_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -267,25 +273,28 @@ CREATE INDEX "AICostLedger_userId_timestamp_idx" ON "AICostLedger"("userId", "ti
 CREATE INDEX "AICostLedger_feature_timestamp_idx" ON "AICostLedger"("feature", "timestamp");
 
 -- CreateIndex
-CREATE INDEX "GoetheItem_level_module_active_difficulty_idx" ON "GoetheItem"("level", "module", "active", "difficulty");
+CREATE INDEX "FrenchItem_level_skill_active_difficulty_idx" ON "FrenchItem"("level", "skill", "active", "difficulty");
 
 -- CreateIndex
-CREATE INDEX "GoetheItem_level_taskType_active_idx" ON "GoetheItem"("level", "taskType", "active");
+CREATE INDEX "FrenchItem_level_skill_examFamily_active_idx" ON "FrenchItem"("level", "skill", "examFamily", "active");
 
 -- CreateIndex
-CREATE INDEX "GoetheAttempt_userId_status_submittedAt_idx" ON "GoetheAttempt"("userId", "status", "submittedAt");
+CREATE INDEX "FrenchItem_level_taskType_active_idx" ON "FrenchItem"("level", "taskType", "active");
 
 -- CreateIndex
-CREATE INDEX "GoetheAttempt_userId_startedAt_idx" ON "GoetheAttempt"("userId", "startedAt");
+CREATE INDEX "FrenchAttempt_userId_status_submittedAt_idx" ON "FrenchAttempt"("userId", "status", "submittedAt");
 
 -- CreateIndex
-CREATE INDEX "GoetheAttempt_itemId_idx" ON "GoetheAttempt"("itemId");
+CREATE INDEX "FrenchAttempt_userId_startedAt_idx" ON "FrenchAttempt"("userId", "startedAt");
 
 -- CreateIndex
-CREATE INDEX "GoetheAttempt_sessionId_sessionStep_idx" ON "GoetheAttempt"("sessionId", "sessionStep");
+CREATE INDEX "FrenchAttempt_itemId_idx" ON "FrenchAttempt"("itemId");
 
 -- CreateIndex
-CREATE INDEX "GoetheSession_userId_status_startedAt_idx" ON "GoetheSession"("userId", "status", "startedAt");
+CREATE INDEX "FrenchAttempt_sessionId_sessionStep_idx" ON "FrenchAttempt"("sessionId", "sessionStep");
+
+-- CreateIndex
+CREATE INDEX "FrenchSession_userId_status_startedAt_idx" ON "FrenchSession"("userId", "status", "startedAt");
 
 -- AddForeignKey
 ALTER TABLE "Session" ADD CONSTRAINT "Session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -297,14 +306,14 @@ ALTER TABLE "PasswordResetToken" ADD CONSTRAINT "PasswordResetToken_userId_fkey"
 ALTER TABLE "Review" ADD CONSTRAINT "Review_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "GoetheAttempt" ADD CONSTRAINT "GoetheAttempt_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "FrenchAttempt" ADD CONSTRAINT "FrenchAttempt_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "GoetheAttempt" ADD CONSTRAINT "GoetheAttempt_itemId_fkey" FOREIGN KEY ("itemId") REFERENCES "GoetheItem"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "FrenchAttempt" ADD CONSTRAINT "FrenchAttempt_itemId_fkey" FOREIGN KEY ("itemId") REFERENCES "FrenchItem"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "GoetheAttempt" ADD CONSTRAINT "GoetheAttempt_sessionId_fkey" FOREIGN KEY ("sessionId") REFERENCES "GoetheSession"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "FrenchAttempt" ADD CONSTRAINT "FrenchAttempt_sessionId_fkey" FOREIGN KEY ("sessionId") REFERENCES "FrenchSession"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "GoetheSession" ADD CONSTRAINT "GoetheSession_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "FrenchSession" ADD CONSTRAINT "FrenchSession_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 

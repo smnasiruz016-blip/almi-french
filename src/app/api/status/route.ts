@@ -11,16 +11,16 @@ export const dynamic = "force-dynamic";
 export async function GET(): Promise<NextResponse> {
   try {
     const [byModule, total, approvedReviews] = await Promise.all([
-      prisma.goetheItem.groupBy({
-        by: ["level", "module"],
+      prisma.frenchItem.groupBy({
+        by: ["level", "skill"],
         where: { active: true },
         _count: true,
       }),
-      prisma.goetheItem.count({ where: { active: true } }),
+      prisma.frenchItem.count({ where: { active: true } }),
       prisma.review.count({ where: { approved: true } }),
     ]);
     const items: Record<string, number> = {};
-    for (const r of byModule) items[`${r.level}.${r.module}`] = r._count;
+    for (const r of byModule) items[`${r.level}.${r.skill}`] = r._count;
     return NextResponse.json(
       { ok: true, itemsActive: total, items, approvedReviews },
       { headers: { "Cache-Control": "no-store" } },
