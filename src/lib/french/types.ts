@@ -1,11 +1,11 @@
-// Shared Goethe domain primitives.
+// Shared CEFR + level primitives (re-exported prisma enums + labels). The French
+// exam scoring lives in src/lib/french/engines (TEF / TCF / DELF-DALF) — there is
+// NO single pass mark here; each exam family scores on its own scale. We always
+// tell the user to confirm the real requirement with the official body.
 //
-// The French exam reports a SEPARATE result per module (Lesen, Hören,
-// Schreiben, Sprechen) at a chosen CEFR level (A1–C2). Each module is scored to a
-// points maximum with a 60% pass threshold; AlmiFrench shows an honest practice
-// POINTS estimate RANGE per module and a pass/borderline/not-yet verdict, never a
-// fabricated overall total. We always tell the user to confirm the real
-// requirement with the the official exam body / their university / the German authority.
+// NOTE: the prisma enum names below are inherited (GoetheLevel/Module/TaskType);
+// the values (A1–C2 etc.) are CEFR-correct for French. The Module/payload types
+// are legacy scaffolding for the practice flow rebuilt in a later milestone.
 
 import type { GoetheLevel, GoetheModule } from "@prisma/client";
 
@@ -21,7 +21,7 @@ export type ModuleScore = {
   pointsEst: Range;
   percent: number;
   verdict: Verdict;
-  passThreshold: number; // points needed to pass this module (60% of maxPoints)
+  passThreshold: number; // points needed to pass this module
   maxPoints: number;
 } | null;
 
