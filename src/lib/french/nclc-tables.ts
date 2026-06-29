@@ -1,16 +1,17 @@
 // Official IRCC score → NCLC/CLB conversion tables for TEF Canada and TCF Canada.
 //
 // AMAANAT NOTE: these power an immigration-scoring engine, so they must be exact.
-// The NCLC 7 anchor rows here were cross-checked against official sources in
-// 2026-06 (canada.ca Express Entry language-test page + lefrancaisdesaffaires.fr
-// TEF-Canada results) and MATCH. The remaining boundaries are encoded from the
-// published IRCC tables but `verified` is set to false until the FULL table is
-// re-fetched directly from canada.ca and diffed cell-by-cell (the page was
-// intermittently blocking automated fetches at build time).
+// VERIFIED 2026-06-29 against the official Government of Canada / IRCC page
+// "How to find your language level based on your test results" (canada.ca, page
+// modified 2025-09-08), bracket "after December 10, 2023" — supplied verbatim by
+// the founder from the official page (canada.ca bot-blocks automated fetches).
+// All 28 rows (TEF + TCF × 4 skills × NCLC 4–10) confirmed cell-by-cell; the
+// earlier independently-sourced NCLC 7/8/9 anchors matched with no conflicts.
+// Full transcript + provenance: docs/ircc-nclc-tables.md.
 //
-// TODO(verify): re-fetch and confirm every boundary against
-//   https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html
-//   then flip `verified` to true.
+// Bracket: this is the CURRENT "after December 10, 2023" table. Older brackets
+// exist on the same page but are intentionally not built (the tool estimates
+// today's test). IRCC results are valid 2 years — surfaced on result/guide pages.
 
 import type { Nclc, Skill } from "./cefr";
 
@@ -33,9 +34,9 @@ export const TEF_CANADA: NclcTable = {
   source:
     "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
   fetchedOn: "2026-06-29",
-  verified: false,
+  verified: true,
   verifyNote:
-    "NCLC 7 anchor rows confirmed against official sources 2026-06; full boundaries pending direct canada.ca re-fetch.",
+    "Official IRCC table (canada.ca, page modified 2025-09-08), bracket 'after December 10, 2023'; all NCLC 4–10 rows confirmed cell-by-cell 2026-06-29. Provenance: docs/ircc-nclc-tables.md.",
   skills: {
     listening: [
       { nclc: 10, min: 546, max: 699 },
@@ -82,9 +83,9 @@ export const TCF_CANADA: NclcTable = {
   source:
     "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
   fetchedOn: "2026-06-29",
-  verified: false,
+  verified: true,
   verifyNote:
-    "NCLC 7 anchor rows confirmed against official sources 2026-06; full boundaries pending direct canada.ca re-fetch.",
+    "Official IRCC table (canada.ca, page modified 2025-09-08), bracket 'after December 10, 2023'; all NCLC 4–10 rows confirmed cell-by-cell 2026-06-29. Provenance: docs/ircc-nclc-tables.md.",
   skills: {
     listening: [
       { nclc: 10, min: 549, max: 699 },
