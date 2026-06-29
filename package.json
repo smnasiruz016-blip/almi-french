@@ -8,6 +8,7 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "postinstall": "prisma generate",
+    "seed:a1": "tsx scripts/seed/a1.ts",
     "seed:a2": "tsx scripts/seed/a2.ts",
     "seed:b1": "tsx scripts/seed/b1.ts",
     "seed:b2": "tsx scripts/seed/b2.ts",
