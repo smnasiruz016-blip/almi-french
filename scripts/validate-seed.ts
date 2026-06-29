@@ -2,7 +2,10 @@
 // so a malformed payload is caught here, not at scoring time.
 // Run: npm run validate:seed
 import { z } from "zod";
-import { ITEMS } from "./seed/b1";
+import { ITEMS as B1 } from "./seed/b1";
+import { ITEMS as B2 } from "./seed/b2";
+
+const ITEMS = [...B1, ...B2];
 
 const mcqQuestion = z.object({
   id: z.string(),

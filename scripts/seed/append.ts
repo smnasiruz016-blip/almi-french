@@ -4,10 +4,11 @@
 
 import { PrismaClient, Prisma } from "@prisma/client";
 import { ITEMS as B1 } from "./b1";
+import { ITEMS as B2 } from "./b2";
 
 const prisma = new PrismaClient();
 
-const ALL: Prisma.FrenchItemCreateManyInput[] = [...B1];
+const ALL: Prisma.FrenchItemCreateManyInput[] = [...B1, ...B2];
 
 async function main() {
   let created = 0;
