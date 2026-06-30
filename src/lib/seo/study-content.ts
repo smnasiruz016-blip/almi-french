@@ -27,6 +27,11 @@ const NATIVE_PHRASE: Record<string, string> = {
   // Latin America (Spanish) + Turkey + Iran (Persian) + Indonesia.
   mexico: "estudiar en Francia",
   colombia: "estudiar en Francia",
+  argentina: "estudiar en Francia",
+  chile: "estudiar en Francia",
+  peru: "estudiar en Francia",
+  bolivia: "estudiar en Francia",
+  jordan: "الدراسة في فرنسا",
   turkey: "Fransa'da okumak",
   iran: "تحصیل در فرانسه",
   indonesia: "kuliah di Prancis",
@@ -124,6 +129,19 @@ const LOCALIZED_LEAD: Record<string, string> = {
     "Korean students apply through the mandatory «Études en France» procedure. Since 2005 the French Embassy in Korea has run a France Excellence government scholarship for master's and doctoral study, with a monthly allowance (around €860 for master's, €1,588 for doctorate) and university housing where available. Confirm current calls with Campus France Korea.",
   thailand:
     "Thai students apply through the mandatory «Études en France» procedure. The selective Franco-Thai Scholarship Program (for applicants under 35) funds master's and doctoral study with a monthly allowance, a round-trip ticket and social protection — though not tuition fees — and selects around 20–25 candidates a year. Confirm current calls with Campus France Thailand.",
+  // LatAm tail + Jordan/Azerbaijan — researched 2026-06-30 (Campus France country sites).
+  argentina:
+    "Argentina has a strong engineering link to France through the ARFITEC programme, which exchanges final-year engineering students between Argentine and French institutions (around €500–600 per month plus travel support). The «Études en France» procedure is mandatory, and the Eiffel Excellence Scholarship funds selected master's and doctoral students. Confirm current programmes with Campus France Argentine.",
+  chile:
+    "Chilean students can fund postgraduate study in France through BECAS Chile (ANID), the national agency's programme covering tuition, a living stipend, airfare and health insurance, alongside the Eiffel Excellence Scholarship. The «Études en France» procedure is mandatory. Confirm eligibility with Campus France Chili.",
+  peru:
+    "Peru's PRONABEC runs a France-specific scholarship (Beca Francia): a stipend of up to around €860 per month for master's study, plus exemption from registration fees, the CVEC student fee, and the student-visa fee. The «Études en France» procedure is mandatory. Confirm current calls with Campus France Pérou / PRONABEC.",
+  bolivia:
+    "Bolivian students apply through the mandatory «Études en France» procedure. The Eiffel Excellence Scholarship funds selected master's and doctoral students, and Campus Bourses lists further French and bilateral scholarships. Confirm options with Campus France Bolivie.",
+  jordan:
+    "Jordanian students complete the mandatory «Études en France» procedure through the Espace Campus France in Amman before applying for the student visa at the French Embassy. The Eiffel Excellence Scholarship and other French-government and institutional scholarships are available. Confirm options with Campus France Jordan.",
+  azerbaijan:
+    "Azerbaijani students apply through the mandatory «Études en France» procedure via Campus France Baku. Alongside the Eiffel Excellence Scholarship, students may be eligible for the IsDB-France scholarship programme (for member countries of the Islamic Development Bank). Confirm eligibility with Campus France Azerbaijan.",
 };
 export function localizedLead(slug: string): string | null {
   return LOCALIZED_LEAD[slug] ?? null;
