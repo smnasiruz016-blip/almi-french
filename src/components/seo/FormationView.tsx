@@ -4,14 +4,18 @@
 
 import Link from "next/link";
 import type { FormationRecord } from "@/lib/seo/formations";
-import { EEF_ORIGINS, type Origin } from "@/lib/seo/origins";
+import { ORIGINS, REGION_ORDER, type Origin } from "@/lib/seo/origins";
 import {
   ADMISSION_NOT_VISA,
   DATA_ATTRIBUTION,
+  applicationCorridor,
   frenchRequirement,
   formationHeading,
   levelLabel,
   locationLine,
+  nativePhrase,
+  originFaq,
+  searchIntentLine,
 } from "@/lib/seo/study-content";
 
 function Fact({ label, children }: { label: string; children: React.ReactNode }) {
@@ -26,12 +30,14 @@ function Fact({ label, children }: { label: string; children: React.ReactNode })
 export function FormationView({ formation: f, origin }: { formation: FormationRecord; origin: Origin | null }) {
   const heading = formationHeading(f);
   const loc = locationLine(f);
+  const native = origin ? nativePhrase(origin.slug) : null;
   const byRegion = new Map<string, Origin[]>();
-  for (const o of EEF_ORIGINS) {
+  for (const o of ORIGINS) {
     const arr = byRegion.get(o.region) ?? [];
     arr.push(o);
     byRegion.set(o.region, arr);
   }
+  const orderedRegions = REGION_ORDER.filter((r) => byRegion.has(r));
 
   return (
     <article className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
@@ -75,32 +81,52 @@ export function FormationView({ formation: f, origin }: { formation: FormationRe
         <p className="mt-2 text-sm text-almi-text">{frenchRequirement(f.level)}</p>
       </section>
 
-      {/* Per-origin route */}
+      {/* Per-origin route — branched honestly by EEF status */}
       {origin ? (
-        <section className="mt-6 rounded-2xl border border-almi-bg-peach bg-almi-paper p-6">
-          <h2 className="text-lg font-semibold text-almi-ink">Applying from {origin.name}</h2>
-          <p className="mt-2 text-sm text-almi-text">
-            {origin.name} is one of the countries where the Campus France «Études en France»
-            procedure is <strong>mandatory</strong>. From {origin.name}, you complete the online
-            «Études en France» application before your student visa — the procedure runs from the
-            enrolment request through to the visa. Your French proof (TCF / TEF, or DELF / DALF) is
-            submitted within that procedure, at the level the establishment requires.
-          </p>
-        </section>
+        (() => {
+          const corridor = applicationCorridor(origin);
+          const faq = originFaq(f, origin);
+          return (
+            <>
+              <section className="mt-6 rounded-2xl border border-almi-bg-peach bg-almi-paper p-6">
+                <h2 className="text-lg font-semibold text-almi-ink">{corridor.heading}</h2>
+                <p className="mt-2 text-sm text-almi-text">{corridor.body}</p>
+                <p className="mt-3 text-sm text-almi-text-muted">{searchIntentLine(origin)}</p>
+                {native ? (
+                  <p className="mt-2 text-xs text-almi-text-muted">Also searched as «{native}».</p>
+                ) : null}
+              </section>
+              <section className="mt-6 rounded-2xl border border-almi-bg-peach bg-almi-paper p-6">
+                <h2 className="text-lg font-semibold text-almi-ink">
+                  Studying {heading} in France from {origin.name} — common questions
+                </h2>
+                <dl className="mt-3 space-y-4">
+                  {faq.map((item) => (
+                    <div key={item.q}>
+                      <dt className="text-sm font-semibold text-almi-ink">{item.q}</dt>
+                      <dd className="mt-1 text-sm text-almi-text">{item.a}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            </>
+          );
+        })()
       ) : (
         <section className="mt-6 rounded-2xl border border-almi-bg-peach bg-almi-paper p-6">
           <h2 className="text-lg font-semibold text-almi-ink">Where are you applying from?</h2>
           <p className="mt-2 text-sm text-almi-text-muted">
-            In {EEF_ORIGINS.length} countries the Campus France «Études en France» procedure is
-            mandatory before a visa. If your country is not listed, you usually apply directly to the
-            establishment.
+            The application route depends on your country: in the «Études en France» countries the
+            online Campus France procedure is mandatory before a visa; from the others you apply
+            directly to the establishment and request the visa at the French consulate. Pick yours
+            for the route that applies to you.
           </p>
           <div className="mt-4 space-y-4">
-            {[...byRegion.entries()].map(([region, list]) => (
+            {orderedRegions.map((region) => (
               <div key={region}>
                 <h3 className="text-xs font-semibold uppercase tracking-wide text-almi-purple">{region}</h3>
                 <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-sm">
-                  {list.map((o) => (
+                  {byRegion.get(region)!.map((o) => (
                     <Link key={o.slug} href={`/study-in-france/${f.slug}/from-${o.slug}`} className="text-almi-coral hover:underline">
                       {o.name}
                     </Link>

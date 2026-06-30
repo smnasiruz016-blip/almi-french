@@ -4,7 +4,7 @@
 
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
-import { EEF_ORIGINS } from "./origins";
+import { INDEXABLE_ORIGINS } from "./origins";
 import slugsData from "@/data/formation-slugs.json";
 
 export const slugs = slugsData as string[];
@@ -19,8 +19,8 @@ export const CORE: { path: string; priority: number }[] = [
 
 export const CHUNK = 50_000;
 export const HUBS = slugs.length; // 35,757
-export const ORIGINS = EEF_ORIGINS.length; // 72
-export const TOTAL = CORE.length + HUBS + HUBS * ORIGINS; // ~2.61M
+export const ORIGINS = INDEXABLE_ORIGINS.length; // ~176 (197 − micro-states)
+export const TOTAL = CORE.length + HUBS + HUBS * ORIGINS;
 export const CHUNKS = Math.ceil(TOTAL / CHUNK);
 
 type Entry = MetadataRoute.Sitemap[number];
@@ -38,7 +38,7 @@ export function entryForIndex(i: number): Entry {
   const fi = Math.floor(off / ORIGINS);
   const oi = off % ORIGINS;
   return {
-    url: `${SITE_URL}/study-in-france/${slugs[fi]}/from-${EEF_ORIGINS[oi].slug}`,
+    url: `${SITE_URL}/study-in-france/${slugs[fi]}/from-${INDEXABLE_ORIGINS[oi].slug}`,
     changeFrequency: "monthly",
     priority: 0.5,
   };

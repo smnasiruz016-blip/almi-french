@@ -16,6 +16,7 @@
     "seed:c2": "tsx scripts/seed/c2.ts",
     "seed:append": "tsx scripts/seed/append.ts",
     "validate:seed": "tsx scripts/validate-seed.ts",
+    "build:origins": "tsx scripts/seo/build-origins.mts",
     "ingest:formations": "tsx scripts/seo/ingest-formations.mts",
     "build:formation-data": "tsx scripts/seo/build-formation-data.mts"
   },
