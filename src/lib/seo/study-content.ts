@@ -24,6 +24,12 @@ const NATIVE_PHRASE: Record<string, string> = {
   senegal: "étudier en France",
   "cote-divoire": "étudier en France",
   cameroon: "étudier en France",
+  madagascar: "étudier en France",
+  gabon: "étudier en France",
+  mali: "étudier en France",
+  guinea: "étudier en France",
+  benin: "étudier en France",
+  "burkina-faso": "étudier en France",
   // Latin America (Spanish) + Turkey + Iran (Persian) + Indonesia.
   mexico: "estudiar en Francia",
   colombia: "estudiar en Francia",
@@ -142,6 +148,19 @@ const LOCALIZED_LEAD: Record<string, string> = {
     "Jordanian students complete the mandatory «Études en France» procedure through the Espace Campus France in Amman before applying for the student visa at the French Embassy. The Eiffel Excellence Scholarship and other French-government and institutional scholarships are available. Confirm options with Campus France Jordan.",
   azerbaijan:
     "Azerbaijani students apply through the mandatory «Études en France» procedure via Campus France Baku. Alongside the Eiffel Excellence Scholarship, students may be eligible for the IsDB-France scholarship programme (for member countries of the Islamic Development Bank). Confirm eligibility with Campus France Azerbaijan.",
+  // Francophone Sub-Saharan Africa — researched 2026-06-30 (Campus France country sites).
+  madagascar:
+    "Madagascar is francophone, so Malagasy students are usually exempt from a French-language test. The «Études en France» procedure is mandatory via the local Campus France office. France reserves many scholarships and tuition-fee exemptions for students from Sub-Saharan Africa, alongside the Eiffel Excellence Scholarship for master's and doctoral study. Confirm options with Campus France Madagascar.",
+  gabon:
+    "Gabon is francophone, so Gabonese students are usually exempt from a French-language test. The «Études en France» procedure is mandatory via the local Campus France office. Funding routes include the Eiffel Excellence Scholarship and French-government (SCAC) scholarships, plus tuition-fee exemptions reserved for Sub-Saharan African students. Confirm options with Campus France Gabon.",
+  mali:
+    "Mali is francophone, so Malian students are usually exempt from a French-language test. The «Études en France» procedure is mandatory. As an Islamic Development Bank member country, Malian students may apply for the IsDB-France scholarship, alongside the Eiffel Excellence Scholarship and tuition-fee exemptions for Sub-Saharan African students. Confirm options with Campus France Mali.",
+  guinea:
+    "Guinea is francophone, so Guinean students are usually exempt from a French-language test. The «Études en France» procedure is mandatory via the local Campus France office. Funding routes include the Eiffel Excellence Scholarship and French-government scholarships, plus tuition-fee exemptions reserved for Sub-Saharan African students. Confirm options with Campus France Guinea.",
+  benin:
+    "Benin is francophone, so Beninese students are usually exempt from a French-language test. The «Études en France» procedure is mandatory via the local Campus France office. Funding routes include the Eiffel Excellence Scholarship and French-government scholarships, plus tuition-fee exemptions reserved for Sub-Saharan African students. Confirm options with Campus France Benin.",
+  "burkina-faso":
+    "Burkina Faso is francophone, so Burkinabè students are usually exempt from a French-language test. The «Études en France» procedure is mandatory via the local Campus France office. Funding routes include the Eiffel Excellence Scholarship and French-government scholarships, plus tuition-fee exemptions reserved for Sub-Saharan African students. Confirm options with Campus France Burkina Faso.",
 };
 export function localizedLead(slug: string): string | null {
   return LOCALIZED_LEAD[slug] ?? null;
