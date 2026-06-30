@@ -22,37 +22,50 @@ async function signupAction(formData: FormData) {
     redirect("/signup?error=invalid");
   }
 
-  const existing = await prisma.user.findUnique({ where: { email } });
-  if (existing) redirect("/signup?error=taken");
-
-  const passwordHash = await hashPassword(password);
-  const verifyRaw = randomBytes(32).toString("hex");
-  const verifyHash = createHash("sha256").update(verifyRaw).digest("hex");
-  const verifyExpires = new Date(Date.now() + VERIFY_TTL_MS);
-
-  const user = await prisma.user.create({
-    data: {
-      name,
-      email,
-      passwordHash,
-      emailVerificationTokenHash: verifyHash,
-      emailVerificationExpiresAt: verifyExpires,
-      emailVerificationLastSentAt: new Date(),
-    },
-  });
-
-  // Best-effort email send — don't block signup if Resend is down or
-  // unconfigured. User can request resend from the banner.
+  // DB work is wrapped so a transient database/connection failure shows a
+  // friendly message instead of a raw 500. Every redirect() stays OUTSIDE the
+  // try — redirect() throws NEXT_REDIRECT, which must not be caught here.
+  let taken = false;
   try {
-    await sendEmailVerification({
-      to: email,
-      verifyUrl: `${getBaseUrl()}/api/auth/verify-email?token=${verifyRaw}`,
-    });
-  } catch (e) {
-    console.error("[signup] verification email failed:", e);
+    const existing = await prisma.user.findUnique({ where: { email } });
+    if (existing) {
+      taken = true;
+    } else {
+      const passwordHash = await hashPassword(password);
+      const verifyRaw = randomBytes(32).toString("hex");
+      const verifyHash = createHash("sha256").update(verifyRaw).digest("hex");
+      const verifyExpires = new Date(Date.now() + VERIFY_TTL_MS);
+
+      const user = await prisma.user.create({
+        data: {
+          name,
+          email,
+          passwordHash,
+          emailVerificationTokenHash: verifyHash,
+          emailVerificationExpiresAt: verifyExpires,
+          emailVerificationLastSentAt: new Date(),
+        },
+      });
+
+      // Best-effort email send — don't block signup if Resend is down or
+      // unconfigured. User can request resend from the banner.
+      try {
+        await sendEmailVerification({
+          to: email,
+          verifyUrl: `${getBaseUrl()}/api/auth/verify-email?token=${verifyRaw}`,
+        });
+      } catch (e) {
+        console.error("[signup] verification email failed:", e);
+      }
+
+      await createSession(user.id);
+    }
+  } catch (err) {
+    console.error("[signup] server error:", err);
+    redirect("/signup?error=server");
   }
 
-  await createSession(user.id);
+  if (taken) redirect("/signup?error=taken");
   redirect("/account?welcome=true");
 }
 
@@ -69,7 +82,7 @@ export default async function SignupPage({
     <div className="rounded-2xl border border-almi-bg-peach bg-almi-paper p-8 shadow-sm">
       <h1 className="text-2xl font-semibold text-almi-ink">Create your account</h1>
       <p className="mt-2 text-sm text-almi-text-muted">
-        Practise the Canadian English Language Proficiency Index Program with honest AI feedback on the 10–160 scale.
+        Practise TEF, TCF, DELF and DALF with honest AI feedback across every CEFR level.
       </p>
 
       {error === "taken" && (
@@ -80,6 +93,11 @@ export default async function SignupPage({
       {error === "invalid" && (
         <p className="mt-4 rounded-xl border border-almi-coral/30 bg-almi-coral/10 px-4 py-3 text-sm text-almi-coral-deep">
           Please fill in all fields. Password must be at least 8 characters.
+        </p>
+      )}
+      {error === "server" && (
+        <p className="mt-4 rounded-xl border border-almi-coral/30 bg-almi-coral/10 px-4 py-3 text-sm text-almi-coral-deep">
+          Something went wrong on our side. Please try again in a moment.
         </p>
       )}
 

@@ -13,13 +13,23 @@ async function loginAction(formData: FormData) {
     redirect("/login?error=missing");
   }
 
-  const user = await prisma.user.findUnique({ where: { email } });
-  if (!user) redirect("/login?error=invalid");
+  // DB work is wrapped so a transient database/connection failure shows a
+  // friendly message instead of a raw 500. Every redirect() stays OUTSIDE the
+  // try — redirect() throws NEXT_REDIRECT, which must not be caught here.
+  let user: Awaited<ReturnType<typeof prisma.user.findUnique>> = null;
+  let ok = false;
+  try {
+    user = await prisma.user.findUnique({ where: { email } });
+    if (user) {
+      ok = await verifyPassword(password, user.passwordHash);
+      if (ok) await createSession(user.id);
+    }
+  } catch (err) {
+    console.error("[login] server error:", err);
+    redirect("/login?error=server");
+  }
 
-  const ok = await verifyPassword(password, user.passwordHash);
-  if (!ok) redirect("/login?error=invalid");
-
-  await createSession(user.id);
+  if (!user || !ok) redirect("/login?error=invalid");
   redirect("/account");
 }
 
@@ -45,6 +55,11 @@ export default async function LoginPage({
       {error === "missing" && (
         <p className="mt-4 rounded-xl border border-almi-coral/30 bg-almi-coral/10 px-4 py-3 text-sm text-almi-coral-deep">
           Please enter both email and password.
+        </p>
+      )}
+      {error === "server" && (
+        <p className="mt-4 rounded-xl border border-almi-coral/30 bg-almi-coral/10 px-4 py-3 text-sm text-almi-coral-deep">
+          Something went wrong on our side. Please try again in a moment.
         </p>
       )}
 
