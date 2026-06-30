@@ -14,6 +14,13 @@ const NATIVE_PHRASE: Record<string, string> = {
   brazil: "estudar na França",
   morocco: "الدراسة في فرنسا",
   egypt: "الدراسة في فرنسا", // standard Arabic (same MSA phrase as Morocco)
+  algeria: "الدراسة في فرنسا",
+  tunisia: "الدراسة في فرنسا",
+  lebanon: "الدراسة في فرنسا",
+  // Francophone Africa — they search in French ("étudier en France depuis …").
+  senegal: "étudier en France",
+  "cote-divoire": "étudier en France",
+  cameroon: "étudier en France",
 };
 export function nativePhrase(slug: string): string | null {
   return NATIVE_PHRASE[slug] ?? null;
@@ -49,6 +56,21 @@ const LOCALIZED_LEAD: Record<string, string> = {
     "Funded routes for Sri Lankan students include the Eiffel Excellence Scholarship and the French Government Master's scholarship, which can provide a monthly allowance (around €860) plus tuition exemption at most public institutions. Plan for living costs of roughly €12,000–15,000 a year. Confirm eligibility with Campus France Sri Lanka (Colombo).",
   egypt:
     "Egyptian students apply through Campus France Egypt, which includes an interview at the nearest office. Beyond the Eiffel Excellence Scholarship, the Egypt-specific Rifaa Al-Tahtawi scholarship offers a monthly allowance (around €860 for ten months) and fee exemption for eligible students who have completed four years of higher education in Egypt. Confirm eligibility with Campus France Egypt.",
+  // Maghreb + Francophone Africa + Lebanon — researched 2026-06-30 (Campus France country sites).
+  morocco:
+    "Morocco sends more students to France than any other country, applying through the DAP / «Études en France» procedure. As a francophone country, Moroccan students are usually exempt from a French-language test, though B2-level French (often a DELF/DALF B2 for academic programmes) is still expected. Morocco and France share one of the world's strongest bilateral scholarship ties, including an Excellence Scholarship for the French grandes écoles. Confirm exemptions and scholarships with Campus France Maroc.",
+  algeria:
+    "Algeria is the second-largest source of international students in France — about four in five Algerians who study abroad choose France. The «Études en France» procedure is mandatory, and as a francophone country Algerian students are usually exempt from a French-language test (B2-level French is still expected). Budget for the visa fee (around €100) and proof of funds (an estimate of around €615 per month). Confirm details with Campus France Algérie.",
+  tunisia:
+    "France is the top destination for Tunisian students, helped by close linguistic and cultural ties. The «Études en France» procedure is mandatory, and as a francophone country Tunisian students are usually exempt from a French-language test. Funded routes include the Eiffel Excellence Scholarship and bilateral French-government scholarships. Confirm exemptions and deadlines with Campus France Tunisie.",
+  senegal:
+    "Senegal applies through Campus France Senegal and the mandatory «Études en France» procedure. As a francophone country, most French universities do not require a DELF/DALF test from Senegalese students — though some business schools may ask for the TCF, so verify with your target institution. Confirm eligibility and scholarships with Campus France Sénégal.",
+  "cote-divoire":
+    "Students from Côte d'Ivoire apply through Campus France Abidjan and the mandatory «Études en France» procedure. As a country where French is official, Ivorian students may be exempt from the French-language test — but some institutions still ask for the TEF/TCF or a DELF/DALF diploma even when you are exempt, and the level is usually B2 (sometimes C1). Confirm with Campus France Côte d'Ivoire.",
+  cameroon:
+    "Cameroon applies through Campus France Cameroon and the mandatory «Études en France» procedure. French-educated Cameroonian students are usually exempt from a French-language test, while English-educated applicants should check the level their programme requires. The Eiffel Excellence and France Excellence Major scholarships fund selected master's and doctoral students. Confirm with Campus France Cameroun.",
+  lebanon:
+    "Lebanon has deep French educational ties and applies through Campus France Liban and the mandatory «Études en France» procedure. France runs the Maa'kum («With you») scholarship programme specifically for Lebanese students, and some universities have waived registration fees for them. Confirm current scholarships and exemptions with Campus France Liban.",
 };
 export function localizedLead(slug: string): string | null {
   return LOCALIZED_LEAD[slug] ?? null;
