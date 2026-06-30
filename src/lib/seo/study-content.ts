@@ -13,6 +13,7 @@ const NATIVE_PHRASE: Record<string, string> = {
   pakistan: "France mein parhai",
   brazil: "estudar na França",
   morocco: "الدراسة في فرنسا",
+  egypt: "الدراسة في فرنسا", // standard Arabic (same MSA phrase as Morocco)
 };
 export function nativePhrase(slug: string): string | null {
   return NATIVE_PHRASE[slug] ?? null;
@@ -37,6 +38,17 @@ const LOCALIZED_LEAD: Record<string, string> = {
     "Students from Nepal often look for funding, the ability to work while studying, and the option to stay afterwards. International students in France may work part-time (up to about 964 hours a year), the Eiffel Excellence Scholarship funds selected master's and doctoral students, and a 12-month job-search permit (APS) is open to master's graduates. Confirm the current work-hour limit and permit rules with Campus France Nepal.",
   nigeria:
     "Students from Nigeria focus on funding and visa approval. France's public-university tuition is low, the Eiffel Excellence Scholarship funds selected master's and doctoral students, and for the visa you show a financial guarantee (an estimate of around €615 per month — confirm with Campus France Nigeria). Apply directly — no agent is required, and no one should charge a fee to apply or “guarantee” a visa.",
+  // Phase-1 origins — researched 2026-06-30 (Campus France country sites).
+  philippines:
+    "A strong funded route for Filipino students is the France Excellence Philippines scholarship (Campus France), for master's and doctoral candidates — it covers a return flight from Manila and exempts the long-stay student-visa fee. Public-university tuition is otherwise low. Confirm eligibility and deadlines with Campus France Philippines.",
+  china:
+    "Chinese students often target France's grandes écoles and research universities. Alongside the Eiffel Excellence Scholarship, the China Scholarship Council (CSC) co-funds Chinese students at institutions such as Sciences Po and Institut Polytechnique de Paris. Secure admission to your programme first — the scholarship follows the admission. Confirm details with Campus France China.",
+  vietnam:
+    "Vietnam has a long, established corridor to France — roughly 5,000 Vietnamese students study there, with about 1,600 arriving each year. Public-university tuition is low (commonly around €2,700–3,500 a year), and co-sponsored and institutional scholarships are widely available. Confirm current fees and scholarships with Campus France Vietnam.",
+  "sri-lanka":
+    "Funded routes for Sri Lankan students include the Eiffel Excellence Scholarship and the French Government Master's scholarship, which can provide a monthly allowance (around €860) plus tuition exemption at most public institutions. Plan for living costs of roughly €12,000–15,000 a year. Confirm eligibility with Campus France Sri Lanka (Colombo).",
+  egypt:
+    "Egyptian students apply through Campus France Egypt, which includes an interview at the nearest office. Beyond the Eiffel Excellence Scholarship, the Egypt-specific Rifaa Al-Tahtawi scholarship offers a monthly allowance (around €860 for ten months) and fee exemption for eligible students who have completed four years of higher education in Egypt. Confirm eligibility with Campus France Egypt.",
 };
 export function localizedLead(slug: string): string | null {
   return LOCALIZED_LEAD[slug] ?? null;
