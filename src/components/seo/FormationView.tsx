@@ -12,6 +12,7 @@ import {
   frenchRequirement,
   formationHeading,
   levelLabel,
+  localizedLead,
   locationLine,
   nativePhrase,
   originFaq,
@@ -86,6 +87,7 @@ export function FormationView({ formation: f, origin }: { formation: FormationRe
         (() => {
           const corridor = applicationCorridor(origin);
           const faq = originFaq(f, origin);
+          const lead = localizedLead(origin.slug);
           return (
             <>
               <section className="mt-6 rounded-2xl border border-almi-bg-peach bg-almi-paper p-6">
@@ -96,6 +98,12 @@ export function FormationView({ formation: f, origin }: { formation: FormationRe
                   <p className="mt-2 text-xs text-almi-text-muted">Also searched as «{native}».</p>
                 ) : null}
               </section>
+              {lead ? (
+                <section className="mt-6 rounded-2xl border border-almi-teal/30 bg-almi-teal/5 p-6">
+                  <h2 className="text-lg font-semibold text-almi-ink">For students from {origin.name}</h2>
+                  <p className="mt-2 text-sm text-almi-text">{lead}</p>
+                </section>
+              ) : null}
               <section className="mt-6 rounded-2xl border border-almi-bg-peach bg-almi-paper p-6">
                 <h2 className="text-lg font-semibold text-almi-ink">
                   Studying {heading} in France from {origin.name} — common questions

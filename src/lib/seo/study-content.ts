@@ -18,6 +18,30 @@ export function nativePhrase(slug: string): string | null {
   return NATIVE_PHRASE[slug] ?? null;
 }
 
+// Deepened localization — ONLY for the origins researched in the AlmiWorld Origin
+// Localization Playbook (Pakistan, India, Bangladesh, Nepal, Nigeria). Each leads
+// with that origin's real angle (PK→cost+funding, IN→ROI+post-study work,
+// BD/NP/NG→scholarships), grounded in real France facts (Eiffel Excellence
+// Scholarship, low public tuition, the ~€615/mo financial guarantee as an
+// estimate, ~964 hrs/yr part-time work, the 12-month APS job-search permit), each
+// stated as an estimate to confirm with Campus France. No invented per-country
+// claims; un-researched origins intentionally get no lead block.
+const LOCALIZED_LEAD: Record<string, string> = {
+  pakistan:
+    "Students from Pakistan most often weigh cost and whether they can realistically be admitted and funded. France is more affordable than most English-speaking destinations: public universities charge relatively low tuition, and the French government's Eiffel Excellence Scholarship funds selected master's and doctoral students. For the student visa you show a financial guarantee (an estimate of around €615 per month — confirm the current figure with Campus France Pakistan). You apply directly — no agent is required, and no one should charge you a fee to apply.",
+  india:
+    "Students from India tend to weigh return on investment and what follows the degree. France grants a 12-month post-study job-search residence permit (APS) to master's graduates and above, public-university tuition is low next to the UK, US, or Australia, and international students may work part-time (up to about 964 hours a year). Confirm current fees and permit rules with Campus France India and the establishment.",
+  bangladesh:
+    "Affordability leads for students from Bangladesh, so funded routes matter most. The French government's Eiffel Excellence Scholarship funds selected master's and doctoral candidates, and public-university tuition in France is low compared with English-speaking destinations. Scholarships are free to apply for — no one should charge you a fee. Confirm eligibility and deadlines with Campus France Bangladesh.",
+  nepal:
+    "Students from Nepal often look for funding, the ability to work while studying, and the option to stay afterwards. International students in France may work part-time (up to about 964 hours a year), the Eiffel Excellence Scholarship funds selected master's and doctoral students, and a 12-month job-search permit (APS) is open to master's graduates. Confirm the current work-hour limit and permit rules with Campus France Nepal.",
+  nigeria:
+    "Students from Nigeria focus on funding and visa approval. France's public-university tuition is low, the Eiffel Excellence Scholarship funds selected master's and doctoral students, and for the visa you show a financial guarantee (an estimate of around €615 per month — confirm with Campus France Nigeria). Apply directly — no agent is required, and no one should charge a fee to apply or “guarantee” a visa.",
+};
+export function localizedLead(slug: string): string | null {
+  return LOCALIZED_LEAD[slug] ?? null;
+}
+
 // The application corridor, branched HONESTLY by EEF status — each origin states
 // only its own truth (never an EEF procedure for a non-EEF country, and never
 // "apply directly" for an EEF country).
