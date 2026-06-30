@@ -21,6 +21,12 @@ const NATIVE_PHRASE: Record<string, string> = {
   senegal: "étudier en France",
   "cote-divoire": "étudier en France",
   cameroon: "étudier en France",
+  // Latin America (Spanish) + Turkey + Iran (Persian) + Indonesia.
+  mexico: "estudiar en Francia",
+  colombia: "estudiar en Francia",
+  turkey: "Fransa'da okumak",
+  iran: "تحصیل در فرانسه",
+  indonesia: "kuliah di Prancis",
 };
 export function nativePhrase(slug: string): string | null {
   return NATIVE_PHRASE[slug] ?? null;
@@ -71,6 +77,19 @@ const LOCALIZED_LEAD: Record<string, string> = {
     "Cameroon applies through Campus France Cameroon and the mandatory «Études en France» procedure. French-educated Cameroonian students are usually exempt from a French-language test, while English-educated applicants should check the level their programme requires. The Eiffel Excellence and France Excellence Major scholarships fund selected master's and doctoral students. Confirm with Campus France Cameroun.",
   lebanon:
     "Lebanon has deep French educational ties and applies through Campus France Liban and the mandatory «Études en France» procedure. France runs the Maa'kum («With you») scholarship programme specifically for Lebanese students, and some universities have waived registration fees for them. Confirm current scholarships and exemptions with Campus France Liban.",
+  // Latin America + Turkey/Iran/Indonesia — researched 2026-06-30 (Campus France country sites).
+  brazil:
+    "Brazil has a strong engineering corridor to France through the BRAFITEC programme, which has sent thousands of Brazilian engineering students to French institutions, often funded on the Brazilian side by CAPES. The «Études en France» procedure is mandatory, and the Eiffel Excellence Scholarship funds selected master's and doctoral students. Confirm current programmes with Campus France Brésil.",
+  mexico:
+    "Mexico has long-standing mobility agreements with France: Campus France funds around 200 Mexican students a year for a study period at French institutes of technology, integrated into their Mexican degree. The «Études en France» procedure is mandatory, and the Eiffel Excellence Scholarship funds selected master's and doctoral students. Confirm current programmes with Campus France México.",
+  colombia:
+    "Colombian students reach France through several funded routes: COLFUTURO's loan-scholarship (up to around USD 50,000) for master's and doctoral study, MINCIENCIAS, and the Eiffel Excellence Scholarship. The «Études en France» procedure is mandatory. Confirm eligibility and deadlines with Campus France Colombie.",
+  turkey:
+    "Turkish students complete the mandatory «Études en France» procedure and book the visa appointment through a VFS Global centre in Turkey (visa fee around €50, proof of funds an estimate of around €615 per month). The Eiffel Excellence Scholarship and a range of institutional scholarships fund selected students. Confirm details with Campus France Turquie.",
+  iran:
+    "Iranian students apply through the mandatory «Études en France» procedure. Beyond the Eiffel Excellence Scholarship for master's and doctoral study, France offers short-scientific-stay grants for Iranian researchers (one to four months), notably in environmental and medical fields. Confirm eligibility with Campus France Iran.",
+  indonesia:
+    "Indonesian students apply through the mandatory «Études en France» procedure. The French Institute of Indonesia (IFI) runs France Excellence scholarships — for undergraduate (D3/S1) entry and for master's (M1/M2), the latter with a tuition-fee waiver — alongside the Eiffel Excellence Scholarship. Confirm current programmes with Campus France / IFI Indonesia.",
 };
 export function localizedLead(slug: string): string | null {
   return LOCALIZED_LEAD[slug] ?? null;
