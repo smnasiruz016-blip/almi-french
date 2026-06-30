@@ -30,6 +30,11 @@ const NATIVE_PHRASE: Record<string, string> = {
   turkey: "Fransa'da okumak",
   iran: "تحصیل در فرانسه",
   indonesia: "kuliah di Prancis",
+  // Eastern Europe (Cyrillic) + East Asia.
+  russia: "учёба во Франции",
+  ukraine: "навчання у Франції",
+  japan: "フランス留学",
+  "south-korea": "프랑스 유학",
 };
 export function nativePhrase(slug: string): string | null {
   return NATIVE_PHRASE[slug] ?? null;
@@ -106,6 +111,19 @@ const LOCALIZED_LEAD: Record<string, string> = {
     "Studying in France isn't only for French speakers: over 1,700 courses in France are taught entirely in English. For French-taught degrees, the Classes Internationales programme (from 2025) lets Kenyan students learn French for one or two semesters before enrolling. Funding includes the Eiffel scholarship and French Embassy Kenya scholarships. Apply through the mandatory «Études en France» procedure; confirm with Campus France Kenya.",
   ethiopia:
     "Ethiopian students apply through the mandatory «Études en France» procedure. Campus France manages scholarships from the Ethiopian Ministry of Higher Education, co-financed by the French Embassy, alongside the Eiffel Excellence Scholarship; France also grants many tuition-fee exemptions to students from Sub-Saharan Africa. Many French programmes are taught in English. Confirm with Campus France Ethiopia.",
+  // Eastern Europe/Caucasus + East Asia — researched 2026-06-30 (Campus France country sites).
+  russia:
+    "Russian students apply through the mandatory «Études en France» procedure. Funding routes include the Eiffel Excellence Scholarship for master's and doctoral study and French-government scholarships awarded through the French Embassy (SCAC). Confirm current programmes with Campus France Russia.",
+  ukraine:
+    "France runs a dedicated scholarship programme for Ukrainian students, continuing the emergency support set up in 2023: a monthly allowance (around €700 for a French-language course, or around €860 for study) for up to six months, with around 2,000 displaced Ukrainian students already welcomed into French higher education. Students apply through the «Études en France» platform or directly to institutions. Confirm current support with Campus France Ukraine.",
+  georgia:
+    "Georgian students apply through the mandatory «Études en France» procedure. Alongside the Eiffel Excellence Scholarship, a Georgia-specific master's programme runs through an agreement between Georgia's International Education Center and the French Institute. Confirm eligibility with Campus France Georgia.",
+  japan:
+    "Japanese students apply through the mandatory «Études en France» procedure. Franco-Japanese academic exchange is well established, with scholarships granted jointly by a Franco-Japanese board, alongside the Eiffel Excellence Scholarship. Confirm current programmes with Campus France Japan.",
+  "south-korea":
+    "Korean students apply through the mandatory «Études en France» procedure. Since 2005 the French Embassy in Korea has run a France Excellence government scholarship for master's and doctoral study, with a monthly allowance (around €860 for master's, €1,588 for doctorate) and university housing where available. Confirm current calls with Campus France Korea.",
+  thailand:
+    "Thai students apply through the mandatory «Études en France» procedure. The selective Franco-Thai Scholarship Program (for applicants under 35) funds master's and doctoral study with a monthly allowance, a round-trip ticket and social protection — though not tuition fees — and selects around 20–25 candidates a year. Confirm current calls with Campus France Thailand.",
 };
 export function localizedLead(slug: string): string | null {
   return LOCALIZED_LEAD[slug] ?? null;
