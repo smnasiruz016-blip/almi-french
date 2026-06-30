@@ -90,7 +90,11 @@ function main() {
     `${dir}/_manifest.json`,
     JSON.stringify({ count: total, shards: 16, generatedFrom: "MESR open data (Licence Ouverte v2.0)", perShard: sizes }, null, 2),
   );
+  // Lightweight ordered slug manifest for sitemap enumeration (avoids loading
+  // the full shards). Order is stable = the deduped ingest order.
+  writeFileSync("src/data/formation-slugs.json", JSON.stringify(records.map((r) => r.slug)));
   console.log("wrote", total, "records across 16 shards →", dir);
+  console.log("wrote src/data/formation-slugs.json");
   console.log("per-shard:", JSON.stringify(sizes));
 }
 
