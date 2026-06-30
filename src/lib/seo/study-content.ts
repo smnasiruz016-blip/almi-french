@@ -17,6 +17,9 @@ const NATIVE_PHRASE: Record<string, string> = {
   algeria: "الدراسة في فرنسا",
   tunisia: "الدراسة في فرنسا",
   lebanon: "الدراسة في فرنسا",
+  "saudi-arabia": "الدراسة في فرنسا",
+  "united-arab-emirates": "الدراسة في فرنسا",
+  qatar: "الدراسة في فرنسا",
   // Francophone Africa — they search in French ("étudier en France depuis …").
   senegal: "étudier en France",
   "cote-divoire": "étudier en France",
@@ -90,6 +93,19 @@ const LOCALIZED_LEAD: Record<string, string> = {
     "Iranian students apply through the mandatory «Études en France» procedure. Beyond the Eiffel Excellence Scholarship for master's and doctoral study, France offers short-scientific-stay grants for Iranian researchers (one to four months), notably in environmental and medical fields. Confirm eligibility with Campus France Iran.",
   indonesia:
     "Indonesian students apply through the mandatory «Études en France» procedure. The French Institute of Indonesia (IFI) runs France Excellence scholarships — for undergraduate (D3/S1) entry and for master's (M1/M2), the latter with a tuition-fee waiver — alongside the Eiffel Excellence Scholarship. Confirm current programmes with Campus France / IFI Indonesia.",
+  // Gulf + anglophone Africa — researched 2026-06-30 (Campus France country sites).
+  "saudi-arabia":
+    "Saudi students apply through the mandatory «Études en France» procedure, with the Campus France interview held at the French Embassy in Riyadh or the Consulate in Jeddah. Saudi government scholarships — including the Custodian of the Two Holy Mosques programme and the AlUla scholarship (tourism, archaeology, heritage) — support study abroad, and many programmes in France are taught in English. Confirm details with Campus France Saudi Arabia.",
+  "united-arab-emirates":
+    "The UAE has strong French academic ties — Sorbonne University Abu Dhabi has offered French higher education locally since 2006. Emirati and resident students apply to France through the mandatory «Études en France» procedure, and many French programmes are taught in English. Confirm options with Campus France UAE.",
+  qatar:
+    "Qatar has a direct French link through HEC Paris in Qatar, with pathways to HEC's Master's in Management in France. Students apply through the mandatory «Études en France» procedure, and many French programmes are taught in English. Funding routes include HEC and regional Campus France scholarships. Confirm with Campus France Qatar.",
+  ghana:
+    "Ghana is anglophone, and studying in France does not have to mean studying in French: French universities offer many programmes taught entirely in English, for which French proficiency is not required. The French Embassy in Ghana funds master's students (STEM, health, environment, heritage and more). For French-taught programmes you generally need around B2. Apply through the mandatory «Études en France» procedure; confirm with Campus France Ghana.",
+  kenya:
+    "Studying in France isn't only for French speakers: over 1,700 courses in France are taught entirely in English. For French-taught degrees, the Classes Internationales programme (from 2025) lets Kenyan students learn French for one or two semesters before enrolling. Funding includes the Eiffel scholarship and French Embassy Kenya scholarships. Apply through the mandatory «Études en France» procedure; confirm with Campus France Kenya.",
+  ethiopia:
+    "Ethiopian students apply through the mandatory «Études en France» procedure. Campus France manages scholarships from the Ethiopian Ministry of Higher Education, co-financed by the French Embassy, alongside the Eiffel Excellence Scholarship; France also grants many tuition-fee exemptions to students from Sub-Saharan Africa. Many French programmes are taught in English. Confirm with Campus France Ethiopia.",
 };
 export function localizedLead(slug: string): string | null {
   return LOCALIZED_LEAD[slug] ?? null;
