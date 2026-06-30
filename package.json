@@ -15,7 +15,8 @@
     "seed:c1": "tsx scripts/seed/c1.ts",
     "seed:c2": "tsx scripts/seed/c2.ts",
     "seed:append": "tsx scripts/seed/append.ts",
-    "validate:seed": "tsx scripts/validate-seed.ts"
+    "validate:seed": "tsx scripts/validate-seed.ts",
+    "ingest:formations": "tsx scripts/seo/ingest-formations.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.91.1",

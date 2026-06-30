@@ -10,3 +10,6 @@ dist/
 
 .vercel
 .env*.local
+
+# Generated SEO formation dataset (regenerable from the open-data API)
+/data/
