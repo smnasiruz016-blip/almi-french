@@ -39,41 +39,104 @@ const VALUE_PROPS = [
   },
 ];
 
+// Illustrative sample TEF (Canada) report shown in the hero. TEF scores each skill
+// on its own scale, mapped to Canada's NCLC (and CEFR) — there is NO single overall
+// score; for immigration what counts is the WEAKEST skill's NCLC. These numbers are
+// an example only; the card is clearly labelled a sample — never a real candidate,
+// never a real TEF score.
+const SAMPLE_TEF: { name: string; nclc: number }[] = [
+  { name: "Compréhension de l'oral", nclc: 8 },
+  { name: "Compréhension écrite", nclc: 7 },
+  { name: "Expression écrite", nclc: 7 },
+  { name: "Expression orale", nclc: 8 },
+];
+const TEF_NCLC_MAX = 10;
+
+function TefCardMockup() {
+  const lowest = Math.min(...SAMPLE_TEF.map((s) => s.nclc));
+  return (
+    <div className="relative mx-auto w-full max-w-sm">
+      <div className="rounded-3xl border border-almi-bg-peach bg-almi-paper p-6 shadow-xl">
+        <div className="flex items-center justify-between">
+          <p className="text-xs font-bold uppercase tracking-wider text-almi-text-muted">Sample TEF report</p>
+          <span className="rounded-full bg-almi-bg-peach px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-almi-ink">Sample</span>
+        </div>
+
+        {/* No single overall — the weakest skill is what counts for immigration */}
+        <div className="mt-4 flex items-end justify-between rounded-2xl bg-almi-coral/10 px-5 py-4">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-almi-text-muted">Lowest skill · counts for immigration</p>
+            <p className="mt-0.5 text-4xl font-bold leading-none text-almi-coral-deep">NCLC {lowest}</p>
+          </div>
+          <span className="rounded-full bg-almi-teal/15 px-3 py-1 text-sm font-bold text-almi-teal">≈ CEFR B2</span>
+        </div>
+
+        <ul className="mt-4 space-y-2.5">
+          {SAMPLE_TEF.map((s) => (
+            <li key={s.name}>
+              <div className="flex items-baseline justify-between text-sm">
+                <span className="text-almi-ink">{s.name}</span>
+                <span className="font-semibold text-almi-ink">NCLC {s.nclc}</span>
+              </div>
+              <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-almi-bg-peach">
+                <div className="h-full rounded-full bg-almi-coral" style={{ width: `${(s.nclc / TEF_NCLC_MAX) * 100}%` }} />
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-4 rounded-xl border border-almi-bg-peach bg-almi-bg px-4 py-3">
+          <p className="text-xs font-bold uppercase tracking-wider text-almi-teal">Honest feedback · Expression écrite</p>
+          <p className="mt-1 text-sm text-almi-text">
+            Solid, but NCLC 7 across all four skills is the bar for the CRS bonus — lift writing off the floor to secure it.
+          </p>
+        </div>
+      </div>
+      <p className="mt-2 text-center text-xs text-almi-text-muted">Illustrative example — not a real TEF score.</p>
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <main>
       {/* Hero */}
       <section className="px-6 pt-16 pb-12">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest text-almi-coral">
-            ALMIFRENCH · TEF · TCF · DELF · DALF PRACTICE
-          </p>
-          <h1 className="mt-4 font-display text-4xl font-bold text-almi-ink sm:text-5xl">
-            Practise the French exams with honest AI feedback.
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-almi-text">
-            Real task formats for TEF, TCF, DELF and DALF — all four skills, every CEFR level
-            (A1–C2) — with an honest estimate mapped to CEFR and Canada&apos;s NCLC, so you know
-            which test you need and where you stand.
-          </p>
-          <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <Link
-              href="/signup"
-              className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-almi-coral px-7 py-3 text-base font-semibold text-almi-ink hover:bg-almi-coral-deep"
-            >
-              Practise free
-            </Link>
-            <span className="text-sm text-almi-text-muted">
-              Already have an account?{" "}
-              <Link href="/login" className="font-semibold text-almi-ink hover:underline">
-                Log in →
+        <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-almi-coral">
+              ALMIFRENCH · TEF · TCF · DELF · DALF PRACTICE
+            </p>
+            <h1 className="mt-4 font-display text-4xl font-bold text-almi-ink sm:text-5xl">
+              Practise the French exams with honest AI feedback.
+            </h1>
+            <p className="mt-5 max-w-2xl text-lg text-almi-text">
+              Real task formats for TEF, TCF, DELF and DALF — all four skills, every CEFR level
+              (A1–C2) — with an honest estimate mapped to CEFR and Canada&apos;s NCLC, so you know
+              which test you need and where you stand.
+            </p>
+            <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+              <Link
+                href="/signup"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-almi-coral px-7 py-3 text-base font-semibold text-almi-ink hover:bg-almi-coral-deep"
+              >
+                Practise free
               </Link>
-            </span>
+              <span className="text-sm text-almi-text-muted">
+                Already have an account?{" "}
+                <Link href="/login" className="font-semibold text-almi-ink hover:underline">
+                  Log in →
+                </Link>
+              </span>
+            </div>
+            <p className="mt-5 text-xs text-almi-text-muted">
+              $12/month · 7-day free trial · cancel anytime · Listening &amp; Reading free · Original
+              French material, never copied
+            </p>
           </div>
-          <p className="mt-5 text-xs text-almi-text-muted">
-            $12/month · 7-day free trial · cancel anytime · Listening &amp; Reading free · Original
-            French material, never copied
-          </p>
+
+          {/* Illustrative TEF sample card */}
+          <TefCardMockup />
         </div>
 
         {/* exam family chips */}
