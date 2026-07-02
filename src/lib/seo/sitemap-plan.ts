@@ -12,6 +12,7 @@ export const slugs = slugsData as string[];
 export const CORE: { path: string; priority: number }[] = [
   { path: "/", priority: 1.0 },
   { path: "/which-french-test", priority: 0.9 },
+  { path: "/french-level-for-citizenship-2026", priority: 0.8 },
   { path: "/pricing", priority: 0.7 },
   { path: "/signup", priority: 0.4 },
   { path: "/login", priority: 0.3 },

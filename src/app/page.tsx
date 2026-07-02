@@ -163,12 +163,18 @@ export default function HomePage() {
             the real scale for your exam, mapped to CEFR (and NCLC for Canada), and points you to the
             test your goal actually needs. Then confirm with the official body.
           </p>
-          <div className="mt-7 text-center">
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
             <Link
               href="/which-french-test"
               className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-almi-ink/15 px-6 py-2.5 text-sm font-semibold text-almi-ink hover:bg-almi-bg-peach/50"
             >
               Which French test do you need? →
+            </Link>
+            <Link
+              href="/french-level-for-citizenship-2026"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-almi-ink/15 px-6 py-2.5 text-sm font-semibold text-almi-ink hover:bg-almi-bg-peach/50"
+            >
+              Citizenship French level: B1 → B2 (2026) →
             </Link>
           </div>
         </div>

@@ -29,8 +29,8 @@ const ROWS: Row[] = [
   },
   {
     goal: "French citizenship / naturalisation",
-    exam: "DELF B2 (since 1 Jan 2026), or TEF/TCF Naturalisation",
-    fact: "B2 is the standard since 1 January 2026. DELF B1 is for the 10-year resident card; A2 for the multi-year residence permit.",
+    exam: "DELF B2 / DALF C1–C2 (since 1 Jan 2026), or TEF/TCF at B2",
+    fact: "B2 — in both oral and written French, with no compensation between skills — is the standard since 1 January 2026, alongside a new civic exam. DELF B1 is for the 10-year resident card; A2 for the multi-year residence permit.",
   },
   {
     goal: "Study in France",
@@ -71,6 +71,14 @@ export default function WhichFrenchTestPage() {
           French isn&apos;t one exam. The right test depends entirely on your goal — and the wrong
           one can mean zero immigration points or a diploma that doesn&apos;t count. Here is the
           honest version, mapped to CEFR and Canada&apos;s NCLC.
+        </p>
+        <p className="mt-4 text-sm text-almi-text">
+          Applying for French citizenship? The required French level rose from B1 to B2 for
+          applications filed from 1 January 2026 —{" "}
+          <Link href="/french-level-for-citizenship-2026" className="font-semibold text-almi-coral hover:underline">
+            what changed and who it affects
+          </Link>
+          .
         </p>
 
         <div className="mt-10 space-y-4">
