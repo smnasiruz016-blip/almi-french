@@ -32,6 +32,8 @@ const FOOTER_COLUMNS: FooterColumn[] = [
       { label: "AlmiDET", href: "https://almidet.almiworld.com/" },
       { label: "AlmiCELPIP", href: "https://almicelpip.almiworld.com/" },
       { label: "AlmiFrench", href: "https://almifrench.almiworld.com/" },
+      { label: "AlmiSpanish", href: "https://almispanish.almiworld.com/" },
+      { label: "AlmiJapanese", href: "https://almijapanese.almiworld.com/" },
     ],
   },
   {
