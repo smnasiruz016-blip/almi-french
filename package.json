@@ -5,7 +5,7 @@
   "description": "AlmiFrench — AI-powered French exam practice in the AlmiWorld family. TEF, TCF, DELF and DALF across four skills and six CEFR levels (A1–C2), with three honest scoring engines mapping to CEFR and Canada's NCLC. Separate product (almifrench.almiworld.com). Original French content — never copied from the test-makers. Practice estimates only; confirm with the official body.",
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "node scripts/seo/uniqueness-gate.mjs && prisma generate && next build",
     "start": "next start",
     "postinstall": "prisma generate",
     "seed:a1": "tsx scripts/seed/a1.ts",
@@ -23,6 +23,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.91.1",
     "@prisma/client": "^6.19.3",
+    "@smnasiruz016-blip/almi-data": "^0.4.0",
     "bcryptjs": "^3.0.3",
     "next": "16.2.6",
     "prisma": "^6.19.3",
