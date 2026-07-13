@@ -4,6 +4,10 @@ import { SITE_URL } from "@/lib/site";
 import { CEFR_LEVELS, CEFR_LABEL } from "@/lib/french/cefr";
 
 export const metadata: Metadata = {
+  // Homepage self-brands; absolute opts out of the layout's "%s · AlmiFrench" template.
+  title: { absolute: "French Exam Practice — TEF, TCF, DELF, DALF | AlmiFrench" },
+  description:
+    "TEF, TCF, DELF and DALF practice on their real scales — Canada, Québec, naturalisation, study. Honest per-skill readiness (NCLC/CEFR), never a fake score.",
   alternates: { canonical: SITE_URL },
 };
 
