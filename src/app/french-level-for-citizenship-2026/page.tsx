@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE_URL } from "@/lib/site";
 
-export const revalidate = 86_400;
+export const revalidate = false;
 
 const URL = `${SITE_URL}/french-level-for-citizenship-2026`;
 const TITLE = "France Raised the French Level for Citizenship — B1 to B2 (2026)";
