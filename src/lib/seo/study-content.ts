@@ -3,6 +3,7 @@
 // is France-wide (Campus France / «Études en France» / DAP), so we state the real
 // rule and defer specifics to the establishment + Campus France.
 
+import { originContext } from "@smnasiruz016-blip/almi-data";
 import type { FormationRecord } from "./formations";
 import type { Origin } from "./origins";
 
@@ -187,6 +188,40 @@ export function applicationCorridor(origin: Origin): { heading: string; body: st
       `establishment (or through the DAP procedure for first-year undergraduate), and once admitted you ` +
       `request your student visa at the French consulate or embassy serving ${origin.name}. Your French ` +
       `proof (TCF / TEF, or DELF / DALF) goes to the establishment at the level it requires.`,
+  };
+}
+
+// ---- Home-country dimension (AlmiWorld pSEO Localization Standard) ----------
+// The corridor above localizes the INBOUND direction (Campus France / «Études en
+// France» / DAP). The Standard also wants the ORIGIN's own reference point: the
+// body that recognises a French qualification back home, plus the real search
+// vocabulary that nationality uses. Verified facts come from the shared
+// @smnasiruz016-blip/almi-data layer; unresearched origins get an honest-generic,
+// hedged line — never a fabricated body, never a country-name swap.
+export type HomeRecognition = { localized: boolean; paragraph: string; searchTerms: string[] };
+
+const cleanConcern = (s: string) => s.replace(/\s*[.?;]+\s*$/, "").trim();
+
+export function homeRecognition(origin: Origin): HomeRecognition {
+  const loc = originContext(origin.slug);
+  if (loc) {
+    const url = loc.recognitionUrl ? ` (${loc.recognitionUrl.replace(/^https?:\/\//, "")})` : "";
+    return {
+      localized: true,
+      paragraph:
+        `If you plan to use a French qualification back in ${origin.name}, recognition of a foreign degree there ` +
+        `goes through ${loc.recognitionBody}${url}. ${loc.equivalenceNote} A common concern from ${origin.name}: ` +
+        `“${cleanConcern(loc.commonConcern)}” — worth planning early, alongside the French requirement.` +
+        `${loc.sourceNote ? ` (${loc.sourceNote})` : ""}`,
+      searchTerms: loc.searchTerms ?? [],
+    };
+  }
+  return {
+    localized: false,
+    paragraph:
+      `If you plan to use a French qualification back in ${origin.name}, confirm how a foreign degree is recognised ` +
+      `with the relevant authority there before relying on it — the process and the body differ by country.`,
+    searchTerms: [],
   };
 }
 

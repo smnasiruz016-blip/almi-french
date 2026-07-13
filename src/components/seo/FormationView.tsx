@@ -9,6 +9,7 @@ import {
   ADMISSION_NOT_VISA,
   DATA_ATTRIBUTION,
   applicationCorridor,
+  homeRecognition,
   frenchRequirement,
   formationHeading,
   levelLabel,
@@ -88,6 +89,7 @@ export function FormationView({ formation: f, origin }: { formation: FormationRe
           const corridor = applicationCorridor(origin);
           const faq = originFaq(f, origin);
           const lead = localizedLead(origin.slug);
+          const home = homeRecognition(origin);
           return (
             <>
               <section className="mt-6 rounded-2xl border border-almi-bg-peach bg-almi-paper p-6">
@@ -104,6 +106,15 @@ export function FormationView({ formation: f, origin }: { formation: FormationRe
                   <p className="mt-2 text-sm text-almi-text">{lead}</p>
                 </section>
               ) : null}
+              <section className="mt-6 rounded-2xl border border-almi-bg-peach bg-almi-paper p-6">
+                <h2 className="text-lg font-semibold text-almi-ink">Using a French qualification back in {origin.name}</h2>
+                <p className="mt-2 text-sm text-almi-text">{home.paragraph}</p>
+                {home.searchTerms.length > 0 ? (
+                  <p className="mt-2 text-xs text-almi-text-muted">
+                    People from {origin.name} commonly search for: {home.searchTerms.join(" · ")}.
+                  </p>
+                ) : null}
+              </section>
               <section className="mt-6 rounded-2xl border border-almi-bg-peach bg-almi-paper p-6">
                 <h2 className="text-lg font-semibold text-almi-ink">
                   Studying {heading} in France from {origin.name} — common questions
