@@ -8,7 +8,7 @@ import { FormationView } from "@/components/seo/FormationView";
 import { formationHeading, locationLine, courseJsonLd } from "@/lib/seo/study-content";
 import { SITE_URL } from "@/lib/site";
 
-export const revalidate = 604800; // 7 days
+export const revalidate = false;
 
 type Params = { params: Promise<{ formation: string }> };
 

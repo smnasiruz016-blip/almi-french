@@ -7,7 +7,7 @@
 import type { MetadataRoute } from "next";
 import { CHUNK, CHUNKS, TOTAL, entryForIndex } from "@/lib/seo/sitemap-plan";
 
-export const revalidate = 86_400; // 1 day
+export const revalidate = false;
 
 export async function generateSitemaps() {
   return Array.from({ length: CHUNKS }, (_, id) => ({ id }));
