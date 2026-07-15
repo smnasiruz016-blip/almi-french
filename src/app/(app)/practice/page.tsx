@@ -4,6 +4,21 @@
 import Link from "next/link";
 import { EXAMS, EXAM_FAMILIES, examsByFamily } from "@/lib/french/exams";
 import { LEVELS, LEVEL_LABEL, SKILL_ORDER, SKILL_LABEL, SKILL_SLUG, isObjective } from "@/lib/french/types";
+import { SKILL_FR } from "@/lib/french/cefr";
+import {
+  delfStructureFor,
+  DELF_COMPREHENSION_NOTE,
+  DELF_STRUCTURE_SOURCE,
+} from "@/lib/french/delf-structure";
+
+// DELF exams are level-named (delf-b1), so the structure follows the exam id
+// rather than the picker. DALF C1/C2 have no verified structure → nothing shown.
+const DELF_LEVEL_BY_EXAM_ID: Record<string, "A1" | "A2" | "B1" | "B2"> = {
+  "delf-a1": "A1",
+  "delf-a2": "A2",
+  "delf-b1": "B1",
+  "delf-b2": "B2",
+};
 
 export const metadata = { title: "Practice" };
 
@@ -14,6 +29,8 @@ export default async function PracticePage({
 }) {
   const { exam: examId, level } = await searchParams;
   const exam = EXAMS.find((e) => e.id === examId);
+  const delfLevel = exam ? DELF_LEVEL_BY_EXAM_ID[exam.id] : undefined;
+  const structure = delfLevel ? delfStructureFor(delfLevel) : null;
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
@@ -70,6 +87,55 @@ export default async function PracticePage({
               </Link>
             ))}
           </div>
+        </section>
+      )}
+
+      {structure && (
+        <section className="mt-8">
+          <h2 className="font-display text-lg font-semibold text-almi-ink">
+            What {exam?.name} actually looks like
+          </h2>
+          <p className="mt-1 text-xs text-almi-text-muted">{DELF_COMPREHENSION_NOTE}</p>
+          <div className="mt-3 overflow-x-auto">
+            <table className="w-full min-w-[32rem] border-collapse text-left text-sm">
+              <thead>
+                <tr className="border-b border-almi-bg-peach">
+                  <th className="py-2 pr-4 font-display font-semibold text-almi-ink">Épreuve</th>
+                  <th className="py-2 pr-4 font-display font-semibold text-almi-ink">Length</th>
+                  <th className="py-2 font-display font-semibold text-almi-ink">Duration</th>
+                </tr>
+              </thead>
+              <tbody>
+                {structure.epreuves.map((e) => (
+                  <tr key={e.skill} className="border-b border-almi-bg-peach/60 align-top">
+                    <td className="py-2 pr-4 text-almi-text">
+                      {SKILL_FR[e.skill]}
+                      {e.task && (
+                        <span className="block text-xs text-almi-text-muted">{e.task}</span>
+                      )}
+                    </td>
+                    <td className="py-2 pr-4 text-almi-text">
+                      {e.exercises !== null
+                        ? `${e.exercises} exercise${e.exercises > 1 ? "s" : ""}`
+                        : e.parts !== null
+                          ? `${e.parts} parts`
+                          : "—"}
+                    </td>
+                    <td className="py-2 text-almi-text">
+                      {e.duration}
+                      {e.prep && (
+                        <span className="block text-xs text-almi-text-muted">+ {e.prep}</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-2 text-xs text-almi-text-muted">
+            Scored {structure.totalNote}; pass = 50/100 with at least 5/25 in every épreuve — any
+            épreuve under 5/25 fails the whole exam (note éliminatoire). {DELF_STRUCTURE_SOURCE}
+          </p>
         </section>
       )}
 
