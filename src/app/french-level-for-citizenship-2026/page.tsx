@@ -147,9 +147,12 @@ export default function CitizenshipFrenchLevelPage() {
 
         <Card title="Not the same as a residence permit">
           <p>
-            Residence-permit French levels are separate requirements: the multi-year residence permit
-            references A2, and the 10-year resident card references B1. These are different from
-            naturalisation and are unaffected by the B2 nationality rule.
+            Residence-permit French levels are separate requirements, and the B2 nationality rule does
+            not change them — but they moved on the same day. Since 1 January 2026, a non-European
+            national applying for a <em>first</em> multi-year residence permit must show A2, and a{" "}
+            <em>first</em> 10-year resident card requires B1. That came from Décret n° 2025-647, the
+            sibling of the 2025-648 decree that raised naturalisation to B2, so all of this arrived
+            together. Confirm your own case with your préfecture.
           </p>
         </Card>
 
