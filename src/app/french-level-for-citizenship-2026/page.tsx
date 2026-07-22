@@ -1,8 +1,21 @@
 // Self-canonical explainer: France raised the naturalisation French level from
 // B1 to B2 for applications filed from 1 Jan 2026 (Décret n° 2025-648 du 15
 // juillet 2025), and added a civic exam. Verified against service-public.fr
-// (F11926) and Légifrance (JORFTEXT000051900519). No claim beyond those facts;
-// the DELF/DALF and TEF/TCF exams themselves are unchanged — this is an
+// (F11926) and Légifrance (JORFTEXT000051900519).
+//
+// The civic exam's FORMAT (45 min, multiple-choice, pass >= 80%) and its exemption
+// list come from a SECONDARY source: Fragomen, "France: Civics and Language Tests
+// Now Required...", published 2026-01-02 —
+// https://www.fragomen.com/insights/france-civics-and-language-tests-now-required-for-some-multi-year-residence-permits-residence-cards-and-french-citizenship.html
+// Read 2026-07-21. It is an immigration law firm's briefing, NOT the decree, so it
+// is ranked below the two primary sources above and the page says so in its own
+// words. Fragomen itself hedges the SUBJECT MATTER ("the exam is expected to test
+// republican principles as well as the rights and duties of residents of France") —
+// that hedge is carried through to the copy deliberately and must NOT be flattened
+// into a flat claim. Replace this block with F11926/Légifrance wording the moment
+// the official description publishes.
+//
+// The DELF/DALF and TEF/TCF exams themselves are unchanged — this is an
 // acceptance-policy change. Requirement-not-guarantee framing throughout.
 
 import type { Metadata } from "next";
@@ -132,9 +145,21 @@ export default function CitizenshipFrenchLevelPage() {
 
         <Card title="The civic exam">
           <p>
-            Alongside the language level, a civic examination now checks knowledge of French history,
-            culture and society (organised by France Éducation International). Confirm the current format
-            and how to sit it via the official sources below.
+            Alongside the language level, a civic examination now applies (organised by France Éducation
+            International). It runs <strong>45 minutes</strong>, is <strong>multiple-choice</strong>, and
+            requires a score of <strong>at least 80%</strong> to pass.
+          </p>
+          <p className="mt-3">
+            On what it covers, the wording is not yet settled: the test is <em>expected</em> to cover
+            republican principles and the rights and duties of residents of France. We report that as
+            expected rather than fixed because the source itself hedges it — when the official
+            description is published, this line changes.
+          </p>
+          <p className="mt-3">
+            Exemptions are reported for non-EU nationals <strong>renewing</strong> an existing permit,
+            beneficiaries of international agreements, applicants aged <strong>65 or over</strong>, and
+            people with disabilities or chronic conditions. Exemption is decided on your file, not by this
+            page — confirm your own case via the official sources below.
           </p>
         </Card>
 

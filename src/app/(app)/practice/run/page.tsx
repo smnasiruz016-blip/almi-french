@@ -1,12 +1,19 @@
-// Run one practice item for a chosen exam + level + skill. Loads the item
-// server-side and strips answer keys before handing it to the client composer.
+// Entry point for a practice run: starts a SESSION for the chosen exam + level +
+// skill and redirects into it.
+//
+// This page used to BE the runner: it called pickItems({limit: 1}) and rendered
+// items[0]. With `orderBy: createdAt asc` that served the same single item on every
+// visit forever — 48 of 384 items reachable (12.5%). It is now a starter, so every
+// existing /practice/run?exam=..&level=..&skill=.. link keeps working and lands the
+// learner in a rotating multi-item run instead.
 
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { requireUser } from "@/lib/auth";
 import { findExam } from "@/lib/french/exams";
-import { LEVELS, SKILL_SLUG, SKILL_LABEL } from "@/lib/french/types";
+import { LEVELS, SKILL_SLUG } from "@/lib/french/types";
 import type { CefrLevel, FrenchSkill } from "@prisma/client";
-import { pickItems, stripAnswers } from "@/lib/french/session";
-import { Composer, type ComposerItem } from "@/components/french/Composer";
+import { startSession } from "@/lib/french/session";
 
 export const metadata = { title: "Practice run" };
 
@@ -19,6 +26,7 @@ export default async function RunPage({
 }: {
   searchParams: Promise<{ exam?: string; level?: string; skill?: string }>;
 }) {
+  const user = await requireUser();
   const sp = await searchParams;
   const exam = findExam(sp.exam ?? "");
   const level = sp.level as CefrLevel | undefined;
@@ -35,14 +43,14 @@ export default async function RunPage({
     );
   }
 
-  const items = await pickItems({ level, skill, exam, limit: 1 });
-  const item = items[0];
+  const sessionId = await startSession({ userId: user.id, exam, level, skill });
 
-  if (!item) {
+  // No content for this cell yet — say so plainly rather than rendering an empty run.
+  if (!sessionId) {
     return (
       <div className="mx-auto max-w-2xl px-6 py-16 text-center">
         <h1 className="font-display text-2xl font-bold text-almi-ink">
-          No {SKILL_LABEL[skill]} items at {level} yet
+          No items at {level} for {exam.name} yet
         </h1>
         <p className="mt-3 text-sm text-almi-text-muted">
           Original French content is being added wave by wave. Try another level or skill.
@@ -54,12 +62,5 @@ export default async function RunPage({
     );
   }
 
-  return (
-    <div className="mx-auto max-w-3xl px-6 py-10">
-      <p className="text-xs font-semibold uppercase tracking-wide text-almi-text-muted">
-        {exam.name} · {level} · {SKILL_LABEL[skill]}
-      </p>
-      <Composer item={stripAnswers(item) as unknown as ComposerItem} examId={exam.id} />
-    </div>
-  );
+  redirect(`/practice/session/${sessionId}`);
 }
