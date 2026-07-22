@@ -14,7 +14,7 @@ export type PlanConfig = {
   attemptsPerMonth: number;
   /** AI-evaluated productive tasks per month — Infinity = unlimited. */
   aiEvaluationsPerMonth: number;
-  /** Access to all DET task types vs. a limited preview. */
+  /** Access to every exam task type vs. a limited preview. */
   allTasks: boolean;
 };
 
@@ -84,7 +84,7 @@ export function isEmailVerified(user: Pick<User, "emailVerified">): boolean {
 
 /** Gate for paid features: an OWNER always has access; otherwise requires an
  *  active subscription AND verified email. Owner override is the single
- *  chokepoint — every free-tier limit (objective + productive DET tasks) and
+ *  chokepoint — every free-tier limit (compréhension + expression tasks) and
  *  the "free plan" UI banner derive from this. */
 export function hasPaidAccess(
   user: ProUserShape & Pick<User, "emailVerified" | "email">,
