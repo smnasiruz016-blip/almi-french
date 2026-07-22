@@ -956,6 +956,152 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     difficulty: "CORE", topicTag: "etudes",
     payload: { taskPrompt: "Présentez à un ami le cours de français du soir que vous suivez et convainquez-le de s'inscrire : le rythme, le groupe, les progrès. Il trouve que c'est cher — répondez à cet argument.", prepSeconds: 60, speakSeconds: 600 },
   },
+
+  // ---------- TCF A1 top-up (Rule #7: 5 -> 15 per expression module) ----------
+  // Fixed TCF format (src/lib/french/tef-tcf-structure.ts), level-independent:
+  // écrite T1 60–120 / T2 120–150 / T3 120–180; orale T1 prep 0 speak 120 (entretien
+  // guidé), T2 prep 120 speak 210 (interaction, 8–12 questions), T3 prep 0 speak 270
+  // (point de vue). Each module carries all three tâches. A1 shifts topic only.
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 1 — Message : remercier après un dîner",
+    prompt: "Rédigez le message demandé (Tâche 1).",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { situation: "Des amis vous ont invité à dîner chez eux samedi.", instruction: "Écrivez-leur un message. Remerciez-les, dites ce que vous avez aimé pendant la soirée, donnez des nouvelles de votre retour, et proposez de les recevoir chez vous.", wordMin: 60, wordMax: 120 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 1 — Message : donner de ses nouvelles",
+    prompt: "Rédigez le message demandé (Tâche 1).",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { situation: "Vous habitez dans une nouvelle ville depuis un mois.", instruction: "Écrivez à un ami resté loin. Dites où vous habitez, parlez de votre travail ou de vos cours, décrivez une habitude nouvelle, et demandez de ses nouvelles.", wordMin: 60, wordMax: 120 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 1 — Message : organiser un pique-nique",
+    prompt: "Rédigez le message demandé (Tâche 1).",
+    difficulty: "CORE", topicTag: "loisirs",
+    payload: { situation: "Vous organisez un pique-nique dimanche avec des amis.", instruction: "Écrivez le message d'organisation. Donnez le lieu et l'heure, dites comment y aller, répartissez ce que chacun apporte, et demandez qui vient.", wordMin: 60, wordMax: 120 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 2 — Courriel : demander un renseignement à une mairie",
+    prompt: "Rédigez le texte demandé (Tâche 2).",
+    difficulty: "CORE", topicTag: "vie-pratique",
+    payload: { situation: "Vous voulez inscrire votre enfant à l'école de votre quartier.", instruction: "Écrivez un courriel à la mairie. Présentez-vous, indiquez l'âge de votre enfant et votre adresse, demandez les documents nécessaires et les dates d'inscription, et demandez s'il faut prendre rendez-vous.", wordMin: 120, wordMax: 150 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 2 — Courriel : réserver une activité de groupe",
+    prompt: "Rédigez le texte demandé (Tâche 2).",
+    difficulty: "CORE", topicTag: "loisirs",
+    payload: { situation: "Vous voulez réserver une visite guidée pour huit personnes.", instruction: "Écrivez au service des visites. Indiquez le nombre de participants et les dates possibles, demandez la durée et le prix, signalez qu'une personne se déplace difficilement, et demandez comment payer.", wordMin: 120, wordMax: 150 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 2 — Article : présenter son quartier au journal du club",
+    prompt: "Rédigez le texte demandé (Tâche 2).",
+    difficulty: "CORE", topicTag: "logement",
+    payload: { situation: "Le journal de votre club demande à chaque membre de présenter son quartier.", instruction: "Écrivez un court article. Situez le quartier, décrivez ce qu'on y trouve, parlez des transports, racontez un moment agréable que vous y avez vécu, et dites à qui vous le conseillez.", wordMin: 120, wordMax: 150 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 3 — Comparer : la ville ou le village",
+    prompt: "Comparez les deux points de vue puis donnez le vôtre (Tâche 3).",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { situation: "Un ami dit : « En ville, on trouve tout. » Un autre répond : « Au village, on vit mieux. »", instruction: "Présentez les deux points de vue, dites ce que chacun a de vrai, puis donnez votre position et expliquez-la avec un exemple de votre vie.", wordMin: 120, wordMax: 180 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 3 — Comparer : cuisiner ou manger dehors",
+    prompt: "Comparez les deux points de vue puis donnez le vôtre (Tâche 3).",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { situation: "Certains disent qu'il vaut mieux cuisiner à la maison ; d'autres préfèrent manger au restaurant.", instruction: "Présentez les deux avis avec leurs raisons, puis donnez le vôtre. Parlez du prix, du temps et du plaisir, et donnez un exemple concret.", wordMin: 120, wordMax: 180 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 3 — Comparer : travailler seul ou en groupe",
+    prompt: "Comparez les deux points de vue puis donnez le vôtre (Tâche 3).",
+    difficulty: "CORE", topicTag: "etudes",
+    payload: { situation: "Dans votre cours, certains préfèrent travailler seuls, d'autres en groupe.", instruction: "Présentez les avantages de chaque façon de faire, puis dites ce que vous préférez et pourquoi, avec un exemple tiré de votre expérience.", wordMin: 120, wordMax: 180 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 3 — Comparer : apprendre avec un professeur ou seul",
+    prompt: "Comparez les deux points de vue puis donnez le vôtre (Tâche 3).",
+    difficulty: "CORE", topicTag: "etudes",
+    payload: { situation: "Une amie apprend le français seule ; une autre suit des cours.", instruction: "Présentez les deux façons d'apprendre et ce qu'elles apportent, puis donnez votre position et justifiez-la par votre propre expérience.", wordMin: 120, wordMax: 180 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 1 — Entretien guidé : votre logement",
+    prompt: "Répondez à l'entretien guidé (Tâche 1), puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "logement",
+    payload: { taskPrompt: "Parlez de votre logement : où il se trouve, combien il y a de pièces, avec qui vous habitez, et ce que vous aimez chez vous.", prepSeconds: 0, speakSeconds: 120 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 1 — Entretien guidé : vos loisirs",
+    prompt: "Répondez à l'entretien guidé (Tâche 1), puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "loisirs",
+    payload: { taskPrompt: "Parlez de ce que vous faites pendant votre temps libre : vos activités, avec qui, quand, et pourquoi vous les aimez.", prepSeconds: 0, speakSeconds: 120 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 1 — Entretien guidé : vos repas",
+    prompt: "Répondez à l'entretien guidé (Tâche 1), puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { taskPrompt: "Parlez de vos repas : ce que vous mangez le matin, à midi et le soir, qui cuisine chez vous, et votre plat préféré.", prepSeconds: 0, speakSeconds: 120 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 2 — Interaction : se renseigner sur un cours de sport",
+    prompt: "Posez 8 à 12 questions dans l'échange (Tâche 2), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "loisirs",
+    payload: { taskPrompt: "Vous voulez vous inscrire à un cours de sport. Posez entre 8 et 12 questions : les jours, les horaires, le prix, le niveau demandé, la tenue, le nombre de participants, le lieu exact, et comment s'inscrire.", prepSeconds: 120, speakSeconds: 210 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 2 — Interaction : louer un appartement",
+    prompt: "Posez 8 à 12 questions dans l'échange (Tâche 2), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "logement",
+    payload: { taskPrompt: "Vous visitez un appartement à louer. Posez entre 8 et 12 questions : le loyer, les charges, le nombre de pièces, l'étage, le chauffage, les transports à côté, la date libre, et les documents demandés.", prepSeconds: 120, speakSeconds: 210 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 2 — Interaction : à la poste",
+    prompt: "Posez 8 à 12 questions dans l'échange (Tâche 2), puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "vie-pratique",
+    payload: { taskPrompt: "Vous voulez envoyer un colis dans un autre pays. Posez entre 8 et 12 questions : le prix, le délai, le poids maximum, l'emballage, le suivi, l'assurance, ce qui est interdit, et les horaires du bureau.", prepSeconds: 120, speakSeconds: 210 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 3 — Point de vue : les transports en ville",
+    prompt: "Exprimez et défendez un point de vue (Tâche 3), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { taskPrompt: "Vaut-il mieux se déplacer en bus, à vélo ou en voiture dans une ville ? Donnez votre point de vue, expliquez vos raisons, et donnez des exemples de votre vie quotidienne.", prepSeconds: 0, speakSeconds: 270 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 3 — Point de vue : vivre près ou loin du travail",
+    prompt: "Exprimez et défendez un point de vue (Tâche 3), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "travail",
+    payload: { taskPrompt: "Est-il préférable d'habiter près de son travail, même dans un logement plus petit, ou plus loin dans un logement plus grand ? Donnez votre avis et justifiez-le.", prepSeconds: 0, speakSeconds: 270 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 3 — Point de vue : le téléphone au quotidien",
+    prompt: "Exprimez et défendez un point de vue (Tâche 3), puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "societe",
+    payload: { taskPrompt: "Le téléphone rend-il la vie plus simple ou plus compliquée ? Donnez votre point de vue et illustrez-le avec des exemples de votre journée.", prepSeconds: 0, speakSeconds: 270 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
+    title: "TCF Tâche 3 — Point de vue : faire ses courses au marché",
+    prompt: "Exprimez et défendez un point de vue (Tâche 3), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "vie-quotidienne",
+    payload: { taskPrompt: "Est-il mieux de faire ses courses au marché ou au supermarché ? Donnez votre point de vue en parlant du prix, de la qualité et du temps, avec des exemples.", prepSeconds: 0, speakSeconds: 270 },
+  },
 ];
 
 async function main() {
