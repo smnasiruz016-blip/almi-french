@@ -675,6 +675,152 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     difficulty: "CORE", topicTag: "societe",
     payload: { taskPrompt: "À partir d'un dossier sur les transformations des espaces urbains, dégagez les enjeux, construisez un exposé argumenté défendant une vision de la ville souhaitable, puis défendez-la dans un débat avec l'examinateur.", prepSeconds: 3600, speakSeconds: 480 },
   },
+
+  // ---------- TEF C2 top-up (Rule #7: 5 -> 15 per expression module) ----------
+  // Fixed TEF format: écrite Section A 80–120 / Section B 200–260; orale Section A
+  // 300 s / Section B 600 s. At C2 the constraint bites hardest: the candidate must
+  // compress an abstract position into the exam's short formats without losing
+  // nuance. The task does not grow with the level — the answer does.
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Courriel : décliner une invitation sans rompre le lien",
+    prompt: "Rédigez le message demandé (Section A).",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { situation: "On vous invite à siéger dans un comité dont vous contestez la méthode, mais dont vous soutenez l'objectif.", instruction: "Écrivez votre réponse. Déclinez sans ambiguïté, exposez la réserve de fond en une phrase nette, distinguez-la de l'objectif que vous approuvez, et laissez une porte ouverte à une autre forme de contribution.", wordMin: 80, wordMax: 120 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Message : rectifier une citation tronquée",
+    prompt: "Rédigez le message demandé (Section A).",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "Une de vos formules est reprise dans un débat public en lui faisant dire l'inverse de votre propos.", instruction: "Écrivez à l'auteur de la reprise. Restituez le sens initial, montrez précisément où la coupe déplace le propos, demandez une rectification, et évitez toute polémique personnelle.", wordMin: 80, wordMax: 120 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Courriel : refuser une facilité de langage dans un rapport",
+    prompt: "Rédigez le message demandé (Section A).",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { situation: "La synthèse d'un rapport collectif présente une corrélation comme une causalité.", instruction: "Écrivez aux rédacteurs. Identifiez la formulation en cause, expliquez pourquoi elle excède les données, proposez une reformulation exacte, et indiquez ce qui serait nécessaire pour soutenir la thèse forte.", wordMin: 80, wordMax: 120 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Message : proposer un désaccord public loyal",
+    prompt: "Rédigez le message demandé (Section A).",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { situation: "Vous souhaitez répondre publiquement à une position défendue par une personne dont vous êtes proche.", instruction: "Écrivez-lui avant publication. Annoncez votre intention, résumez loyalement sa thèse, indiquez le point exact du désaccord, et proposez qu'elle réponde dans le même espace.", wordMin: 80, wordMax: 120 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Courriel : demander la levée d'une ambiguïté éthique",
+    prompt: "Rédigez le message demandé (Section A).",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { situation: "Un financement proposé à votre structure provient d'un acteur dont l'activité contredit votre objet.", instruction: "Écrivez au conseil. Exposez la tension sans dramatiser, distinguez le risque réel du risque d'image, demandez une position formelle, et proposez le critère qui devrait trancher.", wordMin: 80, wordMax: 120 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Prendre parti : la neutralité est-elle tenable ?",
+    prompt: "Rédigez un texte argumenté défendant une position (Section B).",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "On exige des institutions une neutralité que certains jugent impossible et d'autres indispensable.", instruction: "Défendez une position argumentée. Distinguez neutralité et impartialité, éprouvez votre thèse contre l'objection la plus forte, et tranchez sans esquiver.", wordMin: 200, wordMax: 260 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Prendre parti : le droit à l'oubli",
+    prompt: "Rédigez un texte argumenté défendant une position (Section B).",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "Effacer une information exacte mais ancienne oppose la protection des personnes et l'intégrité de la mémoire collective.", instruction: "Défendez une position argumentée. Traitez ce que l'oubli protège et ce qu'il efface, distinguez les cas, et assumez une règle générale.", wordMin: 200, wordMax: 260 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Prendre parti : peut-on enseigner le jugement ?",
+    prompt: "Rédigez un texte argumenté défendant une position (Section B).",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { situation: "On attend de l'école qu'elle forme au jugement critique, sans s'accorder sur la possibilité de l'enseigner.", instruction: "Défendez une position argumentée. Interrogez ce que serait un tel enseignement, opposez-lui l'objection de la transmission de contenus, et concluez sur ce qui est réellement transmissible.", wordMin: 200, wordMax: 260 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Prendre parti : l'expertise face au débat démocratique",
+    prompt: "Rédigez un texte argumenté défendant une position (Section B).",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "Les décisions techniques échappent largement au débat public, faute de compétence partagée.", instruction: "Défendez une position argumentée. Traitez la légitimité du savoir et celle du nombre, refusez les solutions de facilité, et proposez une articulation défendable.", wordMin: 200, wordMax: 260 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Prendre parti : la lenteur a-t-elle une valeur ?",
+    prompt: "Rédigez un texte argumenté défendant une position (Section B).",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { situation: "L'accélération générale des rythmes est tantôt dénoncée, tantôt revendiquée comme un progrès.", instruction: "Défendez une position argumentée. Évitez l'éloge convenu de la lenteur, distinguez les domaines où elle est un gain de ceux où elle est un coût, et tranchez.", wordMin: 200, wordMax: 260 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Se renseigner : les conditions d'une expertise indépendante",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { taskPrompt: "Vous confiez une expertise externe sur un dossier sensible. Posez le maximum de questions : les garanties d'indépendance, les conflits d'intérêts déclarés, la méthode retenue, l'accès aux données, la propriété du rapport, et les conditions de sa publication.", prepSeconds: 60, speakSeconds: 300 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Se renseigner : céder des droits sur une œuvre",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "On vous propose de céder les droits d'exploitation d'un travail personnel. Posez le maximum de questions : l'étendue et la durée de la cession, les territoires, les adaptations autorisées, le droit de retrait, la rémunération, et ce qu'il advient en cas de revente à un tiers.", prepSeconds: 60, speakSeconds: 300 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Se renseigner : anonymiser des données d'enquête",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { taskPrompt: "Vous préparez la diffusion de données d'enquête sensibles. Auprès du référent compétent, posez le maximum de questions : les techniques d'anonymisation admises, le risque de réidentification, les durées de conservation, les autorisations requises, les mentions à porter aux participants, et les responsabilités engagées.", prepSeconds: 60, speakSeconds: 300 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Se renseigner : reprendre la direction d'une structure fragilisée",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { taskPrompt: "On vous propose de reprendre la direction d'une structure en difficulté. Posez le maximum de questions : la situation financière réelle, les engagements en cours, l'état des relations sociales, le mandat que l'on vous donnerait, les marges de manœuvre, et les critères d'évaluation attendus.", prepSeconds: 60, speakSeconds: 300 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Se renseigner : les limites d'un dispositif d'aide",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { taskPrompt: "Un dispositif d'aide publique semble exclure une partie de ceux qu'il vise. Auprès de l'organisme gestionnaire, posez le maximum de questions : les critères exacts, les cas d'exclusion constatés, les dérogations possibles, les voies de recours, les évaluations conduites, et les évolutions envisagées.", prepSeconds: 60, speakSeconds: 300 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Persuader : renoncer à un argument efficace mais fragile",
+    prompt: "Présentez et convainquez votre interlocuteur (Section B), puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "Votre campagne repose sur un chiffre frappant que vous savez discutable. Convainquez l'équipe d'y renoncer. On vous répond que c'est le seul argument qui porte auprès du public — traitez cette objection sans la mépriser.", prepSeconds: 60, speakSeconds: 600 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Persuader : publier un résultat négatif",
+    prompt: "Présentez et convainquez votre interlocuteur (Section B), puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { taskPrompt: "Vos travaux n'ont pas confirmé l'hypothèse de départ. Convainquez votre équipe de publier ce résultat. On vous objecte que cela nuira au financement futur — répondez précisément.", prepSeconds: 60, speakSeconds: 600 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Persuader : accepter une décision impopulaire mais juste",
+    prompt: "Présentez et convainquez votre interlocuteur (Section B), puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { taskPrompt: "Une répartition plus équitable des moyens désavantagera le service le plus visible. Présentez la décision et convainquez ses représentants. On vous oppose le mérite et les résultats obtenus — traitez l'argument de front.", prepSeconds: 60, speakSeconds: 600 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Persuader : maintenir un désaccord dans un collectif",
+    prompt: "Présentez et convainquez votre interlocuteur (Section B), puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "Un collectif veut afficher une position unanime dont vous ne partagez pas un point essentiel. Défendez la mention publique du désaccord et convainquez le groupe. On vous répond que la division affaiblit le message — répondez-y.", prepSeconds: 60, speakSeconds: 600 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Persuader : différer une annonce attendue",
+    prompt: "Présentez et convainquez votre interlocuteur (Section B), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "travail",
+    payload: { taskPrompt: "Une annonce très attendue repose sur des éléments encore incertains. Convainquez la direction de la différer de trois semaines. On vous oppose la pression du calendrier et l'impatience du public — proposez une manière de tenir les deux.", prepSeconds: 60, speakSeconds: 600 },
+  },
 ];
 
 async function main() {
