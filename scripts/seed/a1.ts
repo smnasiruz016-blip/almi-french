@@ -458,10 +458,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
-    title: "TEF — Petit mot : dire bonjour",
-    prompt: "Écrivez un petit message.",
+    title: "TEF Section A — Message : se présenter à ses nouveaux voisins",
+    prompt: "Rédigez le message demandé (Section A).",
     difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
-    payload: { situation: "Vous arrivez dans un nouvel appartement.", instruction: "Écrivez un petit mot à vos voisins pour vous présenter : votre nom, d'où vous venez et que vous êtes content d'être là.", wordMin: 20, wordMax: 35 },
+    payload: { situation: "Vous venez d'emménager dans un immeuble et vous voulez vous faire connaître de vos voisins.", instruction: "Écrivez un mot à afficher dans l'entrée. Présentez-vous, dites d'où vous venez et à quel étage vous habitez, signalez que des travaux sont prévus chez vous la semaine prochaine, excusez-vous du bruit, et proposez un moyen de vous joindre.", wordMin: 80, wordMax: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
@@ -479,10 +479,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
-    title: "TEF — Inviter un ami",
-    prompt: "Écrivez le message demandé.",
+    title: "TEF Section A — Message : organiser un anniversaire",
+    prompt: "Rédigez le message demandé (Section A).",
     difficulty: "CORE", topicTag: "vie-quotidienne",
-    payload: { situation: "C'est votre anniversaire samedi.", instruction: "Écrivez un message court pour inviter un ami : dites le jour, l'heure et le lieu.", wordMin: 20, wordMax: 35 },
+    payload: { situation: "Vous fêtez votre anniversaire samedi et vous invitez plusieurs amis.", instruction: "Écrivez le message d'invitation. Donnez le jour, l'heure et l'adresse, expliquez comment venir en transport, dites ce qui est prévu pour le repas, précisez s'il faut apporter quelque chose, et demandez une réponse avant jeudi.", wordMin: 80, wordMax: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
@@ -500,10 +500,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
-    title: "TEF — Courriel : demander l'heure d'un cours",
-    prompt: "Écrivez le courriel demandé.",
+    title: "TEF Section A — Courriel : se renseigner sur un cours de français",
+    prompt: "Rédigez le message demandé (Section A).",
     difficulty: "CORE", topicTag: "education",
-    payload: { situation: "Vous voulez suivre un cours de français.", instruction: "Écrivez un courriel très simple à l'école : saluez, demandez le jour et l'heure du cours, dites merci.", wordMin: 20, wordMax: 35 },
+    payload: { situation: "Vous voulez vous inscrire à un cours de français dans une école de votre ville.", instruction: "Écrivez un courriel à l'école. Présentez-vous et indiquez votre niveau, demandez les jours et les horaires, le prix et le nombre d'élèves par classe, dites quand vous êtes disponible, et demandez comment s'inscrire.", wordMin: 80, wordMax: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
@@ -521,10 +521,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
-    title: "TEF — Petit message : annuler un café",
-    prompt: "Écrivez le message demandé.",
+    title: "TEF Section A — Message : annuler et reporter un rendez-vous",
+    prompt: "Rédigez le message demandé (Section A).",
     difficulty: "CORE", topicTag: "vie-quotidienne",
-    payload: { situation: "Vous ne pouvez pas prendre un café avec un ami cet après-midi.", instruction: "Écrivez un message court : dites que vous ne pouvez pas venir, pourquoi, et proposez demain.", wordMin: 20, wordMax: 35 },
+    payload: { situation: "Vous deviez retrouver un ami cet après-midi mais votre travail vous retient.", instruction: "Écrivez-lui un message. Annoncez que vous ne pourrez pas venir, expliquez pourquoi, excusez-vous, proposez deux autres moments dans la semaine, et demandez lequel lui convient le mieux.", wordMin: 80, wordMax: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
@@ -542,10 +542,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
-    title: "TEF — Message : où es-tu ?",
-    prompt: "Écrivez le message demandé.",
+    title: "TEF Section A — Message : changer un lieu de rendez-vous",
+    prompt: "Rédigez le message demandé (Section A).",
     difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
-    payload: { situation: "Vous attendez un ami au cinéma, mais il n'est pas là.", instruction: "Écrivez un message court : demandez où il est et dites où vous attendez.", wordMin: 15, wordMax: 30 },
+    payload: { situation: "Le cinéma où vous deviez retrouver un ami est fermé ce soir.", instruction: "Écrivez-lui un message. Expliquez la situation, proposez une autre salle ou une autre activité, indiquez la nouvelle adresse et l'heure, expliquez comment s'y rendre, et demandez-lui de confirmer.", wordMin: 80, wordMax: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
@@ -572,10 +572,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
-    title: "TEF — Acheter du pain",
-    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    title: "TEF Section A — Se renseigner : commander un buffet à la boulangerie",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
     difficulty: "FOUNDATION", topicTag: "commerces",
-    payload: { taskPrompt: "Vous êtes à la boulangerie. Vous voulez une baguette et un croissant. Saluez, demandez, demandez le prix et payez.", prepSeconds: 10, speakSeconds: 60 },
+    payload: { taskPrompt: "Vous organisez un déjeuner pour une vingtaine de personnes et vous appelez une boulangerie qui propose des buffets. Posez le maximum de questions : les formules et leur contenu, le prix par personne, les possibilités sans gluten, le délai de commande, la livraison, et le mode de paiement.", prepSeconds: 60, speakSeconds: 300 },
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
@@ -593,10 +593,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
-    title: "TEF — Demander l'heure et le chemin",
-    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    title: "TEF Section A — Se renseigner : préparer un trajet inconnu",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "vie-pratique",
-    payload: { taskPrompt: "Vous êtes dans la rue. Demandez à un passant l'heure et où se trouve la gare. Dites merci.", prepSeconds: 10, speakSeconds: 60 },
+    payload: { taskPrompt: "Vous devez vous rendre demain dans une ville que vous ne connaissez pas. Au guichet d'information, posez le maximum de questions : les horaires de départ, la durée du trajet, les correspondances, le prix et les réductions, ce qui se passe en cas de retard, et comment rejoindre le centre-ville à l'arrivée.", prepSeconds: 60, speakSeconds: 300 },
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
@@ -614,10 +614,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
-    title: "TEF — Acheter un billet de bus",
-    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    title: "TEF Section A — Se renseigner : choisir un titre de transport",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "transports",
-    payload: { taskPrompt: "Vous voulez un billet de bus. Demandez le prix, dites où vous allez et demandez à quelle heure part le bus.", prepSeconds: 10, speakSeconds: 60 },
+    payload: { taskPrompt: "Vous venez d'arriver dans la ville et vous hésitez entre un carnet de tickets et un abonnement. Posez le maximum de questions : les prix comparés, la durée de validité, les zones couvertes, les réductions possibles, où recharger, et ce qu'il faut faire en cas de perte.", prepSeconds: 60, speakSeconds: 300 },
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
@@ -635,10 +635,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
-    title: "TEF — Au magasin : demander un prix",
-    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    title: "TEF Section A — Se renseigner : avant un achat en magasin",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
     difficulty: "FOUNDATION", topicTag: "commerces",
-    payload: { taskPrompt: "Vous voulez acheter un tee-shirt. Demandez le prix, la taille et la couleur. Dites si vous le prenez.", prepSeconds: 10, speakSeconds: 60 },
+    payload: { taskPrompt: "Vous voulez acheter un manteau mais vous hésitez. Posez au vendeur le maximum de questions : les tailles disponibles, la matière et l'entretien, le prix et les promotions à venir, la possibilité d'essayer, les conditions d'échange, et le délai de retour.", prepSeconds: 60, speakSeconds: 300 },
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
@@ -656,10 +656,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
-    title: "TEF — Réserver une table simple",
-    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    title: "TEF Section A — Se renseigner : réserver pour un repas de groupe",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "vie-quotidienne",
-    payload: { taskPrompt: "Vous téléphonez à un restaurant. Demandez une table pour deux personnes ce soir et dites à quelle heure vous voulez venir.", prepSeconds: 10, speakSeconds: 60 },
+    payload: { taskPrompt: "Vous organisez un repas d'équipe pour douze personnes et vous appelez un restaurant. Posez le maximum de questions : la disponibilité aux dates envisagées, la salle et son isolement, les menus de groupe et leur prix, les options végétariennes, l'accessibilité, et les conditions d'annulation.", prepSeconds: 60, speakSeconds: 300 },
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
