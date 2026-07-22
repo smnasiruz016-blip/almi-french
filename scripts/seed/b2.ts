@@ -679,6 +679,138 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     difficulty: "STRETCH", topicTag: "vie-quotidienne",
     payload: { taskPrompt: "Vous partagez un logement et votre colocataire souhaite adopter un animal, ce qui vous pose problème. Échangez vos points de vue et cherchez ensemble une solution acceptable pour tous les deux.", prepSeconds: 60, speakSeconds: 180 },
   },
+
+  // ---------- DELF B2 top-up (Rule #7: 6 -> 15 per expression module) ----------
+  // Structure per src/lib/french/delf-structure.ts, FEI-verified 2026-07-15:
+  // production écrite = "one production of about 250 words"; production orale =
+  // 2 parts, 20 min, with 30 min preparation. B2 register: sustained argument,
+  // concession then rebuttal, precise lexis, a position held to the conclusion.
+  {
+    level: "B2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Prise de position : la semaine de quatre jours",
+    prompt: "Rédigez un texte argumenté et structuré.",
+    difficulty: "CORE", topicTag: "travail",
+    payload: { situation: "Votre entreprise envisage de passer à la semaine de quatre jours à salaire constant.", instruction: "Rédigez une contribution argumentée pour le journal interne. Prenez position, anticipez au moins une objection sérieuse et répondez-y, et concluez par une recommandation concrète.", wordMin: 250, wordMax: 280 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Lettre formelle : contester une fermeture de ligne",
+    prompt: "Rédigez une lettre formelle argumentée.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "La région supprime une ligne de bus qui dessert plusieurs villages.", instruction: "Écrivez à l'autorité des transports. Exposez les conséquences pour les habitants, appuyez-vous sur des situations concrètes, réfutez l'argument budgétaire, et formulez une demande précise.", wordMin: 250, wordMax: 290 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Essai : le tourisme de masse",
+    prompt: "Rédigez un texte argumenté et structuré.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { situation: "Plusieurs villes limitent désormais le nombre de visiteurs dans leur centre historique.", instruction: "Rédigez un essai. Pesez les bénéfices économiques contre les coûts pour les habitants, adoptez une position claire, et défendez-la avec des exemples.", wordMin: 250, wordMax: 280 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Courrier des lecteurs : l'automatisation au travail",
+    prompt: "Rédigez une contribution argumentée pour un journal.",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { situation: "Un article affirme que l'automatisation supprimera plus d'emplois qu'elle n'en créera.", instruction: "Répondez dans le courrier des lecteurs. Discutez la thèse de l'article, nuancez-la, et défendez votre propre analyse en évitant les affirmations non fondées.", wordMin: 250, wordMax: 290 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Essai : gratuité des musées",
+    prompt: "Rédigez un texte argumenté et structuré.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { situation: "Un débat public porte sur la gratuité totale des musées nationaux.", instruction: "Rédigez un essai argumenté. Examinez la question sous l'angle de l'accès à la culture et du financement, puis défendez une position nuancée.", wordMin: 250, wordMax: 280 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Lettre ouverte : le logement étudiant",
+    prompt: "Rédigez une lettre ouverte argumentée.",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { situation: "Les loyers proches des universités rendent les études difficiles pour de nombreux étudiants.", instruction: "Écrivez une lettre ouverte aux élus locaux. Décrivez la situation avec précision, montrez ses effets sur la réussite étudiante, et proposez deux mesures réalistes.", wordMin: 250, wordMax: 290 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Essai : information et réseaux sociaux",
+    prompt: "Rédigez un texte argumenté et structuré.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "De plus en plus de personnes s'informent uniquement par les réseaux sociaux.", instruction: "Rédigez un essai. Analysez ce que cette évolution change dans le rapport à l'information, concédez ce qu'elle apporte, puis défendez votre position.", wordMin: 250, wordMax: 280 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Texte argumenté : cantine ou tickets restaurant",
+    prompt: "Rédigez un texte structuré adressé à une direction.",
+    difficulty: "CORE", topicTag: "travail",
+    payload: { situation: "La direction envisage de remplacer la cantine par des tickets restaurant.", instruction: "Rédigez un texte adressé à la direction au nom de vos collègues. Exposez les avantages et les inconvénients réels des deux formules, puis recommandez une solution en la justifiant.", wordMin: 250, wordMax: 290 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Essai : le sport professionnel et l'argent",
+    prompt: "Rédigez un texte argumenté et structuré.",
+    difficulty: "CORE", topicTag: "loisirs",
+    payload: { situation: "Les sommes engagées dans le sport professionnel font régulièrement débat.", instruction: "Rédigez un essai. Confrontez l'argument économique et l'argument éthique, illustrez par des exemples, et tenez une position cohérente jusqu'à la conclusion.", wordMin: 250, wordMax: 280 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Monologue : la place du travail dans la vie",
+    prompt: "Présentez votre point de vue à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "travail",
+    payload: { taskPrompt: "Le rapport au travail a changé chez les jeunes générations. Présentez votre analyse, illustrez-la, et défendez une position claire face à une objection.", prepSeconds: 600, speakSeconds: 180 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Interaction : défendre un budget associatif",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "La mairie veut réduire de moitié la subvention de votre association. Rencontrez l'élu responsable : montrez l'utilité concrète de vos actions, répondez à l'argument budgétaire, et négociez une solution.", prepSeconds: 60, speakSeconds: 180 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Monologue : consommer local",
+    prompt: "Présentez votre point de vue à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { taskPrompt: "Consommer local est présenté comme une solution écologique. Est-ce toujours vrai ? Nuancez, argumentez, et concluez.", prepSeconds: 600, speakSeconds: 180 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Interaction : refuser une mutation",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { taskPrompt: "On vous propose une mutation dans une autre ville, avec une promotion. Vous ne souhaitez pas partir. Exposez vos raisons à votre responsable sans fermer la discussion, et cherchez une alternative.", prepSeconds: 60, speakSeconds: 180 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Monologue : faut-il noter les élèves ?",
+    prompt: "Présentez votre point de vue à l'oral, puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { taskPrompt: "Certains établissements remplacent les notes par des évaluations par compétences. Analysez ce que l'on gagne et ce que l'on perd, puis prenez position.", prepSeconds: 600, speakSeconds: 180 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Interaction : convaincre une équipe hésitante",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "travail",
+    payload: { taskPrompt: "Vous proposez un nouvel outil de travail que vos collègues jugent inutile. Présentez les bénéfices concrets, entendez leurs réserves, et proposez une mise en place progressive.", prepSeconds: 60, speakSeconds: 180 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Monologue : les villes et la voiture",
+    prompt: "Présentez votre point de vue à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { taskPrompt: "Plusieurs grandes villes réduisent fortement la place de la voiture. Analysez les effets de cette politique sur les habitants et défendez votre position.", prepSeconds: 600, speakSeconds: 180 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Interaction : obtenir un aménagement d'horaires",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { taskPrompt: "Vous reprenez des études en parallèle de votre emploi et souhaitez aménager vos horaires. Exposez votre projet, montrez que le service n'en souffrira pas, et négociez un accord.", prepSeconds: 60, speakSeconds: 180 },
+  },
+  {
+    level: "B2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B2 — Monologue : le bruit dans les villes",
+    prompt: "Présentez votre point de vue à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { taskPrompt: "Le bruit est devenu une préoccupation majeure des habitants des grandes villes. Analysez ses causes et ses effets, puis défendez les mesures qui vous paraissent les plus justes.", prepSeconds: 600, speakSeconds: 180 },
+  },
 ];
 
 async function main() {

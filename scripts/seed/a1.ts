@@ -808,6 +808,154 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     difficulty: "CORE", topicTag: "loisirs",
     payload: { taskPrompt: "Vous êtes au musée avec un ami. Demandez le prix de deux billets, demandez l'heure de fermeture, et remerciez.", prepSeconds: 10, speakSeconds: 60 },
   },
+
+  // ---------- TEF A1 top-up (Rule #7: 5 -> 15 per expression module) ----------
+  // Structure per src/lib/french/tef-tcf-structure.ts. TEF is NOT level-specific:
+  // one exam placed on the CEFR/NCLC scale, so the task FORMAT is fixed at every
+  // level — écrite Section A 80–120 mots, Section B 200–260 mots; orale Section A
+  // 300 s (obtain information), Section B 600 s (persuade). Only the topic and the
+  // expected register change with the cell's level. At A1 the situations are
+  // concrete and everyday; the word counts stay the exam's.
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Message : prévenir d'un retard",
+    prompt: "Rédigez le message demandé (Section A).",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { situation: "Votre bus est bloqué et vous arriverez en retard à un rendez-vous.", instruction: "Écrivez un message à la personne qui vous attend. Dites pourquoi vous êtes en retard, à quelle heure vous arrivez, et proposez de la prévenir en arrivant.", wordMin: 80, wordMax: 120 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Courriel : réserver une place au cours de danse",
+    prompt: "Rédigez le message demandé (Section A).",
+    difficulty: "FOUNDATION", topicTag: "loisirs",
+    payload: { situation: "Vous voulez vous inscrire à un cours de danse le mercredi soir.", instruction: "Écrivez un courriel à l'association. Présentez-vous, dites quel cours vous intéresse, demandez le prix et l'heure, et demandez s'il reste de la place.", wordMin: 80, wordMax: 120 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Message : demander un service au voisin",
+    prompt: "Rédigez le message demandé (Section A).",
+    difficulty: "CORE", topicTag: "vie-quotidienne",
+    payload: { situation: "Vous partez trois jours et vos plantes ont besoin d'eau.", instruction: "Écrivez un mot à votre voisin. Expliquez votre absence, demandez son aide, dites ce qu'il faut faire, et proposez de le remercier à votre retour.", wordMin: 80, wordMax: 120 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Courriel : changer une commande",
+    prompt: "Rédigez le message demandé (Section A).",
+    difficulty: "CORE", topicTag: "vie-pratique",
+    payload: { situation: "Vous avez commandé une table en ligne mais vous préférez une autre couleur.", instruction: "Écrivez au magasin. Rappelez votre commande, dites ce que vous voulez changer, et demandez si c'est encore possible.", wordMin: 80, wordMax: 120 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Message : proposer de se retrouver",
+    prompt: "Rédigez le message demandé (Section A).",
+    difficulty: "FOUNDATION", topicTag: "loisirs",
+    payload: { situation: "Un ami arrive dans votre ville samedi pour la première fois.", instruction: "Écrivez-lui un message. Proposez un lieu et une heure, expliquez comment y venir, et demandez ce qu'il aimerait visiter.", wordMin: 80, wordMax: 120 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Convaincre : venir habiter dans ma ville",
+    prompt: "Rédigez un texte argumenté défendant une position (Section B).",
+    difficulty: "CORE", topicTag: "logement",
+    payload: { situation: "Un ami hésite entre votre ville et une autre pour s'installer.", instruction: "Écrivez-lui pour le convaincre de choisir votre ville. Donnez au moins trois raisons concrètes (transports, prix, vie quotidienne) et répondez à une inquiétude qu'il pourrait avoir.", wordMin: 200, wordMax: 260 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Convaincre : faire du sport ensemble",
+    prompt: "Rédigez un texte argumenté défendant une position (Section B).",
+    difficulty: "CORE", topicTag: "loisirs",
+    payload: { situation: "Votre ami dit qu'il n'a pas le temps de faire du sport.", instruction: "Écrivez-lui pour le convaincre de commencer avec vous. Expliquez les avantages, proposez un moment précis dans la semaine, et montrez que c'est possible malgré son emploi du temps.", wordMin: 200, wordMax: 260 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Convaincre : cuisiner plutôt qu'acheter",
+    prompt: "Rédigez un texte argumenté défendant une position (Section B).",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { situation: "Un ami achète tous ses repas déjà préparés.", instruction: "Écrivez-lui pour le convaincre de cuisiner lui-même. Parlez du prix, du goût et de la santé, donnez un exemple de repas simple, et répondez à l'argument du manque de temps.", wordMin: 200, wordMax: 260 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Convaincre : apprendre le français en classe",
+    prompt: "Rédigez un texte argumenté défendant une position (Section B).",
+    difficulty: "CORE", topicTag: "etudes",
+    payload: { situation: "Une amie veut apprendre le français seule avec une application.", instruction: "Écrivez-lui pour défendre le cours en classe. Donnez vos raisons, reconnaissez un avantage de l'application, et expliquez pourquoi la classe reste utile.", wordMin: 200, wordMax: 260 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Convaincre : prendre le train plutôt que la voiture",
+    prompt: "Rédigez un texte argumenté défendant une position (Section B).",
+    difficulty: "CORE", topicTag: "vie-pratique",
+    payload: { situation: "Votre famille veut partir en voiture pour un long voyage.", instruction: "Écrivez pour proposer le train. Donnez des arguments (fatigue, prix, temps, environnement), et répondez à l'objection des bagages.", wordMin: 200, wordMax: 260 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Se renseigner : un cours de natation",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "loisirs",
+    payload: { taskPrompt: "Vous avez vu une annonce pour des cours de natation. Téléphonez et posez le maximum de questions : jours, horaires, prix, niveau demandé, matériel à apporter, et comment s'inscrire.", prepSeconds: 60, speakSeconds: 300 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Se renseigner : un appartement à louer",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "logement",
+    payload: { taskPrompt: "Une annonce propose un appartement à louer. Appelez le propriétaire et posez le maximum de questions : le loyer, les charges, le nombre de pièces, l'étage, les transports à côté, et quand on peut le visiter.", prepSeconds: 60, speakSeconds: 300 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Se renseigner : une place en crèche",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "vie-pratique",
+    payload: { taskPrompt: "Vous cherchez une place en crèche pour votre enfant. Téléphonez et posez le maximum de questions : les horaires, le prix, les documents nécessaires, les repas, et le délai d'attente.", prepSeconds: 60, speakSeconds: 300 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Se renseigner : un vélo d'occasion",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "vie-pratique",
+    payload: { taskPrompt: "Quelqu'un vend un vélo d'occasion. Appelez et posez le maximum de questions : l'âge du vélo, la taille, l'état des freins, le prix, et où le voir.", prepSeconds: 60, speakSeconds: 300 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section A — Se renseigner : un stage de cuisine",
+    prompt: "Posez le maximum de questions utiles (Section A), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "loisirs",
+    payload: { taskPrompt: "Une école propose un stage de cuisine pendant les vacances. Renseignez-vous : les dates, la durée, le prix, le nombre de participants, ce qu'on cuisine, et s'il faut apporter du matériel.", prepSeconds: 60, speakSeconds: 300 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Persuader : venir au marché du samedi",
+    prompt: "Présentez et convainquez votre interlocuteur (Section B), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "vie-quotidienne",
+    payload: { taskPrompt: "Vous voulez emmener un ami au marché du samedi matin. Présentez-lui le marché et convainquez-le de venir : ce qu'on y trouve, les prix, l'ambiance. Il préfère dormir le samedi — répondez à cette objection.", prepSeconds: 60, speakSeconds: 600 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Persuader : s'inscrire à la bibliothèque",
+    prompt: "Présentez et convainquez votre interlocuteur (Section B), puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "etudes",
+    payload: { taskPrompt: "Convainquez un ami de s'inscrire à la bibliothèque de quartier. Présentez ce qu'on y trouve et ce que ça coûte. Il pense qu'il n'a pas le temps de lire — montrez-lui d'autres usages possibles.", prepSeconds: 60, speakSeconds: 600 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Persuader : partager une voiture pour aller au travail",
+    prompt: "Présentez et convainquez votre interlocuteur (Section B), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "travail",
+    payload: { taskPrompt: "Un collègue habite près de chez vous. Proposez-lui de partager la voiture pour aller au travail et convainquez-le : le prix, le stationnement, la fatigue. Il craint de dépendre de vos horaires — rassurez-le.", prepSeconds: 60, speakSeconds: 600 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Persuader : visiter un parc plutôt qu'un centre commercial",
+    prompt: "Présentez et convainquez votre interlocuteur (Section B), puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "loisirs",
+    payload: { taskPrompt: "Vous préférez passer dimanche dans un parc, votre ami veut aller au centre commercial. Présentez le parc et convainquez-le. Il dit qu'il fera peut-être froid — proposez une solution.", prepSeconds: 60, speakSeconds: 600 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
+    title: "TEF Section B — Persuader : essayer un cours de français le soir",
+    prompt: "Présentez et convainquez votre interlocuteur (Section B), puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "etudes",
+    payload: { taskPrompt: "Présentez à un ami le cours de français du soir que vous suivez et convainquez-le de s'inscrire : le rythme, le groupe, les progrès. Il trouve que c'est cher — répondez à cet argument.", prepSeconds: 60, speakSeconds: 600 },
+  },
 ];
 
 async function main() {

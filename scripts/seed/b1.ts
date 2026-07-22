@@ -684,6 +684,137 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     difficulty: "CORE", topicTag: "societe",
     payload: { taskPrompt: "La publicité influence-t-elle vraiment nos choix ? Donnez votre opinion et illustrez-la avec des exemples.", prepSeconds: 30, speakSeconds: 120 },
   },
+
+  // ---------- DELF B1 top-up (Rule #7: 6 -> 15 per expression module) ----------
+  // Structure per src/lib/french/delf-structure.ts, FEI-verified 2026-07-15:
+  // production écrite = "one production of about 160 words"; production orale =
+  // 3 parts, 15 min. B1 register: structured opinion, connectors, concrete examples.
+  {
+    level: "B1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Essai : le travail du week-end",
+    prompt: "Exprimez votre opinion personnelle dans un texte construit.",
+    difficulty: "CORE", topicTag: "travail",
+    payload: { situation: "Un magazine demande à ses lecteurs si les commerces devraient ouvrir le dimanche.", instruction: "Écrivez un texte construit pour donner votre avis. Présentez au moins deux arguments et illustrez-les par des exemples concrets.", wordMin: 160, wordMax: 180 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Lettre : demander une salle pour une association",
+    prompt: "Écrivez une lettre claire et polie avec une demande précise.",
+    difficulty: "CORE", topicTag: "vie-pratique",
+    payload: { situation: "Vous animez une association de quartier et vous avez besoin d'une salle le samedi.", instruction: "Écrivez au service des associations. Présentez votre association, expliquez vos besoins (jour, horaires, nombre de personnes), et justifiez l'intérêt du projet pour le quartier.", wordMin: 160, wordMax: 180 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Essai : apprendre une langue à l'étranger",
+    prompt: "Exprimez votre opinion personnelle dans un texte construit.",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { situation: "Un forum d'étudiants débat : faut-il partir à l'étranger pour vraiment apprendre une langue ?", instruction: "Écrivez votre contribution. Donnez votre position, nuancez-la avec un argument contraire, et concluez clairement.", wordMin: 160, wordMax: 180 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Courriel : réclamation après un voyage annulé",
+    prompt: "Écrivez un courriel argumenté pour obtenir une réponse.",
+    difficulty: "CORE", topicTag: "vie-pratique",
+    payload: { situation: "Votre train a été annulé et vous avez dû payer un autre transport pour arriver à temps.", instruction: "Écrivez à la compagnie. Rappelez les faits avec précision, expliquez les conséquences pour vous, et demandez un remboursement en justifiant votre demande.", wordMin: 160, wordMax: 180 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Essai : les animaux en ville",
+    prompt: "Exprimez votre opinion personnelle dans un texte construit.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { situation: "Votre ville envisage d'interdire les chiens dans les parcs du centre.", instruction: "Écrivez un texte pour le journal local. Donnez votre avis, présentez les arguments des deux côtés, et proposez une solution équilibrée.", wordMin: 160, wordMax: 180 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Article : mon expérience du bénévolat",
+    prompt: "Racontez une expérience et tirez-en une conclusion.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { situation: "Le blog de votre école demande des témoignages sur le bénévolat.", instruction: "Écrivez un article. Racontez ce que vous avez fait, ce que cela vous a appris, et expliquez pourquoi vous conseilleriez cette expérience à d'autres.", wordMin: 160, wordMax: 180 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Essai : téléphone portable au collège",
+    prompt: "Exprimez votre opinion personnelle dans un texte construit.",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { situation: "Des parents demandent l'interdiction totale du téléphone au collège.", instruction: "Écrivez un texte argumenté. Prenez position, appuyez-vous sur des exemples de la vie quotidienne, et répondez à une objection possible.", wordMin: 160, wordMax: 180 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Lettre : proposer un changement au travail",
+    prompt: "Écrivez une lettre argumentée à un supérieur.",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { situation: "Vous pensez que votre équipe gagnerait à commencer plus tôt le vendredi.", instruction: "Écrivez à votre responsable. Exposez la situation actuelle, présentez votre proposition, montrez les avantages pour l'équipe, et proposez un essai.", wordMin: 160, wordMax: 180 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Essai : acheter d'occasion",
+    prompt: "Exprimez votre opinion personnelle dans un texte construit.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { situation: "Un magazine se demande si acheter d'occasion est devenu une habitude durable ou une mode.", instruction: "Écrivez votre avis. Donnez des arguments économiques et écologiques, et illustrez avec votre propre expérience.", wordMin: 160, wordMax: 180 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Monologue : les transports de demain",
+    prompt: "Répondez à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { taskPrompt: "Comment vous déplacez-vous aujourd'hui, et comment aimeriez-vous vous déplacer dans dix ans ? Expliquez ce qui devrait changer et pourquoi.", prepSeconds: 30, speakSeconds: 120 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Interaction : négocier des congés",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { taskPrompt: "Vous demandez une semaine de congé à une période chargée. Votre responsable hésite. Expliquez vos raisons, écoutez ses objections, et proposez une solution qui arrange les deux parties.", prepSeconds: 60, speakSeconds: 120 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Monologue : le télétravail vu de chez soi",
+    prompt: "Répondez à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "travail",
+    payload: { taskPrompt: "Travailler chez soi : avantage ou inconvénient ? Donnez votre point de vue et appuyez-le sur des exemples concrets.", prepSeconds: 30, speakSeconds: 120 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Interaction : un colis livré chez le voisin",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "vie-quotidienne",
+    payload: { taskPrompt: "Un colis important a été livré chez un voisin absent depuis trois jours. Expliquez la situation au service client, montrez pourquoi c'est urgent, et obtenez une solution.", prepSeconds: 60, speakSeconds: 120 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Monologue : apprendre par les vidéos",
+    prompt: "Répondez à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "etudes",
+    payload: { taskPrompt: "Peut-on vraiment apprendre quelque chose d'utile avec des vidéos en ligne ? Donnez votre opinion avec des exemples.", prepSeconds: 30, speakSeconds: 120 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Interaction : partager les tâches ménagères",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "vie-quotidienne",
+    payload: { taskPrompt: "Dans votre colocation, le ménage est mal réparti depuis des semaines. Abordez le sujet sans conflit, exposez le problème avec des faits, et proposez une organisation claire.", prepSeconds: 60, speakSeconds: 120 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Monologue : les commerces de quartier",
+    prompt: "Répondez à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { taskPrompt: "Les petits commerces disparaissent dans beaucoup de villes. Est-ce grave ? Donnez votre avis et proposez ce qui pourrait les aider.", prepSeconds: 30, speakSeconds: 120 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Interaction : inscrire son enfant à une activité",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "loisirs",
+    payload: { taskPrompt: "Vous voulez inscrire votre enfant à une activité, mais les horaires ne conviennent pas. Renseignez-vous précisément, expliquez votre contrainte, et cherchez une autre possibilité.", prepSeconds: 60, speakSeconds: 120 },
+  },
+  {
+    level: "B1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF B1 — Monologue : vivre sans voiture",
+    prompt: "Répondez à l'oral, puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "Serait-il possible de vivre sans voiture là où vous habitez ? Expliquez ce qui le permettrait ou l'empêcherait.", prepSeconds: 30, speakSeconds: 120 },
+  },
 ];
 
 async function main() {
