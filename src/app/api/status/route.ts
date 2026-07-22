@@ -1,6 +1,15 @@
 // Lightweight ops/health endpoint: confirms the practice item bank is seeded and
-// reports active counts per sub-test (no PII, counts only). Used to verify a
-// deploy's auto-seed step landed.
+// reports ACTIVE item counts per (level, skill) — no PII, counts only.
+//
+// This is the same grouping the build's seed:verify phase asserts against the seed
+// source, so a green build and a green status endpoint mean the same thing. It is
+// deliberately NOT the granularity the Rule #7 gate uses: that counts per
+// (exam family x level x skill), because Reading and Listening items are shared
+// across exam doors while Writing and Speaking are per-family. Reporting the summed
+// (level, skill) figure here is honest for a health check — it is the true count of
+// active rows — but it must never be mistaken for per-module depth. Three thin
+// families once summed to an apparent 16 and hid a 5-item module; Rule #7 exists
+// because this endpoint cannot see that, and should not be asked to.
 
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
