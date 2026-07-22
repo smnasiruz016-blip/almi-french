@@ -469,7 +469,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C1 — Essai argumenté : culture et marché",
     prompt: "Rédigez un essai argumenté et structuré.",
     difficulty: "CORE", topicTag: "culture",
-    payload: { situation: "Un débat oppose ceux qui jugent la culture menacée par sa marchandisation et ceux qui y voient une démocratisation.", instruction: "Rédigez un essai argumenté dans lequel vous prenez position de façon nuancée. Construisez un raisonnement progressif, appuyez chaque idée sur des arguments et des exemples précis, et intégrez une objection que vous réfuterez.", wordMin: 450, wordMax: 500 },
+    payload: { situation: "Un débat oppose ceux qui jugent la culture menacée par sa marchandisation et ceux qui y voient une démocratisation.", instruction: "Rédigez un essai argumenté dans lequel vous prenez position de façon nuancée. Construisez un raisonnement progressif, appuyez chaque idée sur des arguments et des exemples précis, et intégrez une objection que vous réfuterez.", wordMin: 250, wordMax: 320 },
   },
   {
     level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
@@ -483,14 +483,14 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C1 — Prise de position : l'évaluation à l'université",
     prompt: "Rédigez un texte argumenté pour le journal de l'université.",
     difficulty: "CORE", topicTag: "education",
-    payload: { situation: "Votre université envisage de remplacer une partie des examens finaux par un contrôle continu.", instruction: "Vous écrivez au journal de l'université pour défendre une position argumentée sur cette réforme. Adoptez un registre soutenu, structurez clairement votre propos et anticipez les contre-arguments.", wordMin: 450, wordMax: 500 },
+    payload: { situation: "Votre université envisage de remplacer une partie des examens finaux par un contrôle continu.", instruction: "Vous écrivez au journal de l'université pour défendre une position argumentée sur cette réforme. Adoptez un registre soutenu, structurez clairement votre propos et anticipez les contre-arguments.", wordMin: 250, wordMax: 320 },
   },
   {
     level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
     title: "DALF C1 — Essai : la place du silence",
     prompt: "Rédigez un essai personnel et argumenté.",
     difficulty: "STRETCH", topicTag: "societe",
-    payload: { situation: "« Une société qui ne supporte plus le silence a-t-elle encore le temps de penser ? »", instruction: "Développez une réflexion argumentée et nuancée à partir de cette question. Articulez votre raisonnement, illustrez-le d'exemples variés et soignez les transitions.", wordMin: 450, wordMax: 500 },
+    payload: { situation: "« Une société qui ne supporte plus le silence a-t-elle encore le temps de penser ? »", instruction: "Développez une réflexion argumentée et nuancée à partir de cette question. Articulez votre raisonnement, illustrez-le d'exemples variés et soignez les transitions.", wordMin: 250, wordMax: 320 },
   },
   {
     level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
@@ -504,7 +504,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C1 — Essai : progrès technique et liberté",
     prompt: "Rédigez un essai argumenté.",
     difficulty: "STRETCH", topicTag: "technologie",
-    payload: { situation: "« Chaque nouvelle commodité technique nous libère-t-elle, ou nous lie-t-elle davantage ? »", instruction: "Rédigez un essai nuancé répondant à cette question. Construisez une argumentation progressive, appuyée sur des exemples concrets, et intégrez une objection discutée.", wordMin: 450, wordMax: 500 },
+    payload: { situation: "« Chaque nouvelle commodité technique nous libère-t-elle, ou nous lie-t-elle davantage ? »", instruction: "Rédigez un essai nuancé répondant à cette question. Construisez une argumentation progressive, appuyée sur des exemples concrets, et intégrez une objection discutée.", wordMin: 250, wordMax: 320 },
   },
   {
     level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
@@ -567,7 +567,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C1 — Essai : mémoire et oubli",
     prompt: "Rédigez un essai argumenté.",
     difficulty: "STRETCH", topicTag: "histoire",
-    payload: { situation: "« Une société a-t-elle parfois besoin d'oublier pour avancer ? »", instruction: "Développez une réflexion nuancée à partir de cette question, en distinguant les formes d'oubli. Construisez un plan clair, illustrez d'exemples et soignez la langue.", wordMin: 450, wordMax: 500 },
+    payload: { situation: "« Une société a-t-elle parfois besoin d'oublier pour avancer ? »", instruction: "Développez une réflexion nuancée à partir de cette question, en distinguant les formes d'oubli. Construisez un plan clair, illustrez d'exemples et soignez la langue.", wordMin: 250, wordMax: 320 },
   },
   {
     level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
@@ -590,7 +590,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C1 — Monologue suivi : culture et accessibilité",
     prompt: "Présentez un point de vue construit, puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "culture",
-    payload: { taskPrompt: "« Faut-il rendre la culture gratuite pour la rendre accessible ? » Présentez un monologue suivi et structuré : posez le problème, développez une argumentation nuancée appuyée d'exemples, et concluez.", prepSeconds: 3600, speakSeconds: 480 },
+    payload: { taskPrompt: "« Faut-il rendre la culture gratuite pour la rendre accessible ? » Présentez un monologue suivi et structuré : posez le problème, développez une argumentation nuancée appuyée d'exemples, et concluez.", prepSeconds: 3600, speakSeconds: 600 },
   },
   {
     level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
@@ -604,7 +604,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C1 — Monologue suivi : le travail et le sens",
     prompt: "Défendez un point de vue construit, puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "travail",
-    payload: { taskPrompt: "« Peut-on vraiment “donner du sens” au travail par des discours ? » Présentez un monologue suivi argumenté : analysez la question, développez votre position avec des exemples, et nuancez.", prepSeconds: 3600, speakSeconds: 480 },
+    payload: { taskPrompt: "« Peut-on vraiment “donner du sens” au travail par des discours ? » Présentez un monologue suivi argumenté : analysez la question, développez votre position avec des exemples, et nuancez.", prepSeconds: 3600, speakSeconds: 600 },
   },
   {
     level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
@@ -618,7 +618,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C1 — Monologue suivi : sobriété et liberté",
     prompt: "Présentez un point de vue nuancé, puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "environnement",
-    payload: { taskPrompt: "« La sobriété est-elle une contrainte ou une forme de liberté ? » Présentez un monologue suivi : posez la question, argumentez de façon nuancée avec des exemples, et concluez.", prepSeconds: 3600, speakSeconds: 480 },
+    payload: { taskPrompt: "« La sobriété est-elle une contrainte ou une forme de liberté ? » Présentez un monologue suivi : posez la question, argumentez de façon nuancée avec des exemples, et concluez.", prepSeconds: 3600, speakSeconds: 600 },
   },
   {
     level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
@@ -681,7 +681,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C1 — Monologue suivi : la transparence",
     prompt: "Présentez un point de vue nuancé, puis tapez votre transcription.",
     difficulty: "STRETCH", topicTag: "societe",
-    payload: { taskPrompt: "« Une société entièrement transparente serait-elle plus libre ? » Présentez un monologue suivi et nuancé : posez le problème, argumentez avec des exemples, et défendez une position personnelle.", prepSeconds: 3600, speakSeconds: 480 },
+    payload: { taskPrompt: "« Une société entièrement transparente serait-elle plus libre ? » Présentez un monologue suivi et nuancé : posez le problème, argumentez avec des exemples, et défendez une position personnelle.", prepSeconds: 3600, speakSeconds: 600 },
   },
   {
     level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
@@ -992,6 +992,126 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     prompt: "Exprimez et défendez un point de vue (Tâche 3), puis tapez votre transcription.",
     difficulty: "STRETCH", topicTag: "societe",
     payload: { taskPrompt: "Faut-il se méfier des indicateurs chiffrés dans la décision publique ? Défendez une position argumentée en montrant ce que la mesure permet et ce qu'elle laisse échapper.", prepSeconds: 0, speakSeconds: 270 },
+  },
+
+  // ---------- DALF C1 top-up (Rule #7: 7 -> 15 per expression module) ----------
+  // Structure per src/lib/french/exam-structure.ts: production écrite = TWO tasks,
+  // Synthèse 200–240 mots and Essai argumenté 250–320 (the sources give "250+"; our
+  // maximum is a stated practice convention, not the exam's). Production orale =
+  // exposé construit à partir de documents, puis débat (1 h de préparation).
+  // The dossier extracts below are ORIGINAL, written for this exercise — no text is
+  // taken from a real DALF dossier.
+  {
+    level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Synthèse : le retour des lignes ferroviaires locales",
+    prompt: "Rédigez une synthèse objective et structurée des documents (200–240 mots).",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "Document 1 (tribune d'un élu régional) : « Rouvrir ces lignes coûte cher, mais l'automobile coûte davantage à qui n'a pas le choix. » — Document 2 (rapport d'un observatoire des transports) : « La fréquentation des lignes rouvertes dépasse les prévisions dans deux cas sur trois, mais reste inférieure au seuil d'équilibre. » — Document 3 (entretien avec une habitante) : « Sans train, ma fille ne peut pas étudier ailleurs qu'ici. »", instruction: "Rédigez la synthèse des trois documents. Restituez les positions sans en privilégier aucune, dégagez les points d'accord et de désaccord, et n'introduisez ni opinion personnelle ni information extérieure.", wordMin: 200, wordMax: 240 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Synthèse : le télésoin en zone rurale",
+    prompt: "Rédigez une synthèse objective et structurée des documents (200–240 mots).",
+    difficulty: "STRETCH", topicTag: "sante",
+    payload: { situation: "Document 1 (revue professionnelle) : « La consultation à distance réduit les délais, mais déplace la charge vers l'infirmier qui accompagne le patient. » — Document 2 (enquête d'usagers) : « Sept patients sur dix se disent satisfaits ; les réserves portent sur l'examen physique et la confidentialité au domicile. » — Document 3 (note d'une agence de santé) : « Le dispositif ne remplace pas l'installation de praticiens : il en atténue l'absence. »", instruction: "Rédigez la synthèse. Organisez-la autour des axes qui se dégagent des trois documents, restituez fidèlement les nuances, et n'ajoutez aucune donnée extérieure.", wordMin: 200, wordMax: 240 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Synthèse : la place du bénévolat dans les services publics",
+    prompt: "Rédigez une synthèse objective et structurée des documents (200–240 mots).",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "Document 1 (responsable associatif) : « Sans bénévoles, la moitié des permanences fermerait ; ce n'est pas une victoire, c'est un symptôme. » — Document 2 (étude sociologique) : « L'engagement bénévole se maintient en volume mais se fragmente : des missions plus courtes, moins régulières. » — Document 3 (syndicat) : « Confier à des bénévoles des tâches d'accueil revient à ne pas créer les postes correspondants. »", instruction: "Rédigez la synthèse des trois documents. Faites apparaître la tension centrale, restituez chaque position dans sa logique propre, et abstenez-vous de conclure en votre nom.", wordMin: 200, wordMax: 240 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Synthèse : l'évaluation des politiques culturelles",
+    prompt: "Rédigez une synthèse objective et structurée des documents (200–240 mots).",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "Document 1 (directrice de festival) : « On nous demande des chiffres de fréquentation ; on ne nous demande jamais ce qui est resté chez les spectateurs. » — Document 2 (rapport d'évaluation) : « Les indicateurs quantitatifs sont les seuls comparables d'un territoire à l'autre. » — Document 3 (chercheur) : « Mesurer l'effet d'une programmation suppose un recul de plusieurs années, incompatible avec le rythme budgétaire annuel. »", instruction: "Rédigez la synthèse. Dégagez le problème commun aux trois documents, restituez les arguments sans les hiérarchiser, et n'introduisez pas de position personnelle.", wordMin: 200, wordMax: 240 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Essai argumenté : faut-il rouvrir les petites lignes ?",
+    prompt: "Rédigez un essai argumenté défendant une position personnelle (250–320 mots).",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "Le dossier précédent oppose le coût de réouverture des lignes ferroviaires locales à l'enclavement des territoires qu'elles desservent.", instruction: "Rédigez un essai argumenté. Prenez position, structurez votre raisonnement, appuyez-le sur des exemples précis, et traitez explicitement l'objection budgétaire.", wordMin: 250, wordMax: 320 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Essai argumenté : la gratuité des musées nationaux",
+    prompt: "Rédigez un essai argumenté défendant une position personnelle (250–320 mots).",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { situation: "La gratuité totale des collections permanentes est présentée tantôt comme un levier d'accès, tantôt comme une dépense mal ciblée.", instruction: "Rédigez un essai argumenté. Défendez une position claire, distinguez l'accès matériel de l'accès culturel, et répondez à l'argument selon lequel la gratuité profite surtout aux publics déjà familiers.", wordMin: 250, wordMax: 320 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Essai argumenté : l'anonymat des candidatures",
+    prompt: "Rédigez un essai argumenté défendant une position personnelle (250–320 mots).",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { situation: "Le curriculum anonyme est proposé de nouveau comme remède aux discriminations à l'embauche.", instruction: "Rédigez un essai argumenté. Prenez position, examinez ce que la mesure corrige et ce qu'elle déplace, et traitez l'objection de son inefficacité au-delà du premier tri.", wordMin: 250, wordMax: 320 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Essai argumenté : enseigner l'esprit critique",
+    prompt: "Rédigez un essai argumenté défendant une position personnelle (250–320 mots).",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { situation: "On attend de l'école qu'elle forme au discernement face à l'information, sans s'accorder sur la manière d'y parvenir.", instruction: "Rédigez un essai argumenté. Défendez une position, précisez ce que recouvrirait un tel enseignement, et répondez à l'objection selon laquelle le discernement suppose d'abord des connaissances.", wordMin: 250, wordMax: 320 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Exposé puis débat : l'accès au logement étudiant",
+    prompt: "Construisez un exposé à partir des documents, puis défendez-le en débat.",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { taskPrompt: "Dossier : les loyers proches des universités progressent plus vite que les aides ; une partie des étudiants renonce à la mobilité. Dégagez la problématique, construisez un exposé structuré défendant une orientation, puis soutenez-la face aux objections de l'examinateur.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Exposé puis débat : le temps de travail et sa mesure",
+    prompt: "Construisez un exposé à partir des documents, puis défendez-le en débat.",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { taskPrompt: "Dossier : la frontière entre temps de travail et temps personnel s'estompe avec les outils numériques, alors que le droit continue de raisonner en heures. Dégagez la problématique, construisez un exposé argumenté, puis défendez-le en débat.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Exposé puis débat : la langue et l'intégration",
+    prompt: "Construisez un exposé à partir des documents, puis défendez-le en débat.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "Dossier : le niveau de langue exigé pour certains titres de séjour s'élève, tandis que l'offre de formation reste inégale selon les territoires. Dégagez les enjeux, construisez un exposé défendant une position, puis soutenez-la face aux objections.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Exposé puis débat : l'alimentation et le prix",
+    prompt: "Construisez un exposé à partir des documents, puis défendez-le en débat.",
+    difficulty: "CORE", topicTag: "sante",
+    payload: { taskPrompt: "Dossier : les recommandations nutritionnelles supposent des produits dont le coût pèse davantage sur les budgets modestes. Dégagez la problématique, construisez un exposé argumenté, puis défendez-le en débat.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Exposé puis débat : le patrimoine industriel",
+    prompt: "Construisez un exposé à partir des documents, puis défendez-le en débat.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { taskPrompt: "Dossier : d'anciennes usines sont tantôt démolies, tantôt reconverties à grands frais, sans critère partagé. Dégagez les enjeux, construisez un exposé défendant une orientation, puis soutenez-la en débat.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Exposé puis débat : la place des écrans à l'école",
+    prompt: "Construisez un exposé à partir des documents, puis défendez-le en débat.",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { taskPrompt: "Dossier : l'équipement numérique des classes progresse alors que les résultats des évaluations restent stables. Dégagez la problématique, construisez un exposé argumenté qui évite les deux positions faciles, puis défendez-le en débat.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Exposé puis débat : l'eau comme ressource partagée",
+    prompt: "Construisez un exposé à partir des documents, puis défendez-le en débat.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "Dossier : agriculture, industrie et usage domestique se disputent une ressource dont la disponibilité varie fortement selon les saisons. Dégagez les enjeux, construisez un exposé défendant des priorités, puis soutenez-les face aux objections.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C1 — Exposé puis débat : la formation des adultes",
+    prompt: "Construisez un exposé à partir des documents, puis défendez-le en débat.",
+    difficulty: "CORE", topicTag: "travail",
+    payload: { taskPrompt: "Dossier : les dispositifs de formation continue sont nombreux mais peu mobilisés par ceux qui en auraient le plus besoin. Dégagez la problématique, construisez un exposé argumenté, puis défendez-le en débat.", prepSeconds: 3600, speakSeconds: 600 },
   },
 ];
 

@@ -817,7 +817,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
 
   // ---------- TEF B1 top-up (Rule #7: 5/4 -> 15 per expression module) ----------
-  // Fixed TEF format (src/lib/french/tef-tcf-structure.ts): écrite Section A
+  // Fixed TEF format (src/lib/french/exam-structure.ts): écrite Section A
   // 80–120 mots / Section B 200–260 mots; orale Section A 300 s / Section B 600 s.
   {
     level: "B1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",

@@ -8,7 +8,7 @@
 // Tâche 3's timing sitting inside a TEF item.
 //
 // ROOT CAUSE, and why this gate is the actual fix: TEF and TCF had NO structure
-// metadata in this repo until tef-tcf-structure.ts was written. Items were authored
+// metadata in this repo until exam-structure.ts was written. Items were authored
 // per level on DELF-shaped assumptions because nothing recorded what a TEF or TCF
 // task IS. Now that it is recorded, the mismatch is machine-checkable — so check it,
 // rather than trusting the next author to remember.
@@ -20,7 +20,7 @@
 //
 // ── HOW EACH FAMILY IS CHECKED, and why they differ ──────────────────────────
 // TEF and TCF are checked STRICTLY. They are single fixed-format exams (see
-// tef-tcf-structure.ts): every written task has an exact word range and every
+// exam-structure.ts): every written task has an exact word range and every
 // spoken task an exact prep/speak pair, identical at every CEFR level. An item
 // either matches one of those tasks or it is malformed. No tolerance is warranted.
 //
@@ -45,7 +45,7 @@ import { ITEMS as B1 } from "../seed/b1";
 import { ITEMS as B2 } from "../seed/b2";
 import { ITEMS as C1 } from "../seed/c1";
 import { ITEMS as C2 } from "../seed/c2";
-import { TEF_EXPRESSION, TCF_EXPRESSION } from "../../src/lib/french/tef-tcf-structure";
+import { TEF_EXPRESSION, TCF_EXPRESSION, DALF_EXPRESSION } from "../../src/lib/french/exam-structure";
 
 const ALL = [...A1, ...A2, ...B1, ...B2, ...C1, ...C2].filter((i) => i.active !== false);
 
@@ -104,9 +104,36 @@ for (const raw of ALL as Row[]) {
   }
 
   if (fam === "DELF_DALF") {
-    if (skill === "EXPRESSION_ORALE") { skipped++; continue; } // see header
+    // DALF C1/C2 IS now checked — its structure was recorded once sourced. Written
+    // tasks are checked as a CONTAINMENT band (the item's range must sit inside a
+    // real task's range) rather than by equality: the exam sets a minimum and our
+    // maxima are a stated convention, so an author may legitimately pick a narrower
+    // range inside the task. Oral timings ARE checked by equality, because prep and
+    // speak come from the épreuve's own published shape.
+    const dalf = level === "C1" ? DALF_EXPRESSION.C1 : level === "C2" ? DALF_EXPRESSION.C2 : null;
+    if (dalf) {
+      checked++;
+      if (skill === "EXPRESSION_ECRITE") {
+        const min = Number(p.wordMin);
+        const max = Number(p.wordMax);
+        const fits = dalf.ecrite.some((t) => min >= t.wordMin! && max <= t.wordMax!);
+        if (!fits) {
+          const ok = dalf.ecrite.map((t) => `${t.label} ${t.wordMin}–${t.wordMax}`).join(" | ");
+          violations.push(`DALF ${level} ÉCRITE  ${min}-${max}     — outside every DALF task (valid: ${ok})\n        ${title}`);
+        }
+      } else {
+        const got = `${p.prepSeconds}/${p.speakSeconds}`;
+        const ok = dalf.orale.map((t) => `${t.prepSeconds}/${t.speakSeconds}`);
+        if (!ok.includes(got)) {
+          violations.push(`DALF ${level} ORALE   ${got.padEnd(9)} — no such task (valid: ${ok.join(" | ")})\n        ${title}`);
+        }
+      }
+      continue;
+    }
+
+    if (skill === "EXPRESSION_ORALE") { skipped++; continue; } // DELF oral: see header
     const band = DELF_BAND[level];
-    if (!band) { skipped++; continue; }                        // DALF C1/C2: no verified structure
+    if (!band) { skipped++; continue; }
     checked++;
     const min = Number(p.wordMin);
     const max = Number(p.wordMax);
@@ -126,4 +153,4 @@ if (violations.length) {
 }
 
 console.log(`✓ Conformance gate: ${checked} expression items match a real task of their exam.`);
-console.log(`  (${skipped} skipped: DELF oral timings and DALF C1/C2 have no verified structure to check against.)`);
+console.log(`  (${skipped} skipped: DELF A1–B2 oral timings are a practice convention with no authority to check against.)`);

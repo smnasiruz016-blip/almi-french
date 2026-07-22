@@ -81,6 +81,65 @@ export const TEF_EXPRESSION = {
   irnOraleSections: ["Section B"] as const,
 };
 
+// ── DALF C1 / C2 ────────────────────────────────────────────────────────────
+// ⚠️ THIS IS THE WEAKEST-SOURCED BLOCK IN THIS FILE, and that is stated rather
+// than hidden. France Éducation International — the awarding body, and the source
+// behind delf-structure.ts — bot-blocks automated fetching, so it could not be read
+// directly. What follows rests on a secondary guide, cross-read against the
+// official règlement.
+//
+// SOURCE RANKING: BY CURRENCY, NOT BY PUBLISHER. The instinct is to rank
+// education.gouv.fr above a private guide. Here that would be wrong:
+//   • education.gouv.fr, Bulletin Officiel 2005 n°29, annexe DELF/DALF —
+//     https://www.education.gouv.fr/bo/BoAnnexes/2005/29/DELF_DALF.pdf (read
+//     2026-07-22). It is the ORIGINAL règlement and is TWENTY-ONE YEARS OLD. Its
+//     figures contradict current practice (C1 écrite 3 h and /50, where the exam
+//     now runs 2 h 30 and /25), and it cannot speak to any change made after 2005.
+//   • Polyglottes, "DALF C1-C2 : guide complet", updated 2026-01-05 —
+//     https://polyglottes.org/dalf-c1-c2-guide-complet-ressources-outils/ (read
+//     2026-07-22). Secondary, but current, and specific.
+// So the 2026 guide wins on everything that changed after 2005; the 2005 BO is
+// cited ONLY for the point both agree on and that has not moved: C1 production
+// écrite comprises TWO tasks. If FEI's own page is ever readable, it outranks both.
+//
+// WORD MAXIMA ARE OUR CONVENTION, NOT THE EXAM'S. The sources give MINIMA — C1
+// synthèse "200-240", C1 essai "250+", C2 "700+ words minimum". A real DALF sets a
+// floor, not a ceiling. Our wordMax exists because the practice field needs a
+// bound; it must never be presented to a learner as a limit the exam imposes.
+//
+// C2 IS NOT A STANDALONE WRITTEN EXAM. The guide describes DALF C2 as compréhension
+// ET production combined in one integrated épreuve (/50): the candidate works from a
+// dossier of roughly 2 000 words and produces a single structured text. We model
+// only the PRODUCTION side of that épreuve, because that is what a writing item can
+// be. The same is true orally: the C2 épreuve runs compte rendu → développement
+// personnel → débat, and our item covers the production, not the listening.
+//
+// TODO — CONFIRM WITH FEI, DO NOT HARD-CODE: the guide states "Depuis 2020, les
+// domaines de spécialité ont été supprimés" (the old lettres-et-sciences-humaines
+// vs sciences split). We could not confirm that at the awarding body. It is
+// therefore NOT modelled as an axis; items use general topics, which is correct
+// whether or not the split still exists. Do not add a domain axis on this claim
+// alone.
+export const DALF_EXPRESSION = {
+  C1: {
+    ecrite: [
+      { label: "Synthèse", task: "Reformulate a dossier of documents into a structured, objective synthesis", wordMin: 200, wordMax: 240 },
+      { label: "Essai argumenté", task: "Reasoned personal position on the dossier's theme", wordMin: 250, wordMax: 320 },
+    ] satisfies ExpressionTask[],
+    orale: [
+      { label: "Exposé + débat", task: "Presentation built from documents, then debate with the examiners", prepSeconds: 3600, speakSeconds: 600 },
+    ] satisfies ExpressionTask[],
+  },
+  C2: {
+    ecrite: [
+      { label: "Production intégrée", task: "Single structured text (article, report, speech) from a ~2 000-word dossier, integrating the candidate's own knowledge", wordMin: 700, wordMax: 850 },
+    ] satisfies ExpressionTask[],
+    orale: [
+      { label: "Compte rendu + développement + débat", task: "Report on a ~14-minute audio document, then personal development and debate", prepSeconds: 3600, speakSeconds: 600 },
+    ] satisfies ExpressionTask[],
+  },
+};
+
 /** TCF — fixed format, level-independent (see header). */
 export const TCF_EXPRESSION = {
   ecrite: [

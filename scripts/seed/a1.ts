@@ -810,7 +810,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
 
   // ---------- TEF A1 top-up (Rule #7: 5 -> 15 per expression module) ----------
-  // Structure per src/lib/french/tef-tcf-structure.ts. TEF is NOT level-specific:
+  // Structure per src/lib/french/exam-structure.ts. TEF is NOT level-specific:
   // one exam placed on the CEFR/NCLC scale, so the task FORMAT is fixed at every
   // level — écrite Section A 80–120 mots, Section B 200–260 mots; orale Section A
   // 300 s (obtain information), Section B 600 s (persuade). Only the topic and the
@@ -958,7 +958,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
 
   // ---------- TCF A1 top-up (Rule #7: 5 -> 15 per expression module) ----------
-  // Fixed TCF format (src/lib/french/tef-tcf-structure.ts), level-independent:
+  // Fixed TCF format (src/lib/french/exam-structure.ts), level-independent:
   // écrite T1 60–120 / T2 120–150 / T3 120–180; orale T1 prep 0 speak 120 (entretien
   // guidé), T2 prep 120 speak 210 (interaction, 8–12 questions), T3 prep 0 speak 270
   // (point de vue). Each module carries all three tâches. A1 shifts topic only.

@@ -809,7 +809,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
 
   // ---------- TEF A2 top-up (Rule #7: 5 -> 15 per expression module) ----------
-  // Fixed TEF format (see src/lib/french/tef-tcf-structure.ts): écrite Section A
+  // Fixed TEF format (see src/lib/french/exam-structure.ts): écrite Section A
   // 80–120 mots / Section B 200–260 mots; orale Section A 300 s / Section B 600 s.
   // A2 shifts topic and register only — the word counts stay the exam's.
   {

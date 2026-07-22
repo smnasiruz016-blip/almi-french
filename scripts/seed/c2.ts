@@ -454,14 +454,14 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C2 — Synthèse argumentée : le travail à l'ère de l'automatisation",
     prompt: "Rédigez un texte structuré et nuancé prenant clairement position.",
     difficulty: "CORE", topicTag: "societe",
-    payload: { situation: "Une revue d'idées vous confie un dossier de points de vue contradictoires sur l'automatisation du travail.", instruction: "Rédigez un article qui dégage les enjeux du dossier, confronte les thèses en présence et défend une position personnelle argumentée. Structurez votre propos, maniez les nuances et soignez les transitions.", wordMin: 650, wordMax: 750 },
+    payload: { situation: "Une revue d'idées vous confie un dossier de points de vue contradictoires sur l'automatisation du travail.", instruction: "Rédigez un article qui dégage les enjeux du dossier, confronte les thèses en présence et défend une position personnelle argumentée. Structurez votre propos, maniez les nuances et soignez les transitions.", wordMin: 700, wordMax: 850 },
   },
   {
     level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
     title: "DALF C2 — Article critique : faut-il tout patrimonialiser ?",
     prompt: "Rédigez un article d'opinion construit et stylistiquement maîtrisé.",
     difficulty: "STRETCH", topicTag: "culture",
-    payload: { situation: "Un magazine culturel ouvre ses colonnes à un débat sur la tendance à classer et conserver toujours plus d'objets, de lieux et de pratiques au titre du patrimoine.", instruction: "Rédigez un article qui interroge cette tendance, en pesant ses bénéfices et ses dérives possibles, et qui aboutit à une thèse personnelle clairement assumée.", wordMin: 600, wordMax: 700 },
+    payload: { situation: "Un magazine culturel ouvre ses colonnes à un débat sur la tendance à classer et conserver toujours plus d'objets, de lieux et de pratiques au titre du patrimoine.", instruction: "Rédigez un article qui interroge cette tendance, en pesant ses bénéfices et ses dérives possibles, et qui aboutit à une thèse personnelle clairement assumée.", wordMin: 700, wordMax: 850 },
   },
   {
     level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
@@ -482,7 +482,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C2 — Lettre ouverte : la place du silence dans l'espace public",
     prompt: "Rédigez une lettre ouverte construite et persuasive.",
     difficulty: "STRETCH", topicTag: "societe",
-    payload: { situation: "Une association vous invite à réagir, sous forme de lettre ouverte, à l'omniprésence du bruit et de la sollicitation sonore dans les lieux publics.", instruction: "Rédigez une lettre ouverte adressée aux pouvoirs publics : posez le problème, argumentez avec rigueur, et formulez des propositions concrètes, sans tomber dans la simple déploration.", wordMin: 600, wordMax: 700 },
+    payload: { situation: "Une association vous invite à réagir, sous forme de lettre ouverte, à l'omniprésence du bruit et de la sollicitation sonore dans les lieux publics.", instruction: "Rédigez une lettre ouverte adressée aux pouvoirs publics : posez le problème, argumentez avec rigueur, et formulez des propositions concrètes, sans tomber dans la simple déploration.", wordMin: 700, wordMax: 850 },
   },
   {
     level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
@@ -503,7 +503,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C2 — Compte rendu critique : un essai sur l'attention",
     prompt: "Rédigez un compte rendu critique structuré.",
     difficulty: "STRETCH", topicTag: "litterature",
-    payload: { situation: "On vous demande de rendre compte, pour une revue intellectuelle, d'un essai consacré à l'économie de l'attention.", instruction: "Rédigez un compte rendu qui restitue fidèlement la thèse de l'ouvrage, en dégage les points forts et les limites, et porte un jugement argumenté, sans paraphrase ni complaisance.", wordMin: 600, wordMax: 700 },
+    payload: { situation: "On vous demande de rendre compte, pour une revue intellectuelle, d'un essai consacré à l'économie de l'attention.", instruction: "Rédigez un compte rendu qui restitue fidèlement la thèse de l'ouvrage, en dégage les points forts et les limites, et porte un jugement argumenté, sans paraphrase ni complaisance.", wordMin: 700, wordMax: 850 },
   },
   {
     level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
@@ -524,7 +524,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C2 — Article : éloge ou critique de la spécialisation ?",
     prompt: "Rédigez un article structuré qui prend nettement position.",
     difficulty: "CORE", topicTag: "societe",
-    payload: { situation: "Une revue interroge les effets de la spécialisation croissante des savoirs et des métiers.", instruction: "Rédigez un article qui confronte les bénéfices de la spécialisation et le risque d'un émiettement des savoirs, puis défend une position personnelle argumentée.", wordMin: 600, wordMax: 700 },
+    payload: { situation: "Une revue interroge les effets de la spécialisation croissante des savoirs et des métiers.", instruction: "Rédigez un article qui confronte les bénéfices de la spécialisation et le risque d'un émiettement des savoirs, puis défend une position personnelle argumentée.", wordMin: 700, wordMax: 850 },
   },
   {
     level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
@@ -545,7 +545,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C2 — Tribune : ce que mesurer fait perdre",
     prompt: "Rédigez une tribune argumentée et stylistiquement maîtrisée.",
     difficulty: "STRETCH", topicTag: "societe",
-    payload: { situation: "La multiplication des indicateurs chiffrés transforme la manière d'évaluer le travail, la santé ou l'éducation.", instruction: "Rédigez une tribune qui interroge ce que la quantification éclaire et ce qu'elle laisse dans l'ombre, et défend une position personnelle nourrie d'exemples concrets.", wordMin: 600, wordMax: 700 },
+    payload: { situation: "La multiplication des indicateurs chiffrés transforme la manière d'évaluer le travail, la santé ou l'éducation.", instruction: "Rédigez une tribune qui interroge ce que la quantification éclaire et ce qu'elle laisse dans l'ombre, et défend une position personnelle nourrie d'exemples concrets.", wordMin: 700, wordMax: 850 },
   },
   {
     level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
@@ -582,14 +582,14 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C2 — Exposé puis débat : l'art a-t-il des devoirs ?",
     prompt: "Préparez un exposé structuré à partir d'un dossier, puis défendez votre point de vue. Tapez ensuite votre transcription.",
     difficulty: "STRETCH", topicTag: "art",
-    payload: { taskPrompt: "À partir d'un dossier interrogeant la responsabilité morale ou sociale des artistes, construisez une problématique, développez un exposé argumenté, puis engagez un débat où vous soutenez et nuancez votre position.", prepSeconds: 3600, speakSeconds: 480 },
+    payload: { taskPrompt: "À partir d'un dossier interrogeant la responsabilité morale ou sociale des artistes, construisez une problématique, développez un exposé argumenté, puis engagez un débat où vous soutenez et nuancez votre position.", prepSeconds: 3600, speakSeconds: 600 },
   },
   {
     level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
     title: "DALF C2 — Exposé puis débat : la place du numérique à l'école",
     prompt: "Préparez un exposé structuré à partir d'un dossier, puis défendez votre point de vue. Tapez ensuite votre transcription.",
     difficulty: "CORE", topicTag: "education",
-    payload: { taskPrompt: "À partir d'un dossier sur l'introduction des outils numériques dans l'enseignement, dégagez les enjeux, présentez un exposé prenant clairement position, puis défendez-le dans un échange contradictoire.", prepSeconds: 3600, speakSeconds: 480 },
+    payload: { taskPrompt: "À partir d'un dossier sur l'introduction des outils numériques dans l'enseignement, dégagez les enjeux, présentez un exposé prenant clairement position, puis défendez-le dans un échange contradictoire.", prepSeconds: 3600, speakSeconds: 600 },
   },
   {
     level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
@@ -624,7 +624,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C2 — Exposé puis débat : faut-il tout dire ?",
     prompt: "Préparez un exposé structuré à partir d'un dossier, puis défendez votre point de vue. Tapez ensuite votre transcription.",
     difficulty: "STRETCH", topicTag: "societe",
-    payload: { taskPrompt: "À partir d'un dossier sur la sincérité et ses limites dans la vie sociale et publique, dégagez une problématique, présentez un exposé argumenté, puis défendez votre position dans un débat avec l'examinateur.", prepSeconds: 3600, speakSeconds: 480 },
+    payload: { taskPrompt: "À partir d'un dossier sur la sincérité et ses limites dans la vie sociale et publique, dégagez une problématique, présentez un exposé argumenté, puis défendez votre position dans un débat avec l'examinateur.", prepSeconds: 3600, speakSeconds: 600 },
   },
   {
     level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
@@ -673,7 +673,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "DALF C2 — Exposé puis débat : la ville de demain",
     prompt: "Préparez un exposé structuré à partir d'un dossier, puis défendez votre point de vue. Tapez ensuite votre transcription.",
     difficulty: "CORE", topicTag: "societe",
-    payload: { taskPrompt: "À partir d'un dossier sur les transformations des espaces urbains, dégagez les enjeux, construisez un exposé argumenté défendant une vision de la ville souhaitable, puis défendez-la dans un débat avec l'examinateur.", prepSeconds: 3600, speakSeconds: 480 },
+    payload: { taskPrompt: "À partir d'un dossier sur les transformations des espaces urbains, dégagez les enjeux, construisez un exposé argumenté défendant une vision de la ville souhaitable, puis défendez-la dans un débat avec l'examinateur.", prepSeconds: 3600, speakSeconds: 600 },
   },
 
   // ---------- TEF C2 top-up (Rule #7: 5 -> 15 per expression module) ----------
@@ -971,6 +971,141 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     prompt: "Exprimez et défendez un point de vue (Tâche 3), puis tapez votre transcription.",
     difficulty: "STRETCH", topicTag: "societe",
     payload: { taskPrompt: "Que faire des monuments ou des noms liés à un passé contesté ? Défendez une position argumentée, en évitant les deux facilités que sont l'effacement et le maintien sans examen.", prepSeconds: 0, speakSeconds: 270 },
+  },
+
+  // ---------- DALF C2 top-up (Rule #7: 6/7 -> 15 per expression module) ----------
+  // Structure per src/lib/french/exam-structure.ts. At C2 the épreuve is INTEGRATED
+  // (compréhension ET production, /50): the candidate works from a dossier of roughly
+  // 2 000 mots and produces ONE structured text of 700+ mots — our 850 ceiling is a
+  // stated practice convention, not a limit the exam imposes. We model the PRODUCTION
+  // side only, which is what a writing item can be. Orally the épreuve runs compte
+  // rendu → développement personnel → débat, with an hour of preparation.
+  // Dossier extracts are ORIGINAL, written for this exercise.
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Production intégrée : à qui appartient une découverte ?",
+    prompt: "Produisez un texte structuré à partir du dossier (700–850 mots).",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { situation: "Dossier (extraits) — 1. « Sans brevet, aucun laboratoire privé n'engagerait ces sommes. » 2. « Une molécule financée sur fonds publics devrait revenir au public qui l'a payée. » 3. « Les licences obligatoires existent, mais leur mise en œuvre reste rare et lente. » 4. « Le partage précoce des résultats accélère la recherche autant qu'il expose ses auteurs. »", instruction: "Rédigez un article de fond destiné à un lectorat exigeant. Dégagez les enjeux du dossier, articulez-les à vos propres connaissances, défendez une position construite, et traitez l'objection la plus solide.", wordMin: 700, wordMax: 850 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Production intégrée : la ville face à ses habitants",
+    prompt: "Produisez un texte structuré à partir du dossier (700–850 mots).",
+    difficulty: "STRETCH", topicTag: "logement",
+    payload: { situation: "Dossier (extraits) — 1. « Le centre s'embellit et se vide de ceux qui y vivaient. » 2. « Sans rénovation, ces immeubles seraient inhabitables dans dix ans. » 3. « Les dispositifs d'encadrement des loyers produisent des effets contrastés selon la tension du marché. » 4. « Les habitants consultés le sont souvent après que l'essentiel est arbitré. »", instruction: "Rédigez un texte structuré pour une revue urbaine. Exposez la tension centrale, mobilisez vos connaissances propres, défendez une orientation, et montrez ce qu'elle coûte.", wordMin: 700, wordMax: 850 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Production intégrée : ce que l'automatisation déplace",
+    prompt: "Produisez un texte structuré à partir du dossier (700–850 mots).",
+    difficulty: "STRETCH", topicTag: "travail",
+    payload: { situation: "Dossier (extraits) — 1. « Les tâches disparaissent plus vite que les métiers. » 2. « La productivité gagnée ne se traduit pas mécaniquement en temps libéré. » 3. « Les reconversions réussies supposent un accompagnement long, rarement financé. » 4. « Les métiers les moins automatisables sont souvent les moins rémunérés. »", instruction: "Rédigez un texte structuré. Dégagez ce que le dossier établit et ce qu'il laisse ouvert, appuyez-vous sur vos connaissances, et défendez une analyse personnelle argumentée.", wordMin: 700, wordMax: 850 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Production intégrée : la confiance dans l'information",
+    prompt: "Produisez un texte structuré à partir du dossier (700–850 mots).",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "Dossier (extraits) — 1. « La défiance ne vient pas d'un manque d'information mais de son abondance contradictoire. » 2. « Les rectifications atteignent une fraction du public touché par l'erreur initiale. » 3. « La vérification systématique est coûteuse et peu visible. » 4. « Signaler une source ne suffit pas si le lecteur n'a pas les moyens de l'apprécier. »", instruction: "Rédigez un texte de réflexion. Construisez une problématique à partir du dossier, intégrez vos connaissances, et défendez une position en évitant le constat désabusé.", wordMin: 700, wordMax: 850 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Production intégrée : soigner ce qui ne guérit pas",
+    prompt: "Produisez un texte structuré à partir du dossier (700–850 mots).",
+    difficulty: "STRETCH", topicTag: "sante",
+    payload: { situation: "Dossier (extraits) — 1. « La médecine sait prolonger des vies qu'elle ne sait pas rendre supportables. » 2. « Les soins d'accompagnement restent inégalement répartis sur le territoire. » 3. « La décision revient au patient, à condition qu'il ait été mis en mesure de décider. » 4. « Le temps du soin et le temps administratif ne coïncident pas. »", instruction: "Rédigez un texte structuré destiné à un public averti. Dégagez les enjeux, mobilisez vos connaissances, et défendez une position argumentée sans céder au pathos.", wordMin: 700, wordMax: 850 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Production intégrée : enseigner à l'ère des machines",
+    prompt: "Produisez un texte structuré à partir du dossier (700–850 mots).",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { situation: "Dossier (extraits) — 1. « Un devoir peut désormais être produit sans avoir été pensé. » 2. « Interdire l'outil revient à ignorer ce que les élèves feront ensuite. » 3. « L'évaluation orale résiste mieux, mais coûte du temps d'enseignant. » 4. « Ce que l'on mesure finit par définir ce que l'on enseigne. »", instruction: "Rédigez un texte structuré. Construisez la problématique, intégrez vos connaissances propres, et défendez une orientation pédagogique argumentée.", wordMin: 700, wordMax: 850 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Production intégrée : le prix du silence",
+    prompt: "Produisez un texte structuré à partir du dossier (700–850 mots).",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "Dossier (extraits) — 1. « Le bruit est devenu la nuisance la plus citée par les habitants des grandes villes. » 2. « Les logements les plus exposés sont aussi les plus abordables. » 3. « L'isolation acoustique reste absente de la plupart des aides à la rénovation. » 4. « Le silence est devenu un bien qui se loue. »", instruction: "Rédigez un texte structuré. Dégagez ce que le dossier révèle d'une inégalité, appuyez-vous sur vos connaissances, et défendez une position argumentée.", wordMin: 700, wordMax: 850 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Production intégrée : conserver ou transmettre",
+    prompt: "Produisez un texte structuré à partir du dossier (700–850 mots).",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "Dossier (extraits) — 1. « Une archive que personne ne consulte est-elle conservée ou seulement stockée ? » 2. « La numérisation sauve le contenu et perd l'objet. » 3. « Les budgets de conservation croissent moins vite que les volumes produits. » 4. « Choisir ce qu'on garde, c'est déjà écrire l'histoire. »", instruction: "Rédigez un texte de réflexion structuré. Construisez la problématique à partir du dossier, mobilisez vos connaissances, et défendez une position en assumant ses conséquences.", wordMin: 700, wordMax: 850 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Production intégrée : la frontière du privé",
+    prompt: "Produisez un texte structuré à partir du dossier (700–850 mots).",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { situation: "Dossier (extraits) — 1. « Le consentement recueilli en un clic protège surtout celui qui le demande. » 2. « L'anonymat parfait n'existe pas dès lors que les jeux de données se croisent. » 3. « Les usages utiles et les usages intrusifs reposent sur la même collecte. » 4. « Ce qui est légal aujourd'hui a été rendu possible par des choix techniques d'hier. »", instruction: "Rédigez un texte structuré pour une revue généraliste exigeante. Dégagez les enjeux, intégrez vos connaissances, et défendez une position argumentée et nuancée.", wordMin: 700, wordMax: 850 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Compte rendu, développement et débat : la sobriété énergétique",
+    prompt: "Rendez compte du document, développez votre point de vue, puis débattez.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "Document sonore (environ 14 minutes) : une table ronde sur les politiques de sobriété énergétique, où s'opposent la contrainte réglementaire et l'incitation. Rendez-en compte fidèlement, développez ensuite votre propre analyse, puis défendez-la dans un débat avec l'examinateur.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Compte rendu, développement et débat : la valeur du travail domestique",
+    prompt: "Rendez compte du document, développez votre point de vue, puis débattez.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "Document sonore (environ 14 minutes) : un entretien sur la place du travail non rémunéré dans l'économie et sur les tentatives de le comptabiliser. Rendez-en compte, développez votre analyse personnelle, puis soutenez-la en débat.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Compte rendu, développement et débat : la justice et le temps",
+    prompt: "Rendez compte du document, développez votre point de vue, puis débattez.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "Document sonore (environ 14 minutes) : un débat sur les délais judiciaires et sur ce que l'attente fait aux parties. Rendez-en compte sans en trahir les nuances, développez votre point de vue, puis défendez-le face aux objections.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Compte rendu, développement et débat : la langue et le pouvoir",
+    prompt: "Rendez compte du document, développez votre point de vue, puis débattez.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "Document sonore (environ 14 minutes) : une conférence sur la manière dont le vocabulaire administratif oriente la perception des politiques publiques. Rendez-en compte, développez votre analyse, puis débattez-en.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Compte rendu, développement et débat : la recherche et l'urgence",
+    prompt: "Rendez compte du document, développez votre point de vue, puis débattez.",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { taskPrompt: "Document sonore (environ 14 minutes) : une discussion sur le financement de la recherche fondamentale à l'heure où les priorités sont fixées par l'urgence. Rendez-en compte, développez votre position, puis défendez-la en débat.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Compte rendu, développement et débat : l'école et l'orientation",
+    prompt: "Rendez compte du document, développez votre point de vue, puis débattez.",
+    difficulty: "STRETCH", topicTag: "etudes",
+    payload: { taskPrompt: "Document sonore (environ 14 minutes) : une table ronde sur l'âge auquel les élèves doivent choisir une voie, et sur ce que ce choix détermine. Rendez-en compte, développez votre analyse, puis soutenez-la face aux objections.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Compte rendu, développement et débat : le tourisme et ses limites",
+    prompt: "Rendez compte du document, développez votre point de vue, puis débattez.",
+    difficulty: "CORE", topicTag: "societe",
+    payload: { taskPrompt: "Document sonore (environ 14 minutes) : un reportage sur des territoires qui limitent l'accueil touristique et sur les effets économiques de ces mesures. Rendez-en compte, développez votre position, puis débattez-en.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Compte rendu, développement et débat : ce que l'on doit aux générations suivantes",
+    prompt: "Rendez compte du document, développez votre point de vue, puis débattez.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "Document sonore (environ 14 minutes) : un débat philosophique sur la portée de nos obligations envers ceux qui ne sont pas encore nés. Rendez-en compte fidèlement, développez votre propre analyse, puis défendez-la en débat.", prepSeconds: 3600, speakSeconds: 600 },
+  },
+  {
+    level: "C2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DALF C2 — Compte rendu, développement et débat : l'expertise contestée",
+    prompt: "Rendez compte du document, développez votre point de vue, puis débattez.",
+    difficulty: "STRETCH", topicTag: "societe",
+    payload: { taskPrompt: "Document sonore (environ 14 minutes) : une émission sur la manière dont les avis d'experts sont reçus, discutés et parfois rejetés dans le débat public. Rendez-en compte, développez votre analyse, puis soutenez-la en débat.", prepSeconds: 3600, speakSeconds: 600 },
   },
 ];
 
