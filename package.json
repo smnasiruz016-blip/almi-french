@@ -23,7 +23,7 @@
     "gate:conformance": "tsx scripts/items/conformance-gate.mts",
     "proof:reachability": "tsx scripts/reachability-proof.ts",
     "gate:seed-keys": "tsx scripts/seed-key-check.ts",
-    "seed:prod": "tsx scripts/seed/append.ts || echo 'seed:prod skipped (non-fatal)'"
+    "seed:prod": "tsx scripts/seed/append.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.91.1",
