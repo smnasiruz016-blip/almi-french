@@ -675,6 +675,139 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     difficulty: "CORE", topicTag: "vie-quotidienne",
     payload: { taskPrompt: "Vous voulez inviter un ami à manger chez vous. Dites quel jour, à quelle heure, et ce que vous allez préparer.", prepSeconds: 10, speakSeconds: 60 },
   },
+
+  // ---------- DELF A1 top-up (Rule #7: 6 -> 15 per expression module) ----------
+  // Structure per src/lib/french/delf-structure.ts, verified against France
+  // Éducation International 2026-07-15: production écrite = "complete a form, then
+  // write a message of about 40 words"; production orale = 3 parts (entretien
+  // dirigé, échange d'informations, dialogue simulé), 5–7 min.
+  // A1 register only: present tense, everyday situations, no subordinate clauses.
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Fiche d'inscription au cours de natation",
+    prompt: "Remplissez la fiche, puis écrivez un court message.",
+    difficulty: "FOUNDATION", topicTag: "vie-pratique",
+    payload: { situation: "Vous voulez apprendre à nager à la piscine municipale.", instruction: "Écrivez vos informations (nom, prénom, âge, ville, téléphone). Puis écrivez un message à la piscine : dites quel jour vous êtes libre et à quelle heure.", wordMin: 25, wordMax: 40 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Message : je suis malade",
+    prompt: "Écrivez un message simple pour prévenir quelqu'un.",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { situation: "Vous êtes malade et vous ne pouvez pas aller au cours de français.", instruction: "Écrivez un message à votre professeur. Dites que vous êtes malade, dites pourquoi vous ne venez pas, et dites quand vous revenez.", wordMin: 20, wordMax: 35 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Carte postale de la mer",
+    prompt: "Écrivez une carte postale courte.",
+    difficulty: "FOUNDATION", topicTag: "loisirs",
+    payload: { situation: "Vous êtes en vacances à la mer avec votre famille.", instruction: "Écrivez une carte postale à un ami. Dites où vous êtes, avec qui, le temps qu'il fait, et une chose que vous aimez ici.", wordMin: 25, wordMax: 40 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Petite annonce : je cherche un vélo",
+    prompt: "Écrivez une annonce simple et claire.",
+    difficulty: "CORE", topicTag: "vie-pratique",
+    payload: { situation: "Vous voulez acheter un vélo d'occasion dans votre quartier.", instruction: "Écrivez une annonce pour le panneau du supermarché. Dites ce que vous cherchez, la couleur que vous préférez, votre prix, et comment vous contacter.", wordMin: 25, wordMax: 40 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Fiche de la bibliothèque + message",
+    prompt: "Remplissez la fiche, puis écrivez un message court.",
+    difficulty: "FOUNDATION", topicTag: "vie-pratique",
+    payload: { situation: "Vous rendez un livre en retard à la bibliothèque.", instruction: "Écrivez vos informations (nom, prénom, adresse). Puis écrivez un message : dites pardon pour le retard et dites quel jour vous venez.", wordMin: 20, wordMax: 35 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Message : mon nouvel appartement",
+    prompt: "Décrivez un lieu avec des phrases simples.",
+    difficulty: "CORE", topicTag: "logement",
+    payload: { situation: "Vous habitez dans un nouvel appartement depuis une semaine.", instruction: "Écrivez un message à un ami. Dites où est l'appartement, combien il y a de pièces, et une chose que vous aimez.", wordMin: 25, wordMax: 40 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Invitation à un anniversaire",
+    prompt: "Écrivez une invitation courte.",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { situation: "C'est votre anniversaire samedi et vous invitez des amis.", instruction: "Écrivez une invitation. Dites le jour, l'heure, l'adresse, et demandez une réponse.", wordMin: 20, wordMax: 35 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Message au voisin : le colis",
+    prompt: "Écrivez un message simple à un voisin.",
+    difficulty: "CORE", topicTag: "vie-quotidienne",
+    payload: { situation: "Votre voisin a reçu un colis pour vous.", instruction: "Écrivez un mot à votre voisin. Dites merci, demandez quand vous pouvez venir chercher le colis, et donnez votre numéro de téléphone.", wordMin: 25, wordMax: 40 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Fiche au cabinet médical",
+    prompt: "Remplissez la fiche, puis écrivez une phrase d'explication.",
+    difficulty: "FOUNDATION", topicTag: "sante",
+    payload: { situation: "Vous prenez un rendez-vous chez le médecin pour la première fois.", instruction: "Écrivez vos informations (nom, prénom, date de naissance, adresse). Puis écrivez deux phrases : dites pourquoi vous venez et quel jour vous préférez.", wordMin: 20, wordMax: 35 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Entretien : parler de sa famille",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { taskPrompt: "Parlez de votre famille. Dites combien vous êtes, qui habite avec vous, et ce que vous faites ensemble le week-end.", prepSeconds: 10, speakSeconds: 60 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Échange d'informations : à la boulangerie",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { taskPrompt: "Vous achetez du pain et deux croissants. Demandez le prix, payez, et dites au revoir.", prepSeconds: 10, speakSeconds: 60 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Dialogue simulé : demander son chemin",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "vie-pratique",
+    payload: { taskPrompt: "Vous cherchez la gare. Demandez le chemin à une personne dans la rue, dites merci, et répétez la direction pour vérifier.", prepSeconds: 10, speakSeconds: 60 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Parler de son travail ou de ses études",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "travail",
+    payload: { taskPrompt: "Parlez de votre travail ou de vos études. Dites ce que vous faites, où, et quels jours.", prepSeconds: 10, speakSeconds: 60 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Dialogue simulé : prendre un rendez-vous",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "sante",
+    payload: { taskPrompt: "Vous téléphonez chez le dentiste. Dites votre nom, demandez un rendez-vous, et proposez un jour et une heure.", prepSeconds: 10, speakSeconds: 60 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Parler du temps qu'il fait",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { taskPrompt: "Dites le temps qu'il fait aujourd'hui dans votre ville, quelle saison vous préférez, et pourquoi.", prepSeconds: 10, speakSeconds: 60 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Échange d'informations : au marché",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "vie-quotidienne",
+    payload: { taskPrompt: "Vous achetez des fruits au marché. Demandez le prix d'un kilo de pommes, demandez si c'est cher, et achetez.", prepSeconds: 10, speakSeconds: 60 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Parler de ses transports",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "vie-pratique",
+    payload: { taskPrompt: "Dites comment vous allez au travail ou à l'école : à pied, en bus, en voiture ? Dites combien de temps vous mettez.", prepSeconds: 10, speakSeconds: 60 },
+  },
+  {
+    level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A1 — Dialogue simulé : au guichet du musée",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "loisirs",
+    payload: { taskPrompt: "Vous êtes au musée avec un ami. Demandez le prix de deux billets, demandez l'heure de fermeture, et remerciez.", prepSeconds: 10, speakSeconds: 60 },
+  },
 ];
 
 async function main() {

@@ -675,6 +675,138 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     difficulty: "STRETCH", topicTag: "vie-quotidienne",
     payload: { taskPrompt: "Parlez d'un ami important pour vous. Comment l'avez-vous rencontré ? Comment est-il ? Pourquoi est-il important pour vous ?", prepSeconds: 10, speakSeconds: 90 },
   },
+
+  // ---------- DELF A2 top-up (Rule #7: 6 -> 15 per expression module) ----------
+  // Structure per src/lib/french/delf-structure.ts, verified against France
+  // Éducation International 2026-07-15: production écrite = "two productions of
+  // about 60 words each"; production orale = 3 parts, 6–8 min.
+  // A2 register: past and near-future, simple connectors, concrete everyday topics.
+  {
+    level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Message : un colis abîmé",
+    prompt: "Écrivez un message pour expliquer un problème.",
+    difficulty: "CORE", topicTag: "vie-pratique",
+    payload: { situation: "Vous avez reçu un colis, mais l'objet à l'intérieur est cassé.", instruction: "Écrivez au magasin. Expliquez ce que vous avez commandé, ce qui est arrivé, et ce que vous demandez (échange ou remboursement).", wordMin: 60, wordMax: 80 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Raconter un week-end à la campagne",
+    prompt: "Racontez au passé, avec des détails simples.",
+    difficulty: "CORE", topicTag: "loisirs",
+    payload: { situation: "Vous avez passé le week-end dernier chez des amis à la campagne.", instruction: "Écrivez à un ami. Racontez où vous êtes allé, ce que vous avez fait, le temps qu'il faisait, et ce que vous avez préféré.", wordMin: 60, wordMax: 80 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Courriel : changer un rendez-vous",
+    prompt: "Écrivez un courriel poli et clair.",
+    difficulty: "FOUNDATION", topicTag: "vie-pratique",
+    payload: { situation: "Vous avez un rendez-vous jeudi mais vous devez travailler ce jour-là.", instruction: "Écrivez un courriel. Dites pourquoi vous ne pouvez pas venir, proposez deux autres jours, et excusez-vous.", wordMin: 40, wordMax: 60 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Donner son avis sur un restaurant",
+    prompt: "Donnez votre opinion avec des raisons simples.",
+    difficulty: "CORE", topicTag: "loisirs",
+    payload: { situation: "Vous avez mangé dans un nouveau restaurant de votre quartier.", instruction: "Écrivez un petit avis pour un site internet. Dites ce que vous avez mangé, si c'était bon, si le prix est correct, et si vous conseillez ce restaurant.", wordMin: 60, wordMax: 80 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Message : proposer de garder un chat",
+    prompt: "Écrivez un message pour proposer votre aide.",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { situation: "Votre voisine part en vacances et cherche quelqu'un pour son chat.", instruction: "Écrivez-lui un message. Proposez votre aide, dites pourquoi vous pouvez le faire, et demandez ce qu'il faut donner au chat.", wordMin: 40, wordMax: 60 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Raconter un premier jour de travail",
+    prompt: "Racontez une expérience au passé.",
+    difficulty: "CORE", topicTag: "travail",
+    payload: { situation: "Vous avez commencé un nouveau travail la semaine dernière.", instruction: "Écrivez à un ami. Racontez votre premier jour : où vous travaillez, avec qui, ce que vous avez fait, et comment vous vous êtes senti.", wordMin: 60, wordMax: 80 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Message : organiser un cadeau commun",
+    prompt: "Écrivez un message pour organiser quelque chose.",
+    difficulty: "CORE", topicTag: "vie-quotidienne",
+    payload: { situation: "Un collègue part et vous voulez lui offrir un cadeau avec l'équipe.", instruction: "Écrivez un message aux collègues. Proposez une idée de cadeau, dites combien chacun doit donner, et demandez une réponse avant vendredi.", wordMin: 40, wordMax: 60 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Décrire son quartier idéal",
+    prompt: "Décrivez et expliquez vos préférences.",
+    difficulty: "STRETCH", topicTag: "logement",
+    payload: { situation: "Un ami cherche un logement dans votre ville et vous demande conseil.", instruction: "Écrivez-lui. Décrivez le quartier que vous conseillez, dites ce qu'il y a autour, et expliquez pourquoi c'est pratique pour lui.", wordMin: 60, wordMax: 80 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Message : je ne trouve pas la salle",
+    prompt: "Écrivez un message court pour demander de l'aide.",
+    difficulty: "FOUNDATION", topicTag: "vie-pratique",
+    payload: { situation: "Vous arrivez pour un cours du soir mais vous ne trouvez pas la bonne salle.", instruction: "Écrivez un message au secrétariat. Dites où vous êtes, quel cours vous cherchez, à quelle heure il commence, et demandez comment y aller.", wordMin: 40, wordMax: 60 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Monologue : mes habitudes du matin",
+    prompt: "Parlez environ une minute et demie, puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
+    payload: { taskPrompt: "Décrivez une matinée normale chez vous : à quelle heure vous vous levez, ce que vous faites avant de sortir, et ce que vous prenez au petit-déjeuner.", prepSeconds: 10, speakSeconds: 90 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Interaction : à la pharmacie",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "sante",
+    payload: { taskPrompt: "Vous avez mal à la gorge depuis deux jours. Expliquez votre problème au pharmacien, demandez un médicament, et demandez combien de fois par jour il faut le prendre.", prepSeconds: 15, speakSeconds: 90 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Monologue : un voyage que j'ai fait",
+    prompt: "Parlez environ une minute et demie, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "loisirs",
+    payload: { taskPrompt: "Racontez un voyage que vous avez fait. Dites où vous êtes allé, avec qui, ce que vous avez visité, et ce que vous avez aimé.", prepSeconds: 10, speakSeconds: 90 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Interaction : rendre un vêtement au magasin",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "vie-pratique",
+    payload: { taskPrompt: "Vous avez acheté un pull qui ne va pas. Allez au magasin, expliquez le problème, demandez à l'échanger, et demandez jusqu'à quand c'est possible.", prepSeconds: 15, speakSeconds: 90 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Monologue : le sport et moi",
+    prompt: "Parlez environ une minute et demie, puis tapez votre transcription.",
+    difficulty: "FOUNDATION", topicTag: "loisirs",
+    payload: { taskPrompt: "Parlez du sport dans votre vie. Dites quel sport vous faites ou vous aimez regarder, quand, et pourquoi il vous plaît.", prepSeconds: 10, speakSeconds: 90 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Interaction : s'inscrire à un cours de cuisine",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "loisirs",
+    payload: { taskPrompt: "Vous voulez vous inscrire à un cours de cuisine. Demandez les jours et les horaires, le prix, et s'il faut apporter quelque chose.", prepSeconds: 15, speakSeconds: 90 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Monologue : une fête chez moi",
+    prompt: "Parlez environ une minute et demie, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "vie-quotidienne",
+    payload: { taskPrompt: "Décrivez une fête importante dans votre pays ou votre famille. Dites quand elle a lieu, ce qu'on mange, et ce que vous faites ce jour-là.", prepSeconds: 10, speakSeconds: 90 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Interaction : signaler une panne au propriétaire",
+    prompt: "Jouez la situation à l'oral, puis tapez votre transcription.",
+    difficulty: "STRETCH", topicTag: "logement",
+    payload: { taskPrompt: "Le chauffage de votre appartement ne marche plus depuis hier. Téléphonez au propriétaire, expliquez le problème, demandez quand quelqu'un peut venir, et proposez un moment où vous êtes chez vous.", prepSeconds: 15, speakSeconds: 90 },
+  },
+  {
+    level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
+    title: "DELF A2 — Monologue : apprendre le français",
+    prompt: "Parlez environ une minute et demie, puis tapez votre transcription.",
+    difficulty: "CORE", topicTag: "etudes",
+    payload: { taskPrompt: "Expliquez pourquoi vous apprenez le français, depuis combien de temps, ce qui est facile pour vous et ce qui est difficile.", prepSeconds: 10, speakSeconds: 90 },
+  },
 ];
 
 async function main() {
