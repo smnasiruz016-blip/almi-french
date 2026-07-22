@@ -511,7 +511,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TEF — Expression écrite, section B : opinion argumentée",
     prompt: "Donnez votre opinion argumentée sur le thème proposé.",
     difficulty: "CORE", topicTag: "societe",
-    payload: { situation: "Certains affirment que les réseaux sociaux nuisent à la qualité du débat public ; d'autres y voient un espace d'expression élargi.", instruction: "Rédigez un texte argumenté présentant votre point de vue. Annoncez votre position, développez deux ou trois arguments illustrés et concluez clairement.", wordMin: 200, wordMax: 250 },
+    payload: { situation: "Certains affirment que les réseaux sociaux nuisent à la qualité du débat public ; d'autres y voient un espace d'expression élargi.", instruction: "Rédigez un texte argumenté présentant votre point de vue. Annoncez votre position, développez deux ou trois arguments illustrés et concluez clairement.", wordMin: 200, wordMax: 260 },
   },
   {
     level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
@@ -525,21 +525,21 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TEF — Expression écrite, section B : lettre de réclamation",
     prompt: "Rédigez une lettre formelle.",
     difficulty: "CORE", topicTag: "vie-pratique",
-    payload: { situation: "Un service auquel vous êtes abonné a augmenté ses tarifs sans préavis et dégradé sa qualité.", instruction: "Écrivez une lettre de réclamation argumentée : exposez le problème, justifiez votre mécontentement, formulez une demande précise et gardez un ton ferme et courtois.", wordMin: 200, wordMax: 250 },
+    payload: { situation: "Un service auquel vous êtes abonné a augmenté ses tarifs sans préavis et dégradé sa qualité.", instruction: "Écrivez une lettre de réclamation argumentée : exposez le problème, justifiez votre mécontentement, formulez une demande précise et gardez un ton ferme et courtois.", wordMin: 200, wordMax: 260 },
   },
   {
     level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TEF",
     title: "TEF — Expression écrite, section B : prendre parti",
     prompt: "Réagissez de façon argumentée au point de vue exposé.",
     difficulty: "STRETCH", topicTag: "environnement",
-    payload: { situation: "Un lecteur affirme dans un courrier : « Limiter la voiture en ville, c'est pénaliser ceux qui travaillent. »", instruction: "Rédigez une réponse argumentée à ce courrier, en nuançant ou en contestant ce point de vue. Structurez vos arguments et illustrez-les.", wordMin: 200, wordMax: 250 },
+    payload: { situation: "Un lecteur affirme dans un courrier : « Limiter la voiture en ville, c'est pénaliser ceux qui travaillent. »", instruction: "Rédigez une réponse argumentée à ce courrier, en nuançant ou en contestant ce point de vue. Structurez vos arguments et illustrez-les.", wordMin: 200, wordMax: 260 },
   },
   {
     level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
     title: "TCF — Épreuve d'expression écrite, tâche 3 : comparer deux points de vue",
     prompt: "Comparez les deux points de vue et donnez le vôtre.",
     difficulty: "STRETCH", topicTag: "idees",
-    payload: { situation: "Point de vue 1 : « Le progrès passe par la spécialisation. » Point de vue 2 : « Les grandes avancées naissent du croisement des disciplines. »", instruction: "Rédigez un texte qui présente et compare ces deux points de vue, puis expose votre position de façon argumentée et nuancée.", wordMin: 200, wordMax: 250 },
+    payload: { situation: "Point de vue 1 : « Le progrès passe par la spécialisation. » Point de vue 2 : « Les grandes avancées naissent du croisement des disciplines. »", instruction: "Rédigez un texte qui présente et compare ces deux points de vue, puis expose votre position de façon argumentée et nuancée.", wordMin: 120, wordMax: 180 },
   },
   {
     level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
@@ -553,7 +553,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TCF — Expression écrite, tâche 3 : opinion nuancée",
     prompt: "Donnez votre opinion argumentée.",
     difficulty: "CORE", topicTag: "travail",
-    payload: { situation: "« La réussite professionnelle devrait-elle se mesurer autrement que par le salaire ? »", instruction: "Rédigez un texte argumenté répondant à cette question. Présentez votre position, développez des arguments illustrés et concluez de façon nuancée.", wordMin: 200, wordMax: 250 },
+    payload: { situation: "« La réussite professionnelle devrait-elle se mesurer autrement que par le salaire ? »", instruction: "Rédigez un texte argumenté répondant à cette question. Présentez votre position, développez des arguments illustrés et concluez de façon nuancée.", wordMin: 120, wordMax: 180 },
   },
   {
     level: "C1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
@@ -574,7 +574,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TEF — Expression écrite, section B : répondre à une enquête",
     prompt: "Rédigez une réponse argumentée à l'enquête.",
     difficulty: "CORE", topicTag: "urbanisme",
-    payload: { situation: "Votre ville mène une enquête : « Que faudrait-il pour rendre les espaces publics plus accueillants ? »", instruction: "Rédigez une réponse argumentée et concrète : identifiez les manques, proposez des améliorations justifiées et hiérarchisez vos priorités.", wordMin: 200, wordMax: 250 },
+    payload: { situation: "Votre ville mène une enquête : « Que faudrait-il pour rendre les espaces publics plus accueillants ? »", instruction: "Rédigez une réponse argumentée et concrète : identifiez les manques, proposez des améliorations justifiées et hiérarchisez vos priorités.", wordMin: 200, wordMax: 260 },
   },
 
   // ---------- Expression orale (Speaking) — exam-tagged ----------
@@ -625,28 +625,28 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TEF — Expression orale, section B : convaincre",
     prompt: "Préparez votre intervention, puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "societe",
-    payload: { taskPrompt: "Vous voulez convaincre un proche de s'engager dans une association de quartier. Présentez des arguments adaptés, répondez aux réticences que vous imaginez, et adoptez un ton persuasif mais respectueux.", prepSeconds: 120, speakSeconds: 300 },
+    payload: { taskPrompt: "Vous voulez convaincre un proche de s'engager dans une association de quartier. Présentez des arguments adaptés, répondez aux réticences que vous imaginez, et adoptez un ton persuasif mais respectueux.", prepSeconds: 60, speakSeconds: 600 },
   },
   {
     level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
     title: "TEF — Expression orale, section A : obtenir des informations",
     prompt: "Préparez vos questions, puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "vie-pratique",
-    payload: { taskPrompt: "Vous souhaitez vous inscrire à une formation dont une annonce ne donne que peu de détails. Imaginez l'échange : posez les questions utiles (contenu, horaires, coût, conditions) pour obtenir toutes les informations nécessaires.", prepSeconds: 60, speakSeconds: 180 },
+    payload: { taskPrompt: "Vous souhaitez vous inscrire à une formation dont une annonce ne donne que peu de détails. Imaginez l'échange : posez les questions utiles (contenu, horaires, coût, conditions) pour obtenir toutes les informations nécessaires.", prepSeconds: 60, speakSeconds: 300 },
   },
   {
     level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
     title: "TEF — Expression orale, section B : défendre un choix",
     prompt: "Préparez votre argumentation, puis tapez votre transcription.",
     difficulty: "STRETCH", topicTag: "idees",
-    payload: { taskPrompt: "Vous proposez à un groupe de consacrer un budget commun à un projet plutôt qu'à un autre. Défendez votre choix de façon argumentée, anticipez les objections et cherchez à emporter l'adhésion.", prepSeconds: 120, speakSeconds: 300 },
+    payload: { taskPrompt: "Vous proposez à un groupe de consacrer un budget commun à un projet plutôt qu'à un autre. Défendez votre choix de façon argumentée, anticipez les objections et cherchez à emporter l'adhésion.", prepSeconds: 60, speakSeconds: 600 },
   },
   {
     level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TEF",
     title: "TEF — Expression orale, section B : réagir à une opinion",
     prompt: "Préparez votre réaction, puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "culture",
-    payload: { taskPrompt: "Quelqu'un affirme : « Lire des romans est une perte de temps à l'âge adulte. » Réagissez de façon argumentée et nuancée, en défendant votre position avec des exemples.", prepSeconds: 120, speakSeconds: 300 },
+    payload: { taskPrompt: "Quelqu'un affirme : « Lire des romans est une perte de temps à l'âge adulte. » Réagissez de façon argumentée et nuancée, en défendant votre position avec des exemples.", prepSeconds: 60, speakSeconds: 600 },
   },
   {
     level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
@@ -660,7 +660,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TCF — Expression orale, tâche 2 : interaction / jeu de rôle",
     prompt: "Préparez l'échange, puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "vie-pratique",
-    payload: { taskPrompt: "Vous organisez un événement avec un collègue qui n'est d'accord ni sur la date ni sur le lieu. Menez l'échange pour parvenir à un compromis : exposez vos contraintes, écoutez les siennes, proposez des solutions.", prepSeconds: 0, speakSeconds: 210 },
+    payload: { taskPrompt: "Vous organisez un événement avec un collègue qui n'est d'accord ni sur la date ni sur le lieu. Menez l'échange pour parvenir à un compromis : exposez vos contraintes, écoutez les siennes, proposez des solutions.", prepSeconds: 120, speakSeconds: 210 },
   },
   {
     level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
@@ -674,7 +674,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TCF — Expression orale, tâche 2 : convaincre un interlocuteur",
     prompt: "Préparez votre échange, puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "sante",
-    payload: { taskPrompt: "Vous voulez convaincre un proche réticent d'adopter une habitude plus saine (sommeil, marche, alimentation). Menez l'échange : argumentez, répondez à ses objections, proposez un premier pas réaliste.", prepSeconds: 0, speakSeconds: 210 },
+    payload: { taskPrompt: "Vous voulez convaincre un proche réticent d'adopter une habitude plus saine (sommeil, marche, alimentation). Menez l'échange : argumentez, répondez à ses objections, proposez un premier pas réaliste.", prepSeconds: 120, speakSeconds: 210 },
   },
   {
     level: "C1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
@@ -688,7 +688,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TEF — Expression orale, section A : organiser une sortie",
     prompt: "Préparez vos questions, puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "vie-pratique",
-    payload: { taskPrompt: "Vous appelez un lieu culturel pour organiser une visite de groupe à partir d'une annonce incomplète. Posez toutes les questions utiles (tarifs de groupe, créneaux, accessibilité, réservation) pour planifier la sortie.", prepSeconds: 60, speakSeconds: 180 },
+    payload: { taskPrompt: "Vous appelez un lieu culturel pour organiser une visite de groupe à partir d'une annonce incomplète. Posez toutes les questions utiles (tarifs de groupe, créneaux, accessibilité, réservation) pour planifier la sortie.", prepSeconds: 60, speakSeconds: 300 },
   },
 ];
 

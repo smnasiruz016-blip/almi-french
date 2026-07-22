@@ -468,7 +468,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TCF — Courriel : remercier pour un cadeau",
     prompt: "Rédigez le courriel demandé.",
     difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
-    payload: { situation: "Une amie vous a offert un cadeau pour votre anniversaire.", instruction: "Écrivez-lui un courriel pour la remercier, dire si vous aimez le cadeau et proposer de vous voir bientôt.", wordMin: 40, wordMax: 70 },
+    payload: { situation: "Une amie vous a offert un cadeau pour votre anniversaire.", instruction: "Écrivez-lui un courriel pour la remercier, dire si vous aimez le cadeau et proposer de vous voir bientôt.", wordMin: 60, wordMax: 120 },
   },
   {
     level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
@@ -489,7 +489,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TCF — Note : laisser un mot à un voisin",
     prompt: "Rédigez la note demandée.",
     difficulty: "FOUNDATION", topicTag: "habitat",
-    payload: { situation: "Vous partez en voyage une semaine et vous demandez à un voisin d'arroser vos plantes.", instruction: "Écrivez une note au voisin. Expliquez ce que vous demandez, pour combien de temps, et remerciez-le.", wordMin: 40, wordMax: 60 },
+    payload: { situation: "Vous partez en voyage une semaine et vous demandez à un voisin d'arroser vos plantes.", instruction: "Écrivez une note au voisin. Expliquez ce que vous demandez, pour combien de temps, et remerciez-le.", wordMin: 60, wordMax: 120 },
   },
   {
     level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
@@ -510,7 +510,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TCF — Courriel : s'excuser auprès d'un collègue",
     prompt: "Rédigez le courriel demandé.",
     difficulty: "CORE", topicTag: "travail",
-    payload: { situation: "Vous n'avez pas pu venir à une réunion importante au travail.", instruction: "Écrivez un courriel à un collègue pour vous excuser, expliquer pourquoi et demander ce qui a été décidé.", wordMin: 50, wordMax: 80 },
+    payload: { situation: "Vous n'avez pas pu venir à une réunion importante au travail.", instruction: "Écrivez un courriel à un collègue pour vous excuser, expliquer pourquoi et demander ce qui a été décidé.", wordMin: 60, wordMax: 120 },
   },
   {
     level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
@@ -531,7 +531,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TCF — Message : proposer une sortie",
     prompt: "Rédigez le message demandé.",
     difficulty: "CORE", topicTag: "loisirs",
-    payload: { situation: "Vous voulez aller au musée dimanche avec un ami.", instruction: "Écrivez un message pour proposer cette sortie. Donnez le jour, l'heure du rendez-vous et le lieu.", wordMin: 40, wordMax: 60 },
+    payload: { situation: "Vous voulez aller au musée dimanche avec un ami.", instruction: "Écrivez un message pour proposer cette sortie. Donnez le jour, l'heure du rendez-vous et le lieu.", wordMin: 60, wordMax: 120 },
   },
   {
     level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
@@ -552,7 +552,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     title: "TCF — Courriel : signaler un objet perdu",
     prompt: "Rédigez le courriel demandé.",
     difficulty: "STRETCH", topicTag: "vie-pratique",
-    payload: { situation: "Vous avez oublié votre sac dans un train.", instruction: "Écrivez un courriel au service des objets trouvés. Décrivez le sac, dites dans quel train vous étiez et demandez ce qu'il faut faire.", wordMin: 50, wordMax: 80 },
+    payload: { situation: "Vous avez oublié votre sac dans un train.", instruction: "Écrivez un courriel au service des objets trouvés. Décrivez le sac, dites dans quel train vous étiez et demandez ce qu'il faut faire.", wordMin: 60, wordMax: 120 },
   },
   {
     level: "A2", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
@@ -579,10 +579,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
-    title: "TCF — Parler de sa famille",
+    title: "TCF Tâche 1 — Entretien guidé : votre famille",
     prompt: "Répondez à l'oral, puis tapez votre transcription.",
     difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
-    payload: { taskPrompt: "Parlez de votre famille. Combien de personnes y a-t-il ? Que font-elles ? Avec qui vous entendez-vous le mieux ?", prepSeconds: 10, speakSeconds: 90 },
+    payload: { taskPrompt: "Parlez de votre famille. Combien de personnes y a-t-il ? Que font-elles ? Avec qui vous entendez-vous le mieux ?", prepSeconds: 0, speakSeconds: 120 },
   },
   {
     level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
@@ -600,10 +600,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
-    title: "TCF — Décrire sa journée typique",
+    title: "TCF Tâche 1 — Entretien guidé : une journée typique",
     prompt: "Répondez à l'oral, puis tapez votre transcription.",
     difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
-    payload: { taskPrompt: "Décrivez une journée typique de la semaine : à quelle heure vous vous levez, ce que vous faites le matin, l'après-midi et le soir.", prepSeconds: 10, speakSeconds: 90 },
+    payload: { taskPrompt: "Décrivez une journée typique de la semaine : à quelle heure vous vous levez, ce que vous faites le matin, l'après-midi et le soir.", prepSeconds: 0, speakSeconds: 120 },
   },
   {
     level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
@@ -621,10 +621,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
-    title: "TCF — Parler de son travail ou de ses études",
+    title: "TCF Tâche 1 — Entretien guidé : travail ou études",
     prompt: "Répondez à l'oral, puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "travail",
-    payload: { taskPrompt: "Parlez de votre travail ou de vos études. Qu'est-ce que vous faites ? Qu'est-ce que vous aimez et qu'est-ce qui est difficile ?", prepSeconds: 10, speakSeconds: 90 },
+    payload: { taskPrompt: "Parlez de votre travail ou de vos études. Qu'est-ce que vous faites ? Qu'est-ce que vous aimez et qu'est-ce qui est difficile ?", prepSeconds: 0, speakSeconds: 120 },
   },
   {
     level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
@@ -642,10 +642,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
-    title: "TCF — Parler de ses vacances",
+    title: "TCF Tâche 1 — Entretien guidé : vos dernières vacances",
     prompt: "Répondez à l'oral, puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "voyages",
-    payload: { taskPrompt: "Parlez de vos dernières vacances. Où êtes-vous allé ? Avec qui ? Qu'est-ce que vous avez fait et avez-vous aimé ?", prepSeconds: 10, speakSeconds: 90 },
+    payload: { taskPrompt: "Parlez de vos dernières vacances. Où êtes-vous allé ? Avec qui ? Qu'est-ce que vous avez fait et avez-vous aimé ?", prepSeconds: 0, speakSeconds: 120 },
   },
   {
     level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
@@ -663,10 +663,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
-    title: "TCF — Décrire son logement",
+    title: "TCF Tâche 1 — Entretien guidé : votre logement",
     prompt: "Répondez à l'oral, puis tapez votre transcription.",
     difficulty: "FOUNDATION", topicTag: "habitat",
-    payload: { taskPrompt: "Décrivez votre logement. Combien de pièces y a-t-il ? Comment est-il ? Qu'est-ce que vous aimez ou n'aimez pas chez vous ?", prepSeconds: 10, speakSeconds: 90 },
+    payload: { taskPrompt: "Décrivez votre logement. Combien de pièces y a-t-il ? Comment est-il ? Qu'est-ce que vous aimez ou n'aimez pas chez vous ?", prepSeconds: 0, speakSeconds: 120 },
   },
   {
     level: "A2", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",

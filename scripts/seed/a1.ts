@@ -465,10 +465,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
-    title: "TCF — Carte postale courte",
+    title: "TCF Tâche 1 — Carte postale de vacances",
     prompt: "Écrivez une carte postale.",
     difficulty: "FOUNDATION", topicTag: "voyages",
-    payload: { situation: "Vous êtes en vacances à la mer.", instruction: "Écrivez une carte postale à un ami : dites où vous êtes, quel temps il fait et que vous êtes content.", wordMin: 20, wordMax: 35 },
+    payload: { situation: "Vous êtes en vacances à la mer.", instruction: "Écrivez une carte postale à un ami. Dites où vous êtes et avec qui, décrivez le temps et le lieu, racontez deux choses que vous avez faites, dites ce que vous préférez ici, et annoncez quand vous rentrez.", wordMin: 60, wordMax: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
@@ -486,10 +486,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
-    title: "TCF — Se présenter par écrit",
+    title: "TCF Tâche 1 — Présentation sur le site d'un club",
     prompt: "Écrivez un court texte.",
     difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
-    payload: { situation: "Vous écrivez sur le site d'un club de sport.", instruction: "Présentez-vous : votre nom, votre âge, votre ville et le sport que vous aimez.", wordMin: 20, wordMax: 35 },
+    payload: { situation: "Vous écrivez sur le site d'un club de sport.", instruction: "Écrivez votre présentation pour le site du club. Donnez votre nom, votre âge et votre ville, dites depuis quand vous pratiquez ce sport, expliquez pourquoi vous voulez rejoindre le club, indiquez vos jours disponibles, et dites ce que vous attendez du groupe.", wordMin: 60, wordMax: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
@@ -507,10 +507,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
-    title: "TCF — Petit mot : je suis en retard",
+    title: "TCF Tâche 1 — Message : prévenir d'un retard",
     prompt: "Écrivez le message demandé.",
     difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
-    payload: { situation: "Vous arrivez en retard à un rendez-vous avec un ami.", instruction: "Écrivez un message court : dites que vous êtes en retard, de combien de minutes, et demandez de vous attendre.", wordMin: 15, wordMax: 30 },
+    payload: { situation: "Vous arrivez en retard à un rendez-vous avec un ami.", instruction: "Écrivez le message. Dites que vous êtes en retard, expliquez pourquoi, donnez l'heure à laquelle vous arrivez, proposez à votre ami ce qu'il peut faire en attendant, et excusez-vous.", wordMin: 60, wordMax: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
@@ -528,10 +528,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
-    title: "TCF — Décrire sa chambre",
+    title: "TCF Tâche 1 — Message : décrire son logement en photo",
     prompt: "Écrivez un court texte.",
     difficulty: "FOUNDATION", topicTag: "habitat",
-    payload: { situation: "Vous montrez une photo de votre chambre à un ami.", instruction: "Écrivez quelques phrases pour décrire votre chambre : ce qu'il y a dedans et la couleur.", wordMin: 20, wordMax: 35 },
+    payload: { situation: "Vous montrez une photo de votre chambre à un ami.", instruction: "Écrivez le message qui accompagne la photo. Décrivez la pièce et sa taille, dites ce qu'il y a comme meubles, parlez de la lumière et de la vue, dites ce que vous aimez et ce que vous changeriez.", wordMin: 60, wordMax: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
@@ -549,10 +549,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "TCF",
-    title: "TCF — Petit mot : laisser la clé",
+    title: "TCF Tâche 1 — Mot : organiser un départ",
     prompt: "Écrivez le message demandé.",
     difficulty: "CORE", topicTag: "vie-quotidienne",
-    payload: { situation: "Vous partez avant le retour de votre colocataire.", instruction: "Écrivez un petit mot : dites où vous allez, à quelle heure vous rentrez et où est la clé.", wordMin: 20, wordMax: 35 },
+    payload: { situation: "Vous partez avant le retour de votre colocataire.", instruction: "Écrivez le mot que vous laissez. Dites où se trouve la clé, expliquez à quelle heure vous partez et quand vous rentrez, signalez deux choses à ne pas oublier dans l'appartement, et laissez un moyen de vous joindre.", wordMin: 60, wordMax: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ECRITE", taskType: "WRITING_TASK", examFamily: "DELF_DALF",
@@ -579,10 +579,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
-    title: "TCF — Parler de soi",
+    title: "TCF Tâche 1 — Entretien guidé : parler de soi",
     prompt: "Répondez à l'oral, puis tapez votre transcription.",
     difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
-    payload: { taskPrompt: "Parlez de vous : votre nom, votre âge, votre ville, et une chose que vous aimez faire.", prepSeconds: 10, speakSeconds: 60 },
+    payload: { taskPrompt: "Parlez de vous : votre nom, votre âge, votre ville, et une chose que vous aimez faire.", prepSeconds: 0, speakSeconds: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
@@ -600,10 +600,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
-    title: "TCF — Décrire sa famille",
+    title: "TCF Tâche 1 — Entretien guidé : votre famille",
     prompt: "Répondez à l'oral, puis tapez votre transcription.",
     difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
-    payload: { taskPrompt: "Parlez de votre famille : combien vous êtes, qui sont vos parents, si vous avez des frères ou des sœurs.", prepSeconds: 10, speakSeconds: 60 },
+    payload: { taskPrompt: "Parlez de votre famille : combien vous êtes, qui sont vos parents, si vous avez des frères ou des sœurs.", prepSeconds: 0, speakSeconds: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
@@ -621,10 +621,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
-    title: "TCF — Parler de ses goûts",
+    title: "TCF Tâche 1 — Entretien guidé : vos goûts",
     prompt: "Répondez à l'oral, puis tapez votre transcription.",
     difficulty: "FOUNDATION", topicTag: "loisirs",
-    payload: { taskPrompt: "Dites ce que vous aimez et ce que vous n'aimez pas : une nourriture, un sport, une couleur, une saison.", prepSeconds: 10, speakSeconds: 60 },
+    payload: { taskPrompt: "Dites ce que vous aimez et ce que vous n'aimez pas : une nourriture, un sport, une couleur, une saison.", prepSeconds: 0, speakSeconds: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
@@ -642,10 +642,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
-    title: "TCF — Parler de sa ville",
+    title: "TCF Tâche 1 — Entretien guidé : votre ville",
     prompt: "Répondez à l'oral, puis tapez votre transcription.",
     difficulty: "CORE", topicTag: "vie-quotidienne",
-    payload: { taskPrompt: "Parlez de votre ville : son nom, si elle est grande ou petite, et une chose que vous aimez y faire.", prepSeconds: 10, speakSeconds: 60 },
+    payload: { taskPrompt: "Parlez de votre ville : son nom, si elle est grande ou petite, et une chose que vous aimez y faire.", prepSeconds: 0, speakSeconds: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
@@ -663,10 +663,10 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "TCF",
-    title: "TCF — Parler de sa journée",
+    title: "TCF Tâche 1 — Entretien guidé : votre journée",
     prompt: "Répondez à l'oral, puis tapez votre transcription.",
     difficulty: "FOUNDATION", topicTag: "vie-quotidienne",
-    payload: { taskPrompt: "Décrivez votre journée : à quelle heure vous vous levez, ce que vous mangez le matin, et ce que vous faites l'après-midi.", prepSeconds: 10, speakSeconds: 60 },
+    payload: { taskPrompt: "Décrivez votre journée : à quelle heure vous vous levez, ce que vous mangez le matin, et ce que vous faites l'après-midi.", prepSeconds: 0, speakSeconds: 120 },
   },
   {
     level: "A1", skill: "EXPRESSION_ORALE", taskType: "SPEAKING_TASK", examFamily: "DELF_DALF",
