@@ -21,8 +21,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", heading: "Travailler de chez soi, vraiment mieux ?", body: "On a longtemps présenté le télétravail comme une évidence : moins de transports, plus d'autonomie, un meilleur équilibre. L'expérience récente nuance ce tableau. Si beaucoup de salariés apprécient la souplesse, certains décrivent un isolement pesant et une frontière de plus en plus floue entre vie privée et vie professionnelle. Les entreprises, de leur côté, s'inquiètent d'une cohésion d'équipe plus difficile à maintenir à distance. La solution ne réside sans doute ni dans le tout-présentiel ni dans le tout-distanciel, mais dans une organisation hybride, négociée au cas par cas." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel est le point de vue de l'auteur sur le télétravail ?", options: [{ id: "a", text: "Il est toujours préférable" }, { id: "b", text: "Il présente des avantages et des limites" }, { id: "c", text: "Il devrait être interdit" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Quelle organisation l'auteur recommande-t-il ?", options: [{ id: "a", text: "Le tout-présentiel" }, { id: "b", text: "Le tout-distanciel" }, { id: "c", text: "Un modèle hybride négocié" }], answer: "c" },
+        { id: "q1", kind: "mcq", stem: "Quel est le point de vue de l'auteur sur le télétravail ?", options: [{ id: "b", text: "Il présente des avantages et des limites" }, { id: "a", text: "Il est toujours préférable" }, { id: "c", text: "Il devrait être interdit" }], answer: "b" },
+        { id: "q2", kind: "mcq", stem: "Quelle organisation l'auteur recommande-t-il ?", options: [{ id: "a", text: "Le tout-présentiel" }, { id: "c", text: "Un modèle hybride négocié" }, { id: "b", text: "Le tout-distanciel" }], answer: "c" },
       ],
     },
   },
@@ -48,7 +48,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Annoncée à grand renfort de publicité, cette exposition « immersive » consacrée aux impressionnistes tient à moitié ses promesses. La projection des toiles sur des murs immenses impressionne, c'est indéniable. Mais à trop privilégier l'effet spectaculaire, l'ensemble finit par négliger ce qui fait la valeur de ces œuvres : le détail, la touche, le geste du peintre. On sort ébloui, mais pas nécessairement plus savant." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel est le jugement global du critique ?", options: [{ id: "a", text: "Enthousiaste" }, { id: "b", text: "Nuancé, plutôt réservé" }, { id: "c", text: "Totalement négatif" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Quel est le jugement global du critique ?", options: [{ id: "a", text: "Enthousiaste" }, { id: "c", text: "Totalement négatif" }, { id: "b", text: "Nuancé, plutôt réservé" }], answer: "b" },
         { id: "q2", kind: "mcq", stem: "Que reproche-t-il à l'exposition ?", options: [{ id: "a", text: "De négliger le détail des œuvres" }, { id: "b", text: "D'être trop chère" }, { id: "c", text: "De manquer de publicité" }], answer: "a" },
       ],
     },
@@ -62,7 +62,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", heading: "Objet : votre demande de subvention", body: "Madame, Monsieur,\n\nNous accusons réception de votre dossier de demande de subvention pour votre association. Après examen, il apparaît que certaines pièces justificatives manquent, notamment le bilan financier de l'année précédente. Sans ce document, votre demande ne pourra être instruite. Nous vous invitons à le transmettre avant le 15 du mois prochain, faute de quoi le dossier sera classé sans suite.\n\nVeuillez agréer nos salutations distinguées." }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Pourquoi le dossier ne peut-il pas être traité ?", options: [{ id: "a", text: "Il a été envoyé trop tard" }, { id: "b", text: "Une pièce justificative manque" }, { id: "c", text: "L'association n'existe pas" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Que se passe-t-il si le document n'est pas transmis à temps ?", options: [{ id: "a", text: "Le dossier sera classé sans suite" }, { id: "b", text: "La subvention sera doublée" }, { id: "c", text: "Un rendez-vous sera fixé" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Que se passe-t-il si le document n'est pas transmis à temps ?", options: [{ id: "c", text: "Un rendez-vous sera fixé" }, { id: "b", text: "La subvention sera doublée" }, { id: "a", text: "Le dossier sera classé sans suite" }], answer: "a" },
       ],
     },
   },
@@ -101,7 +101,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Certaines villes, autrefois fières d'attirer les visiteurs, commencent à réguler leur affluence. Quotas de bateaux de croisière, taxe de séjour augmentée, limitation des locations de courte durée : les mesures se multiplient. L'objectif n'est pas de fermer la porte aux touristes, mais de préserver la vie des habitants et la qualité même de l'expérience, menacée par la surfréquentation." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Que cherchent à faire ces villes ?", options: [{ id: "a", text: "Interdire le tourisme" }, { id: "b", text: "Réguler l'affluence" }, { id: "c", text: "Attirer plus de croisières" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Que cherchent à faire ces villes ?", options: [{ id: "a", text: "Interdire le tourisme" }, { id: "c", text: "Attirer plus de croisières" }, { id: "b", text: "Réguler l'affluence" }], answer: "b" },
         { id: "q2", kind: "mcq", stem: "Quel est l'objectif annoncé ?", options: [{ id: "a", text: "Préserver la vie des habitants" }, { id: "b", text: "Augmenter les recettes uniquement" }, { id: "c", text: "Construire des hôtels" }], answer: "a" },
       ],
     },
@@ -114,8 +114,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Plusieurs entreprises ont expérimenté la semaine de quatre jours, sans baisse de salaire. Les premiers retours font état d'employés moins fatigués et tout aussi productifs. Les sceptiques objectent que le modèle est difficilement transposable à tous les secteurs, en particulier ceux qui exigent une présence continue. Le débat reste ouvert, mais l'idée, hier marginale, est désormais prise au sérieux." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Que montrent les premiers retours d'expérience ?", options: [{ id: "a", text: "Une productivité maintenue" }, { id: "b", text: "Une forte baisse de production" }, { id: "c", text: "Une hausse des salaires" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Quelle objection est mentionnée ?", options: [{ id: "a", text: "Le modèle convient à tous les métiers" }, { id: "b", text: "Le modèle est dur à appliquer partout" }, { id: "c", text: "Les employés sont plus fatigués" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Que montrent les premiers retours d'expérience ?", options: [{ id: "b", text: "Une forte baisse de production" }, { id: "a", text: "Une productivité maintenue" }, { id: "c", text: "Une hausse des salaires" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Quelle objection est mentionnée ?", options: [{ id: "a", text: "Le modèle convient à tous les métiers" }, { id: "c", text: "Les employés sont plus fatigués" }, { id: "b", text: "Le modèle est dur à appliquer partout" }], answer: "b" },
       ],
     },
   },
@@ -153,7 +153,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "On a souvent prédit la mort du livre. Or les chiffres racontent une autre histoire : on lit toujours, mais différemment. L'écran a habitué nos yeux à parcourir plutôt qu'à approfondir. Le défi n'est donc pas de revenir au papier à tout prix, mais de préserver, à côté de la lecture rapide, ces moments d'attention prolongée que seul un texte long permet vraiment." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Que disent les chiffres selon l'auteur ?", options: [{ id: "a", text: "On ne lit plus du tout" }, { id: "b", text: "On lit encore, mais autrement" }, { id: "c", text: "On lit uniquement sur papier" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Que disent les chiffres selon l'auteur ?", options: [{ id: "a", text: "On ne lit plus du tout" }, { id: "c", text: "On lit uniquement sur papier" }, { id: "b", text: "On lit encore, mais autrement" }], answer: "b" },
         { id: "q2", kind: "mcq", stem: "Quel est, selon lui, le véritable défi ?", options: [{ id: "a", text: "Préserver l'attention prolongée" }, { id: "b", text: "Interdire les écrans" }, { id: "c", text: "Imprimer plus de livres" }], answer: "a" },
       ],
     },
@@ -167,7 +167,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", heading: "Devenez bénévole cet été", body: "Notre association recherche des bénévoles pour accompagner des personnes âgées isolées. Aucune expérience n'est exigée : une formation d'une demi-journée est assurée. L'engagement demandé est de deux heures par semaine, sur une durée minimale de trois mois. Les frais de transport sont remboursés sur justificatif. Inscriptions jusqu'au 20 mai." }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Quelle condition est requise pour devenir bénévole ?", options: [{ id: "a", text: "Une longue expérience" }, { id: "b", text: "Aucune expérience préalable" }, { id: "c", text: "Un diplôme spécifique" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Quel engagement est demandé ?", options: [{ id: "a", text: "Deux heures par semaine pendant au moins trois mois" }, { id: "b", text: "Une journée par mois" }, { id: "c", text: "Dix heures par semaine" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Quel engagement est demandé ?", options: [{ id: "b", text: "Une journée par mois" }, { id: "a", text: "Deux heures par semaine pendant au moins trois mois" }, { id: "c", text: "Dix heures par semaine" }], answer: "a" },
       ],
     },
   },
@@ -179,8 +179,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Privilégier les produits locaux séduit de plus en plus de consommateurs, soucieux de soutenir les agriculteurs de leur région et de réduire l'impact des transports. Les experts rappellent toutefois qu'un produit local n'est pas toujours le plus écologique : une tomate cultivée sous serre chauffée en hiver peut peser plus lourd qu'une tomate importée en pleine saison. Le critère décisif reste la saison, plus encore que la distance." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel critère est présenté comme décisif ?", options: [{ id: "a", text: "La distance parcourue" }, { id: "b", text: "La saison" }, { id: "c", text: "Le prix" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Que rappellent les experts ?", options: [{ id: "a", text: "Local rime toujours avec écologique" }, { id: "b", text: "Un produit local n'est pas forcément le plus écologique" }, { id: "c", text: "Les serres chauffées sont sans impact" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Quel critère est présenté comme décisif ?", options: [{ id: "a", text: "La distance parcourue" }, { id: "c", text: "Le prix" }, { id: "b", text: "La saison" }], answer: "b" },
+        { id: "q2", kind: "mcq", stem: "Que rappellent les experts ?", options: [{ id: "b", text: "Un produit local n'est pas forcément le plus écologique" }, { id: "a", text: "Local rime toujours avec écologique" }, { id: "c", text: "Les serres chauffées sont sans impact" }], answer: "b" },
     ],
     },
   },
@@ -206,8 +206,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "On entend souvent qu'il serait trop tard, passé un certain âge, pour apprendre une langue. Les recherches récentes contredisent ce préjugé tenace. Un adulte progresse certes différemment d'un enfant, mais il dispose d'atouts : capacité d'analyse, motivation, stratégies d'apprentissage. Ce qui manque le plus souvent, ce n'est pas le talent, mais la régularité et l'exposition à la langue." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel préjugé le texte conteste-t-il ?", options: [{ id: "a", text: "Qu'il serait trop tard pour apprendre adulte" }, { id: "b", text: "Que les enfants n'apprennent pas vite" }, { id: "c", text: "Que les langues sont inutiles" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Que manque-t-il le plus souvent à l'adulte, selon l'auteur ?", options: [{ id: "a", text: "Le talent" }, { id: "b", text: "La régularité et l'exposition" }, { id: "c", text: "La mémoire" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Quel préjugé le texte conteste-t-il ?", options: [{ id: "b", text: "Que les enfants n'apprennent pas vite" }, { id: "a", text: "Qu'il serait trop tard pour apprendre adulte" }, { id: "c", text: "Que les langues sont inutiles" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Que manque-t-il le plus souvent à l'adulte, selon l'auteur ?", options: [{ id: "a", text: "Le talent" }, { id: "c", text: "La mémoire" }, { id: "b", text: "La régularité et l'exposition" }], answer: "b" },
       ],
     },
   },
@@ -219,8 +219,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Désertés un temps au profit des zones commerciales périphériques, certains centres-villes reprennent vie. La recette tient en quelques ingrédients : des rues rendues aux piétons, des commerces de proximité soutenus, des logements rénovés. Là où ces efforts ont été menés ensemble, et non isolément, les habitants reviennent. La leçon est claire : un centre-ville ne se redresse pas par une seule mesure spectaculaire, mais par une stratégie d'ensemble patiente." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quelle est la leçon principale de l'article ?", options: [{ id: "a", text: "Une seule mesure spectaculaire suffit" }, { id: "b", text: "Une stratégie d'ensemble est nécessaire" }, { id: "c", text: "Les centres-villes sont condamnés" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Quel ingrédient est cité ?", options: [{ id: "a", text: "Des rues rendues aux piétons" }, { id: "b", text: "Plus de grandes surfaces en périphérie" }, { id: "c", text: "La suppression des logements" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Quelle est la leçon principale de l'article ?", options: [{ id: "b", text: "Une stratégie d'ensemble est nécessaire" }, { id: "a", text: "Une seule mesure spectaculaire suffit" }, { id: "c", text: "Les centres-villes sont condamnés" }], answer: "b" },
+        { id: "q2", kind: "mcq", stem: "Quel ingrédient est cité ?", options: [{ id: "b", text: "Plus de grandes surfaces en périphérie" }, { id: "a", text: "Des rues rendues aux piétons" }, { id: "c", text: "La suppression des logements" }], answer: "a" },
       ],
     },
   },
@@ -235,8 +235,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Journaliste : Professeur, peut-on encore inverser la tendance ? Climatologue : Inverser, le mot est trop fort. Ce que nous pouvons encore faire, c'est limiter l'ampleur des dérèglements. Chaque dixième de degré évité compte. Journaliste : Le citoyen a-t-il un rôle ? Climatologue : Bien sûr, mais ne nous trompons pas d'échelle : les gestes individuels sont utiles, ils ne remplaceront pas les décisions collectives et politiques qui, elles, changent vraiment la donne.",
       speakers: [{ role: "Journaliste", voice: "shimmer" }, { role: "Climatologue", voice: "onyx" }],
       questions: [
-        { id: "q1", stem: "Que peut-on encore faire, selon le climatologue ?", options: [{ id: "a", text: "Inverser totalement la tendance" }, { id: "b", text: "Limiter l'ampleur des dérèglements" }, { id: "c", text: "Ne rien changer" }], answer: "b" },
-        { id: "q2", stem: "Quel est son point de vue sur les gestes individuels ?", options: [{ id: "a", text: "Ils suffisent à tout régler" }, { id: "b", text: "Ils sont inutiles" }, { id: "c", text: "Utiles, mais insuffisants seuls" }], answer: "c" },
+        { id: "q1", stem: "Que peut-on encore faire, selon le climatologue ?", options: [{ id: "b", text: "Limiter l'ampleur des dérèglements" }, { id: "a", text: "Inverser totalement la tendance" }, { id: "c", text: "Ne rien changer" }], answer: "b" },
+        { id: "q2", stem: "Quel est son point de vue sur les gestes individuels ?", options: [{ id: "a", text: "Ils suffisent à tout régler" }, { id: "c", text: "Utiles, mais insuffisants seuls" }, { id: "b", text: "Ils sont inutiles" }], answer: "c" },
       ],
     },
   },
@@ -249,7 +249,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Animateur : La voiture a-t-elle encore sa place en centre-ville ? Invité 1 : Pour moi, la réduire, c'est exclure ceux qui en dépendent, les artisans, les familles. Invitée 2 : Je comprends, mais on ne peut pas continuer ainsi. L'idée n'est pas d'interdire, c'est d'offrir des alternatives crédibles : transports fréquents, pistes sûres. Sans cela, bien sûr, on pénalise les gens. Invité 1 : Sur ce point, nous sommes d'accord : l'alternative d'abord, la contrainte ensuite.",
       speakers: [{ role: "Animateur", voice: "echo" }, { role: "Invité 1", voice: "onyx" }, { role: "Invitée 2", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Sur quoi les deux invités finissent-ils par s'accorder ?", options: [{ id: "a", text: "Interdire la voiture immédiatement" }, { id: "b", text: "Proposer des alternatives avant de contraindre" }, { id: "c", text: "Ne rien changer" }], answer: "b" },
+        { id: "q1", stem: "Sur quoi les deux invités finissent-ils par s'accorder ?", options: [{ id: "a", text: "Interdire la voiture immédiatement" }, { id: "c", text: "Ne rien changer" }, { id: "b", text: "Proposer des alternatives avant de contraindre" }], answer: "b" },
         { id: "q2", stem: "Que craint l'invité 1 ?", options: [{ id: "a", text: "Exclure ceux qui dépendent de la voiture" }, { id: "b", text: "Trop de pistes cyclables" }, { id: "c", text: "Le coût des transports" }], answer: "a" },
       ],
     },
@@ -263,8 +263,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Conférencière : Le café, avant d'être une boisson du quotidien, a d'abord été un produit de luxe, puis un véritable phénomène social. Au dix-huitième siècle, les cafés deviennent des lieux où l'on discute, où l'on débat, où circulent les idées nouvelles. Ce n'est pas un hasard si certains les ont surnommés les « universités du peuple ». Le café n'a pas seulement réveillé les corps : il a, à sa manière, stimulé les esprits.",
       speakers: [{ role: "Conférencière", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Comme quoi certains cafés ont-ils été surnommés ?", options: [{ id: "a", text: "Des « universités du peuple »" }, { id: "b", text: "Des bibliothèques" }, { id: "c", text: "Des marchés" }], answer: "a" },
-        { id: "q2", stem: "Quelle idée la conférencière souligne-t-elle ?", options: [{ id: "a", text: "Le café a un rôle social et intellectuel" }, { id: "b", text: "Le café est resté un produit de luxe" }, { id: "c", text: "Le café était interdit" }], answer: "a" },
+        { id: "q1", stem: "Comme quoi certains cafés ont-ils été surnommés ?", options: [{ id: "b", text: "Des bibliothèques" }, { id: "a", text: "Des « universités du peuple »" }, { id: "c", text: "Des marchés" }], answer: "a" },
+        { id: "q2", stem: "Quelle idée la conférencière souligne-t-elle ?", options: [{ id: "c", text: "Le café était interdit" }, { id: "b", text: "Le café est resté un produit de luxe" }, { id: "a", text: "Le café a un rôle social et intellectuel" }], answer: "a" },
       ],
     },
   },
@@ -278,7 +278,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Présentateur", voice: "fable" }],
       questions: [
         { id: "q1", stem: "Comment évolue l'emploi ce trimestre ?", options: [{ id: "a", text: "Il progresse, mais plus lentement que prévu" }, { id: "b", text: "Il chute fortement" }, { id: "c", text: "Il est stable depuis des années" }], answer: "a" },
-        { id: "q2", stem: "Qu'est-ce qui freine la consommation ?", options: [{ id: "a", text: "La hausse des prix" }, { id: "b", text: "La baisse des impôts" }, { id: "c", text: "Le manque de magasins" }], answer: "a" },
+        { id: "q2", stem: "Qu'est-ce qui freine la consommation ?", options: [{ id: "b", text: "La baisse des impôts" }, { id: "a", text: "La hausse des prix" }, { id: "c", text: "Le manque de magasins" }], answer: "a" },
       ],
     },
   },
@@ -291,8 +291,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Reporter : Ils sont retraités, étudiants, ou actifs sur leur temps libre. Ce qui les réunit ici, chaque samedi, c'est l'envie d'être utiles. Une bénévole : Au début, je pensais donner un peu de mon temps. En réalité, c'est moi qui reçois le plus : des rencontres, un sentiment d'appartenance. Reporter : Un constat partagé par beaucoup : on s'engage pour les autres, on y trouve aussi quelque chose pour soi.",
       speakers: [{ role: "Reporter", voice: "echo" }, { role: "Bénévole", voice: "shimmer" }],
       questions: [
-        { id: "q1", stem: "Que découvre la bénévole en s'engageant ?", options: [{ id: "a", text: "Qu'elle reçoit beaucoup en retour" }, { id: "b", text: "Que c'est une perte de temps" }, { id: "c", text: "Qu'elle préfère être seule" }], answer: "a" },
-        { id: "q2", stem: "Qui sont les bénévoles présentés ?", options: [{ id: "a", text: "Uniquement des retraités" }, { id: "b", text: "Des profils variés" }, { id: "c", text: "Des employés de l'association" }], answer: "b" },
+        { id: "q1", stem: "Que découvre la bénévole en s'engageant ?", options: [{ id: "c", text: "Qu'elle préfère être seule" }, { id: "b", text: "Que c'est une perte de temps" }, { id: "a", text: "Qu'elle reçoit beaucoup en retour" }], answer: "a" },
+        { id: "q2", stem: "Qui sont les bénévoles présentés ?", options: [{ id: "b", text: "Des profils variés" }, { id: "a", text: "Uniquement des retraités" }, { id: "c", text: "Des employés de l'association" }], answer: "b" },
       ],
     },
   },
@@ -305,8 +305,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Responsable : Globalement, votre année est très satisfaisante. J'aimerais qu'on parle de la suite. Salarié : Justement, j'aimerais évoluer vers un poste avec plus de responsabilités. Responsable : C'est envisageable, mais cela suppose une formation, et un peu de patience : un poste se libérera plutôt en fin d'année. Salarié : Cela me convient, à condition qu'on fixe ensemble des objectifs clairs d'ici là. Responsable : Tout à fait, c'est la bonne façon de procéder.",
       speakers: [{ role: "Responsable", voice: "onyx" }, { role: "Salarié", voice: "fable" }],
       questions: [
-        { id: "q1", stem: "Que souhaite le salarié ?", options: [{ id: "a", text: "Évoluer vers plus de responsabilités" }, { id: "b", text: "Changer d'entreprise" }, { id: "c", text: "Travailler moins" }], answer: "a" },
-        { id: "q2", stem: "Quelle condition le salarié pose-t-il ?", options: [{ id: "a", text: "Une augmentation immédiate" }, { id: "b", text: "Des objectifs clairs fixés ensemble" }, { id: "c", text: "Un poste tout de suite" }], answer: "b" },
+        { id: "q1", stem: "Que souhaite le salarié ?", options: [{ id: "b", text: "Changer d'entreprise" }, { id: "a", text: "Évoluer vers plus de responsabilités" }, { id: "c", text: "Travailler moins" }], answer: "a" },
+        { id: "q2", stem: "Quelle condition le salarié pose-t-il ?", options: [{ id: "a", text: "Une augmentation immédiate" }, { id: "c", text: "Un poste tout de suite" }, { id: "b", text: "Des objectifs clairs fixés ensemble" }], answer: "b" },
       ],
     },
   },
@@ -333,8 +333,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Médecin : La première règle, et de loin la plus efficace, c'est la régularité : se coucher et se lever à des heures stables, même le week-end. On sous-estime à quel point le corps aime les repères. Le reste — la chambre fraîche, l'absence d'écran — compte aussi, mais vient après. Inutile de tout changer d'un coup : un seul bon réflexe, tenu dans la durée, vaut mieux que dix résolutions abandonnées.",
       speakers: [{ role: "Médecin", voice: "onyx" }],
       questions: [
-        { id: "q1", stem: "Quelle est la règle la plus efficace selon le médecin ?", options: [{ id: "a", text: "La régularité des horaires" }, { id: "b", text: "Dormir le plus longtemps possible" }, { id: "c", text: "Changer de chambre" }], answer: "a" },
-        { id: "q2", stem: "Que conseille-t-il sur la méthode ?", options: [{ id: "a", text: "Tout changer d'un coup" }, { id: "b", text: "Tenir un seul bon réflexe dans la durée" }, { id: "c", text: "Abandonner si c'est difficile" }], answer: "b" },
+        { id: "q1", stem: "Quelle est la règle la plus efficace selon le médecin ?", options: [{ id: "c", text: "Changer de chambre" }, { id: "b", text: "Dormir le plus longtemps possible" }, { id: "a", text: "La régularité des horaires" }], answer: "a" },
+        { id: "q2", stem: "Que conseille-t-il sur la méthode ?", options: [{ id: "b", text: "Tenir un seul bon réflexe dans la durée" }, { id: "a", text: "Tout changer d'un coup" }, { id: "c", text: "Abandonner si c'est difficile" }], answer: "b" },
       ],
     },
   },
@@ -348,7 +348,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Journaliste", voice: "echo" }, { role: "Entrepreneuse", voice: "shimmer" }],
       questions: [
         { id: "q1", stem: "Quel conseil donne l'entrepreneuse ?", options: [{ id: "a", text: "Attendre le projet parfait" }, { id: "b", text: "Ne pas attendre, apprendre en faisant" }, { id: "c", text: "Ne jamais se lancer seul" }], answer: "b" },
-        { id: "q2", stem: "Que dit-elle de la peur de l'échec ?", options: [{ id: "a", text: "Elle disparaît vite" }, { id: "b", text: "On apprend à avancer avec elle" }, { id: "c", text: "Elle empêche de réussir" }], answer: "b" },
+        { id: "q2", stem: "Que dit-elle de la peur de l'échec ?", options: [{ id: "a", text: "Elle disparaît vite" }, { id: "c", text: "Elle empêche de réussir" }, { id: "b", text: "On apprend à avancer avec elle" }], answer: "b" },
       ],
     },
   },
@@ -375,8 +375,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Directrice : Chers collègues, à partir du mois prochain, les équipes seront réorganisées par projet, et non plus par service. L'objectif est de fluidifier la communication et de raccourcir les délais de décision. Je tiens à être claire : cette réorganisation n'entraînera aucune suppression de poste. Des réunions d'information se tiendront la semaine prochaine pour répondre à toutes vos questions.",
       speakers: [{ role: "Directrice", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Comment les équipes seront-elles désormais organisées ?", options: [{ id: "a", text: "Par projet" }, { id: "b", text: "Par service" }, { id: "c", text: "Par ancienneté" }], answer: "a" },
-        { id: "q2", stem: "Que précise la directrice ?", options: [{ id: "a", text: "Des postes seront supprimés" }, { id: "b", text: "Aucun poste ne sera supprimé" }, { id: "c", text: "Les salaires baisseront" }], answer: "b" },
+        { id: "q1", stem: "Comment les équipes seront-elles désormais organisées ?", options: [{ id: "c", text: "Par ancienneté" }, { id: "b", text: "Par service" }, { id: "a", text: "Par projet" }], answer: "a" },
+        { id: "q2", stem: "Que précise la directrice ?", options: [{ id: "b", text: "Aucun poste ne sera supprimé" }, { id: "a", text: "Des postes seront supprimés" }, { id: "c", text: "Les salaires baisseront" }], answer: "b" },
       ],
     },
   },
@@ -389,8 +389,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Reporter : Dans ce village de montagne, on a fait un choix : moins de visiteurs, mais mieux accueillis. Une habitante : On a refusé d'agrandir sans fin les parkings. On préfère que les gens viennent en train, qu'ils restent plus longtemps, qu'ils consomment local. Reporter : Le pari semble tenu : la fréquentation a légèrement baissé, mais les retombées pour les commerçants, elles, ont augmenté.",
       speakers: [{ role: "Reporter", voice: "echo" }, { role: "Habitante", voice: "shimmer" }],
       questions: [
-        { id: "q1", stem: "Quel choix le village a-t-il fait ?", options: [{ id: "a", text: "Moins de visiteurs, mieux accueillis" }, { id: "b", text: "Le maximum de visiteurs" }, { id: "c", text: "Fermer aux touristes" }], answer: "a" },
-        { id: "q2", stem: "Quel est le résultat pour les commerçants ?", options: [{ id: "a", text: "Des retombées en hausse" }, { id: "b", text: "Une faillite générale" }, { id: "c", text: "Aucun changement" }], answer: "a" },
+        { id: "q1", stem: "Quel choix le village a-t-il fait ?", options: [{ id: "b", text: "Le maximum de visiteurs" }, { id: "a", text: "Moins de visiteurs, mieux accueillis" }, { id: "c", text: "Fermer aux touristes" }], answer: "a" },
+        { id: "q2", stem: "Quel est le résultat pour les commerçants ?", options: [{ id: "c", text: "Aucun changement" }, { id: "b", text: "Une faillite générale" }, { id: "a", text: "Des retombées en hausse" }], answer: "a" },
       ],
     },
   },
@@ -404,7 +404,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Animateur", voice: "fable" }],
       questions: [
         { id: "q1", stem: "Selon l'animateur, bien s'organiser, c'est surtout :", options: [{ id: "a", text: "Décider de ce qu'on ne fera pas" }, { id: "b", text: "Remplir son agenda" }, { id: "c", text: "Dire oui à tout" }], answer: "a" },
-        { id: "q2", stem: "Quel est son conseil de la semaine ?", options: [{ id: "a", text: "Protéger le temps d'une tâche importante" }, { id: "b", text: "Travailler le soir" }, { id: "c", text: "Faire dix choses à la fois" }], answer: "a" },
+        { id: "q2", stem: "Quel est son conseil de la semaine ?", options: [{ id: "b", text: "Travailler le soir" }, { id: "a", text: "Protéger le temps d'une tâche importante" }, { id: "c", text: "Faire dix choses à la fois" }], answer: "a" },
       ],
     },
   },
@@ -417,8 +417,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Journaliste : Pourquoi la rue, plutôt qu'une galerie ? Artiste : Parce que la rue ne choisit pas son public. En galerie, viennent ceux qui s'intéressent déjà à l'art. Dans la rue, je touche quelqu'un qui ne serait jamais entré dans un musée. Journaliste : Et l'éphémère ne vous gêne pas ? Artiste : Au contraire. Une œuvre qui s'efface oblige les gens à la regarder maintenant, pas demain.",
       speakers: [{ role: "Journaliste", voice: "echo" }, { role: "Artiste", voice: "onyx" }],
       questions: [
-        { id: "q1", stem: "Pourquoi l'artiste préfère-t-il la rue ?", options: [{ id: "a", text: "Elle ne choisit pas son public" }, { id: "b", text: "Elle rapporte plus d'argent" }, { id: "c", text: "Elle est plus calme" }], answer: "a" },
-        { id: "q2", stem: "Comment voit-il le caractère éphémère de son art ?", options: [{ id: "a", text: "Comme un problème" }, { id: "b", text: "Comme une force qui invite à regarder maintenant" }, { id: "c", text: "Comme sans importance" }], answer: "b" },
+        { id: "q1", stem: "Pourquoi l'artiste préfère-t-il la rue ?", options: [{ id: "c", text: "Elle est plus calme" }, { id: "b", text: "Elle rapporte plus d'argent" }, { id: "a", text: "Elle ne choisit pas son public" }], answer: "a" },
+        { id: "q2", stem: "Comment voit-il le caractère éphémère de son art ?", options: [{ id: "b", text: "Comme une force qui invite à regarder maintenant" }, { id: "a", text: "Comme un problème" }, { id: "c", text: "Comme sans importance" }], answer: "b" },
       ],
     },
   },
@@ -431,8 +431,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Présentatrice : Une vague de chaleur s'installe sur l'ensemble du pays pour les prochains jours, avec des températures dépassant localement les 35 degrés. Les autorités appellent à la prudence : il est recommandé de boire régulièrement, d'éviter les efforts aux heures les plus chaudes et de prendre des nouvelles des personnes âgées. La circulation sera par ailleurs ralentie sur les grands axes, en raison des départs en vacances.",
       speakers: [{ role: "Présentatrice", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Quelle recommandation est donnée ?", options: [{ id: "a", text: "Éviter les efforts aux heures chaudes" }, { id: "b", text: "Faire du sport à midi" }, { id: "c", text: "Rester sans boire" }], answer: "a" },
-        { id: "q2", stem: "Pourquoi la circulation sera-t-elle ralentie ?", options: [{ id: "a", text: "À cause des départs en vacances" }, { id: "b", text: "À cause de la neige" }, { id: "c", text: "À cause d'une grève" }], answer: "a" },
+        { id: "q1", stem: "Quelle recommandation est donnée ?", options: [{ id: "b", text: "Faire du sport à midi" }, { id: "a", text: "Éviter les efforts aux heures chaudes" }, { id: "c", text: "Rester sans boire" }], answer: "a" },
+        { id: "q2", stem: "Pourquoi la circulation sera-t-elle ralentie ?", options: [{ id: "c", text: "À cause d'une grève" }, { id: "b", text: "À cause de la neige" }, { id: "a", text: "À cause des départs en vacances" }], answer: "a" },
       ],
     },
   },
@@ -447,7 +447,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Reporter", voice: "echo" }, { role: "Vendeuse", voice: "shimmer" }],
       questions: [
         { id: "q1", stem: "Qu'est-ce qui a changé chez les clients ?", options: [{ id: "a", text: "Ils ne viennent plus seulement pour économiser" }, { id: "b", text: "Ils achètent uniquement du neuf" }, { id: "c", text: "Ils ne s'intéressent plus à la mode" }], answer: "a" },
-        { id: "q2", stem: "Quelle question le reporter pose-t-il à la fin ?", options: [{ id: "a", text: "Si cet engouement va durer" }, { id: "b", text: "Si les prix vont monter" }, { id: "c", text: "Si les magasins vont fermer" }], answer: "a" },
+        { id: "q2", stem: "Quelle question le reporter pose-t-il à la fin ?", options: [{ id: "b", text: "Si les prix vont monter" }, { id: "a", text: "Si cet engouement va durer" }, { id: "c", text: "Si les magasins vont fermer" }], answer: "a" },
       ],
     },
   },

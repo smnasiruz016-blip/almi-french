@@ -21,8 +21,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Salut ! Rendez-vous à 14 h au café. À tout à l'heure ! Marc" }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "À quelle heure est le rendez-vous ?", options: [{ id: "a", text: "4 h" }, { id: "b", text: "14 h" }, { id: "c", text: "40 h" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Où est le rendez-vous ?", options: [{ id: "a", text: "Au café" }, { id: "b", text: "À la gare" }, { id: "c", text: "À la maison" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "À quelle heure est le rendez-vous ?", options: [{ id: "b", text: "14 h" }, { id: "a", text: "4 h" }, { id: "c", text: "40 h" }], answer: "b" },
+        { id: "q2", kind: "mcq", stem: "Où est le rendez-vous ?", options: [{ id: "b", text: "À la gare" }, { id: "a", text: "Au café" }, { id: "c", text: "À la maison" }], answer: "a" },
       ],
     },
   },
@@ -47,7 +47,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Joyeux anniversaire, Léa ! Tu as 20 ans aujourd'hui. Gros bisous. Ta grand-mère." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel âge a Léa ?", options: [{ id: "a", text: "10 ans" }, { id: "b", text: "20 ans" }, { id: "c", text: "12 ans" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Quel âge a Léa ?", options: [{ id: "a", text: "10 ans" }, { id: "c", text: "12 ans" }, { id: "b", text: "20 ans" }], answer: "b" },
         { id: "q2", kind: "mcq", stem: "Qui écrit la carte ?", options: [{ id: "a", text: "Sa grand-mère" }, { id: "b", text: "Sa sœur" }, { id: "c", text: "Son ami" }], answer: "a" },
       ],
     },
@@ -61,7 +61,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", body: "Courses : du pain, du lait, six œufs, des pommes et du café." }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Combien d'œufs faut-il acheter ?", options: [{ id: "a", text: "Trois" }, { id: "b", text: "Six" }, { id: "c", text: "Dix" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Quel fruit est sur la liste ?", options: [{ id: "a", text: "Des pommes" }, { id: "b", text: "Des bananes" }, { id: "c", text: "Des oranges" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Quel fruit est sur la liste ?", options: [{ id: "c", text: "Des oranges" }, { id: "b", text: "Des bananes" }, { id: "a", text: "Des pommes" }], answer: "a" },
       ],
     },
   },
@@ -99,7 +99,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", heading: "Menu enfant — 8 €", body: "Steak et frites. Un dessert : glace ou gâteau. Une boisson : jus ou eau." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Combien coûte le menu enfant ?", options: [{ id: "a", text: "8 €" }, { id: "b", text: "18 €" }, { id: "c", text: "80 €" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Combien coûte le menu enfant ?", options: [{ id: "c", text: "80 €" }, { id: "b", text: "18 €" }, { id: "a", text: "8 €" }], answer: "a" },
         { id: "q2", kind: "mcq", stem: "Quel dessert peut-on choisir ?", options: [{ id: "a", text: "Une glace" }, { id: "b", text: "Une tarte" }, { id: "c", text: "Un fruit" }], answer: "a" },
       ],
     },
@@ -125,8 +125,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Bus numéro 5. Départs : 8 h, 10 h, 12 h, 14 h. Arrêt : place de la Mairie." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel est le numéro du bus ?", options: [{ id: "a", text: "5" }, { id: "b", text: "8" }, { id: "c", text: "15" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "À quelle heure part le premier bus ?", options: [{ id: "a", text: "8 h" }, { id: "b", text: "10 h" }, { id: "c", text: "12 h" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Quel est le numéro du bus ?", options: [{ id: "b", text: "8" }, { id: "a", text: "5" }, { id: "c", text: "15" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "À quelle heure part le premier bus ?", options: [{ id: "c", text: "12 h" }, { id: "b", text: "10 h" }, { id: "a", text: "8 h" }], answer: "a" },
       ],
     },
   },
@@ -139,7 +139,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", body: "Désolé, je suis malade. Je ne viens pas ce soir. On se voit demain ? Tom" }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Pourquoi Tom ne vient pas ?", options: [{ id: "a", text: "Il est malade" }, { id: "b", text: "Il travaille" }, { id: "c", text: "Il est fatigué" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Quand veut-il se voir ?", options: [{ id: "a", text: "Demain" }, { id: "b", text: "Ce soir" }, { id: "c", text: "Lundi" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Quand veut-il se voir ?", options: [{ id: "b", text: "Ce soir" }, { id: "a", text: "Demain" }, { id: "c", text: "Lundi" }], answer: "a" },
       ],
     },
   },
@@ -164,7 +164,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Nom : Dupont. Prénom : Julie. Âge : 25 ans. Ville : Lyon. Téléphone : 06 11 22 33 44." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel est le prénom ?", options: [{ id: "a", text: "Julie" }, { id: "b", text: "Dupont" }, { id: "c", text: "Lyon" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Quel est le prénom ?", options: [{ id: "c", text: "Lyon" }, { id: "b", text: "Dupont" }, { id: "a", text: "Julie" }], answer: "a" },
         { id: "q2", kind: "mcq", stem: "Quel âge a Julie ?", options: [{ id: "a", text: "25 ans" }, { id: "b", text: "52 ans" }, { id: "c", text: "15 ans" }], answer: "a" },
       ],
     },
@@ -177,8 +177,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Café : 2 €. Thé : 2,50 €. Jus d'orange : 3 €. Eau : 1,50 €." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Combien coûte un café ?", options: [{ id: "a", text: "2 €" }, { id: "b", text: "3 €" }, { id: "c", text: "1,50 €" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Quelle est la boisson la plus chère ?", options: [{ id: "a", text: "Le jus d'orange" }, { id: "b", text: "Le café" }, { id: "c", text: "L'eau" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Combien coûte un café ?", options: [{ id: "b", text: "3 €" }, { id: "a", text: "2 €" }, { id: "c", text: "1,50 €" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Quelle est la boisson la plus chère ?", options: [{ id: "c", text: "L'eau" }, { id: "b", text: "Le café" }, { id: "a", text: "Le jus d'orange" }], answer: "a" },
       ],
     },
   },
@@ -204,7 +204,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", body: "Bonjour, je m'appelle Karim. J'ai 18 ans. Je suis étudiant. J'aime le football et la musique. Je viens du Maroc." }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Que fait Karim ?", options: [{ id: "a", text: "Il est étudiant" }, { id: "b", text: "Il est professeur" }, { id: "c", text: "Il est serveur" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Qu'est-ce qu'il aime ?", options: [{ id: "a", text: "Le football et la musique" }, { id: "b", text: "Le cinéma" }, { id: "c", text: "La cuisine" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Qu'est-ce qu'il aime ?", options: [{ id: "b", text: "Le cinéma" }, { id: "a", text: "Le football et la musique" }, { id: "c", text: "La cuisine" }], answer: "a" },
       ],
     },
   },
@@ -216,7 +216,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", heading: "Fête de l'école", body: "Samedi 15 juin. À partir de 15 h. Dans la cour. Musique, jeux et gâteaux. Entrée gratuite." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel jour est la fête ?", options: [{ id: "a", text: "Samedi 15 juin" }, { id: "b", text: "Dimanche 15 juin" }, { id: "c", text: "Samedi 5 juin" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Quel jour est la fête ?", options: [{ id: "c", text: "Samedi 5 juin" }, { id: "b", text: "Dimanche 15 juin" }, { id: "a", text: "Samedi 15 juin" }], answer: "a" },
         { id: "q2", kind: "mcq", stem: "Combien coûte l'entrée ?", options: [{ id: "a", text: "C'est gratuit" }, { id: "b", text: "5 euros" }, { id: "c", text: "15 euros" }], answer: "a" },
       ],
     },
@@ -233,7 +233,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Anna", voice: "nova" }],
       questions: [
         { id: "q1", stem: "Comment s'appelle-t-elle ?", options: [{ id: "a", text: "Anna" }, { id: "b", text: "Emma" }, { id: "c", text: "Sara" }], answer: "a" },
-        { id: "q2", stem: "Où habite-t-elle ?", options: [{ id: "a", text: "À Toulouse" }, { id: "b", text: "À Paris" }, { id: "c", text: "À Lyon" }], answer: "a" },
+        { id: "q2", stem: "Où habite-t-elle ?", options: [{ id: "b", text: "À Paris" }, { id: "a", text: "À Toulouse" }, { id: "c", text: "À Lyon" }], answer: "a" },
       ],
     },
   },
@@ -246,7 +246,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Cliente : Bonjour, une baguette, s'il vous plaît. Boulanger : Voilà. Un euro. Cliente : Merci. Au revoir !",
       speakers: [{ role: "Cliente", voice: "shimmer" }, { role: "Boulanger", voice: "onyx" }],
       questions: [
-        { id: "q1", stem: "Qu'achète la cliente ?", options: [{ id: "a", text: "Une baguette" }, { id: "b", text: "Un croissant" }, { id: "c", text: "Un gâteau" }], answer: "a" },
+        { id: "q1", stem: "Qu'achète la cliente ?", options: [{ id: "c", text: "Un gâteau" }, { id: "b", text: "Un croissant" }, { id: "a", text: "Une baguette" }], answer: "a" },
         { id: "q2", stem: "Combien coûte la baguette ?", options: [{ id: "a", text: "Un euro" }, { id: "b", text: "Deux euros" }, { id: "c", text: "Trois euros" }], answer: "a" },
       ],
     },
@@ -260,8 +260,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Excusez-moi, quelle heure est-il ? Il est trois heures et demie. Merci beaucoup !",
       speakers: [{ role: "Passant", voice: "echo" }],
       questions: [
-        { id: "q1", stem: "Quelle heure est-il ?", options: [{ id: "a", text: "Trois heures et demie" }, { id: "b", text: "Deux heures" }, { id: "c", text: "Quatre heures" }], answer: "a" },
-        { id: "q2", stem: "Que dit la personne à la fin ?", options: [{ id: "a", text: "Merci beaucoup" }, { id: "b", text: "Bonne nuit" }, { id: "c", text: "Au revoir" }], answer: "a" },
+        { id: "q1", stem: "Quelle heure est-il ?", options: [{ id: "b", text: "Deux heures" }, { id: "a", text: "Trois heures et demie" }, { id: "c", text: "Quatre heures" }], answer: "a" },
+        { id: "q2", stem: "Que dit la personne à la fin ?", options: [{ id: "c", text: "Au revoir" }, { id: "b", text: "Bonne nuit" }, { id: "a", text: "Merci beaucoup" }], answer: "a" },
       ],
     },
   },
@@ -275,7 +275,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Lucas", voice: "fable" }, { role: "Voisin", voice: "onyx" }],
       questions: [
         { id: "q1", stem: "Qui téléphone ?", options: [{ id: "a", text: "Lucas" }, { id: "b", text: "Marie" }, { id: "c", text: "Paul" }], answer: "a" },
-        { id: "q2", stem: "À quelle heure rentre Marie ?", options: [{ id: "a", text: "À six heures" }, { id: "b", text: "À deux heures" }, { id: "c", text: "À dix heures" }], answer: "a" },
+        { id: "q2", stem: "À quelle heure rentre Marie ?", options: [{ id: "b", text: "À deux heures" }, { id: "a", text: "À six heures" }, { id: "c", text: "À dix heures" }], answer: "a" },
       ],
     },
   },
@@ -288,7 +288,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Serveur : Bonjour, vous désirez ? Client : Un café, s'il vous plaît. Serveur : Avec du sucre ? Client : Non, merci.",
       speakers: [{ role: "Serveur", voice: "onyx" }, { role: "Client", voice: "echo" }],
       questions: [
-        { id: "q1", stem: "Que commande le client ?", options: [{ id: "a", text: "Un café" }, { id: "b", text: "Un thé" }, { id: "c", text: "Une eau" }], answer: "a" },
+        { id: "q1", stem: "Que commande le client ?", options: [{ id: "c", text: "Une eau" }, { id: "b", text: "Un thé" }, { id: "a", text: "Un café" }], answer: "a" },
         { id: "q2", stem: "Veut-il du sucre ?", options: [{ id: "a", text: "Non" }, { id: "b", text: "Oui" }, { id: "c", text: "Un peu" }], answer: "a" },
       ],
     },
@@ -302,8 +302,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Attention, le cours de musique de cet après-midi est annulé. Les élèves rentrent à la maison à quinze heures. Merci.",
       speakers: [{ role: "Directrice", voice: "shimmer" }],
       questions: [
-        { id: "q1", stem: "Quel cours est annulé ?", options: [{ id: "a", text: "Le cours de musique" }, { id: "b", text: "Le cours de sport" }, { id: "c", text: "Le cours de maths" }], answer: "a" },
-        { id: "q2", stem: "À quelle heure rentrent les élèves ?", options: [{ id: "a", text: "À 15 h" }, { id: "b", text: "À 17 h" }, { id: "c", text: "À 13 h" }], answer: "a" },
+        { id: "q1", stem: "Quel cours est annulé ?", options: [{ id: "b", text: "Le cours de sport" }, { id: "a", text: "Le cours de musique" }, { id: "c", text: "Le cours de maths" }], answer: "a" },
+        { id: "q2", stem: "À quelle heure rentrent les élèves ?", options: [{ id: "c", text: "À 13 h" }, { id: "b", text: "À 17 h" }, { id: "a", text: "À 15 h" }], answer: "a" },
       ],
     },
   },
@@ -317,7 +317,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Sami", voice: "fable" }],
       questions: [
         { id: "q1", stem: "Combien de sœurs a la personne ?", options: [{ id: "a", text: "Deux" }, { id: "b", text: "Une" }, { id: "c", text: "Trois" }], answer: "a" },
-        { id: "q2", stem: "Quel est le métier du père ?", options: [{ id: "a", text: "Cuisinier" }, { id: "b", text: "Médecin" }, { id: "c", text: "Professeur" }], answer: "a" },
+        { id: "q2", stem: "Quel est le métier du père ?", options: [{ id: "b", text: "Médecin" }, { id: "a", text: "Cuisinier" }, { id: "c", text: "Professeur" }], answer: "a" },
       ],
     },
   },
@@ -330,7 +330,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Aujourd'hui, il fait beau et il y a du soleil. Il fait vingt degrés. C'est une belle journée pour se promener.",
       speakers: [{ role: "Présentateur", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Quel temps fait-il aujourd'hui ?", options: [{ id: "a", text: "Il fait beau" }, { id: "b", text: "Il pleut" }, { id: "c", text: "Il neige" }], answer: "a" },
+        { id: "q1", stem: "Quel temps fait-il aujourd'hui ?", options: [{ id: "c", text: "Il neige" }, { id: "b", text: "Il pleut" }, { id: "a", text: "Il fait beau" }], answer: "a" },
         { id: "q2", stem: "Quelle température fait-il ?", options: [{ id: "a", text: "Vingt degrés" }, { id: "b", text: "Dix degrés" }, { id: "c", text: "Trente degrés" }], answer: "a" },
       ],
     },
@@ -344,8 +344,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Cliente : Bonjour, je voudrais des pommes. Vendeur : Un kilo ? Cliente : Oui, un kilo. Vendeur : Deux euros, s'il vous plaît.",
       speakers: [{ role: "Cliente", voice: "shimmer" }, { role: "Vendeur", voice: "onyx" }],
       questions: [
-        { id: "q1", stem: "Qu'achète la cliente ?", options: [{ id: "a", text: "Des pommes" }, { id: "b", text: "Des oranges" }, { id: "c", text: "Des poires" }], answer: "a" },
-        { id: "q2", stem: "Combien paie-t-elle ?", options: [{ id: "a", text: "Deux euros" }, { id: "b", text: "Dix euros" }, { id: "c", text: "Douze euros" }], answer: "a" },
+        { id: "q1", stem: "Qu'achète la cliente ?", options: [{ id: "b", text: "Des oranges" }, { id: "a", text: "Des pommes" }, { id: "c", text: "Des poires" }], answer: "a" },
+        { id: "q2", stem: "Combien paie-t-elle ?", options: [{ id: "c", text: "Douze euros" }, { id: "b", text: "Dix euros" }, { id: "a", text: "Deux euros" }], answer: "a" },
       ],
     },
   },
@@ -359,7 +359,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Amie", voice: "nova" }],
       questions: [
         { id: "q1", stem: "Quel jour est la fête ?", options: [{ id: "a", text: "Samedi" }, { id: "b", text: "Dimanche" }, { id: "c", text: "Vendredi" }], answer: "a" },
-        { id: "q2", stem: "À quelle heure ?", options: [{ id: "a", text: "À 20 h" }, { id: "b", text: "À 10 h" }, { id: "c", text: "À 12 h" }], answer: "a" },
+        { id: "q2", stem: "À quelle heure ?", options: [{ id: "b", text: "À 10 h" }, { id: "a", text: "À 20 h" }, { id: "c", text: "À 12 h" }], answer: "a" },
       ],
     },
   },
@@ -372,7 +372,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Prochaine station : Opéra. Attention à la marche en descendant du train. Les portes vont se fermer.",
       speakers: [{ role: "Annonce", voice: "echo" }],
       questions: [
-        { id: "q1", stem: "Quelle est la prochaine station ?", options: [{ id: "a", text: "Opéra" }, { id: "b", text: "Bastille" }, { id: "c", text: "Nation" }], answer: "a" },
+        { id: "q1", stem: "Quelle est la prochaine station ?", options: [{ id: "c", text: "Nation" }, { id: "b", text: "Bastille" }, { id: "a", text: "Opéra" }], answer: "a" },
         { id: "q2", stem: "Que vont faire les portes ?", options: [{ id: "a", text: "Se fermer" }, { id: "b", text: "S'ouvrir" }, { id: "c", text: "Rester ouvertes" }], answer: "a" },
       ],
     },
@@ -386,8 +386,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Client : Bonjour, combien coûte ce livre ? Vendeuse : Douze euros. Client : D'accord, je le prends.",
       speakers: [{ role: "Client", voice: "fable" }, { role: "Vendeuse", voice: "shimmer" }],
       questions: [
-        { id: "q1", stem: "Combien coûte le livre ?", options: [{ id: "a", text: "Douze euros" }, { id: "b", text: "Deux euros" }, { id: "c", text: "Vingt euros" }], answer: "a" },
-        { id: "q2", stem: "Que décide le client ?", options: [{ id: "a", text: "Il prend le livre" }, { id: "b", text: "Il part" }, { id: "c", text: "Il revient demain" }], answer: "a" },
+        { id: "q1", stem: "Combien coûte le livre ?", options: [{ id: "b", text: "Deux euros" }, { id: "a", text: "Douze euros" }, { id: "c", text: "Vingt euros" }], answer: "a" },
+        { id: "q2", stem: "Que décide le client ?", options: [{ id: "c", text: "Il revient demain" }, { id: "b", text: "Il part" }, { id: "a", text: "Il prend le livre" }], answer: "a" },
       ],
     },
   },
@@ -401,7 +401,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Secrétaire", voice: "nova" }],
       questions: [
         { id: "q1", stem: "Quand est le rendez-vous ?", options: [{ id: "a", text: "Demain à 10 h" }, { id: "b", text: "Aujourd'hui à 10 h" }, { id: "c", text: "Demain à 12 h" }], answer: "a" },
-        { id: "q2", stem: "Qui laisse le message ?", options: [{ id: "a", text: "Le cabinet du docteur" }, { id: "b", text: "La banque" }, { id: "c", text: "L'école" }], answer: "a" },
+        { id: "q2", stem: "Qui laisse le message ?", options: [{ id: "b", text: "La banque" }, { id: "a", text: "Le cabinet du docteur" }, { id: "c", text: "L'école" }], answer: "a" },
       ],
     },
   },
@@ -414,7 +414,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Client : L'addition, s'il vous plaît. Serveuse : Voilà. Ça fait quinze euros. Client : Merci, voilà.",
       speakers: [{ role: "Client", voice: "echo" }, { role: "Serveuse", voice: "shimmer" }],
       questions: [
-        { id: "q1", stem: "Que demande le client ?", options: [{ id: "a", text: "L'addition" }, { id: "b", text: "Le menu" }, { id: "c", text: "Un café" }], answer: "a" },
+        { id: "q1", stem: "Que demande le client ?", options: [{ id: "c", text: "Un café" }, { id: "b", text: "Le menu" }, { id: "a", text: "L'addition" }], answer: "a" },
         { id: "q2", stem: "Combien ça fait ?", options: [{ id: "a", text: "Quinze euros" }, { id: "b", text: "Cinq euros" }, { id: "c", text: "Cinquante euros" }], answer: "a" },
       ],
     },
@@ -428,8 +428,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Léa : Tu travailles quels jours ? Max : Du lundi au vendredi. Le week-end, je me repose. Léa : Et tu commences à quelle heure ? Max : À neuf heures.",
       speakers: [{ role: "Léa", voice: "nova" }, { role: "Max", voice: "fable" }],
       questions: [
-        { id: "q1", stem: "Quels jours Max travaille-t-il ?", options: [{ id: "a", text: "Du lundi au vendredi" }, { id: "b", text: "Le week-end" }, { id: "c", text: "Tous les jours" }], answer: "a" },
-        { id: "q2", stem: "À quelle heure commence-t-il ?", options: [{ id: "a", text: "À neuf heures" }, { id: "b", text: "À sept heures" }, { id: "c", text: "À onze heures" }], answer: "a" },
+        { id: "q1", stem: "Quels jours Max travaille-t-il ?", options: [{ id: "b", text: "Le week-end" }, { id: "a", text: "Du lundi au vendredi" }, { id: "c", text: "Tous les jours" }], answer: "a" },
+        { id: "q2", stem: "À quelle heure commence-t-il ?", options: [{ id: "c", text: "À onze heures" }, { id: "b", text: "À sept heures" }, { id: "a", text: "À neuf heures" }], answer: "a" },
       ],
     },
   },
@@ -443,7 +443,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Annonce", voice: "onyx" }],
       questions: [
         { id: "q1", stem: "Pour quelle ville est le train ?", options: [{ id: "a", text: "Lille" }, { id: "b", text: "Lyon" }, { id: "c", text: "Nice" }], answer: "a" },
-        { id: "q2", stem: "De quelle voie part le train ?", options: [{ id: "a", text: "Voie 3" }, { id: "b", text: "Voie 13" }, { id: "c", text: "Voie 2" }], answer: "a" },
+        { id: "q2", stem: "De quelle voie part le train ?", options: [{ id: "b", text: "Voie 13" }, { id: "a", text: "Voie 3" }, { id: "c", text: "Voie 2" }], answer: "a" },
       ],
     },
   },

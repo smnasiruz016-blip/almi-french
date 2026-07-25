@@ -5,7 +5,7 @@
   "description": "AlmiFrench — AI-powered French exam practice in the AlmiWorld family. TEF, TCF, DELF and DALF across four skills and six CEFR levels (A1–C2), with three honest scoring engines mapping to CEFR and Canada's NCLC. Separate product (almifrench.almiworld.com). Original French content — never copied from the test-makers. Practice estimates only; confirm with the official body.",
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/seo/fork-hygiene-gate.mjs && npm run gate:rule7 && npm run gate:conformance && npm run gate:seed-keys && node scripts/seo/uniqueness-gate.mjs && prisma generate && next build && npm run seed:prod",
+    "build": "node scripts/seo/fork-hygiene-gate.mjs && npm run gate:rule7 && npm run gate:conformance && npm run gate:seed-keys && npm run gate:answer-distribution && node scripts/seo/uniqueness-gate.mjs && prisma generate && next build && npm run seed:prod",
     "start": "next start",
     "postinstall": "prisma generate",
     "seed:a1": "tsx scripts/seed/a1.ts",
@@ -23,7 +23,8 @@
     "gate:conformance": "tsx scripts/items/conformance-gate.mts",
     "proof:reachability": "tsx scripts/reachability-proof.ts",
     "gate:seed-keys": "tsx scripts/seed-key-check.ts",
-    "seed:prod": "tsx scripts/seed/append.ts"
+    "seed:prod": "tsx scripts/seed/append.ts",
+    "gate:answer-distribution": "tsx scripts/items/answer-distribution-gate.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.91.1",

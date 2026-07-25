@@ -20,8 +20,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", heading: "Médiathèque municipale", body: "Bonjour,\n\nNous vous rappelons que les livres empruntés le mois dernier doivent être rendus avant le 30 juin. Après cette date, une pénalité de 0,20 € par jour et par document sera appliquée. Vous pouvez aussi prolonger votre emprunt en ligne, une seule fois, depuis votre compte.\n\nCordialement,\nL'équipe de la médiathèque" }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Que doit faire le lecteur avant le 30 juin ?", options: [{ id: "a", text: "Payer une pénalité" }, { id: "b", text: "Rendre les livres" }, { id: "c", text: "Créer un compte" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Combien de fois peut-on prolonger un emprunt en ligne ?", options: [{ id: "a", text: "Une seule fois" }, { id: "b", text: "Deux fois" }, { id: "c", text: "Autant que l'on veut" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Que doit faire le lecteur avant le 30 juin ?", options: [{ id: "b", text: "Rendre les livres" }, { id: "a", text: "Payer une pénalité" }, { id: "c", text: "Créer un compte" }], answer: "b" },
+        { id: "q2", kind: "mcq", stem: "Combien de fois peut-on prolonger un emprunt en ligne ?", options: [{ id: "b", text: "Deux fois" }, { id: "a", text: "Une seule fois" }, { id: "c", text: "Autant que l'on veut" }], answer: "a" },
       ],
     },
   },
@@ -46,7 +46,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "De plus en plus d'habitants choisissent le vélo pour aller travailler. La ville a doublé le nombre de pistes cyclables en trois ans. Pourtant, certains cyclistes estiment que la sécurité reste insuffisante aux grands carrefours." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Qu'a fait la ville en trois ans ?", options: [{ id: "a", text: "Interdit les voitures" }, { id: "b", text: "Doublé les pistes cyclables" }, { id: "c", text: "Supprimé les carrefours" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Qu'a fait la ville en trois ans ?", options: [{ id: "a", text: "Interdit les voitures" }, { id: "c", text: "Supprimé les carrefours" }, { id: "b", text: "Doublé les pistes cyclables" }], answer: "b" },
         { id: "q2", kind: "mcq", stem: "Que pensent certains cyclistes ?", options: [{ id: "a", text: "La sécurité est insuffisante" }, { id: "b", text: "Le vélo coûte cher" }, { id: "c", text: "Il y a trop de pistes" }], answer: "a" },
       ],
     },
@@ -75,8 +75,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Mesdames et messieurs, votre attention s'il vous plaît. Le train à destination de Lyon, prévu à 14 h 10, partira avec un retard d'environ vingt minutes, voie 8. Nous vous prions de nous excuser pour la gêne occasionnée.",
       speakers: [{ role: "Annonceur", voice: "onyx" }],
       questions: [
-        { id: "q1", stem: "Quel est le retard annoncé ?", options: [{ id: "a", text: "Dix minutes" }, { id: "b", text: "Vingt minutes" }, { id: "c", text: "Une heure" }], answer: "b" },
-        { id: "q2", stem: "De quelle voie part le train ?", options: [{ id: "a", text: "Voie 8" }, { id: "b", text: "Voie 18" }, { id: "c", text: "Voie 2" }], answer: "a" },
+        { id: "q1", stem: "Quel est le retard annoncé ?", options: [{ id: "b", text: "Vingt minutes" }, { id: "a", text: "Dix minutes" }, { id: "c", text: "Une heure" }], answer: "b" },
+        { id: "q2", stem: "De quelle voie part le train ?", options: [{ id: "b", text: "Voie 18" }, { id: "a", text: "Voie 8" }, { id: "c", text: "Voie 2" }], answer: "a" },
       ],
     },
   },
@@ -89,8 +89,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Secrétaire : Cabinet du docteur Mercier, bonjour. Patient : Bonjour, je voudrais un rendez-vous cette semaine, si possible. Secrétaire : Jeudi à 11 h, cela vous convient ? Patient : Plutôt en fin de journée, j'ai du mal à me libérer le matin. Secrétaire : Alors jeudi à 17 h 30. Patient : Parfait, merci.",
       speakers: [{ role: "Secrétaire", voice: "shimmer" }, { role: "Patient", voice: "echo" }],
       questions: [
-        { id: "q1", stem: "Quand le patient préfère-t-il venir ?", options: [{ id: "a", text: "Le matin" }, { id: "b", text: "En fin de journée" }, { id: "c", text: "Le week-end" }], answer: "b" },
-        { id: "q2", stem: "Quel rendez-vous est finalement fixé ?", options: [{ id: "a", text: "Jeudi à 11 h" }, { id: "b", text: "Jeudi à 17 h 30" }, { id: "c", text: "Vendredi à 17 h 30" }], answer: "b" },
+        { id: "q1", stem: "Quand le patient préfère-t-il venir ?", options: [{ id: "a", text: "Le matin" }, { id: "c", text: "Le week-end" }, { id: "b", text: "En fin de journée" }], answer: "b" },
+        { id: "q2", stem: "Quel rendez-vous est finalement fixé ?", options: [{ id: "b", text: "Jeudi à 17 h 30" }, { id: "a", text: "Jeudi à 11 h" }, { id: "c", text: "Vendredi à 17 h 30" }], answer: "b" },
       ],
     },
   },
@@ -104,7 +104,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Karim", voice: "fable" }],
       questions: [
         { id: "q1", stem: "À quelle heure commence le film ?", options: [{ id: "a", text: "19 h 45" }, { id: "b", text: "20 h" }, { id: "c", text: "21 h" }], answer: "b" },
-        { id: "q2", stem: "Que faut-il apporter ?", options: [{ id: "a", text: "La carte d'étudiant" }, { id: "b", text: "De l'argent liquide" }, { id: "c", text: "Les billets" }], answer: "a" },
+        { id: "q2", stem: "Que faut-il apporter ?", options: [{ id: "c", text: "Les billets" }, { id: "b", text: "De l'argent liquide" }, { id: "a", text: "La carte d'étudiant" }], answer: "a" },
       ],
     },
   },
@@ -194,8 +194,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Cherche colocataire pour appartement de trois pièces, proche du métro. Loyer : 420 € par mois, charges comprises. Chambre meublée, internet inclus. Non-fumeur de préférence. Disponible à partir du 1er septembre." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Que comprend le loyer ?", options: [{ id: "a", text: "Les charges" }, { id: "b", text: "Les repas" }, { id: "c", text: "Le téléphone" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "À partir de quand la chambre est-elle libre ?", options: [{ id: "a", text: "Le 1er août" }, { id: "b", text: "Le 1er septembre" }, { id: "c", text: "Le 1er octobre" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Que comprend le loyer ?", options: [{ id: "b", text: "Les repas" }, { id: "a", text: "Les charges" }, { id: "c", text: "Le téléphone" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "À partir de quand la chambre est-elle libre ?", options: [{ id: "a", text: "Le 1er août" }, { id: "c", text: "Le 1er octobre" }, { id: "b", text: "Le 1er septembre" }], answer: "b" },
       ],
     },
   },
@@ -220,8 +220,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Depuis la pandémie, de nombreuses entreprises proposent le télétravail deux ou trois jours par semaine. Les salariés apprécient le gain de temps de transport, mais certains regrettent le manque de contact avec leurs collègues. Les responsables, eux, doivent apprendre à gérer leurs équipes à distance." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Que regrettent certains salariés ?", options: [{ id: "a", text: "Le salaire" }, { id: "b", text: "Le manque de contact" }, { id: "c", text: "Les transports" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Que doivent apprendre les responsables ?", options: [{ id: "a", text: "Gérer à distance" }, { id: "b", text: "Travailler le week-end" }, { id: "c", text: "Changer de bureau" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Que regrettent certains salariés ?", options: [{ id: "b", text: "Le manque de contact" }, { id: "a", text: "Le salaire" }, { id: "c", text: "Les transports" }], answer: "b" },
+        { id: "q2", kind: "mcq", stem: "Que doivent apprendre les responsables ?", options: [{ id: "b", text: "Travailler le week-end" }, { id: "a", text: "Gérer à distance" }, { id: "c", text: "Changer de bureau" }], answer: "a" },
       ],
     },
   },
@@ -233,7 +233,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", heading: "Confirmation de commande", body: "Bonjour, votre commande n° 4521 a bien été enregistrée. Elle sera livrée sous trois à cinq jours ouvrés à l'adresse indiquée. Vous recevrez un message dès l'expédition." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quand la commande sera-t-elle livrée ?", options: [{ id: "a", text: "Le jour même" }, { id: "b", text: "Sous trois à cinq jours" }, { id: "c", text: "Dans un mois" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Quand la commande sera-t-elle livrée ?", options: [{ id: "a", text: "Le jour même" }, { id: "c", text: "Dans un mois" }, { id: "b", text: "Sous trois à cinq jours" }], answer: "b" },
         { id: "q2", kind: "mcq", stem: "Que recevra le client à l'expédition ?", options: [{ id: "a", text: "Un message" }, { id: "b", text: "Un appel" }, { id: "c", text: "Une facture papier" }], answer: "a" },
       ],
     },
@@ -260,7 +260,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", body: "Cours du soir : la mairie propose des cours de langues, d'informatique et de cuisine. Les inscriptions ont lieu en septembre. Le premier cours est gratuit pour essayer. Tarif réduit pour les étudiants et les demandeurs d'emploi." }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Quand ont lieu les inscriptions ?", options: [{ id: "a", text: "En juin" }, { id: "b", text: "En septembre" }, { id: "c", text: "En décembre" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Qui bénéficie d'un tarif réduit ?", options: [{ id: "a", text: "Les étudiants" }, { id: "b", text: "Les enfants" }, { id: "c", text: "Les touristes" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Qui bénéficie d'un tarif réduit ?", options: [{ id: "c", text: "Les touristes" }, { id: "b", text: "Les enfants" }, { id: "a", text: "Les étudiants" }], answer: "a" },
       ],
     },
   },
@@ -285,8 +285,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Les marchés de producteurs connaissent un grand succès. Les clients y trouvent des fruits et légumes de saison, souvent cultivés à quelques kilomètres seulement. Acheter directement au producteur permet de payer un prix juste et de réduire le transport. Le seul inconvénient : les marchés n'ont lieu que certains jours." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel est l'avantage d'acheter au producteur ?", options: [{ id: "a", text: "C'est ouvert tous les jours" }, { id: "b", text: "Un prix juste et moins de transport" }, { id: "c", text: "Des produits importés" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Quel est l'inconvénient mentionné ?", options: [{ id: "a", text: "Les prix élevés" }, { id: "b", text: "La mauvaise qualité" }, { id: "c", text: "Les marchés n'ont lieu que certains jours" }], answer: "c" },
+        { id: "q1", kind: "mcq", stem: "Quel est l'avantage d'acheter au producteur ?", options: [{ id: "b", text: "Un prix juste et moins de transport" }, { id: "a", text: "C'est ouvert tous les jours" }, { id: "c", text: "Des produits importés" }], answer: "b" },
+        { id: "q2", kind: "mcq", stem: "Quel est l'inconvénient mentionné ?", options: [{ id: "a", text: "Les prix élevés" }, { id: "c", text: "Les marchés n'ont lieu que certains jours" }, { id: "b", text: "La mauvaise qualité" }], answer: "c" },
       ],
     },
   },
@@ -298,8 +298,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Bonjour, je suis désolée mais je dois reporter notre rendez-vous de mardi. Seriez-vous disponible jeudi à la même heure ? Si cela ne vous convient pas, proposez-moi un autre moment. Merci de votre compréhension." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Que veut faire l'auteure ?", options: [{ id: "a", text: "Annuler définitivement" }, { id: "b", text: "Reporter le rendez-vous" }, { id: "c", text: "Avancer le rendez-vous" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Quel jour propose-t-elle ?", options: [{ id: "a", text: "Lundi" }, { id: "b", text: "Mardi" }, { id: "c", text: "Jeudi" }], answer: "c" },
+        { id: "q1", kind: "mcq", stem: "Que veut faire l'auteure ?", options: [{ id: "a", text: "Annuler définitivement" }, { id: "c", text: "Avancer le rendez-vous" }, { id: "b", text: "Reporter le rendez-vous" }], answer: "b" },
+        { id: "q2", kind: "mcq", stem: "Quel jour propose-t-elle ?", options: [{ id: "c", text: "Jeudi" }, { id: "b", text: "Mardi" }, { id: "a", text: "Lundi" }], answer: "c" },
       ],
     },
   },
@@ -324,8 +324,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "L'association Solidarité recherche des bénévoles pour aider les enfants à faire leurs devoirs après l'école. Aucune expérience n'est nécessaire : il suffit d'être patient et disponible deux heures par semaine. Une petite formation est proposée au début." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Que feront les bénévoles ?", options: [{ id: "a", text: "Aider aux devoirs" }, { id: "b", text: "Cuisiner" }, { id: "c", text: "Faire le ménage" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Que faut-il pour devenir bénévole ?", options: [{ id: "a", text: "Un diplôme" }, { id: "b", text: "De la patience et du temps" }, { id: "c", text: "Une voiture" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Que feront les bénévoles ?", options: [{ id: "b", text: "Cuisiner" }, { id: "a", text: "Aider aux devoirs" }, { id: "c", text: "Faire le ménage" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Que faut-il pour devenir bénévole ?", options: [{ id: "a", text: "Un diplôme" }, { id: "c", text: "Une voiture" }, { id: "b", text: "De la patience et du temps" }], answer: "b" },
       ],
     },
   },
@@ -337,8 +337,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", heading: "Offre d'emploi", body: "Restaurant au bord de la mer recherche serveurs pour la saison d'été (juillet et août). Travail en soirée et le week-end. Débutants acceptés, formation assurée. Logement possible sur place. Envoyez votre candidature avant le 15 juin." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quand le travail a-t-il lieu ?", options: [{ id: "a", text: "Le matin uniquement" }, { id: "b", text: "En soirée et le week-end" }, { id: "c", text: "Toute la journée en hiver" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Que propose l'employeur aux débutants ?", options: [{ id: "a", text: "Une formation" }, { id: "b", text: "Un salaire élevé" }, { id: "c", text: "Des vacances" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Quand le travail a-t-il lieu ?", options: [{ id: "b", text: "En soirée et le week-end" }, { id: "a", text: "Le matin uniquement" }, { id: "c", text: "Toute la journée en hiver" }], answer: "b" },
+        { id: "q2", kind: "mcq", stem: "Que propose l'employeur aux débutants ?", options: [{ id: "b", text: "Un salaire élevé" }, { id: "a", text: "Une formation" }, { id: "c", text: "Des vacances" }], answer: "a" },
       ],
     },
   },
@@ -353,8 +353,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Chers clients, profitez de notre offre du jour : pour deux paquets de café achetés, le troisième est offert. Cette promotion est valable jusqu'à ce soir, dix-neuf heures, au rayon boissons chaudes. Bonnes courses à tous.",
       speakers: [{ role: "Annonceur", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Quelle est l'offre ?", options: [{ id: "a", text: "Deux achetés, un offert" }, { id: "b", text: "Moitié prix sur tout" }, { id: "c", text: "Livraison gratuite" }], answer: "a" },
-        { id: "q2", stem: "Jusqu'à quand l'offre est-elle valable ?", options: [{ id: "a", text: "Demain matin" }, { id: "b", text: "Ce soir à 19 h" }, { id: "c", text: "Toute la semaine" }], answer: "b" },
+        { id: "q1", stem: "Quelle est l'offre ?", options: [{ id: "c", text: "Livraison gratuite" }, { id: "b", text: "Moitié prix sur tout" }, { id: "a", text: "Deux achetés, un offert" }], answer: "a" },
+        { id: "q2", stem: "Jusqu'à quand l'offre est-elle valable ?", options: [{ id: "b", text: "Ce soir à 19 h" }, { id: "a", text: "Demain matin" }, { id: "c", text: "Toute la semaine" }], answer: "b" },
       ],
     },
   },
@@ -367,8 +367,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Touriste : Bonjour, qu'est-ce qu'on peut visiter dans la région en une journée ? Employée : Le château est incontournable, et il y a aussi un joli village médiéval à vingt minutes en bus. Touriste : Le château est ouvert le dimanche ? Employée : Oui, de dix heures à dix-huit heures.",
       speakers: [{ role: "Touriste", voice: "echo" }, { role: "Employée", voice: "shimmer" }],
       questions: [
-        { id: "q1", stem: "Que recommande l'employée ?", options: [{ id: "a", text: "Le château et un village" }, { id: "b", text: "Un musée" }, { id: "c", text: "La plage" }], answer: "a" },
-        { id: "q2", stem: "Le château ferme à quelle heure le dimanche ?", options: [{ id: "a", text: "16 h" }, { id: "b", text: "18 h" }, { id: "c", text: "20 h" }], answer: "b" },
+        { id: "q1", stem: "Que recommande l'employée ?", options: [{ id: "b", text: "Un musée" }, { id: "a", text: "Le château et un village" }, { id: "c", text: "La plage" }], answer: "a" },
+        { id: "q2", stem: "Le château ferme à quelle heure le dimanche ?", options: [{ id: "a", text: "16 h" }, { id: "c", text: "20 h" }, { id: "b", text: "18 h" }], answer: "b" },
       ],
     },
   },
@@ -381,8 +381,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Bonjour, c'est le cabinet du docteur Lambert. Nous vous rappelons votre rendez-vous de demain à quinze heures. Si vous ne pouvez pas venir, merci de nous prévenir au moins vingt-quatre heures à l'avance. Bonne journée.",
       speakers: [{ role: "Secrétaire", voice: "fable" }],
       questions: [
-        { id: "q1", stem: "À quelle heure est le rendez-vous ?", options: [{ id: "a", text: "5 h" }, { id: "b", text: "15 h" }, { id: "c", text: "13 h" }], answer: "b" },
-        { id: "q2", stem: "Que faut-il faire en cas d'empêchement ?", options: [{ id: "a", text: "Prévenir 24 h à l'avance" }, { id: "b", text: "Venir un autre jour sans prévenir" }, { id: "c", text: "Envoyer un courriel" }], answer: "a" },
+        { id: "q1", stem: "À quelle heure est le rendez-vous ?", options: [{ id: "b", text: "15 h" }, { id: "a", text: "5 h" }, { id: "c", text: "13 h" }], answer: "b" },
+        { id: "q2", stem: "Que faut-il faire en cas d'empêchement ?", options: [{ id: "b", text: "Venir un autre jour sans prévenir" }, { id: "a", text: "Prévenir 24 h à l'avance" }, { id: "c", text: "Envoyer un courriel" }], answer: "a" },
       ],
     },
   },
@@ -395,8 +395,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Serveur : Restaurant Le Jardin, bonjour. Cliente : Bonjour, je voudrais réserver une table pour quatre personnes samedi soir. Serveur : À quelle heure ? Cliente : Vingt heures, si possible. Serveur : C'est noté, une table pour quatre à vingt heures. À quel nom ? Cliente : Au nom de Durand.",
       speakers: [{ role: "Serveur", voice: "onyx" }, { role: "Cliente", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Pour combien de personnes la cliente réserve-t-elle ?", options: [{ id: "a", text: "Deux" }, { id: "b", text: "Quatre" }, { id: "c", text: "Six" }], answer: "b" },
-        { id: "q2", stem: "À quelle heure est la réservation ?", options: [{ id: "a", text: "18 h" }, { id: "b", text: "20 h" }, { id: "c", text: "22 h" }], answer: "b" },
+        { id: "q1", stem: "Pour combien de personnes la cliente réserve-t-elle ?", options: [{ id: "a", text: "Deux" }, { id: "c", text: "Six" }, { id: "b", text: "Quatre" }], answer: "b" },
+        { id: "q2", stem: "À quelle heure est la réservation ?", options: [{ id: "b", text: "20 h" }, { id: "a", text: "18 h" }, { id: "c", text: "22 h" }], answer: "b" },
       ],
     },
   },
@@ -410,7 +410,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Présentateur", voice: "echo" }],
       questions: [
         { id: "q1", stem: "Quel temps fera-t-il l'après-midi ?", options: [{ id: "a", text: "Pluvieux" }, { id: "b", text: "Ensoleillé" }, { id: "c", text: "Neigeux" }], answer: "b" },
-        { id: "q2", stem: "Que conseille-t-on de prendre le matin ?", options: [{ id: "a", text: "Un parapluie" }, { id: "b", text: "Des lunettes de soleil" }, { id: "c", text: "Un manteau" }], answer: "a" },
+        { id: "q2", stem: "Que conseille-t-on de prendre le matin ?", options: [{ id: "c", text: "Un manteau" }, { id: "b", text: "Des lunettes de soleil" }, { id: "a", text: "Un parapluie" }], answer: "a" },
       ],
     },
   },
@@ -423,7 +423,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Employé : Bonjour, vous avez réservé une voiture ? Client : Oui, pour trois jours, au nom de Petit. Employé : Très bien. Le plein est fait, merci de la rendre avec le plein également. L'assurance est comprise. Voici les clés, la voiture est sur la place numéro douze.",
       speakers: [{ role: "Employé", voice: "shimmer" }, { role: "Client", voice: "echo" }],
       questions: [
-        { id: "q1", stem: "Pour combien de temps le client loue-t-il la voiture ?", options: [{ id: "a", text: "Un jour" }, { id: "b", text: "Trois jours" }, { id: "c", text: "Une semaine" }], answer: "b" },
+        { id: "q1", stem: "Pour combien de temps le client loue-t-il la voiture ?", options: [{ id: "b", text: "Trois jours" }, { id: "a", text: "Un jour" }, { id: "c", text: "Une semaine" }], answer: "b" },
         { id: "q2", stem: "Que doit faire le client en rendant la voiture ?", options: [{ id: "a", text: "La laver" }, { id: "b", text: "Faire le plein" }, { id: "c", text: "Changer les pneus" }], answer: "b" },
       ],
     },
@@ -437,7 +437,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Vous êtes bien chez Multiservices. Nos bureaux sont ouverts du lundi au vendredi, de neuf heures à dix-sept heures. Nous sommes actuellement fermés. Laissez un message après le signal ou rappelez pendant nos horaires d'ouverture. Merci.",
       speakers: [{ role: "Répondeur", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Quels jours les bureaux sont-ils ouverts ?", options: [{ id: "a", text: "Tous les jours" }, { id: "b", text: "Du lundi au vendredi" }, { id: "c", text: "Le week-end" }], answer: "b" },
+        { id: "q1", stem: "Quels jours les bureaux sont-ils ouverts ?", options: [{ id: "a", text: "Tous les jours" }, { id: "c", text: "Le week-end" }, { id: "b", text: "Du lundi au vendredi" }], answer: "b" },
         { id: "q2", stem: "Que peut-on faire maintenant ?", options: [{ id: "a", text: "Laisser un message" }, { id: "b", text: "Visiter les bureaux" }, { id: "c", text: "Parler à un employé" }], answer: "a" },
       ],
     },
@@ -452,7 +452,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Client", voice: "echo" }, { role: "Pharmacienne", voice: "shimmer" }],
       questions: [
         { id: "q1", stem: "Quel est le problème du client ?", options: [{ id: "a", text: "Mal à la tête" }, { id: "b", text: "Mal à la gorge" }, { id: "c", text: "Mal au dos" }], answer: "b" },
-        { id: "q2", stem: "Que conseille la pharmacienne si ça ne s'améliore pas ?", options: [{ id: "a", text: "Consulter un médecin" }, { id: "b", text: "Prendre plus de pastilles" }, { id: "c", text: "Se reposer une semaine" }], answer: "a" },
+        { id: "q2", stem: "Que conseille la pharmacienne si ça ne s'améliore pas ?", options: [{ id: "c", text: "Se reposer une semaine" }, { id: "b", text: "Prendre plus de pastilles" }, { id: "a", text: "Consulter un médecin" }], answer: "a" },
       ],
     },
   },
@@ -465,8 +465,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Journaliste : Félicitations pour votre victoire ! Quel est votre secret ? Sportif : Il n'y a pas de secret, juste beaucoup d'entraînement et une bonne hygiène de vie. Je m'entraîne six jours sur sept. Journaliste : Et la pression ? Sportif : J'apprends à rester calme, c'est aussi important que le physique.",
       speakers: [{ role: "Journaliste", voice: "onyx" }, { role: "Sportif", voice: "fable" }],
       questions: [
-        { id: "q1", stem: "Combien de jours s'entraîne-t-il ?", options: [{ id: "a", text: "Trois" }, { id: "b", text: "Six" }, { id: "c", text: "Sept" }], answer: "b" },
-        { id: "q2", stem: "Qu'est-ce qui est aussi important que le physique, selon lui ?", options: [{ id: "a", text: "Rester calme" }, { id: "b", text: "L'argent" }, { id: "c", text: "Le public" }], answer: "a" },
+        { id: "q1", stem: "Combien de jours s'entraîne-t-il ?", options: [{ id: "b", text: "Six" }, { id: "a", text: "Trois" }, { id: "c", text: "Sept" }], answer: "b" },
+        { id: "q2", stem: "Qu'est-ce qui est aussi important que le physique, selon lui ?", options: [{ id: "b", text: "L'argent" }, { id: "a", text: "Rester calme" }, { id: "c", text: "Le public" }], answer: "a" },
       ],
     },
   },
@@ -479,7 +479,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Mesdames et messieurs, le vol AF 230 à destination de Montréal va embarquer porte 22. Nous invitons les passagers voyageant avec des enfants à se présenter en priorité. L'embarquement se terminera quinze minutes avant le décollage. Merci de préparer votre carte d'embarquement.",
       speakers: [{ role: "Annonceur", voice: "shimmer" }],
       questions: [
-        { id: "q1", stem: "Quelle est la destination du vol ?", options: [{ id: "a", text: "Paris" }, { id: "b", text: "Montréal" }, { id: "c", text: "Lyon" }], answer: "b" },
+        { id: "q1", stem: "Quelle est la destination du vol ?", options: [{ id: "a", text: "Paris" }, { id: "c", text: "Lyon" }, { id: "b", text: "Montréal" }], answer: "b" },
         { id: "q2", stem: "Qui peut embarquer en priorité ?", options: [{ id: "a", text: "Les passagers avec enfants" }, { id: "b", text: "Les hommes d'affaires" }, { id: "c", text: "Les personnes pressées" }], answer: "a" },
       ],
     },
@@ -494,7 +494,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Coiffeur", voice: "onyx" }, { role: "Cliente", voice: "nova" }],
       questions: [
         { id: "q1", stem: "Que veut la cliente ?", options: [{ id: "a", text: "Une couleur" }, { id: "b", text: "Une coupe pas trop courte" }, { id: "c", text: "Une coiffure de mariage" }], answer: "b" },
-        { id: "q2", stem: "Que veut-elle garder ?", options: [{ id: "a", text: "La longueur sur le devant" }, { id: "b", text: "Sa frange" }, { id: "c", text: "Ses cheveux longs derrière" }], answer: "a" },
+        { id: "q2", stem: "Que veut-elle garder ?", options: [{ id: "c", text: "Ses cheveux longs derrière" }, { id: "b", text: "Sa frange" }, { id: "a", text: "La longueur sur le devant" }], answer: "a" },
       ],
     },
   },
