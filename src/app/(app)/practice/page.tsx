@@ -37,7 +37,7 @@ export default async function PracticePage({
       <h1 className="font-display text-3xl font-bold text-almi-ink">Choose your practice</h1>
       <p className="mt-2 text-sm text-almi-text-muted">
         Pick the exam your goal needs, your level, then a skill. Compréhension de l&apos;oral &amp; écrite
-        are free; Expression écrite &amp; orale get AI feedback (Pro). Estimates only — confirm with the
+        are auto-marked; Expression écrite &amp; orale get AI feedback. Estimates only — confirm with the
         official body.
       </p>
 
@@ -151,7 +151,7 @@ export default async function PracticePage({
               >
                 <span className="font-display font-semibold text-almi-ink">{SKILL_LABEL[s]}</span>
                 <span className="mt-1 text-xs text-almi-text-muted">
-                  {isObjective(s) ? "Auto-marked · Free" : "AI feedback · Pro"}
+                  {isObjective(s) ? "Auto-marked" : "AI feedback"}
                 </span>
               </Link>
             ))}
