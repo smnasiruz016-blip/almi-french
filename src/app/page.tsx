@@ -18,8 +18,8 @@ const EXAM_FAMILIES = [
 ];
 
 const SKILLS = [
-  { fr: "Compréhension de l'oral", en: "Listening", tier: "Auto-marked · Free" },
-  { fr: "Compréhension écrite", en: "Reading", tier: "Auto-marked · Free" },
+  { fr: "Compréhension de l'oral", en: "Listening", tier: "Auto-marked" },
+  { fr: "Compréhension écrite", en: "Reading", tier: "Auto-marked" },
   { fr: "Expression écrite", en: "Writing", tier: "AI feedback · Pro" },
   { fr: "Expression orale", en: "Speaking", tier: "AI feedback · Pro" },
 ];
@@ -124,7 +124,7 @@ export default function HomePage() {
                 href="/signup"
                 className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-almi-coral px-7 py-3 text-base font-semibold text-almi-ink hover:bg-almi-coral-deep"
               >
-                Practise free
+                Start 7-day free trial
               </Link>
               <span className="text-sm text-almi-text-muted">
                 Already have an account?{" "}
@@ -248,7 +248,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-xl text-center">
           <h2 className="font-display text-3xl font-semibold text-almi-ink">Simple, honest pricing</h2>
           <p className="mt-3 text-base text-almi-text">
-            $12/month — 7-day free trial, cancel anytime. Listening &amp; Reading practice is free;
+            $12/month — 7-day free trial, cancel anytime. Listening &amp; Reading practice,
             AI feedback on Writing &amp; Speaking is Pro.
           </p>
           <div className="mt-6 flex justify-center gap-3">
@@ -256,7 +256,7 @@ export default function HomePage() {
               href="/signup"
               className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-almi-coral px-7 py-3 text-base font-semibold text-almi-ink hover:bg-almi-coral-deep"
             >
-              Practise free
+              Start 7-day free trial
             </Link>
             <Link
               href="/pricing"
@@ -276,7 +276,7 @@ export default function HomePage() {
             {[
               {
                 q: "How much does it cost?",
-                a: "$12/month with a 7-day free trial. Listening and Reading practice is free; AI feedback on Writing and Speaking is part of Pro.",
+                a: "$12/month with a 7-day free trial. Listening and Reading practice, AI feedback on Writing and Speaking is part of Pro.",
               },
               {
                 q: "Which French exams do you cover?",
@@ -288,7 +288,7 @@ export default function HomePage() {
               },
               {
                 q: "Do I need an account?",
-                a: "Yes — create a free account to practise Listening and Reading; a 7-day trial adds AI Writing and Speaking feedback.",
+                a: "Yes — start a 7-day free trial. Your card is saved but not charged, and you can cancel inside the 7 days and pay nothing.",
               },
               {
                 q: "Can I cancel?",
