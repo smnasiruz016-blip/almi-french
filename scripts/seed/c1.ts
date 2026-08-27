@@ -21,8 +21,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", heading: "Ce que captent nos écrans", body: "On présente volontiers la profusion d'informations comme une richesse. Pourtant, ce n'est pas l'information qui manque, mais le temps et la disponibilité d'esprit pour la traiter. Dès lors, la ressource rare n'est plus le contenu : c'est l'attention. Les plateformes l'ont compris avant nous, et l'ont érigée en monnaie. Leur prospérité ne se mesure pas à ce qu'elles nous apprennent, mais au nombre de minutes qu'elles nous arrachent. Le paradoxe est cruel : plus l'accès au savoir s'élargit, plus notre capacité à nous y consacrer se rétrécit." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Selon l'auteur, quelle est la véritable ressource rare ?", options: [{ id: "a", text: "L'information" }, { id: "b", text: "L'attention" }, { id: "c", text: "Le contenu gratuit" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Quel « paradoxe » l'auteur souligne-t-il ?", options: [{ id: "a", text: "Le savoir s'élargit mais notre disponibilité se réduit" }, { id: "b", text: "Les plateformes nous instruisent davantage" }, { id: "c", text: "L'information devient payante" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Selon l'auteur, quelle est la véritable ressource rare ?", options: [{ id: "b", text: "L'attention" }, { id: "a", text: "L'information" }, { id: "c", text: "Le contenu gratuit" }], answer: "b" },
+        { id: "q2", kind: "mcq", stem: "Quel « paradoxe » l'auteur souligne-t-il ?", options: [{ id: "b", text: "Les plateformes nous instruisent davantage" }, { id: "a", text: "Le savoir s'élargit mais notre disponibilité se réduit" }, { id: "c", text: "L'information devient payante" }], answer: "a" },
       ],
     },
   },
@@ -48,7 +48,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Faut-il craindre que les machines se mettent à créer ? La question, posée ainsi, est mal formulée. Une machine recombine, à une échelle inédite, ce qui a déjà été produit ; elle excelle à imiter des styles, non à éprouver le besoin d'en inventer un. Ce qui distingue l'artiste n'est pas la virtuosité technique — la machine l'égale, parfois la dépasse — mais l'intention, le risque assumé d'un écart. Tant qu'elle ne désire rien, la machine reste un outil remarquable, fût-il déroutant." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Pourquoi l'auteur juge-t-il la question « mal formulée » ?", options: [{ id: "a", text: "Parce que les machines ne recombinent rien" }, { id: "b", text: "Parce que créer suppose une intention que la machine n'a pas" }, { id: "c", text: "Parce que la technique suffit à définir l'art" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Pourquoi l'auteur juge-t-il la question « mal formulée » ?", options: [{ id: "a", text: "Parce que les machines ne recombinent rien" }, { id: "c", text: "Parce que la technique suffit à définir l'art" }, { id: "b", text: "Parce que créer suppose une intention que la machine n'a pas" }], answer: "b" },
         { id: "q2", kind: "mcq", stem: "Quelle est la position finale de l'auteur sur la machine ?", options: [{ id: "a", text: "Un outil remarquable mais dépourvu de désir" }, { id: "b", text: "Un véritable artiste" }, { id: "c", text: "Une menace inévitable" }], answer: "a" },
       ],
     },
@@ -79,8 +79,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "On affirme volontiers que la langue ne fait que décrire le monde. C'est oublier qu'elle le découpe. Nommer, c'est déjà choisir ce que l'on rend visible et ce que l'on laisse dans l'ombre. Les termes que l'administration retient, ceux qu'elle écarte, dessinent une carte du pensable. Aussi le combat pour les mots n'est-il jamais purement esthétique : il est, souterrainement, un combat pour ce qu'il sera permis de concevoir." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quelle thèse l'auteur conteste-t-il ?", options: [{ id: "a", text: "Que la langue se contente de décrire le monde" }, { id: "b", text: "Que la langue découpe le réel" }, { id: "c", text: "Que les mots ont un enjeu politique" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Que signifie « une carte du pensable » ?", options: [{ id: "a", text: "Un plan administratif" }, { id: "b", text: "Les limites de ce qu'on peut concevoir" }, { id: "c", text: "Un dictionnaire officiel" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Quelle thèse l'auteur conteste-t-il ?", options: [{ id: "b", text: "Que la langue découpe le réel" }, { id: "a", text: "Que la langue se contente de décrire le monde" }, { id: "c", text: "Que les mots ont un enjeu politique" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Que signifie « une carte du pensable » ?", options: [{ id: "a", text: "Un plan administratif" }, { id: "c", text: "Un dictionnaire officiel" }, { id: "b", text: "Les limites de ce qu'on peut concevoir" }], answer: "b" },
       ],
     },
   },
@@ -92,8 +92,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Tout, dans cette rétrospective, est irréprochable : l'accrochage, l'éclairage, la signalétique. On en ressort avec le sentiment troublant d'avoir visité non pas une œuvre, mais sa mise en conformité. À force de vouloir tout expliquer, l'exposition n'a rien laissé à éprouver. C'est une réussite de musée — et c'est précisément ce qu'on lui reprochera." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel est le jugement réel du critique ?", options: [{ id: "a", text: "Élogieux sans réserve" }, { id: "b", text: "Critique sous une apparence de compliment" }, { id: "c", text: "Indifférent" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Que reproche-t-il à l'exposition ?", options: [{ id: "a", text: "De ne rien laisser à éprouver à force de tout expliquer" }, { id: "b", text: "Un mauvais éclairage" }, { id: "c", text: "Une signalétique confuse" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Quel est le jugement réel du critique ?", options: [{ id: "b", text: "Critique sous une apparence de compliment" }, { id: "a", text: "Élogieux sans réserve" }, { id: "c", text: "Indifférent" }], answer: "b" },
+        { id: "q2", kind: "mcq", stem: "Que reproche-t-il à l'exposition ?", options: [{ id: "b", text: "Un mauvais éclairage" }, { id: "a", text: "De ne rien laisser à éprouver à force de tout expliquer" }, { id: "c", text: "Une signalétique confuse" }], answer: "a" },
       ],
     },
   },
@@ -119,7 +119,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "On répète qu'il faut « donner du sens » au travail, comme si le sens était un supplément que l'on ajouterait après coup, une fois la tâche définie. Or le sens ne se décrète pas : il naît, ou non, de l'autonomie laissée à celui qui agit, de la reconnaissance de ce qu'il fait, de l'utilité qu'il peut en percevoir. Faute de ces conditions, les discours sur le sens ne sont qu'un vernis posé sur une organisation inchangée." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quelle idée l'auteur critique-t-il ?", options: [{ id: "a", text: "Que le sens serait un supplément ajouté après coup" }, { id: "b", text: "Que l'autonomie compte" }, { id: "c", text: "Que la reconnaissance est utile" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Quelle idée l'auteur critique-t-il ?", options: [{ id: "c", text: "Que la reconnaissance est utile" }, { id: "b", text: "Que l'autonomie compte" }, { id: "a", text: "Que le sens serait un supplément ajouté après coup" }], answer: "a" },
         { id: "q2", kind: "mcq", stem: "À quoi compare-t-il les discours sur le sens en l'absence de conditions réelles ?", options: [{ id: "a", text: "À un vernis sur une organisation inchangée" }, { id: "b", text: "À une révolution" }, { id: "c", text: "À une utopie" }], answer: "a" },
       ],
     },
@@ -132,8 +132,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "La transparence s'est imposée comme une vertu qu'on ne discute plus. Qui oserait défendre l'opacité ? Et pourtant. Une société où tout doit être exposé n'est pas nécessairement plus libre : elle peut devenir celle où chacun se surveille, anticipe le regard, lisse ses aspérités. La part d'ombre n'est pas toujours coupable ; elle est aussi l'espace où se forment des pensées encore incertaines, qu'une exposition prématurée tuerait dans l'œuf." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quelle est la position nuancée de l'auteur ?", options: [{ id: "a", text: "La transparence totale n'est pas nécessairement un progrès" }, { id: "b", text: "L'opacité doit toujours l'emporter" }, { id: "c", text: "La transparence est sans effet" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Que défend l'auteur à propos de la « part d'ombre » ?", options: [{ id: "a", text: "Elle est toujours coupable" }, { id: "b", text: "Elle protège des pensées encore incertaines" }, { id: "c", text: "Elle empêche toute liberté" }], answer: "b" },
+        { id: "q1", kind: "mcq", stem: "Quelle est la position nuancée de l'auteur ?", options: [{ id: "b", text: "L'opacité doit toujours l'emporter" }, { id: "a", text: "La transparence totale n'est pas nécessairement un progrès" }, { id: "c", text: "La transparence est sans effet" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Que défend l'auteur à propos de la « part d'ombre » ?", options: [{ id: "a", text: "Elle est toujours coupable" }, { id: "c", text: "Elle empêche toute liberté" }, { id: "b", text: "Elle protège des pensées encore incertaines" }], answer: "b" },
       ],
     },
   },
@@ -146,7 +146,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", body: "On déplore l'uniformisation des cultures, et le reproche n'est pas sans fondement. Mais le tableau est plus retors qu'il n'y paraît. Les mêmes flux qui diffusent partout les mêmes produits permettent aussi à des formes longtemps confinées de trouver un public lointain. L'uniformisation et la diversification ne s'excluent pas : elles avancent de concert, et c'est cette ambivalence, plutôt que la déploration, qu'il faudrait apprendre à penser." }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Quelle nuance l'auteur apporte-t-il au reproche d'uniformisation ?", options: [{ id: "a", text: "Les mêmes flux favorisent aussi la diversité" }, { id: "b", text: "L'uniformisation n'existe pas" }, { id: "c", text: "La diversité a disparu" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Que reproche-t-il implicitement ?", options: [{ id: "a", text: "De s'en tenir à la déploration plutôt que de penser l'ambivalence" }, { id: "b", text: "D'exagérer la diversité" }, { id: "c", text: "De défendre les flux mondiaux" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Que reproche-t-il implicitement ?", options: [{ id: "b", text: "D'exagérer la diversité" }, { id: "a", text: "De s'en tenir à la déploration plutôt que de penser l'ambivalence" }, { id: "c", text: "De défendre les flux mondiaux" }], answer: "a" },
       ],
     },
   },
@@ -172,7 +172,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "La nostalgie a ceci de commode qu'elle embellit ce qui n'est plus et nous dispense de juger ce qui est. On regrette un passé recomposé, débarrassé de ses pesanteurs, pour mieux se soustraire à l'effort d'agir sur le présent. Rien n'interdit de chérir une époque ; encore faut-il ne pas en faire l'alibi d'un renoncement." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel risque l'auteur associe-t-il à la nostalgie ?", options: [{ id: "a", text: "Qu'elle serve d'alibi au renoncement à agir" }, { id: "b", text: "Qu'elle améliore le présent" }, { id: "c", text: "Qu'elle juge trop sévèrement le passé" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Quel risque l'auteur associe-t-il à la nostalgie ?", options: [{ id: "c", text: "Qu'elle juge trop sévèrement le passé" }, { id: "b", text: "Qu'elle améliore le présent" }, { id: "a", text: "Qu'elle serve d'alibi au renoncement à agir" }], answer: "a" },
         { id: "q2", kind: "mcq", stem: "Le passé regretté est décrit comme…", options: [{ id: "a", text: "Recomposé et embelli" }, { id: "b", text: "Fidèlement restitué" }, { id: "c", text: "Pénible" }], answer: "a" },
       ],
     },
@@ -204,7 +204,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", body: "On enterre régulièrement l'utopie, accusée d'avoir nourri les pires aventures. Le procès est expéditif. L'utopie n'est pas un programme à appliquer de force ; c'est un horizon qui permet de mesurer l'écart entre ce qui est et ce qui pourrait être. Privée d'horizon, une société ne devient pas plus raisonnable : elle se contente du présent, faute de pouvoir l'imaginer autrement. Le danger n'est pas de rêver trop grand, mais de ne plus rêver du tout." }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Comment l'auteur définit-il l'utopie ?", options: [{ id: "a", text: "Un programme à imposer" }, { id: "b", text: "Un horizon pour mesurer l'écart entre le réel et le possible" }, { id: "c", text: "Une illusion dangereuse" }], answer: "b" },
-        { id: "q2", kind: "mcq", stem: "Quel est, selon lui, le véritable danger ?", options: [{ id: "a", text: "Rêver trop grand" }, { id: "b", text: "Ne plus rêver du tout" }, { id: "c", text: "Appliquer l'utopie" }], answer: "b" },
+        { id: "q2", kind: "mcq", stem: "Quel est, selon lui, le véritable danger ?", options: [{ id: "a", text: "Rêver trop grand" }, { id: "c", text: "Appliquer l'utopie" }, { id: "b", text: "Ne plus rêver du tout" }], answer: "b" },
       ],
     },
   },
@@ -217,7 +217,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", body: "Comparer les données au pétrole est devenu un lieu commun ; la formule séduit, mais elle égare. Le pétrole se consume quand on l'utilise ; la donnée, elle, se duplique sans s'épuiser et ne vaut qu'une fois traitée, croisée, interprétée. Surtout, elle porte sur des personnes, ce qui en fait moins une matière première qu'une responsabilité. Filer la métaphore industrielle, c'est risquer d'oublier précisément ce qui devrait nous retenir." }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Pourquoi la comparaison avec le pétrole « égare »-t-elle ?", options: [{ id: "a", text: "La donnée se duplique et porte sur des personnes" }, { id: "b", text: "La donnée s'épuise plus vite" }, { id: "c", text: "Le pétrole vaut davantage" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Que devrait nous « retenir », selon l'auteur ?", options: [{ id: "a", text: "Le fait que la donnée engage une responsabilité envers les personnes" }, { id: "b", text: "Le rendement industriel" }, { id: "c", text: "La rareté de la donnée" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Que devrait nous « retenir », selon l'auteur ?", options: [{ id: "b", text: "Le rendement industriel" }, { id: "a", text: "Le fait que la donnée engage une responsabilité envers les personnes" }, { id: "c", text: "La rareté de la donnée" }], answer: "a" },
       ],
     },
   },
@@ -246,8 +246,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Ce que nous appelons volonté est bien plus fragile que nous aimons le croire. La plupart de nos actes quotidiens relèvent de l'habitude, c'est-à-dire d'automatismes que le cerveau a installés pour s'épargner de l'effort. La bonne nouvelle, c'est que ces automatismes se reprogramment : non par la seule décision, qui s'épuise vite, mais en modifiant l'environnement qui les déclenche. On ne change pas une habitude en la combattant ; on la change en changeant ce qui l'appelle.",
       speakers: [{ role: "Conférencière", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Selon l'intervenante, la plupart de nos actes relèvent…", options: [{ id: "a", text: "De la volonté pure" }, { id: "b", text: "de l'habitude" }, { id: "c", text: "du hasard" }], answer: "b" },
-        { id: "q2", stem: "Comment changer une habitude, d'après elle ?", options: [{ id: "a", text: "En modifiant l'environnement qui la déclenche" }, { id: "b", text: "Par la seule décision" }, { id: "c", text: "En la combattant frontalement" }], answer: "a" },
+        { id: "q1", stem: "Selon l'intervenante, la plupart de nos actes relèvent…", options: [{ id: "b", text: "de l'habitude" }, { id: "a", text: "De la volonté pure" }, { id: "c", text: "du hasard" }], answer: "b" },
+        { id: "q2", stem: "Comment changer une habitude, d'après elle ?", options: [{ id: "b", text: "Par la seule décision" }, { id: "a", text: "En modifiant l'environnement qui la déclenche" }, { id: "c", text: "En la combattant frontalement" }], answer: "a" },
       ],
     },
   },
@@ -260,7 +260,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Animateur : Faut-il réguler les algorithmes de recommandation ? Invitée : La régulation est nécessaire, mais elle ne suffira pas. Invité : Voilà au moins un point d'accord. Invitée : Tant que le modèle économique récompense le temps passé plutôt que la qualité, on traitera les symptômes, pas la cause. Invité : Je vous rejoins sur le diagnostic ; je diverge sur le remède. Imposer la transparence du code n'éclairera personne ; ce qu'il faut, c'est rendre des comptes sur les effets.",
       speakers: [{ role: "Animateur", voice: "echo" }, { role: "Invitée", voice: "shimmer" }, { role: "Invité", voice: "onyx" }],
       questions: [
-        { id: "q1", stem: "Sur quoi les deux invités s'accordent-ils ?", options: [{ id: "a", text: "Que la régulation seule ne suffira pas" }, { id: "b", text: "Qu'il ne faut rien faire" }, { id: "c", text: "Qu'il faut publier le code" }], answer: "a" },
+        { id: "q1", stem: "Sur quoi les deux invités s'accordent-ils ?", options: [{ id: "c", text: "Qu'il faut publier le code" }, { id: "b", text: "Qu'il ne faut rien faire" }, { id: "a", text: "Que la régulation seule ne suffira pas" }], answer: "a" },
         { id: "q2", stem: "Que propose l'invité plutôt que la transparence du code ?", options: [{ id: "a", text: "Rendre des comptes sur les effets" }, { id: "b", text: "Interdire les algorithmes" }, { id: "c", text: "Augmenter le temps passé" }], answer: "a" },
       ],
     },
@@ -274,8 +274,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Journaliste : On présente souvent la cuisine traditionnelle comme immuable. Historienne : C'est un contresens séduisant. Ce qu'on tient pour ancestral est souvent récent, et ce qu'on croit local a beaucoup voyagé. La tradition n'est pas ce qui ne change pas ; c'est ce qu'une époque décide de garder, et qu'elle pare d'ancienneté pour mieux la légitimer.",
       speakers: [{ role: "Journaliste", voice: "fable" }, { role: "Historienne", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Quel « contresens » l'historienne relève-t-elle ?", options: [{ id: "a", text: "Croire la cuisine traditionnelle immuable" }, { id: "b", text: "Croire qu'elle a voyagé" }, { id: "c", text: "Croire qu'elle est récente" }], answer: "a" },
-        { id: "q2", stem: "Comment définit-elle la tradition ?", options: [{ id: "a", text: "Ce qu'une époque décide de garder" }, { id: "b", text: "Ce qui ne change jamais" }, { id: "c", text: "Ce qui vient toujours d'ailleurs" }], answer: "a" },
+        { id: "q1", stem: "Quel « contresens » l'historienne relève-t-elle ?", options: [{ id: "b", text: "Croire qu'elle a voyagé" }, { id: "a", text: "Croire la cuisine traditionnelle immuable" }, { id: "c", text: "Croire qu'elle est récente" }], answer: "a" },
+        { id: "q2", stem: "Comment définit-elle la tradition ?", options: [{ id: "c", text: "Ce qui vient toujours d'ailleurs" }, { id: "b", text: "Ce qui ne change jamais" }, { id: "a", text: "Ce qu'une époque décide de garder" }], answer: "a" },
       ],
     },
   },
@@ -289,7 +289,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Enseignant", voice: "onyx" }],
       questions: [
         { id: "q1", stem: "Quelle idée les travaux récents ont-ils « entamée » ?", options: [{ id: "a", text: "Celle d'agents parfaitement rationnels" }, { id: "b", text: "Celle de biais systématiques" }, { id: "c", text: "Celle de l'aversion à la perte" }], answer: "a" },
-        { id: "q2", stem: "Pourquoi nos écarts restent-ils « modélisables » ?", options: [{ id: "a", text: "Parce qu'ils sont systématiques" }, { id: "b", text: "Parce qu'ils sont imprévisibles" }, { id: "c", text: "Parce qu'ils sont rares" }], answer: "a" },
+        { id: "q2", stem: "Pourquoi nos écarts restent-ils « modélisables » ?", options: [{ id: "b", text: "Parce qu'ils sont imprévisibles" }, { id: "a", text: "Parce qu'ils sont systématiques" }, { id: "c", text: "Parce qu'ils sont rares" }], answer: "a" },
       ],
     },
   },
@@ -302,7 +302,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Première intervenante : On a cru que l'information gratuite était un progrès ; elle a surtout fragilisé ce qui la rend fiable, le temps de l'enquête. Second intervenant : N'idéalisons pas l'avant. Première intervenante : Je ne l'idéalise pas, je constate qu'un public habitué à ne rien payer hésite à financer un travail coûteux. Second intervenant : D'accord là-dessus ; mais la solution n'est pas de revenir en arrière, c'est de convaincre que la qualité a un prix.",
       speakers: [{ role: "Première intervenante", voice: "shimmer" }, { role: "Second intervenant", voice: "echo" }],
       questions: [
-        { id: "q1", stem: "Qu'a « surtout fragilisé » la gratuité, selon la première intervenante ?", options: [{ id: "a", text: "Le temps de l'enquête" }, { id: "b", text: "La publicité" }, { id: "c", text: "La diffusion" }], answer: "a" },
+        { id: "q1", stem: "Qu'a « surtout fragilisé » la gratuité, selon la première intervenante ?", options: [{ id: "c", text: "La diffusion" }, { id: "b", text: "La publicité" }, { id: "a", text: "Le temps de l'enquête" }], answer: "a" },
         { id: "q2", stem: "Sur quoi s'accordent finalement les intervenants ?", options: [{ id: "a", text: "Qu'il faut convaincre que la qualité a un prix" }, { id: "b", text: "Qu'il faut revenir en arrière" }, { id: "c", text: "Que la gratuité est idéale" }], answer: "a" },
       ],
     },
@@ -316,8 +316,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Journaliste : Que manque-t-il à nos villes ? Architecte : Souvent, du vide. On a tellement appris à rentabiliser chaque mètre carré qu'on a oublié l'utilité de ce qui ne sert apparemment à rien : une place où s'asseoir sans consommer, un détour agréable. Une ville n'est pas qu'une machine à fonctions ; elle est un lieu où l'on doit pouvoir flâner, et la flânerie suppose précisément des espaces qui ne sont pas saturés d'usage.",
       speakers: [{ role: "Journaliste", voice: "fable" }, { role: "Architecte", voice: "onyx" }],
       questions: [
-        { id: "q1", stem: "Que manque-t-il aux villes, selon l'architecte ?", options: [{ id: "a", text: "Du vide, des espaces non saturés d'usage" }, { id: "b", text: "Plus de commerces" }, { id: "c", text: "Plus de fonctions" }], answer: "a" },
-        { id: "q2", stem: "Que suppose la flânerie, d'après lui ?", options: [{ id: "a", text: "Des espaces qui ne sont pas saturés d'usage" }, { id: "b", text: "Des rues commerçantes" }, { id: "c", text: "Une circulation rapide" }], answer: "a" },
+        { id: "q1", stem: "Que manque-t-il aux villes, selon l'architecte ?", options: [{ id: "b", text: "Plus de commerces" }, { id: "a", text: "Du vide, des espaces non saturés d'usage" }, { id: "c", text: "Plus de fonctions" }], answer: "a" },
+        { id: "q2", stem: "Que suppose la flânerie, d'après lui ?", options: [{ id: "c", text: "Une circulation rapide" }, { id: "b", text: "Des rues commerçantes" }, { id: "a", text: "Des espaces qui ne sont pas saturés d'usage" }], answer: "a" },
       ],
     },
   },
@@ -331,7 +331,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Conférencier", voice: "echo" }],
       questions: [
         { id: "q1", stem: "Quelle idée le conférencier qualifie-t-il de fausse mais tenace ?", options: [{ id: "a", text: "Qu'il serait trop tard pour apprendre une langue adulte" }, { id: "b", text: "Que l'adulte apprend comme l'enfant" }, { id: "c", text: "Que la pratique est inutile" }], answer: "a" },
-        { id: "q2", stem: "Que manque-t-il surtout à l'adulte, selon lui ?", options: [{ id: "a", text: "Le temps et l'occasion de pratiquer sans craindre l'erreur" }, { id: "b", text: "L'aptitude" }, { id: "c", text: "La mémoire" }], answer: "a" },
+        { id: "q2", stem: "Que manque-t-il surtout à l'adulte, selon lui ?", options: [{ id: "b", text: "L'aptitude" }, { id: "a", text: "Le temps et l'occasion de pratiquer sans craindre l'erreur" }, { id: "c", text: "La mémoire" }], answer: "a" },
       ],
     },
   },
@@ -344,7 +344,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Animatrice : L'automatisation va-t-elle détruire l'emploi ? Économiste 1 : Détruire, non ; déplacer, oui, et c'est déjà considérable. Économiste 2 : Le déplacement n'est pas neutre : ceux qui perdent leur poste ne sont pas ceux qui occupent les nouveaux. Économiste 1 : C'est juste, et c'est là que l'accompagnement compte plus que la prédiction du nombre d'emplois. Économiste 2 : Sur ce point, aucun désaccord : la vraie question est sociale, pas seulement technologique.",
       speakers: [{ role: "Animatrice", voice: "nova" }, { role: "Économiste 1", voice: "onyx" }, { role: "Économiste 2", voice: "echo" }],
       questions: [
-        { id: "q1", stem: "Comment l'économiste 1 corrige-t-il le terme « détruire » ?", options: [{ id: "a", text: "Il parle plutôt de déplacement de l'emploi" }, { id: "b", text: "Il nie tout effet" }, { id: "c", text: "Il prévoit une création massive" }], answer: "a" },
+        { id: "q1", stem: "Comment l'économiste 1 corrige-t-il le terme « détruire » ?", options: [{ id: "c", text: "Il prévoit une création massive" }, { id: "b", text: "Il nie tout effet" }, { id: "a", text: "Il parle plutôt de déplacement de l'emploi" }], answer: "a" },
         { id: "q2", stem: "Sur quoi les deux s'accordent-ils ?", options: [{ id: "a", text: "Que la vraie question est sociale, pas seulement technologique" }, { id: "b", text: "Qu'il n'y a pas de problème" }, { id: "c", text: "Qu'il faut arrêter l'automatisation" }], answer: "a" },
       ],
     },
@@ -358,8 +358,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Journaliste : Vos films laissent beaucoup de place au silence. Cinéaste : Parce que tout dire, c'est ne rien laisser au spectateur. Le silence n'est pas un vide à combler ; c'est un espace que j'offre. Je me méfie des œuvres qui expliquent tout : elles flattent, mais elles infantilisent. Je préfère un public qui repart avec des questions qu'un public qu'on aurait rassasié.",
       speakers: [{ role: "Journaliste", voice: "fable" }, { role: "Cinéaste", voice: "shimmer" }],
       questions: [
-        { id: "q1", stem: "Pourquoi la cinéaste laisse-t-elle place au silence ?", options: [{ id: "a", text: "Pour laisser un espace au spectateur" }, { id: "b", text: "Par manque de moyens" }, { id: "c", text: "Pour tout expliquer" }], answer: "a" },
-        { id: "q2", stem: "De quoi se méfie-t-elle ?", options: [{ id: "a", text: "Des œuvres qui expliquent tout" }, { id: "b", text: "Du public exigeant" }, { id: "c", text: "Des questions" }], answer: "a" },
+        { id: "q1", stem: "Pourquoi la cinéaste laisse-t-elle place au silence ?", options: [{ id: "b", text: "Par manque de moyens" }, { id: "a", text: "Pour laisser un espace au spectateur" }, { id: "c", text: "Pour tout expliquer" }], answer: "a" },
+        { id: "q2", stem: "De quoi se méfie-t-elle ?", options: [{ id: "c", text: "Des questions" }, { id: "b", text: "Du public exigeant" }, { id: "a", text: "Des œuvres qui expliquent tout" }], answer: "a" },
       ],
     },
   },
@@ -373,7 +373,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Chroniqueur", voice: "echo" }],
       questions: [
         { id: "q1", stem: "Qu'avons-nous « peut-être supprimé » avec l'ennui ?", options: [{ id: "a", text: "Une condition discrète de la créativité" }, { id: "b", text: "Le temps de travail" }, { id: "c", text: "Les écrans" }], answer: "a" },
-        { id: "q2", stem: "Comment l'ennui est-il présenté ?", options: [{ id: "a", text: "Comme un moment où l'esprit vagabonde et invente" }, { id: "b", text: "Comme une pure perte" }, { id: "c", text: "Comme une maladie" }], answer: "a" },
+        { id: "q2", stem: "Comment l'ennui est-il présenté ?", options: [{ id: "b", text: "Comme une pure perte" }, { id: "a", text: "Comme un moment où l'esprit vagabonde et invente" }, { id: "c", text: "Comme une maladie" }], answer: "a" },
       ],
     },
   },
@@ -386,7 +386,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Notre intuition est un guide précieux dans la vie courante et un piètre conseiller face aux grands nombres. Elle nous fait surestimer le rare et le spectaculaire, sous-estimer le fréquent et le discret. C'est pourquoi un fait divers marquant pèse, dans nos décisions, bien plus lourd qu'une statistique pourtant accablante. Comprendre cela ne nous rend pas plus rationnels d'un coup ; mais cela nous apprend, au moins, à nous méfier de nos premières impressions.",
       speakers: [{ role: "Conférencière", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Que nous fait faire l'intuition face aux grands nombres ?", options: [{ id: "a", text: "Surestimer le rare, sous-estimer le fréquent" }, { id: "b", text: "Tout calculer correctement" }, { id: "c", text: "Ignorer le spectaculaire" }], answer: "a" },
+        { id: "q1", stem: "Que nous fait faire l'intuition face aux grands nombres ?", options: [{ id: "c", text: "Ignorer le spectaculaire" }, { id: "b", text: "Tout calculer correctement" }, { id: "a", text: "Surestimer le rare, sous-estimer le fréquent" }], answer: "a" },
         { id: "q2", stem: "Que nous apprend, « au moins », cette prise de conscience ?", options: [{ id: "a", text: "À nous méfier de nos premières impressions" }, { id: "b", text: "À devenir aussitôt rationnels" }, { id: "c", text: "À ignorer les statistiques" }], answer: "a" },
       ],
     },
@@ -400,8 +400,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Journaliste : La sobriété, n'est-ce pas demander des efforts aux particuliers pour épargner les vrais responsables ? Spécialiste : C'est un risque réel, et il faut le nommer. Mais opposer gestes individuels et décisions structurelles est un faux dilemme commode. Les deux se renforcent : une société qui change ses habitudes rend aussi les décisions politiques plus acceptables, et réciproquement. Le piège, ce serait de transformer la sobriété en culpabilisation des seuls individus.",
       speakers: [{ role: "Journaliste", voice: "fable" }, { role: "Spécialiste", voice: "onyx" }],
       questions: [
-        { id: "q1", stem: "Comment le spécialiste qualifie-t-il l'opposition individus / structures ?", options: [{ id: "a", text: "Un faux dilemme commode" }, { id: "b", text: "Une vérité incontestable" }, { id: "c", text: "Un détail" }], answer: "a" },
-        { id: "q2", stem: "Quel est le « piège » qu'il identifie ?", options: [{ id: "a", text: "Culpabiliser les seuls individus" }, { id: "b", text: "Agir trop vite" }, { id: "c", text: "Ignorer les habitudes" }], answer: "a" },
+        { id: "q1", stem: "Comment le spécialiste qualifie-t-il l'opposition individus / structures ?", options: [{ id: "b", text: "Une vérité incontestable" }, { id: "a", text: "Un faux dilemme commode" }, { id: "c", text: "Un détail" }], answer: "a" },
+        { id: "q2", stem: "Quel est le « piège » qu'il identifie ?", options: [{ id: "c", text: "Ignorer les habitudes" }, { id: "b", text: "Agir trop vite" }, { id: "a", text: "Culpabiliser les seuls individus" }], answer: "a" },
       ],
     },
   },
@@ -415,7 +415,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Enseignante", voice: "shimmer" }],
       questions: [
         { id: "q1", stem: "Quelle est la thèse centrale ?", options: [{ id: "a", text: "Le patrimoine est désigné, non donné" }, { id: "b", text: "Le patrimoine est neutre" }, { id: "c", text: "Tout doit être conservé" }], answer: "a" },
-        { id: "q2", stem: "Quelle question l'enseignante juge « intéressante » ?", options: [{ id: "a", text: "Qui décide, et au nom de quoi" }, { id: "b", text: "Combien cela coûte" }, { id: "c", text: "Où exposer" }], answer: "a" },
+        { id: "q2", stem: "Quelle question l'enseignante juge « intéressante » ?", options: [{ id: "b", text: "Combien cela coûte" }, { id: "a", text: "Qui décide, et au nom de quoi" }, { id: "c", text: "Où exposer" }], answer: "a" },
       ],
     },
   },
@@ -428,7 +428,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Animateur : Un service civique obligatoire renforcerait-il le lien entre citoyens ? Pour : Faire se rencontrer des jeunes d'horizons différents, oui, c'est précieux. Contre : Précieux, mais « obligatoire » et « rencontre » font mauvais ménage : on ne décrète pas la fraternité. Pour : On ne la décrète pas, on crée les occasions. Contre : Alors offrons-les sans contraindre ; un engagement imposé n'a pas la même valeur qu'un engagement choisi.",
       speakers: [{ role: "Animateur", voice: "echo" }, { role: "Pour", voice: "nova" }, { role: "Contre", voice: "onyx" }],
       questions: [
-        { id: "q1", stem: "Quelle objection soulève l'intervenant « Contre » ?", options: [{ id: "a", text: "Un engagement imposé n'a pas la valeur d'un engagement choisi" }, { id: "b", text: "Les rencontres sont inutiles" }, { id: "c", text: "Le service coûte trop cher" }], answer: "a" },
+        { id: "q1", stem: "Quelle objection soulève l'intervenant « Contre » ?", options: [{ id: "c", text: "Le service coûte trop cher" }, { id: "b", text: "Les rencontres sont inutiles" }, { id: "a", text: "Un engagement imposé n'a pas la valeur d'un engagement choisi" }], answer: "a" },
         { id: "q2", stem: "Que répond l'intervenant « Pour » sur la fraternité ?", options: [{ id: "a", text: "On ne la décrète pas, on en crée les occasions" }, { id: "b", text: "On peut la rendre obligatoire" }, { id: "c", text: "Elle est impossible" }], answer: "a" },
       ],
     },
@@ -442,8 +442,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Journaliste : La prévention coûte-t-elle moins cher que le soin ? Chercheuse : Souvent, mais l'argument économique est à double tranchant. S'il faut justifier la prévention par ses seules économies, que fait-on de ce qui en rapporte peu mais évite des souffrances ? La santé publique ne devrait pas être suspendue à un calcul de rentabilité. Le bon argument pour prévenir, ce n'est pas qu'on dépensera moins, c'est qu'on vivra mieux.",
       speakers: [{ role: "Journaliste", voice: "fable" }, { role: "Chercheuse", voice: "shimmer" }],
       questions: [
-        { id: "q1", stem: "Pourquoi l'argument économique est-il « à double tranchant » ?", options: [{ id: "a", text: "Il néglige ce qui évite des souffrances sans rapporter" }, { id: "b", text: "La prévention coûte toujours plus cher" }, { id: "c", text: "Le soin est gratuit" }], answer: "a" },
-        { id: "q2", stem: "Quel est le « bon argument » selon la chercheuse ?", options: [{ id: "a", text: "Qu'on vivra mieux, pas seulement qu'on dépensera moins" }, { id: "b", text: "Qu'on dépensera moins, avant tout" }, { id: "c", text: "Qu'il faut renoncer à prévenir" }], answer: "a" },
+        { id: "q1", stem: "Pourquoi l'argument économique est-il « à double tranchant » ?", options: [{ id: "b", text: "La prévention coûte toujours plus cher" }, { id: "a", text: "Il néglige ce qui évite des souffrances sans rapporter" }, { id: "c", text: "Le soin est gratuit" }], answer: "a" },
+        { id: "q2", stem: "Quel est le « bon argument » selon la chercheuse ?", options: [{ id: "c", text: "Qu'il faut renoncer à prévenir" }, { id: "b", text: "Qu'on dépensera moins, avant tout" }, { id: "a", text: "Qu'on vivra mieux, pas seulement qu'on dépensera moins" }], answer: "a" },
       ],
     },
   },
@@ -458,7 +458,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Conférencier", voice: "onyx" }],
       questions: [
         { id: "q1", stem: "Que critique le conférencier ?", options: [{ id: "a", text: "Faire de l'utilité la justification de l'art" }, { id: "b", text: "Que l'art éduque" }, { id: "c", text: "Que l'art existe" }], answer: "a" },
-        { id: "q2", stem: "Quel risque voit-il à « rentabiliser » l'art ?", options: [{ id: "a", text: "Ne garder que ce qui rapporte et perdre ce qui dérange" }, { id: "b", text: "Le rendre trop populaire" }, { id: "c", text: "Le rendre gratuit" }], answer: "a" },
+        { id: "q2", stem: "Quel risque voit-il à « rentabiliser » l'art ?", options: [{ id: "b", text: "Le rendre trop populaire" }, { id: "a", text: "Ne garder que ce qui rapporte et perdre ce qui dérange" }, { id: "c", text: "Le rendre gratuit" }], answer: "a" },
       ],
     },
   },

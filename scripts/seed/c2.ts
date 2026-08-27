@@ -22,7 +22,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", body: "On célèbre volontiers la mémoire comme une vertu et l'on tient l'oubli pour une défaillance. Or rien n'est plus discutable. Une mémoire qui retiendrait tout, sans hiérarchie ni effacement, ne serait pas une mémoire mais un fardeau : l'esprit y serait submergé par la masse indistincte du passé. L'oubli n'est donc pas l'envers de la mémoire ; il en est la condition de possibilité. Se souvenir, c'est d'abord trier, et trier suppose de laisser tomber. Loin d'être une perte, l'oubli est le travail silencieux qui rend le souvenir pensable." }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Quelle est la thèse centrale de l'auteur ?", options: [{ id: "a", text: "L'oubli est une condition de la mémoire" }, { id: "b", text: "La mémoire doit tout retenir" }, { id: "c", text: "L'oubli est toujours une défaillance" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Que signifie l'expression « le travail silencieux » à la fin du texte ?", options: [{ id: "a", text: "Un processus discret mais nécessaire" }, { id: "b", text: "Une activité bruyante" }, { id: "c", text: "Un effort volontaire et conscient" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Que signifie l'expression « le travail silencieux » à la fin du texte ?", options: [{ id: "b", text: "Une activité bruyante" }, { id: "a", text: "Un processus discret mais nécessaire" }, { id: "c", text: "Un effort volontaire et conscient" }], answer: "a" },
       ],
     },
   },
@@ -47,7 +47,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Ce qui frappe dans ce roman, ce n'est pas ce que le narrateur dit, mais l'ampleur de ce qu'il tait. Les silences y sont si calculés qu'ils deviennent éloquents : chaque ellipse oblige le lecteur à combler le vide, à devenir, malgré lui, coauteur du récit. L'auteur ne nous épargne pas l'inconfort de l'incertitude ; il en fait son matériau. On sort de ces pages avec le sentiment d'avoir compris davantage que ce qui était écrit, et c'est précisément là que réside sa réussite." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Qu'est-ce qui caractérise le roman selon le critique ?", options: [{ id: "a", text: "L'importance de ce qui n'est pas dit" }, { id: "b", text: "L'abondance des descriptions" }, { id: "c", text: "La clarté des explications du narrateur" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Qu'est-ce qui caractérise le roman selon le critique ?", options: [{ id: "c", text: "La clarté des explications du narrateur" }, { id: "b", text: "L'abondance des descriptions" }, { id: "a", text: "L'importance de ce qui n'est pas dit" }], answer: "a" },
         { id: "q2", kind: "mcq", stem: "Quel rôle le lecteur est-il amené à jouer ?", options: [{ id: "a", text: "Celui de coauteur qui comble les vides" }, { id: "b", text: "Celui d'un spectateur passif" }, { id: "c", text: "Celui d'un correcteur du texte" }], answer: "a" },
       ],
     },
@@ -60,8 +60,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Opposer la sobriété à la prospérité relève d'un malentendu tenace. On présente volontiers toute modération de la consommation comme un renoncement, voire un appauvrissement consenti. Mais cette équivalence entre quantité de biens et qualité de vie ne va nullement de soi. Réduire le superflu n'est pas se priver de l'essentiel ; c'est parfois le redécouvrir. La véritable question n'est pas de savoir si nous consommerons moins, mais selon quels critères nous redéfinirons ce qui compte. À cet égard, la sobriété n'est pas une contrainte subie : elle peut être un choix lucide." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel « malentendu » l'auteur dénonce-t-il ?", options: [{ id: "a", text: "Confondre la quantité de biens et la qualité de vie" }, { id: "b", text: "Croire que la sobriété est un choix lucide" }, { id: "c", text: "Penser que l'essentiel est superflu" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Comment l'auteur présente-t-il la sobriété en conclusion ?", options: [{ id: "a", text: "Comme un choix possible plutôt qu'une contrainte subie" }, { id: "b", text: "Comme un appauvrissement inévitable" }, { id: "c", text: "Comme un renoncement à l'essentiel" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Quel « malentendu » l'auteur dénonce-t-il ?", options: [{ id: "b", text: "Croire que la sobriété est un choix lucide" }, { id: "a", text: "Confondre la quantité de biens et la qualité de vie" }, { id: "c", text: "Penser que l'essentiel est superflu" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Comment l'auteur présente-t-il la sobriété en conclusion ?", options: [{ id: "c", text: "Comme un renoncement à l'essentiel" }, { id: "b", text: "Comme un appauvrissement inévitable" }, { id: "a", text: "Comme un choix possible plutôt qu'une contrainte subie" }], answer: "a" },
       ],
     },
   },
@@ -87,7 +87,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", body: "Dans un monde saturé de sollicitations, ce n'est plus l'information qui manque, mais la capacité de s'y arrêter. L'attention est devenue la denrée que tout se dispute, et sa rareté en fait le véritable enjeu de notre temps. Celui qui capte notre regard une seconde a déjà obtenu quelque chose de précieux ; celui qui le retient durablement exerce un pouvoir. Apprendre à choisir ce à quoi l'on prête attention n'est donc pas un raffinement de moraliste : c'est, désormais, une forme élémentaire de liberté." }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Selon l'auteur, qu'est-ce qui est devenu rare ?", options: [{ id: "a", text: "La capacité de s'arrêter sur l'information" }, { id: "b", text: "L'information elle-même" }, { id: "c", text: "Les sollicitations" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Comment l'auteur qualifie-t-il le fait de choisir son attention ?", options: [{ id: "a", text: "Une forme élémentaire de liberté" }, { id: "b", text: "Un raffinement de moraliste" }, { id: "c", text: "Une perte de temps" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Comment l'auteur qualifie-t-il le fait de choisir son attention ?", options: [{ id: "b", text: "Un raffinement de moraliste" }, { id: "a", text: "Une forme élémentaire de liberté" }, { id: "c", text: "Une perte de temps" }], answer: "a" },
       ],
     },
   },
@@ -99,7 +99,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "Elle poussa la porte et la maison lui rendit son silence, intact, comme si trente ans ne s'étaient pas écoulés. Les meubles étaient à leur place, et pourtant tout avait changé : non les choses, mais le regard qu'elle portait sur elles. Ce qui l'avait jadis rassurée la laissait à présent étrangement froide. Elle comprit, sans amertume, qu'on ne revient jamais dans un lieu ; on revient seulement dans le souvenir qu'on s'en est fait, et ce souvenir, lui, ne nous attend pas." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Qu'est-ce qui a réellement changé, selon le passage ?", options: [{ id: "a", text: "Le regard du personnage, non les objets" }, { id: "b", text: "La disposition des meubles" }, { id: "c", text: "Le silence de la maison" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Qu'est-ce qui a réellement changé, selon le passage ?", options: [{ id: "c", text: "Le silence de la maison" }, { id: "b", text: "La disposition des meubles" }, { id: "a", text: "Le regard du personnage, non les objets" }], answer: "a" },
         { id: "q2", kind: "mcq", stem: "Quelle réflexion le personnage tire-t-il de sa visite ?", options: [{ id: "a", text: "On revient dans un souvenir, jamais dans un lieu" }, { id: "b", text: "Les lieux nous attendent fidèlement" }, { id: "c", text: "Le passé peut être retrouvé intact" }], answer: "a" },
       ],
     },
@@ -125,8 +125,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "L'expertise scientifique se trouve aujourd'hui dans une position inconfortable. On lui demande des certitudes là où elle ne peut offrir que des probabilités, et l'on s'indigne ensuite de ses révisions, comme si changer d'avis devant des données nouvelles était un aveu d'incompétence. Pourtant, c'est l'inverse : la capacité à corriger ses conclusions est la marque même de la démarche scientifique. Le malentendu vient de ce que le public attend de la science une autorité dogmatique, quand elle ne peut être qu'une autorité révisable." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Pourquoi le public s'indigne-t-il parfois des révisions scientifiques ?", options: [{ id: "a", text: "Il y voit à tort un aveu d'incompétence" }, { id: "b", text: "Il préfère les probabilités aux certitudes" }, { id: "c", text: "Il refuse toute forme d'autorité" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Quelle est, selon l'auteur, la marque de la démarche scientifique ?", options: [{ id: "a", text: "La capacité à corriger ses conclusions" }, { id: "b", text: "L'autorité dogmatique" }, { id: "c", text: "Le refus de toute incertitude" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Pourquoi le public s'indigne-t-il parfois des révisions scientifiques ?", options: [{ id: "b", text: "Il préfère les probabilités aux certitudes" }, { id: "a", text: "Il y voit à tort un aveu d'incompétence" }, { id: "c", text: "Il refuse toute forme d'autorité" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Quelle est, selon l'auteur, la marque de la démarche scientifique ?", options: [{ id: "c", text: "Le refus de toute incertitude" }, { id: "b", text: "L'autorité dogmatique" }, { id: "a", text: "La capacité à corriger ses conclusions" }], answer: "a" },
       ],
     },
   },
@@ -139,7 +139,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", body: "Nos économies mesurent avec une précision obsessionnelle ce qui s'échange contre de l'argent, et restent aveugles à tout le reste. Le soin apporté aux proches, l'entretien des liens, l'éducation quotidienne : ces tâches, parce qu'elles ne génèrent aucune transaction, échappent aux statistiques et, par là, à la reconnaissance. On en conclut un peu vite qu'elles ne valent rien. C'est confondre l'absence de prix avec l'absence de valeur. Or une société qui ne sait nommer que ce qu'elle facture finit par négliger ce qui la tient debout." }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Quelle confusion l'auteur reproche-t-il à nos économies ?", options: [{ id: "a", text: "Confondre l'absence de prix avec l'absence de valeur" }, { id: "b", text: "Confondre le soin et l'éducation" }, { id: "c", text: "Confondre les statistiques et l'argent" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Pourquoi le travail de soin échappe-t-il aux statistiques ?", options: [{ id: "a", text: "Parce qu'il ne génère pas de transaction" }, { id: "b", text: "Parce qu'il est mal exécuté" }, { id: "c", text: "Parce qu'il est trop coûteux" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Pourquoi le travail de soin échappe-t-il aux statistiques ?", options: [{ id: "b", text: "Parce qu'il est mal exécuté" }, { id: "a", text: "Parce qu'il ne génère pas de transaction" }, { id: "c", text: "Parce qu'il est trop coûteux" }], answer: "a" },
       ],
     },
   },
@@ -164,7 +164,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "On déplore volontiers l'anonymat des grandes villes, où l'on côtoie chaque jour des inconnus sans jamais les connaître. Mais cet anonymat tant décrié a son revers heureux : il offre une liberté que les communautés trop resserrées ne tolèrent guère. Là où chacun se sait observé, la moindre singularité devient suspecte ; là où l'on passe inaperçu, on peut au contraire se réinventer. L'indifférence de la foule n'est pas seulement une froideur ; elle est aussi, pour qui veut échapper au regard pesant des siens, une promesse de recommencement." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quel « revers heureux » l'auteur attribue-t-il à l'anonymat urbain ?", options: [{ id: "a", text: "Une liberté de se réinventer" }, { id: "b", text: "Une plus grande solidarité" }, { id: "c", text: "Une surveillance bienveillante" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Quel « revers heureux » l'auteur attribue-t-il à l'anonymat urbain ?", options: [{ id: "c", text: "Une surveillance bienveillante" }, { id: "b", text: "Une plus grande solidarité" }, { id: "a", text: "Une liberté de se réinventer" }], answer: "a" },
         { id: "q2", kind: "mcq", stem: "Que reproche l'auteur aux communautés « trop resserrées » ?", options: [{ id: "a", text: "Elles tolèrent mal la singularité" }, { id: "b", text: "Elles favorisent le recommencement" }, { id: "c", text: "Elles sont indifférentes à leurs membres" }], answer: "a" },
       ],
     },
@@ -177,8 +177,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "L'adage italien qui assimile le traducteur à un traître a la séduction des formules brèves et le défaut de leur paresse. Sans doute toute traduction perd-elle quelque chose ; mais elle gagne aussi ce que l'original ignorait de lui-même. En passant d'une langue à l'autre, un texte se découvre des résonances inattendues, des zones d'ombre qu'il n'avait jamais eu à éclaircir. Loin de n'être qu'une déperdition, la traduction est une seconde lecture, et souvent la plus exigeante : celle qui ne peut feindre d'avoir compris ce qu'elle n'a pas su redire." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Quelle nuance l'auteur apporte-t-il à l'adage sur le traducteur ?", options: [{ id: "a", text: "La traduction peut aussi révéler ce que l'original ignorait" }, { id: "b", text: "La traduction ne perd jamais rien" }, { id: "c", text: "Le traducteur est nécessairement un traître" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Pourquoi la traduction est-elle qualifiée de « lecture la plus exigeante » ?", options: [{ id: "a", text: "Elle ne peut feindre d'avoir compris" }, { id: "b", text: "Elle est plus rapide que la lecture ordinaire" }, { id: "c", text: "Elle dispense de comprendre le texte" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Quelle nuance l'auteur apporte-t-il à l'adage sur le traducteur ?", options: [{ id: "b", text: "La traduction ne perd jamais rien" }, { id: "a", text: "La traduction peut aussi révéler ce que l'original ignorait" }, { id: "c", text: "Le traducteur est nécessairement un traître" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Pourquoi la traduction est-elle qualifiée de « lecture la plus exigeante » ?", options: [{ id: "c", text: "Elle dispense de comprendre le texte" }, { id: "b", text: "Elle est plus rapide que la lecture ordinaire" }, { id: "a", text: "Elle ne peut feindre d'avoir compris" }], answer: "a" },
       ],
     },
   },
@@ -204,7 +204,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       passages: [{ id: "p1", body: "Sommer l'art de se justifier par son utilité, c'est déjà l'avoir mal compris. Une œuvre ne sert à rien au sens où sert un outil, et c'est précisément cette inutilité apparente qui fait sa valeur. Là où l'objet utile s'efface une fois sa fonction remplie, l'œuvre persiste, parce qu'elle n'a jamais eu d'autre fin qu'elle-même. Exiger qu'elle rapporte, qu'elle instruise ou qu'elle console, c'est lui assigner une mission qui lui est étrangère. L'art ne nous est pas nécessaire comme le pain ; il nous est nécessaire autrement, et ce « autrement » est tout son mystère." }],
       questions: [
         { id: "q1", kind: "mcq", stem: "Selon l'auteur, qu'est-ce qui fait la valeur d'une œuvre d'art ?", options: [{ id: "a", text: "Son inutilité apparente" }, { id: "b", text: "Sa capacité à instruire" }, { id: "c", text: "Le profit qu'elle rapporte" }], answer: "a" },
-        { id: "q2", kind: "mcq", stem: "Que veut dire l'auteur en affirmant que l'art nous est « nécessaire autrement » ?", options: [{ id: "a", text: "D'une nécessité différente de celle des besoins matériels" }, { id: "b", text: "Qu'il n'est en réalité pas nécessaire" }, { id: "c", text: "Qu'il remplace le pain" }], answer: "a" },
+        { id: "q2", kind: "mcq", stem: "Que veut dire l'auteur en affirmant que l'art nous est « nécessaire autrement » ?", options: [{ id: "b", text: "Qu'il n'est en réalité pas nécessaire" }, { id: "a", text: "D'une nécessité différente de celle des besoins matériels" }, { id: "c", text: "Qu'il remplace le pain" }], answer: "a" },
       ],
     },
   },
@@ -216,7 +216,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
     payload: {
       passages: [{ id: "p1", body: "La nostalgie a ceci de trompeur qu'elle embellit un passé qui, vécu, fut rarement aussi doux qu'il nous revient. Elle ne restitue pas ce qui fut ; elle compose une image consolante à partir de fragments choisis. Rien de répréhensible à cela, tant que l'on n'en fait pas une politique. Car ériger le regret en programme, prétendre restaurer un âge d'or qui n'a jamais existé, c'est se condamner à juger le présent à l'aune d'une fiction. Le passé peut nourrir le présent ; il ne saurait en tenir lieu." }],
       questions: [
-        { id: "q1", kind: "mcq", stem: "Pourquoi la nostalgie est-elle « trompeuse » selon l'auteur ?", options: [{ id: "a", text: "Elle compose une image embellie plutôt que de restituer le passé" }, { id: "b", text: "Elle oublie complètement le passé" }, { id: "c", text: "Elle juge le passé trop sévèrement" }], answer: "a" },
+        { id: "q1", kind: "mcq", stem: "Pourquoi la nostalgie est-elle « trompeuse » selon l'auteur ?", options: [{ id: "c", text: "Elle juge le passé trop sévèrement" }, { id: "b", text: "Elle oublie complètement le passé" }, { id: "a", text: "Elle compose une image embellie plutôt que de restituer le passé" }], answer: "a" },
         { id: "q2", kind: "mcq", stem: "Que reproche l'auteur au fait d'« ériger le regret en programme » ?", options: [{ id: "a", text: "Cela revient à juger le présent à l'aune d'une fiction" }, { id: "b", text: "Cela nourrit utilement le présent" }, { id: "c", text: "Cela restaure réellement un âge d'or" }], answer: "a" },
       ],
     },
@@ -233,7 +233,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Conférencière", voice: "shimmer" }],
       questions: [
         { id: "q1", stem: "Quel est le point central de la conférencière ?", options: [{ id: "a", text: "Le chercheur sait reconnaître l'imprévu fécond" }, { id: "b", text: "Le savant élimine totalement le hasard" }, { id: "c", text: "Le hasard n'a aucun rôle en science" }], answer: "a" },
-        { id: "q2", stem: "À qui le hasard profite-t-il, selon elle ?", options: [{ id: "a", text: "À ceux qui ont appris à le lire" }, { id: "b", text: "À tous, indistinctement" }, { id: "c", text: "À personne" }], answer: "a" },
+        { id: "q2", stem: "À qui le hasard profite-t-il, selon elle ?", options: [{ id: "b", text: "À tous, indistinctement" }, { id: "a", text: "À ceux qui ont appris à le lire" }, { id: "c", text: "À personne" }], answer: "a" },
       ],
     },
   },
@@ -246,7 +246,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Animateur : Faut-il conserver toute trace numérique de nos vies ? Invité : Je m'en méfie. Conserver indéfiniment, c'est interdire à quiconque d'évoluer, de se défaire d'un passé qui ne le définit plus. Le droit à l'oubli n'est pas un caprice : c'est la condition pour qu'une faute ancienne ne pèse pas éternellement. Animateur : Mais effacer, n'est-ce pas réécrire l'histoire ? Invité : Tout dépend de qui efface et pourquoi. Distinguons l'oubli choisi par l'individu de la falsification imposée par le pouvoir : confondre les deux, c'est se tromper de combat.",
       speakers: [{ role: "Animateur", voice: "onyx" }, { role: "Invité", voice: "echo" }],
       questions: [
-        { id: "q1", stem: "Comment l'invité justifie-t-il le droit à l'oubli ?", options: [{ id: "a", text: "Il permet à une personne d'évoluer sans être définie par son passé" }, { id: "b", text: "Il facilite la falsification de l'histoire" }, { id: "c", text: "Il sert le pouvoir en place" }], answer: "a" },
+        { id: "q1", stem: "Comment l'invité justifie-t-il le droit à l'oubli ?", options: [{ id: "c", text: "Il sert le pouvoir en place" }, { id: "b", text: "Il facilite la falsification de l'histoire" }, { id: "a", text: "Il permet à une personne d'évoluer sans être définie par son passé" }], answer: "a" },
         { id: "q2", stem: "Quelle distinction l'invité juge-t-il essentielle ?", options: [{ id: "a", text: "Entre l'oubli choisi et la falsification imposée" }, { id: "b", text: "Entre le numérique et le papier" }, { id: "c", text: "Entre l'individu et l'animateur" }], answer: "a" },
       ],
     },
@@ -260,8 +260,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Journaliste : On dit votre style dépouillé. Est-ce un choix ? Romancier : Le mot « dépouillé » laisse croire à une facilité ; or rien n'est plus laborieux que la simplicité. J'écris d'abord trop, puis je retranche. Chaque adjectif que je supprime me coûte, mais le texte y gagne en force. La phrase juste n'est pas celle où l'on ne peut plus rien ajouter, c'est celle où l'on ne peut plus rien ôter. Journaliste : Vous réécrivez beaucoup ? Romancier : Sans cesse. Un livre n'est jamais fini, il est seulement abandonné à temps.",
       speakers: [{ role: "Journaliste", voice: "nova" }, { role: "Romancier", voice: "fable" }],
       questions: [
-        { id: "q1", stem: "Comment le romancier conçoit-il « la phrase juste » ?", options: [{ id: "a", text: "Celle où l'on ne peut plus rien ôter" }, { id: "b", text: "Celle où l'on ne peut plus rien ajouter" }, { id: "c", text: "Celle qui contient le plus d'adjectifs" }], answer: "a" },
-        { id: "q2", stem: "Que veut-il dire en affirmant qu'un livre est « abandonné à temps » ?", options: [{ id: "a", text: "Qu'on ne le finit jamais vraiment, on cesse d'y travailler" }, { id: "b", text: "Qu'il faut le publier le plus vite possible" }, { id: "c", text: "Qu'il ne faut jamais le réécrire" }], answer: "a" },
+        { id: "q1", stem: "Comment le romancier conçoit-il « la phrase juste » ?", options: [{ id: "b", text: "Celle où l'on ne peut plus rien ajouter" }, { id: "a", text: "Celle où l'on ne peut plus rien ôter" }, { id: "c", text: "Celle qui contient le plus d'adjectifs" }], answer: "a" },
+        { id: "q2", stem: "Que veut-il dire en affirmant qu'un livre est « abandonné à temps » ?", options: [{ id: "c", text: "Qu'il ne faut jamais le réécrire" }, { id: "b", text: "Qu'il faut le publier le plus vite possible" }, { id: "a", text: "Qu'on ne le finit jamais vraiment, on cesse d'y travailler" }], answer: "a" },
       ],
     },
   },
@@ -275,7 +275,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Chroniqueur", voice: "echo" }],
       questions: [
         { id: "q1", stem: "Que reproche le chroniqueur au culte de la vitesse ?", options: [{ id: "a", text: "Il nous prive de l'épaisseur des choses" }, { id: "b", text: "Il encourage la paresse" }, { id: "c", text: "Il fait toujours arriver en retard" }], answer: "a" },
-        { id: "q2", stem: "Quelle nuance le chroniqueur tient-il à préciser ?", options: [{ id: "a", text: "Qu'il défend la lenteur, non la paresse" }, { id: "b", text: "Qu'il préfère la vitesse à la lenteur" }, { id: "c", text: "Qu'il faut tout faire le plus vite possible" }], answer: "a" },
+        { id: "q2", stem: "Quelle nuance le chroniqueur tient-il à préciser ?", options: [{ id: "b", text: "Qu'il préfère la vitesse à la lenteur" }, { id: "a", text: "Qu'il défend la lenteur, non la paresse" }, { id: "c", text: "Qu'il faut tout faire le plus vite possible" }], answer: "a" },
       ],
     },
   },
@@ -288,7 +288,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Linguiste : On a longtemps cru qu'une langue se contentait d'habiller des pensées déjà formées. La réalité est plus subtile. Notre langue ne dicte pas ce que nous pouvons penser, mais elle rend certaines distinctions plus faciles, d'autres plus laborieuses. Là où un idiome possède un mot unique, un autre devra recourir à une périphrase, et cette différence, sans nous emprisonner, infléchit nos habitudes mentales. Bref, la langue ne nous enferme pas ; elle nous incline. Reconnaître cette inclination, c'est déjà commencer à s'en affranchir.",
       speakers: [{ role: "Linguiste", voice: "onyx" }],
       questions: [
-        { id: "q1", stem: "Quelle est la position nuancée du linguiste ?", options: [{ id: "a", text: "La langue incline la pensée sans la déterminer" }, { id: "b", text: "La langue dicte entièrement nos pensées" }, { id: "c", text: "La langue n'a aucun effet sur la pensée" }], answer: "a" },
+        { id: "q1", stem: "Quelle est la position nuancée du linguiste ?", options: [{ id: "c", text: "La langue n'a aucun effet sur la pensée" }, { id: "b", text: "La langue dicte entièrement nos pensées" }, { id: "a", text: "La langue incline la pensée sans la déterminer" }], answer: "a" },
         { id: "q2", stem: "Selon lui, que permet le fait de reconnaître cette « inclination » ?", options: [{ id: "a", text: "De commencer à s'en affranchir" }, { id: "b", text: "De s'y enfermer davantage" }, { id: "c", text: "De changer de langue" }], answer: "a" },
       ],
     },
@@ -302,8 +302,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Modératrice : Le financement privé menace-t-il la liberté des artistes ? Intervenant : Le danger n'est pas tant la censure ouverte, devenue rare, que l'autocensure feutrée. Un créateur qui dépend d'un mécène apprend vite, sans qu'on le lui dise, ce qui plaît et ce qu'il vaut mieux taire. La contrainte la plus efficace est celle qu'on s'impose à soi-même en croyant rester libre. Modératrice : Faut-il alors préférer le financement public ? Intervenant : Il a ses propres servitudes. Aucune source d'argent n'est innocente ; l'essentiel est d'en avoir plusieurs, pour qu'aucune ne devienne indispensable.",
       speakers: [{ role: "Modératrice", voice: "shimmer" }, { role: "Intervenant", voice: "fable" }],
       questions: [
-        { id: "q1", stem: "Quel danger principal l'intervenant identifie-t-il ?", options: [{ id: "a", text: "L'autocensure feutrée de l'artiste" }, { id: "b", text: "La censure ouverte et fréquente" }, { id: "c", text: "L'absence totale de financement" }], answer: "a" },
-        { id: "q2", stem: "Quelle solution privilégie-t-il ?", options: [{ id: "a", text: "Multiplier les sources de financement" }, { id: "b", text: "Choisir uniquement le financement public" }, { id: "c", text: "Refuser tout financement" }], answer: "a" },
+        { id: "q1", stem: "Quel danger principal l'intervenant identifie-t-il ?", options: [{ id: "b", text: "La censure ouverte et fréquente" }, { id: "a", text: "L'autocensure feutrée de l'artiste" }, { id: "c", text: "L'absence totale de financement" }], answer: "a" },
+        { id: "q2", stem: "Quelle solution privilégie-t-il ?", options: [{ id: "c", text: "Refuser tout financement" }, { id: "b", text: "Choisir uniquement le financement public" }, { id: "a", text: "Multiplier les sources de financement" }], answer: "a" },
       ],
     },
   },
@@ -317,7 +317,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Journaliste", voice: "nova" }, { role: "Économiste", voice: "onyx" }],
       questions: [
         { id: "q1", stem: "Pourquoi, selon l'économiste, l'exactitude est-elle hors d'atteinte ?", options: [{ id: "a", text: "Parce que les acteurs réagissent aux prévisions" }, { id: "b", text: "Parce que les données manquent toujours" }, { id: "c", text: "Parce que l'économie ignore les hypothèses" }], answer: "a" },
-        { id: "q2", stem: "En quoi consiste l'honnêteté revendiquée par l'économiste ?", options: [{ id: "a", text: "Expliciter les hypothèses de ses scénarios" }, { id: "b", text: "Promettre des certitudes" }, { id: "c", text: "Refuser de faire des prévisions" }], answer: "a" },
+        { id: "q2", stem: "En quoi consiste l'honnêteté revendiquée par l'économiste ?", options: [{ id: "b", text: "Promettre des certitudes" }, { id: "a", text: "Expliciter les hypothèses de ses scénarios" }, { id: "c", text: "Refuser de faire des prévisions" }], answer: "a" },
       ],
     },
   },
@@ -330,7 +330,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Enseignant : Nous croyons que le malentendu naît d'un défaut de communication, qu'il suffirait de mieux s'expliquer pour le dissiper. C'est une illusion réconfortante. Bien des désaccords les plus profonds ne reposent pas sur une incompréhension, mais sur une compréhension parfaite : on s'est très bien compris, et c'est justement pour cela qu'on ne s'accorde pas. Confondre le désaccord avec le malentendu, c'est espérer résoudre par la pédagogie ce qui relève d'un conflit de valeurs. Toutes les explications du monde ne réconcilient pas ce que sépare une divergence de fond.",
       speakers: [{ role: "Enseignant", voice: "echo" }],
       questions: [
-        { id: "q1", stem: "Quelle « illusion » l'enseignant dénonce-t-il ?", options: [{ id: "a", text: "Croire que mieux s'expliquer dissipe tout désaccord" }, { id: "b", text: "Croire que le malentendu n'existe pas" }, { id: "c", text: "Croire que la pédagogie est inutile" }], answer: "a" },
+        { id: "q1", stem: "Quelle « illusion » l'enseignant dénonce-t-il ?", options: [{ id: "c", text: "Croire que la pédagogie est inutile" }, { id: "b", text: "Croire que le malentendu n'existe pas" }, { id: "a", text: "Croire que mieux s'expliquer dissipe tout désaccord" }], answer: "a" },
         { id: "q2", stem: "Selon lui, certains désaccords profonds reposent sur :", options: [{ id: "a", text: "Une compréhension parfaite, non un malentendu" }, { id: "b", text: "Un simple défaut d'explication" }, { id: "c", text: "Une absence de communication" }], answer: "a" },
       ],
     },
@@ -344,8 +344,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Animatrice : La méritocratie est-elle un idéal de justice ? Invitée : Elle en a l'apparence et parfois le contraire. Récompenser le mérite suppose que chacun parte d'un même point, ce qui est rarement le cas. Quand les talents eux-mêmes dépendent du milieu, de l'éducation reçue, de mille avantages invisibles, célébrer les « méritants » revient souvent à honorer des privilégiés en leur prêtant le seul mérite d'avoir réussi. Animatrice : Faut-il renoncer au mérite ? Invitée : Non, mais cesser d'en faire l'alibi des inégalités qu'il sert si commodément à justifier.",
       speakers: [{ role: "Animatrice", voice: "shimmer" }, { role: "Invitée", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Quelle critique l'invitée adresse-t-elle à la méritocratie ?", options: [{ id: "a", text: "Elle suppose à tort une égalité des points de départ" }, { id: "b", text: "Elle récompense trop peu les talents" }, { id: "c", text: "Elle ignore complètement le mérite" }], answer: "a" },
-        { id: "q2", stem: "Que propose finalement l'invitée ?", options: [{ id: "a", text: "Ne plus faire du mérite l'alibi des inégalités" }, { id: "b", text: "Renoncer entièrement au mérite" }, { id: "c", text: "Récompenser uniquement les privilégiés" }], answer: "a" },
+        { id: "q1", stem: "Quelle critique l'invitée adresse-t-elle à la méritocratie ?", options: [{ id: "b", text: "Elle récompense trop peu les talents" }, { id: "a", text: "Elle suppose à tort une égalité des points de départ" }, { id: "c", text: "Elle ignore complètement le mérite" }], answer: "a" },
+        { id: "q2", stem: "Que propose finalement l'invitée ?", options: [{ id: "c", text: "Récompenser uniquement les privilégiés" }, { id: "b", text: "Renoncer entièrement au mérite" }, { id: "a", text: "Ne plus faire du mérite l'alibi des inégalités" }], answer: "a" },
       ],
     },
   },
@@ -359,7 +359,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Intervenante", voice: "shimmer" }],
       questions: [
         { id: "q1", stem: "Quelle idée reçue l'intervenante remet-elle en question ?", options: [{ id: "a", text: "Que la beauté tiendrait surtout à la durée" }, { id: "b", text: "Que l'éphémère est sans valeur" }, { id: "c", text: "Que la fragilité empêche toute émotion" }], answer: "a" },
-        { id: "q2", stem: "Pourquoi l'instant est-il précieux, selon elle ?", options: [{ id: "a", text: "En raison même de sa disparition" }, { id: "b", text: "Parce qu'on peut l'enregistrer" }, { id: "c", text: "Parce qu'il se répète à l'identique" }], answer: "a" },
+        { id: "q2", stem: "Pourquoi l'instant est-il précieux, selon elle ?", options: [{ id: "b", text: "Parce qu'on peut l'enregistrer" }, { id: "a", text: "En raison même de sa disparition" }, { id: "c", text: "Parce qu'il se répète à l'identique" }], answer: "a" },
       ],
     },
   },
@@ -372,7 +372,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Journaliste : À quoi bon faire mémoriser, puisque tout se trouve en ligne ? Pédagogue : Cet argument confond l'accès à l'information et le savoir. Disposer d'une donnée n'équivaut pas à la comprendre, encore moins à la mobiliser à propos. On ne pense pas avec ce qu'on peut consulter, mais avec ce qu'on a intériorisé. Un esprit vide qu'on relie au monde entier ne devient pas savant ; il devient dépendant. La mémoire n'est pas le contraire de l'intelligence : elle en est la matière première.",
       speakers: [{ role: "Journaliste", voice: "echo" }, { role: "Pédagogue", voice: "fable" }],
       questions: [
-        { id: "q1", stem: "Quelle confusion le pédagogue dénonce-t-il ?", options: [{ id: "a", text: "Confondre l'accès à l'information et le savoir" }, { id: "b", text: "Confondre la mémoire et l'oubli" }, { id: "c", text: "Confondre l'intelligence et la rapidité" }], answer: "a" },
+        { id: "q1", stem: "Quelle confusion le pédagogue dénonce-t-il ?", options: [{ id: "c", text: "Confondre l'intelligence et la rapidité" }, { id: "b", text: "Confondre la mémoire et l'oubli" }, { id: "a", text: "Confondre l'accès à l'information et le savoir" }], answer: "a" },
         { id: "q2", stem: "Comment conçoit-il le rôle de la mémoire ?", options: [{ id: "a", text: "Comme la matière première de l'intelligence" }, { id: "b", text: "Comme le contraire de l'intelligence" }, { id: "c", text: "Comme une faculté devenue inutile" }], answer: "a" },
       ],
     },
@@ -386,8 +386,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Chroniqueuse : Méfions-nous des unanimités trop promptes. Quand une opinion ne rencontre plus aucune objection, ce n'est pas toujours qu'elle a triomphé par la force de ses raisons ; c'est parfois que la contradiction a cessé d'oser se dire. Le consensus peut être le fruit d'un débat fécond comme le symptôme d'un conformisme installé. Distinguer les deux demande de regarder non le résultat, mais le chemin : un accord obtenu sans que nul n'ait pu objecter n'est pas un accord, c'est un silence qu'on a pris pour une adhésion.",
       speakers: [{ role: "Chroniqueuse", voice: "nova" }],
       questions: [
-        { id: "q1", stem: "Pourquoi la chroniqueuse se méfie-t-elle des unanimités rapides ?", options: [{ id: "a", text: "La contradiction peut avoir cessé d'oser se dire" }, { id: "b", text: "Elles reposent toujours sur de bonnes raisons" }, { id: "c", text: "Elles sont impossibles à obtenir" }], answer: "a" },
-        { id: "q2", stem: "Comment, selon elle, distinguer un vrai accord d'un faux ?", options: [{ id: "a", text: "En regardant le chemin, non le seul résultat" }, { id: "b", text: "En comptant le nombre de partisans" }, { id: "c", text: "En se fiant à la rapidité du consensus" }], answer: "a" },
+        { id: "q1", stem: "Pourquoi la chroniqueuse se méfie-t-elle des unanimités rapides ?", options: [{ id: "b", text: "Elles reposent toujours sur de bonnes raisons" }, { id: "a", text: "La contradiction peut avoir cessé d'oser se dire" }, { id: "c", text: "Elles sont impossibles à obtenir" }], answer: "a" },
+        { id: "q2", stem: "Comment, selon elle, distinguer un vrai accord d'un faux ?", options: [{ id: "c", text: "En se fiant à la rapidité du consensus" }, { id: "b", text: "En comptant le nombre de partisans" }, { id: "a", text: "En regardant le chemin, non le seul résultat" }], answer: "a" },
       ],
     },
   },
@@ -401,7 +401,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Professeure", voice: "shimmer" }],
       questions: [
         { id: "q1", stem: "Quelle différence la professeure souligne-t-elle ?", options: [{ id: "a", text: "L'organisme se construit de l'intérieur, sans plan préalable" }, { id: "b", text: "La machine se construit sans concepteur" }, { id: "c", text: "Le vivant est conçu en vue d'une fin extérieure" }], answer: "a" },
-        { id: "q2", stem: "Quelle mise en garde formule-t-elle sur la métaphore ?", options: [{ id: "a", text: "Elle éclaire mais ne remplace pas le réel" }, { id: "b", text: "Elle est totalement trompeuse" }, { id: "c", text: "Elle prouve l'identité du vivant et de la machine" }], answer: "a" },
+        { id: "q2", stem: "Quelle mise en garde formule-t-elle sur la métaphore ?", options: [{ id: "b", text: "Elle est totalement trompeuse" }, { id: "a", text: "Elle éclaire mais ne remplace pas le réel" }, { id: "c", text: "Elle prouve l'identité du vivant et de la machine" }], answer: "a" },
       ],
     },
   },
@@ -414,7 +414,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Animateur : On prête au voyage le pouvoir de nous transformer. Mythe ou réalité ? Invité : Tout dépend de la disposition du voyageur. On peut parcourir le monde et n'y chercher partout que le reflet de ses propres certitudes ; on revient alors inchangé, simplement conforté. Le voyage qui instruit n'est pas celui qui accumule les lieux, mais celui qui accepte d'être dérangé dans ses évidences. Sans cette ouverture, le dépaysement n'est qu'un divertissement ; avec elle, le moindre déplacement devient une école.",
       speakers: [{ role: "Animateur", voice: "onyx" }, { role: "Invité", voice: "echo" }],
       questions: [
-        { id: "q1", stem: "À quelle condition le voyage instruit-il, selon l'invité ?", options: [{ id: "a", text: "Accepter d'être dérangé dans ses évidences" }, { id: "b", text: "Accumuler le plus de lieux possible" }, { id: "c", text: "Y retrouver ses propres certitudes" }], answer: "a" },
+        { id: "q1", stem: "À quelle condition le voyage instruit-il, selon l'invité ?", options: [{ id: "c", text: "Y retrouver ses propres certitudes" }, { id: "b", text: "Accumuler le plus de lieux possible" }, { id: "a", text: "Accepter d'être dérangé dans ses évidences" }], answer: "a" },
         { id: "q2", stem: "Que devient le voyage sans cette ouverture ?", options: [{ id: "a", text: "Un simple divertissement" }, { id: "b", text: "Une véritable école" }, { id: "c", text: "Une transformation profonde" }], answer: "a" },
       ],
     },
@@ -428,8 +428,8 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       audioScript: "Sociologue : On imagine pouvoir remplacer la confiance par le contrôle, comme si multiplier les vérifications dispensait de se fier à autrui. C'est méconnaître que tout contrôle repose lui-même sur une confiance ultime : qui vérifie le vérificateur ? À vouloir tout surveiller, une organisation ne supprime pas le besoin de confiance, elle le déplace, et souvent l'alourdit. La défiance généralisée a un coût que l'on chiffre rarement : elle ralentit, elle décourage, elle insulte ceux-là mêmes dont on aurait besoin qu'ils s'engagent. Un peu de confiance accordée est parfois plus efficace que beaucoup de méfiance organisée.",
       speakers: [{ role: "Sociologue", voice: "fable" }],
       questions: [
-        { id: "q1", stem: "Pourquoi le contrôle ne peut-il remplacer entièrement la confiance ?", options: [{ id: "a", text: "Tout contrôle repose lui-même sur une confiance ultime" }, { id: "b", text: "Le contrôle est toujours gratuit" }, { id: "c", text: "La confiance est impossible à accorder" }], answer: "a" },
-        { id: "q2", stem: "Quel est le « coût » de la défiance généralisée ?", options: [{ id: "a", text: "Elle ralentit et décourage l'engagement" }, { id: "b", text: "Elle renforce la confiance" }, { id: "c", text: "Elle n'a aucun effet mesurable" }], answer: "a" },
+        { id: "q1", stem: "Pourquoi le contrôle ne peut-il remplacer entièrement la confiance ?", options: [{ id: "b", text: "Le contrôle est toujours gratuit" }, { id: "a", text: "Tout contrôle repose lui-même sur une confiance ultime" }, { id: "c", text: "La confiance est impossible à accorder" }], answer: "a" },
+        { id: "q2", stem: "Quel est le « coût » de la défiance généralisée ?", options: [{ id: "c", text: "Elle n'a aucun effet mesurable" }, { id: "b", text: "Elle renforce la confiance" }, { id: "a", text: "Elle ralentit et décourage l'engagement" }], answer: "a" },
       ],
     },
   },
@@ -443,7 +443,7 @@ export const ITEMS: Prisma.FrenchItemCreateManyInput[] = [
       speakers: [{ role: "Journaliste", voice: "nova" }, { role: "Essayiste", voice: "onyx" }],
       questions: [
         { id: "q1", stem: "Comment l'essayiste défend-il l'ironie ?", options: [{ id: "a", text: "Comme une exigence qui oblige à penser" }, { id: "b", text: "Comme une manière de ne jamais s'engager" }, { id: "c", text: "Comme une simple légèreté" }], answer: "a" },
-        { id: "q2", stem: "Quelle ironie l'essayiste juge-t-il dangereuse ?", options: [{ id: "a", text: "Celle qui moque tout sans rien proposer" }, { id: "b", text: "Celle qui invite à penser" }, { id: "c", text: "Celle qui refuse les certitudes faciles" }], answer: "a" },
+        { id: "q2", stem: "Quelle ironie l'essayiste juge-t-il dangereuse ?", options: [{ id: "b", text: "Celle qui invite à penser" }, { id: "a", text: "Celle qui moque tout sans rien proposer" }, { id: "c", text: "Celle qui refuse les certitudes faciles" }], answer: "a" },
       ],
     },
   },

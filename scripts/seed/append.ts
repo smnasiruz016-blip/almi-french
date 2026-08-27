@@ -49,19 +49,50 @@ const FORCE = process.env.RECONCILE_FORCE === "1";
 
 const key = (r: { level: string; skill: string; title: string }) => `${r.level}|${r.skill}|${r.title}`;
 
+/** Order-stable canonical JSON: object keys sorted recursively, ARRAY ORDER PRESERVED.
+ *  Postgres jsonb reorders object keys, so a plain stringify of the DB value vs the seed
+ *  value would differ every deploy and churn — but array order is meaningful here (it IS
+ *  what the option-position de-game moves), so arrays are left as-authored. Two payloads
+ *  compare equal iff they differ only in object-key order. */
+function canonical(v: unknown): string {
+  if (Array.isArray(v)) return `[${v.map(canonical).join(",")}]`;
+  if (v && typeof v === "object") {
+    return `{${Object.keys(v as Record<string, unknown>)
+      .sort()
+      .map((k) => `${JSON.stringify(k)}:${canonical((v as Record<string, unknown>)[k])}`)
+      .join(",")}}`;
+  }
+  return JSON.stringify(v);
+}
+
 async function main() {
-  // ── Phase 1: insert ────────────────────────────────────────────────────────
+  // ── Phase 1: insert-or-update ──────────────────────────────────────────────
+  // Insert new items; UPDATE the payload of an existing item when the bank's content
+  // has changed (matched by level+skill+title). Without the update branch, an edit that
+  // keeps the title — e.g. de-gaming which option position is correct — would never reach
+  // the database: Phase 1 would see the title "already present" and skip it, and Phase 2
+  // only deactivates. The gate guards the bank; this is what makes the DB follow it on
+  // content, not just existence. Canonical compare so unchanged items never churn.
   let created = 0;
+  let updated = 0;
   for (const item of ALL) {
     const exists = await prisma.frenchItem.findFirst({
       where: { level: item.level, skill: item.skill, title: item.title },
-      select: { id: true },
+      select: { id: true, payload: true },
     });
-    if (exists) continue;
-    await prisma.frenchItem.create({ data: item });
-    created += 1;
+    if (!exists) {
+      await prisma.frenchItem.create({ data: item });
+      created += 1;
+      continue;
+    }
+    if (canonical(exists.payload) !== canonical(item.payload)) {
+      await prisma.frenchItem.update({ where: { id: exists.id }, data: { payload: item.payload } });
+      updated += 1;
+    }
   }
-  console.log(`seed:append — ${created} created, ${ALL.length - created} already present (bank ${ALL.length})`);
+  console.log(
+    `seed:append — ${created} created, ${updated} payload-updated, ${ALL.length - created - updated} unchanged (bank ${ALL.length})`,
+  );
 
   // ── Phase 2: reconcile ─────────────────────────────────────────────────────
   const bankKeys = new Set(
