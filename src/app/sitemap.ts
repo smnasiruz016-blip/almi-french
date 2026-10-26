@@ -1,4 +1,4 @@
-// Chunked sitemap (root) — core pages + the study-in-france surface.
+// Chunked sitemap (root) — core pages (the study-in-france pages were removed).
 // generateSitemaps() yields one chunk per 50,000 URLs; chunks are served at
 // /sitemap/[id].xml. The index is served by app/sitemap-index.xml/route.ts
 // (Next 16 does not auto-serve an index at /sitemap.xml). Ordering + math live in

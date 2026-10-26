@@ -1,13 +1,12 @@
 // Single source of truth for the chunked-sitemap plan, shared by the sitemap
 // chunk route (app/sitemap.ts) and the sitemap index route
 // (app/sitemap-index.xml/route.ts) so the two can never drift.
+//
+// The programmatic /study-in-france/* pages were removed (they now answer 410
+// Gone from src/proxy.ts), so the sitemap lists the core pages only.
 
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
-import { INDEXABLE_ORIGINS } from "./origins";
-import slugsData from "@/data/formation-slugs.json";
-
-export const slugs = slugsData as string[];
 
 export const CORE: { path: string; priority: number }[] = [
   { path: "/", priority: 1.0 },
@@ -19,28 +18,11 @@ export const CORE: { path: string; priority: number }[] = [
 ];
 
 export const CHUNK = 50_000;
-export const HUBS = slugs.length; // 35,757
-export const ORIGINS = INDEXABLE_ORIGINS.length; // ~176 (197 − micro-states)
-export const TOTAL = CORE.length + HUBS + HUBS * ORIGINS;
+export const TOTAL = CORE.length;
 export const CHUNKS = Math.ceil(TOTAL / CHUNK);
 
 type Entry = MetadataRoute.Sitemap[number];
 
-// Map a global index to its sitemap entry (no need to materialize all URLs).
 export function entryForIndex(i: number): Entry {
-  if (i < CORE.length) {
-    return { url: `${SITE_URL}${CORE[i].path}`, changeFrequency: "weekly", priority: CORE[i].priority };
-  }
-  if (i < CORE.length + HUBS) {
-    const fi = i - CORE.length;
-    return { url: `${SITE_URL}/study-in-france/${slugs[fi]}`, changeFrequency: "monthly", priority: 0.6 };
-  }
-  const off = i - CORE.length - HUBS;
-  const fi = Math.floor(off / ORIGINS);
-  const oi = off % ORIGINS;
-  return {
-    url: `${SITE_URL}/study-in-france/${slugs[fi]}/from-${INDEXABLE_ORIGINS[oi].slug}`,
-    changeFrequency: "monthly",
-    priority: 0.5,
-  };
+  return { url: `${SITE_URL}${CORE[i].path}`, changeFrequency: "weekly", priority: CORE[i].priority };
 }
