@@ -60,6 +60,9 @@ export async function POST(req: Request): Promise<NextResponse> {
       );
     }
     const skill = item.skill;
+    const r = (body.response ?? {}) as { text?: string; transcript?: string };
+    const text = (r.text ?? r.transcript ?? "").trim();
+    if (!text) return NextResponse.json({ error: "Empty response" }, { status: 400 });
     const gate = await aiGate(user, skill === "EXPRESSION_ORALE" ? "SPEAKING" : "WRITING", () =>
       prisma.frenchAttempt.count({ where: { userId: user.id, skill, status: "SCORED" } }),
     );
@@ -68,17 +71,21 @@ export async function POST(req: Request): Promise<NextResponse> {
     const taskPrompt = [item.prompt, payload?.situation, payload?.instruction, payload?.taskPrompt]
       .filter((x): x is string => typeof x === "string" && x.length > 0)
       .join("\n");
-    const r = (body.response ?? {}) as { text?: string; transcript?: string };
-    const text = (r.text ?? r.transcript ?? "").trim();
-    if (!text) return NextResponse.json({ error: "Empty response" }, { status: 400 });
-    const grade = (await gradeProductive({
-      exam,
-      level: item.level,
-      skill: item.skill,
-      taskPrompt,
-      response: text,
-      userId: user.id,
-    })) as Awaited<ReturnType<typeof gradeProductive>> & { latencyMs?: number };
+    let grade: Awaited<ReturnType<typeof gradeProductive>> & { latencyMs?: number };
+    try {
+      grade = (await gradeProductive({
+        exam,
+        level: item.level,
+        skill: item.skill,
+        taskPrompt,
+        response: text,
+        userId: user.id,
+      })) as Awaited<ReturnType<typeof gradeProductive>> & { latencyMs?: number };
+    } catch (err) {
+      // RR-399 A3: the AI call failed, so the learner received nothing: give the free use back before the error goes out.
+      await gate.release();
+      throw err;
+    }
     fraction = grade.fraction;
     feedback = {
       levelEstimate: grade.level_estimate,
