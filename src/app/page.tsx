@@ -134,7 +134,7 @@ export default function HomePage() {
               </span>
             </div>
             <p className="mt-5 text-xs text-almi-text-muted">
-              $12/month · 7-day free trial · cancel anytime · Listening &amp; Reading free · Original
+              48-hour free trial, then $12/month · cancel anytime · Listening &amp; Reading free · Original
               French material, never copied
             </p>
           </div>
@@ -248,7 +248,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-xl text-center">
           <h2 className="font-display text-3xl font-semibold text-almi-ink">Simple, honest pricing</h2>
           <p className="mt-3 text-base text-almi-text">
-            $12/month — 7-day free trial, cancel anytime. Listening &amp; Reading practice is free;
+            Try free for 48 hours, then $12/month. Cancel anytime. Listening &amp; Reading practice is free;
             AI feedback on Writing &amp; Speaking is Pro.
           </p>
           <div className="mt-6 flex justify-center gap-3">
@@ -276,7 +276,7 @@ export default function HomePage() {
             {[
               {
                 q: "How much does it cost?",
-                a: "$12/month with a 7-day free trial. Listening and Reading practice is free; AI feedback on Writing and Speaking is part of Pro.",
+                a: "Try free for 48 hours, then $12/month. Listening and Reading practice is free; AI feedback on Writing and Speaking is part of Pro.",
               },
               {
                 q: "Which French exams do you cover?",
@@ -288,7 +288,7 @@ export default function HomePage() {
               },
               {
                 q: "Do I need an account?",
-                a: "Yes — create a free account to practise Listening and Reading; a 7-day trial adds AI Writing and Speaking feedback.",
+                a: "Yes — create a free account to practise Listening and Reading; a 48-hour trial adds AI Writing and Speaking feedback.",
               },
               {
                 q: "Can I cancel?",
