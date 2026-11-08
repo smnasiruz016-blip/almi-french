@@ -30,6 +30,10 @@ import { ITEMS as B1 } from "./b1";
 import { ITEMS as B2 } from "./b2";
 import { ITEMS as C1 } from "./c1";
 import { ITEMS as C2 } from "./c2";
+// RR-401: factory items are NEVER inserted here (only the owner's scripts/factory/seed-fr-factory.ts does that). Their keys
+// are read only so that, once the owner has seeded them, reconcile keeps them and verify counts them.
+import { FACTORY_KEYS } from "../../src/lib/factory/bank";
+import { expectedCells, keptKeys } from "../../src/lib/factory/build-seed";
 
 const prisma = new PrismaClient();
 
@@ -64,8 +68,9 @@ async function main() {
   console.log(`seed:append — ${created} created, ${ALL.length - created} already present (bank ${ALL.length})`);
 
   // ── Phase 2: reconcile ─────────────────────────────────────────────────────
-  const bankKeys = new Set(
-    ALL.map((i) => key({ level: String(i.level), skill: String(i.skill), title: String(i.title) })),
+  const bankKeys = keptKeys(
+    ALL.map((i) => ({ level: String(i.level), skill: String(i.skill), title: String(i.title) })),
+    FACTORY_KEYS,
   );
 
   const live = await prisma.frenchItem.findMany({
@@ -123,11 +128,14 @@ async function main() {
  *  Compared at (level, skill) granularity, which is what /api/status reports, so a
  *  green build and a green status endpoint mean the same thing. */
 async function verify() {
-  const expected: Record<string, number> = {};
-  for (const i of ALL) {
-    const k = `${i.level}.${i.skill}`;
-    expected[k] = (expected[k] ?? 0) + 1;
-  }
+  // RR-401: factory rows the owner has seeded count too; before that seed there are none, and this is the old check.
+  const factoryLive = (
+    await prisma.frenchItem.findMany({ where: { active: true }, select: { level: true, skill: true, title: true } })
+  ).filter((r) => FACTORY_KEYS.has(key(r)));
+  const expected = expectedCells(
+    ALL.map((i) => ({ level: String(i.level), skill: String(i.skill) })),
+    factoryLive.map((r) => ({ level: String(r.level), skill: String(r.skill) })),
+  );
 
   const rows = await prisma.frenchItem.groupBy({
     by: ["level", "skill"],
