@@ -36,7 +36,7 @@ export function Result({ estimate, feedback }: { estimate: SkillEstimate; feedba
         <p className="mt-2 text-2xl font-bold text-almi-ink">
           ~{estimate.outOf25}/25
           {estimate.eliminated && (
-            <span className="ml-2 align-middle text-sm font-semibold text-almi-coral-deep">
+            <span className="ml-2 align-middle text-sm font-semibold text-almi-coral-text">
               below the 5/25 floor
             </span>
           )}
@@ -45,7 +45,7 @@ export function Result({ estimate, feedback }: { estimate: SkillEstimate; feedba
         <p className="mt-2 text-2xl font-bold text-almi-ink">
           ~NCLC {estimate.nclc} <span className="text-base font-medium text-almi-text-muted">({estimate.cefr})</span>
           {estimate.b2Inferieur && (
-            <span className="ml-2 align-middle text-sm font-semibold text-almi-coral-deep">B2 inférieur</span>
+            <span className="ml-2 align-middle text-sm font-semibold text-almi-coral-text">B2 inférieur</span>
           )}
         </p>
       )}

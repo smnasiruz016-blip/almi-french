@@ -70,9 +70,9 @@ function TefCardMockup() {
         <div className="mt-4 flex items-end justify-between rounded-2xl bg-almi-coral/10 px-5 py-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-almi-text-muted">Lowest skill · counts for immigration</p>
-            <p className="mt-0.5 text-4xl font-bold leading-none text-almi-coral-deep">NCLC {lowest}</p>
+            <p className="mt-0.5 text-4xl font-bold leading-none text-almi-coral-text">NCLC {lowest}</p>
           </div>
-          <span className="rounded-full bg-almi-teal/15 px-3 py-1 text-sm font-bold text-almi-teal">≈ CEFR B2</span>
+          <span className="rounded-full bg-almi-teal/15 px-3 py-1 text-sm font-bold text-almi-teal-text">≈ CEFR B2</span>
         </div>
 
         <ul className="mt-4 space-y-2.5">
@@ -90,7 +90,7 @@ function TefCardMockup() {
         </ul>
 
         <div className="mt-4 rounded-xl border border-almi-bg-peach bg-almi-bg px-4 py-3">
-          <p className="text-xs font-bold uppercase tracking-wider text-almi-teal">Honest feedback · Expression écrite</p>
+          <p className="text-xs font-bold uppercase tracking-wider text-almi-teal-text">Honest feedback · Expression écrite</p>
           <p className="mt-1 text-sm text-almi-text">
             Solid, but NCLC 7 across all four skills is the bar for the CRS bonus — lift writing off the floor to secure it.
           </p>
@@ -108,7 +108,7 @@ export default function HomePage() {
       <section className="px-6 pt-16 pb-12">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-almi-coral">
+            <p className="text-xs font-semibold uppercase tracking-widest text-almi-coral-text">
               ALMIFRENCH · TEF · TCF · DELF · DALF PRACTICE
             </p>
             <h1 className="mt-4 font-display text-4xl font-bold text-almi-ink sm:text-5xl">
@@ -147,7 +147,7 @@ export default function HomePage() {
         <div className="mx-auto mt-10 grid max-w-4xl gap-3 sm:grid-cols-3">
           {EXAM_FAMILIES.map((f) => (
             <div key={f.tag} className="rounded-2xl border border-almi-bg-peach bg-almi-paper p-5">
-              <p className="font-display text-sm font-bold uppercase tracking-wide text-almi-coral">{f.tag}</p>
+              <p className="font-display text-sm font-bold uppercase tracking-wide text-almi-coral-text">{f.tag}</p>
               <p className="mt-2 text-sm text-almi-text">{f.line}</p>
             </div>
           ))}

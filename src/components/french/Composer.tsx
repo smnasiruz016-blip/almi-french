@@ -10,6 +10,7 @@
 import { useState } from "react";
 import type { FrenchItem } from "@prisma/client";
 import { Result, type SkillEstimate, type Feedback } from "./Result";
+import { ModelAnswers, type ModelAnswer } from "./ModelAnswers";
 
 type Opt = { id: string; text: string };
 type Q = { id: string; kind?: string; stem: string; options?: Opt[] };
@@ -23,6 +24,7 @@ type Payload = {
   taskPrompt?: string;
   prepSeconds?: number;
   speakSeconds?: number;
+  models?: ModelAnswer[];
 };
 
 export type ComposerItem = Pick<FrenchItem, "id" | "skill" | "title" | "prompt"> & { payload: Payload };
@@ -65,12 +67,34 @@ export function Composer({ item, examId }: { item: ComposerItem; examId: string 
     }
   }
 
-  if (result) return <Result estimate={result.estimate} feedback={result.feedback} />;
+  const models = Array.isArray(p.models) ? p.models : [];
+
+  if (result)
+    return (
+      <>
+        <Result estimate={result.estimate} feedback={result.feedback} />
+        <ModelAnswers models={models} written={isWriting} />
+      </>
+    );
 
   return (
     <div className="mt-4">
       <h1 className="font-display text-2xl font-bold text-almi-ink">{item.title}</h1>
       <p className="mt-2 whitespace-pre-line text-almi-text">{item.prompt}</p>
+
+      {/* RR-401: the task itself. Writing items carry a situation + instruction and speaking items a taskPrompt in their
+          payload; the composer never showed them, so a learner saw only the generic line above. */}
+      {isWriting && (p.situation || p.instruction) && (
+        <div className="mt-4 rounded-2xl border border-almi-bg-peach bg-almi-paper p-5 text-sm text-almi-text">
+          {p.situation && <p className="whitespace-pre-line">{p.situation}</p>}
+          {p.instruction && <p className={`whitespace-pre-line font-medium text-almi-ink ${p.situation ? "mt-3" : ""}`}>{p.instruction}</p>}
+        </div>
+      )}
+      {isSpeaking && p.taskPrompt && (
+        <div className="mt-4 rounded-2xl border border-almi-bg-peach bg-almi-paper p-5 text-sm font-medium text-almi-ink">
+          <p className="whitespace-pre-line">{p.taskPrompt}</p>
+        </div>
+      )}
 
       {isListening && (
         <audio controls preload="none" className="mt-4 w-full" src={`/api/french/audio/${item.id}`}>
@@ -138,7 +162,7 @@ export function Composer({ item, examId }: { item: ComposerItem; examId: string 
         </div>
       )}
 
-      {error && <p className="mt-4 text-sm font-medium text-almi-coral-deep">{error}</p>}
+      {error && <p className="mt-4 text-sm font-medium text-almi-coral-text">{error}</p>}
 
       <button
         type="button"
@@ -148,6 +172,8 @@ export function Composer({ item, examId }: { item: ComposerItem; examId: string 
       >
         {busy ? "Scoring…" : "Submit for an estimate"}
       </button>
+
+      <ModelAnswers models={models} written={isWriting} />
     </div>
   );
 }
