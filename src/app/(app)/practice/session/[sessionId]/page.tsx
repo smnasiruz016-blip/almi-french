@@ -10,7 +10,8 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { requireUser } from "@/lib/auth";
 import { findExam } from "@/lib/french/exams";
-import { SKILL_LABEL } from "@/lib/french/types";
+import { SKILL_LABEL, isObjective } from "@/lib/french/types";
+import { FreeTimeBanner } from "@/components/FreeTimeBanner";
 import { advanceSession, currentItem, getSessionView, stripAnswers } from "@/lib/french/session";
 import { Composer, type ComposerItem } from "@/components/french/Composer";
 
@@ -74,6 +75,14 @@ export default async function SessionPage({
         {exam.name} · {session.level} · {SKILL_LABEL[session.skill]}
       </p>
       <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-almi-text-muted">{stepLabel}</p>
+
+      {/* RR-397: on Expression écrite / orale, the free-48-hours banner (hours left, or "Your free 48 hours are over" with
+          "Unlock for $12/month"; nothing for paid users). Compréhension stays free, so it shows no banner. */}
+      {!isObjective(session.skill) && (
+        <div className="mt-4">
+          <FreeTimeBanner user={user} ai={session.skill === "EXPRESSION_ORALE" ? "SPEAKING" : "WRITING"} />
+        </div>
+      )}
 
       <Composer item={stripAnswers(item) as unknown as ComposerItem} examId={exam.id} />
 

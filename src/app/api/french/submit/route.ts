@@ -1,12 +1,14 @@
 // Score a practice attempt. Reading/Listening: deterministic marking (free).
-// Writing/Speaking: AI grader (Pro). Both convert to the chosen exam's scale and
-// route to its engine for an honest per-skill estimate. No fabricated official
-// score; we always tell the user to confirm with the official body.
+// Writing/Speaking: AI grader through aiGate() (Pro, or one of each in the free 48 hours,
+// RR-397). Both convert to the chosen exam's scale and route to its engine for an
+// honest per-skill estimate. No fabricated official score; we always tell the user to
+// confirm with the official body.
 
 import { NextResponse } from "next/server";
 import { requireUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { hasPaidAccess } from "@/lib/billing/plans";
+import { hasPaidAccess, isEmailVerified } from "@/lib/billing/plans";
+import { aiGate } from "@/lib/billing/free-access";
 import { findExam } from "@/lib/french/exams";
 import { isObjective } from "@/lib/french/types";
 import { markObjective, estimateSkill, toCefrSkill, type ObjectiveResponse } from "@/lib/french/scoring";
@@ -49,13 +51,19 @@ export async function POST(req: Request): Promise<NextResponse> {
     pointsEarned = mark.correct;
     pointsMax = mark.total;
   } else {
-    // Productive (Writing/Speaking) = Pro.
-    if (!hasPaidAccess(user)) {
+    // RR-397: productive (Writing/Speaking): paid users as before; a free account (48 hours, no card) gets ONE AI-scored
+    // Expression écrite and ONE AI-scored Expression orale, within today's free-AI budget.
+    if (!hasPaidAccess(user) && !isEmailVerified(user)) {
       return NextResponse.json(
-        { error: "Expression écrite and Expression orale feedback is a Pro feature." },
-        { status: 402 },
+        { error: "Please verify your email before getting AI feedback." },
+        { status: 403 },
       );
     }
+    const skill = item.skill;
+    const gate = await aiGate(user, skill === "EXPRESSION_ORALE" ? "SPEAKING" : "WRITING", () =>
+      prisma.frenchAttempt.count({ where: { userId: user.id, skill, status: "SCORED" } }),
+    );
+    if (!gate.ok) return NextResponse.json(gate.body, { status: gate.status });
     const payload = item.payload as Record<string, unknown>;
     const taskPrompt = [item.prompt, payload?.situation, payload?.instruction, payload?.taskPrompt]
       .filter((x): x is string => typeof x === "string" && x.length > 0)

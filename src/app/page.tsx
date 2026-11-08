@@ -134,7 +134,7 @@ export default function HomePage() {
               </span>
             </div>
             <p className="mt-5 text-xs text-almi-text-muted">
-              48-hour free trial, then $12/month · cancel anytime · Listening &amp; Reading free · Original
+              Free for 48 hours, no card. Then $12/month · cancel anytime · Listening &amp; Reading free · Original
               French material, never copied
             </p>
           </div>
@@ -248,8 +248,9 @@ export default function HomePage() {
         <div className="mx-auto max-w-xl text-center">
           <h2 className="font-display text-3xl font-semibold text-almi-ink">Simple, honest pricing</h2>
           <p className="mt-3 text-base text-almi-text">
-            Try free for 48 hours, then $12/month. Cancel anytime. Listening &amp; Reading practice is free;
-            AI feedback on Writing &amp; Speaking is Pro.
+            Try free for 48 hours, no card. Then $12/month. Cancel anytime. Listening &amp; Reading practice is free;
+            the free 48 hours also include one AI-scored Writing and one AI-scored Speaking, and unlimited AI
+            feedback is Pro.
           </p>
           <div className="mt-6 flex justify-center gap-3">
             <Link
@@ -276,7 +277,7 @@ export default function HomePage() {
             {[
               {
                 q: "How much does it cost?",
-                a: "Try free for 48 hours, then $12/month. Listening and Reading practice is free; AI feedback on Writing and Speaking is part of Pro.",
+                a: "Try free for 48 hours, no card. Then $12/month. Cancel anytime. Listening and Reading practice is free; the free 48 hours also include one AI-scored Writing and one AI-scored Speaking, and unlimited AI feedback is part of Pro.",
               },
               {
                 q: "Which French exams do you cover?",
@@ -288,7 +289,7 @@ export default function HomePage() {
               },
               {
                 q: "Do I need an account?",
-                a: "Yes — create a free account to practise Listening and Reading; a 48-hour trial adds AI Writing and Speaking feedback.",
+                a: "Yes — create a free account to practise Listening and Reading; your first 48 hours, with no card, also include one AI-scored Writing and one AI-scored Speaking.",
               },
               {
                 q: "Can I cancel?",

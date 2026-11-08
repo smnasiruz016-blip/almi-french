@@ -1,7 +1,10 @@
 // Practice picker: choose an exam → CEFR level → skill, then run a practice item.
-// Reading/Listening are free (auto-marked); Writing/Speaking are Pro (AI feedback).
+// Reading/Listening are free (auto-marked); Writing/Speaking are Pro (AI feedback), with one
+// of each AI-scored inside the free 48 hours (RR-397).
 
 import Link from "next/link";
+import { requireUser } from "@/lib/auth";
+import { FreeTimeBanner } from "@/components/FreeTimeBanner";
 import { EXAMS, EXAM_FAMILIES, examsByFamily } from "@/lib/french/exams";
 import { LEVELS, LEVEL_LABEL, SKILL_ORDER, SKILL_LABEL, SKILL_SLUG, isObjective } from "@/lib/french/types";
 import { SKILL_FR } from "@/lib/french/cefr";
@@ -27,6 +30,7 @@ export default async function PracticePage({
 }: {
   searchParams: Promise<{ exam?: string; level?: string }>;
 }) {
+  const user = await requireUser();
   const { exam: examId, level } = await searchParams;
   const exam = EXAMS.find((e) => e.id === examId);
   const delfLevel = exam ? DELF_LEVEL_BY_EXAM_ID[exam.id] : undefined;
@@ -37,9 +41,13 @@ export default async function PracticePage({
       <h1 className="font-display text-3xl font-bold text-almi-ink">Choose your practice</h1>
       <p className="mt-2 text-sm text-almi-text-muted">
         Pick the exam your goal needs, your level, then a skill. Compréhension de l&apos;oral &amp; écrite
-        are free; Expression écrite &amp; orale get AI feedback (Pro). Estimates only — confirm with the
-        official body.
+        are free; Expression écrite &amp; orale get AI feedback (Pro, and one of each in your free 48 hours).
+        Estimates only — confirm with the official body.
       </p>
+
+      <div className="mt-4">
+        <FreeTimeBanner user={user} />
+      </div>
 
       {/* Step 1 — exam */}
       <section className="mt-8">
