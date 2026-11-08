@@ -31,7 +31,7 @@ the administrator does not publish one.
 All content is **original**. No item is copied from an official bank or a real DALF
 dossier; the dossier extracts in the DALF items were written for this product.
 
-$12/month + 7-day trial; objective tasks free, AI feedback paid.
+$12/month + 48-hour trial; objective tasks free, AI feedback paid.
 
 ## What the build enforces
 
