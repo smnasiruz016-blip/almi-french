@@ -67,10 +67,17 @@ t("clean import: 7 items, 16 model answers, nothing blocked, no duplicate of the
   assert.equal(r1.data.items.length, 7); assert.equal(r1.data.items.reduce((n, i) => n + i.payload.models.length, 0), 16);
   assert.equal(r1.blocked.length, 0); assert.equal(r1.skippedDuplicates.length, 0);
 });
-t("the committed data equals a fresh import with LanguageTool's recorded answers (2.2 NCLC 9+ blocked, 15 models)", () => {
+t("the committed data equals a fresh import with LanguageTool's recorded answers (beta-g exempted 2.2's flag: 16 models)", () => {
   const r = importPack(pack, MD, recorded, BANK_KEYS);
-  assert.equal(r.blocked.length, 1); assert.match(r.blocked[0].where, /Tâche 2\.2 · NCLC 9\+ · answer/);
+  assert.equal(r.blocked.length, 0);
+  assert.equal(r.data.items.reduce((n, i) => n + i.payload.models.length, 0), 16);
   assert.equal(JSON.stringify(mergeData(null, r.data)), JSON.stringify(FACTORY_DATA));
+});
+t("beta-g's COND_VS_FUTUR exemption is exact: the same rule elsewhere, or another rule on the same word, still blocks", () => {
+  const elsewhere = importPack(pack, MD, (text, lang) => (lang === "fr" ? flag(text, "inoubliables", "CAT_GRAMMAIRE", "uncategorized", "COND_VS_FUTUR") : []), BANK_KEYS);
+  assert.equal(elsewhere.blocked.length, 1);
+  const otherRule = importPack(pack, MD, (text, lang) => (lang === "fr" && text.includes("Si des contraintes budgétaires expliquent") ? flag(text, "expliquent", "CAT_GRAMMAIRE", "uncategorized", "OTHER_RULE") : []), BANK_KEYS);
+  assert.equal(otherRule.blocked.length, 1); assert.match(otherRule.blocked[0].where, /Tâche 2\.2 · NCLC 9\+/);
 });
 t("idempotent: importing again, and merging into itself, gives byte-identical data", () => {
   const r2 = importPack(parsePack(MD, FILE), MD, clean, BANK_KEYS);

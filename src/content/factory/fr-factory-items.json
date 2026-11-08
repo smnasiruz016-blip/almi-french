@@ -152,6 +152,14 @@
     "factoryId": "fac-fr-p1-2-2",
     "models": [
      {
+      "level": "NCLC 9+",
+      "cefr": "about C1",
+      "text": "Madame, Monsieur,\n\nJ'ai appris avec regret que la bibliothèque du quartier fermera désormais à 17 heures en semaine et restera fermée le samedi. Je me permets de vous écrire pour vous faire part de mon inquiétude.\n\nEn tant que parent qui travaille à temps plein, je ne peux m'y rendre qu'en fin de journée ou le week-end. Mes enfants y empruntent des livres et participent à l'heure du conte, qui a lieu le samedi matin. Pour de nombreuses familles du quartier, la bibliothèque est un lieu calme où les élèves peuvent faire leurs devoirs.\n\nSi des contraintes budgétaires expliquent cette décision, ne serait-il pas possible de garder au moins une soirée par semaine et le samedi matin, quitte à fermer plus tôt un autre jour ?\n\nJe vous remercie de l'attention que vous porterez à ma demande et vous prie d'agréer, Madame, Monsieur, mes salutations distinguées.\n\nSophie Tremblay",
+      "note": "a formal letter with standard formulas (*Je me permets de*, *vous faire part de*, *je vous prie d'agréer*); precise reasons; a constructive suggestion with a polite negative question and *quitte à*.",
+      "wordCount": 149,
+      "withMistakes": false
+     },
+     {
       "level": "NCLC 7",
       "cefr": "about B2",
       "text": "Madame, Monsieur,\n\nJe vous écris parce que j'ai appris que la bibliothèque va fermer à 17 heures et ne sera plus ouverte le samedi. Cette décision me pose un très grand problème.\n\nJe travaille toute la journée, donc je peux seulement aller à la bibliothèque le soir ou le samedi. Mes enfants aiment beaucoup y aller pour emprunter des livres et écouter des histoires le samedi matin. Beaucoup d'élèves viennent aussi y faire leurs devoirs.\n\nJe comprends que la bibliothèque doit peut-être faire des économies. Est-ce qu'il serait possible de rester ouverte un soir par semaine et le samedi matin ? Ce serait une bonne solution pour les familles.\n\nJe vous remercie et vous prie d'agréer mes salutations distinguées.\n\nSophie Tremblay",

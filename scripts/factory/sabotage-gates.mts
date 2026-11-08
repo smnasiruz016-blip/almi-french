@@ -10,6 +10,8 @@ const CASES = [
   { gate: "NCLC 5 note names its mistakes", file: "src/lib/factory/grammar-gate.ts", from: 'return "the note names no error (no *mistake* → *correction*)";', to: "return null;", fail: "FAIL  an NCLC 5 note" },
   { gate: "owner-only write (--confirm AND FACTORY_WRITE)", file: "src/lib/factory/seed-plan.ts", from: 'argv.includes("--confirm") && env.FACTORY_WRITE === "yes"', to: 'argv.includes("--confirm") || env.FACTORY_WRITE === "yes"', fail: "FAIL  the write needs BOTH" },
   { gate: "build reconcile keeps seeded factory rows", file: "src/lib/factory/build-seed.ts", from: "return new Set([...bank.map(k), ...factoryKeys]);", to: "return new Set([...bank.map(k)]);", fail: "FAIL  reconcile keeps" },
+  { gate: "beta-g's exemption is exact (one rule, one word, one passage)", file: "src/lib/factory/grammar-gate.ts", from: "if (m.rule.id !== e.rule || text.slice(m.offset, m.offset + m.length) !== e.word) return false;", to: "if (m.rule.id !== e.rule) return false; return true;", fail: "FAIL  beta-g's COND_VS_FUTUR exemption is exact" },
+  { gate: "beta-g's exemption applies (2.2 NCLC 9+ imported)", file: "src/lib/factory/grammar-gate.ts", from: '    passage: "Si des contraintes budgétaires expliquent cette décision",', to: '    passage: "Si des contraintes budgétaires expliquent cette décision (sabotaged)",', fail: "FAIL  the committed data equals a fresh import" },
   { gate: "build seed inserts only the bank", file: "scripts/seed/append.ts", from: "for (const item of ALL) {", to: "for (const item of [...ALL]) {", fail: "FAIL  append.ts INSERTS only the bank" },
 ];
 const run = () => spawnSync("npx", ["tsx", "scripts/factory/factory.test.ts"], { encoding: "utf8", shell: true });

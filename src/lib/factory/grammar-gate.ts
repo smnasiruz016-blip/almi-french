@@ -28,7 +28,7 @@ const BLOCKING_ISSUES = new Set(["misspelling", "grammar"]);
 
 /** our own names, the exam terms, and the proper names used in Pack 1 (people and places). One loanword: "empanadas" (a dish
  *  named in a list of dishes, Tâche 2.1), which LanguageTool's French dictionary does not know; it is not a spelling error.
- *  Listed in the gate report so beta-g sees it. Nothing else is exempted. */
+ *  beta-g confirmed it (BETA-G_DECISIONS_ROUND2.md: "Exempt, as CC did"). */
 export const ALLOWLIST = new Set(
   ["AlmiFrench", "AlmiWorld", "TCF", "TEF", "NCLC", "CEFR", "beta-g", "Nadia", "Karim", "Gaspésie", "Bonaventure", "Leblanc", "Tremblay", "Fontaine", "Érables", "empanadas"].map((w) => w.toLowerCase()),
 );
@@ -56,9 +56,33 @@ const finding = (text: string, m: LtMatch): GateFinding => ({
   suggestion: (m.replacements ?? []).slice(0, 3).map((r) => r.value).join(" / "),
 });
 
-/** French text (task, NCLC 9+ or NCLC 7 answer): every real error LanguageTool flags in "fr" blocks, except allowlisted names */
+/** Exact flags beta-g has ruled correct (C:\Projects\_handoffs\factory\BETA-G_DECISIONS_ROUND2.md, 8 Nov 2026). Each one
+ *  exempts ONE rule on ONE flagged word inside ONE exact passage; the same rule still blocks anywhere else. */
+export const EXEMPT_FLAGS: { rule: string; word: string; passage: string; why: string }[] = [
+  {
+    // beta-g: "The condition states a real fact, and the conditional is for politeness, so this is correct French. Exempt."
+    rule: "COND_VS_FUTUR",
+    word: "expliquent",
+    passage: "Si des contraintes budgétaires expliquent cette décision",
+    why: "Tâche 2.2 NCLC 9+ · beta-g, BETA-G_DECISIONS_ROUND2.md",
+  },
+];
+
+export const isExemptFlag = (text: string, m: LtMatch) =>
+  EXEMPT_FLAGS.some((e) => {
+    if (m.rule.id !== e.rule || text.slice(m.offset, m.offset + m.length) !== e.word) return false;
+    for (let at = text.indexOf(e.passage); at >= 0; at = text.indexOf(e.passage, at + 1)) {
+      if (m.offset >= at && m.offset + m.length <= at + e.passage.length) return true;
+    }
+    return false;
+  });
+
+/** French text (task, NCLC 9+ or NCLC 7 answer): every real error LanguageTool flags in "fr" blocks, except allowlisted names
+ *  and the exact flags beta-g ruled correct */
 export function frenchFindings(text: string, fr: LtMatch[]): GateFinding[] {
-  return fr.filter((m) => isBlockingKind(m) && !ALLOWLIST.has(text.slice(m.offset, m.offset + m.length).toLowerCase())).map((m) => finding(text, m));
+  return fr
+    .filter((m) => isBlockingKind(m) && !ALLOWLIST.has(text.slice(m.offset, m.offset + m.length).toLowerCase()) && !isExemptFlag(text, m))
+    .map((m) => finding(text, m));
 }
 
 /** an English note: blocks only when en-GB AND en-US both flag the same span, outside quotes, not allowlisted */
