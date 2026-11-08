@@ -49,7 +49,7 @@ export default async function SessionPage({
           >
             Practise again
           </Link>
-          <Link href="/practice" className="inline-flex min-h-[48px] items-center font-semibold text-almi-coral hover:underline">
+          <Link href="/practice" className="inline-flex min-h-[48px] items-center font-semibold text-almi-coral-text hover:underline">
             ← Back to practice
           </Link>
         </div>

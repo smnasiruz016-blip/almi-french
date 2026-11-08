@@ -78,7 +78,7 @@ export default function CitizenshipFrenchLevelPage() {
     <main className="px-6 py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <div className="mx-auto max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-widest text-almi-coral">ALMIFRENCH · FRANCE 2026</p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-almi-coral-text">ALMIFRENCH · FRANCE 2026</p>
         <h1 className="mt-3 font-display text-4xl font-bold text-almi-ink">
           France raised the French level for citizenship — B1 to B2
         </h1>
@@ -103,7 +103,7 @@ export default function CitizenshipFrenchLevelPage() {
             <li>A new <strong>civic exam</strong> was added, covering knowledge of French history, culture and society.</li>
             <li>
               Legal basis:{" "}
-              <a href={LEGIFRANCE} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral hover:underline">
+              <a href={LEGIFRANCE} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral-text hover:underline">
                 Décret n° 2025-648 du 15 juillet 2025
               </a>
               .
@@ -189,12 +189,12 @@ export default function CitizenshipFrenchLevelPage() {
           </p>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             <li>
-              <a href={SERVICE_PUBLIC} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral hover:underline">
+              <a href={SERVICE_PUBLIC} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral-text hover:underline">
                 service-public.fr — French level for nationality (F11926)
               </a>
             </li>
             <li>
-              <a href={LEGIFRANCE} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral hover:underline">
+              <a href={LEGIFRANCE} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral-text hover:underline">
                 Légifrance — Décret n° 2025-648 du 15 juillet 2025
               </a>
             </li>
