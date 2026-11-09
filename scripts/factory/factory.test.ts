@@ -9,7 +9,7 @@ import { join } from "node:path";
 import { parsePack, countTaskWords, taskId } from "../../src/lib/factory/pack";
 import { importPack, itemKey, mergeData, MODEL_ANSWER_LABEL, TRADEMARK_LINE, type FactoryData } from "../../src/lib/factory/import";
 import type { Lt, LtMatch } from "../../src/lib/factory/grammar-gate";
-import { planSeed, runSeed, seedRowFor, shouldWrite, type LiveRow, type SeedRow } from "../../src/lib/factory/seed-plan";
+import { planSeed, runSeed, seedRowFor, shouldUpdate, shouldWrite, type LiveRow, type SeedRow } from "../../src/lib/factory/seed-plan";
 import { expectedCells, keptKeys } from "../../src/lib/factory/build-seed";
 import { FACTORY_DATA, FACTORY_KEYS } from "../../src/lib/factory/bank";
 import { TCF_EXPRESSION } from "../../src/lib/french/exam-structure";
@@ -179,7 +179,49 @@ t("a live row that differs is listed and NOT changed", () => {
   assert.equal(p.create.length, 6); assert.equal(p.differs.length, 1);
 });
 
+console.log("RR-404: jsonb key order, the short diff, and the owner's update mode");
+/** a jsonb read-back: Postgres returns object keys in its own order (shorter keys first, then by bytes), not the order written */
+const jsonbOrder = (v: unknown): unknown => Array.isArray(v) ? v.map(jsonbOrder) : v && typeof v === "object" ? Object.fromEntries(Object.keys(v).sort((a, b) => a.length - b.length || (a < b ? -1 : a > b ? 1 : 0)).map((k) => [k, jsonbOrder((v as Record<string, unknown>)[k])])) : v;
+const liveOf = (r: SeedRow, id: string, over: Partial<LiveRow> = {}): LiveRow => ({ id, level: r.level, skill: r.skill, title: r.title, taskType: r.taskType, examFamily: r.examFamily, prompt: r.prompt, payload: jsonbOrder(JSON.parse(JSON.stringify(r.payload))), active: true, ...over });
+t("🔴 a row read back from jsonb (keys reordered) is EQUAL, not 'different'", () => {
+  const live = seedRows.map((r, i) => liveOf(r, `row${i}`));
+  assert.notEqual(JSON.stringify(live[0].payload), JSON.stringify(seedRows[0].payload), "the fake must reorder keys, or this test proves nothing");
+  const p = planSeed(seedRows, live);
+  assert.equal(p.equal.length, 7); assert.equal(p.differs.length, 0);
+});
+t("a real difference is listed with a short diff naming the field", () => {
+  const r = seedRows[0], payload = JSON.parse(JSON.stringify(r.payload)); payload.models[0].text = `${payload.models[0].text} AJOUT`;
+  const p = planSeed([r], [liveOf(r, "x", { payload, prompt: `${r.prompt}!` })]);
+  assert.equal(p.differs.length, 1); const d = p.differs[0].diff.join("\n");
+  assert.match(d, /^prompt at \d+:/m); assert.match(d, /payload\.models\[0\]\.text at \d+:/); assert.ok(d.length < 600, d);
+});
+t("the update needs BOTH --confirm AND FACTORY_UPDATE=yes (FACTORY_WRITE does not update)", () => {
+  assert.equal(shouldUpdate([], {}), false); assert.equal(shouldUpdate(["--confirm"], {}), false);
+  assert.equal(shouldUpdate([], { FACTORY_UPDATE: "yes" }), false); assert.equal(shouldUpdate(["--confirm"], { FACTORY_WRITE: "yes" }), false);
+  assert.equal(shouldUpdate(["--confirm"], { FACTORY_UPDATE: "yes" }), true);
+});
+t("update mode brings ONLY the 7 differing rows to the pack, by id; other rows and the bank are untouched; a rerun changes nothing", async () => {
+  const other = { id: "bank1", level: "B1", skill: "EXPRESSION_ECRITE", title: "not a factory item", taskType: "WRITING_TASK", examFamily: "TCF", prompt: "p", payload: { a: 1 }, active: true } as LiveRow;
+  const live: LiveRow[] = [other, ...seedRows.map((r, i) => liveOf(r, `row${i}`, { prompt: `${r.prompt} (old)` }))], calls: string[] = [];
+  const db = {
+    find: async (rs: SeedRow[]) => live.filter((l) => rs.some((r) => itemKey(r) === itemKey(l))),
+    create: async () => { calls.push("create"); },
+    update: async (id: string, r: SeedRow) => { calls.push(`update ${id}`); const l = live.find((x) => x.id === id)!; Object.assign(l, { taskType: r.taskType, examFamily: r.examFamily, prompt: r.prompt, payload: jsonbOrder(JSON.parse(JSON.stringify(r.payload))), active: true }); },
+  };
+  const dry = await runSeed(db, seedRows, false, false);
+  assert.equal(dry.differs.length, 7); assert.equal(calls.length, 0);
+  const a = await runSeed(db, seedRows, false, true);
+  assert.equal(a.updated, 7); assert.deepEqual(calls, seedRows.map((_, i) => `update row${i}`));
+  assert.deepEqual(other, { id: "bank1", level: "B1", skill: "EXPRESSION_ECRITE", title: "not a factory item", taskType: "WRITING_TASK", examFamily: "TCF", prompt: "p", payload: { a: 1 }, active: true });
+  const b = await runSeed(db, seedRows, false, true);
+  assert.equal(b.updated, 0); assert.equal(b.equal.length, 7); assert.equal(calls.length, 7);
+});
+
 console.log("the BUILD's seed (scripts/seed/append.ts, run by npm run build as seed:prod)");
+t("🔴 RR-404: append.ts's insert loop skips any factory key before it can create a row", () => {
+  const src = readFileSync(join(process.cwd(), "scripts", "seed", "append.ts"), "utf8");
+  assert.match(src, /for \(const item of ALL\) \{\s*\/\/[^\n]*\n\s*if \(FACTORY_KEYS\.has\(key\(\{ level: String\(item\.level\), skill: String\(item\.skill\), title: String\(item\.title\) \}\)\)\) continue;\s*const exists/);
+});
 t("no factory item shares append.ts's key with the bank", () => {
   for (const k of FACTORY_KEYS) assert.ok(!BANK_KEYS.includes(k), k);
 });
