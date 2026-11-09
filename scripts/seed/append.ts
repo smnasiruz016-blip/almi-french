@@ -57,6 +57,8 @@ async function main() {
   // ── Phase 1: insert ────────────────────────────────────────────────────────
   let created = 0;
   for (const item of ALL) {
+    // RR-404: the build's seed never writes a factory row, even if a factory key ever entered the bank: those rows are the owner's.
+    if (FACTORY_KEYS.has(key({ level: String(item.level), skill: String(item.skill), title: String(item.title) }))) continue;
     const exists = await prisma.frenchItem.findFirst({
       where: { level: item.level, skill: item.skill, title: item.title },
       select: { id: true },
